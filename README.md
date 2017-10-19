@@ -1,2 +1,7 @@
 # combining_bayesian_al_ssl
 Combining Bayesian Active Learning with Semi-Supervised Learning
+
+
+## Requirements
+Python 3.5.2
+Keras version : 2.0.8
