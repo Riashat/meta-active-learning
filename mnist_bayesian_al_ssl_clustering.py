@@ -17,6 +17,7 @@ from keras.layers.core import Lambda
 import numpy as np
 import scipy as sp
 from scipy import linalg
+from random import randint
 import random
 import pdb
 
@@ -138,6 +139,29 @@ def get_uniform_training_data(x_train, y_train):
   return x_train, y_train
 
 
+def remove_pool_labels_for_oracle(x_pool, y_pool):
+
+  z =  np.arange(np.int(np.round(x_pool.shape[0]*0.5)))
+  np.random.shuffle(z) 
+  y_pool[z] = 10
+
+  return y_pool
+
+
+def get_pool_index_unknwon_to_oracle(Pooled_Y):
+  index_unknown_to_oracle = np.where(Pooled_Y == 10)
+  index_unknown_to_oracle = np.asarray(list(index_unknown_to_oracle))[0,:]
+
+  #returns index of pooled points that are unknown to oracle
+  return index_unknown_to_oracle
+
+
+def assign_nearest_available_label(Pooled_Y, index):
+  Pooled_Y[index] = randint(0, 9)
+  return Pooled_Y
+
+
+
 
 batch_size = 128
 num_classes = 10
@@ -169,14 +193,23 @@ x_train, y_train, x_pool, y_pool = get_pool_data(x_train, y_train, initial_train
 
 #get uniform distribution for initial training points
 #start with uniform labels for 20 training points
-
 x_train, y_train = get_uniform_training_data(x_train, y_train)
+
 
 print('x_train shape:', x_train.shape)
 print(x_train.shape[0], 'train samples')
 print (x_pool.shape[0], 'pool samples')
 print(x_valid.shape[0], 'valid samples')
 print(x_test.shape[0], 'test samples')
+
+"""
+Remove majority of labels (70% of data) from pool sets
+Use some form of clustering/similarity metric to infer labels of Unlabelled points
+based on existing labels available 
+"""
+
+# for mnist : assign unknown label to pool set labels (that Oracle has access to)
+y_pool = remove_pool_labels_for_oracle(x_pool, y_pool)
 
 
 ### normalize and convert to categorical
@@ -192,8 +225,13 @@ x_test /= 255
 # convert class vectors to binary class matrices
 y_train = keras.utils.to_categorical(y_train, num_classes)
 y_valid = keras.utils.to_categorical(y_valid, num_classes)
-y_pool = keras.utils.to_categorical(y_pool, num_classes)
+# y_pool = keras.utils.to_categorical(y_pool, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
+
+
+### Naive approach - what's a better way to do this?
+### Removing labels of some pool set points that Oracle has access to
+### For MNIST, replacing labels >9 to have value of 10
 
 
 """
@@ -276,7 +314,24 @@ for i in range(acquisition_iterations):
   x_pool_index = a_1d.argsort()[-Queries:][::-1]
 
   Pooled_X = X_Pool_Dropout[x_pool_index, :, :, :]
+
+  """
+  Oracle gives TRUE LABEL to model here 
+  """
   Pooled_Y = y_Pool_Dropout[x_pool_index] 
+
+  #elements where Pooled_Y is 10 (elements for which Oracle does not have label)
+  index_unknown_to_oracle = get_pool_index_unknwon_to_oracle(Pooled_Y)
+
+  """
+  Assign labels to these points from Pool Point Clusters
+  """
+  ### assigning random labels for now (until clustering method is implemented!!!)
+  ### Return Pooled_Y 
+  Pooled_Y = assign_nearest_available_label(Pooled_Y, index_unknown_to_oracle)
+
+  ## convert y_pool to categorical here
+  Pooled_Y = keras.utils.to_categorical(Pooled_Y, num_classes)  
 
 
   delete_Pool_X = np.delete(x_pool, (pool_subset_dropout), axis=0)
