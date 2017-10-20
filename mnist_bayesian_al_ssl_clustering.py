@@ -223,11 +223,6 @@ Use some form of clustering/similarity metric to infer labels of Unlabelled poin
 based on existing labels available 
 """
 
-# for mnist : assign unknown label to pool set labels (that Oracle has access to)
-y_pool = remove_pool_labels_for_oracle(x_pool, y_pool)
-x_pool_with_labels = x_pool[y_pool != 10]
-y_pool_with_labels = y_pool[y_pool != 10]
-oracle = KNOracle(x_pool_with_labels, y_pool_with_labels, n_neighbors=3, n_jobs=2)
 
 
 ### normalize and convert to categorical
@@ -246,6 +241,16 @@ y_valid = keras.utils.to_categorical(y_valid, num_classes)
 # y_pool = keras.utils.to_categorical(y_pool, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
+# for mnist : assign unknown label to pool set labels (that Oracle has access to)
+y_pool = remove_pool_labels_for_oracle(x_pool, y_pool)
+x_pool_with_labels = x_pool[y_pool != 10]
+y_pool_with_labels = y_pool[y_pool != 10]
+# print(np.mean(x_pool_with_labels))
+# print(y_pool_with_labels)
+# import sys
+# sys.exit()
+print('x_pool with labels accessible by oracle:',x_pool_with_labels.shape)
+oracle = KNOracle(x_pool_with_labels, y_pool_with_labels, n_neighbors=3, n_jobs=2)
 
 ### Naive approach - what's a better way to do this?
 ### Removing labels of some pool set points that Oracle has access to
@@ -337,7 +342,7 @@ for i in range(acquisition_iterations):
   Oracle gives TRUE LABEL to model here 
   """
   Pooled_Y = y_Pool_Dropout[x_pool_index] 
-
+  print(Pooled_Y)
   #elements where Pooled_Y is 10 (elements for which Oracle does not have label)
   index_unknown_to_oracle = get_pool_index_unknown_to_oracle(Pooled_Y)
 
@@ -347,7 +352,7 @@ for i in range(acquisition_iterations):
   ### assigning random labels for now (until clustering method is implemented!!!)
   ### Return Pooled_Y 
   Pooled_Y[index_unknown_to_oracle] = oracle.assign_nearest_available_label(Pooled_X[index_unknown_to_oracle])
-
+  print(Pooled_Y)
   ## convert y_pool to categorical here
   Pooled_Y = keras.utils.to_categorical(Pooled_Y, num_classes)  
 
