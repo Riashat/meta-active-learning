@@ -20,7 +20,20 @@ from scipy import linalg
 from random import randint
 import random
 import pdb
+import argparse
+import os
+from oracle import KNOracle
 
+parser = argparse.ArgumentParser()
+named_args = parser.add_argument_group('named arguments')
+
+named_args.add_argument('-g', '--gpu',
+                        help="""gpu to use""",
+                        required=False, type=str, default='0')
+
+args = parser.parse_args()
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
 def split_data_into_binary(x_train, y_train, x_test, y_test):
     class_2 = np.where(y_train==2)[0]
@@ -148,12 +161,14 @@ def remove_pool_labels_for_oracle(x_pool, y_pool):
   return y_pool
 
 
-def get_pool_index_unknwon_to_oracle(Pooled_Y):
+def get_pool_index_unknown_to_oracle(Pooled_Y):
   index_unknown_to_oracle = np.where(Pooled_Y == 10)
+  print(index_unknown_to_oracle)
   index_unknown_to_oracle = np.asarray(list(index_unknown_to_oracle))[0,:]
-
+  print(index_unknown_to_oracle)
   #returns index of pooled points that are unknown to oracle
   return index_unknown_to_oracle
+
 
 
 def assign_nearest_available_label(Pooled_Y, index):
@@ -210,6 +225,9 @@ based on existing labels available
 
 # for mnist : assign unknown label to pool set labels (that Oracle has access to)
 y_pool = remove_pool_labels_for_oracle(x_pool, y_pool)
+x_pool_with_labels = x_pool[y_pool != 10]
+y_pool_with_labels = y_pool[y_pool != 10]
+oracle = KNOracle(x_pool_with_labels, y_pool_with_labels, n_neighbors=3, n_jobs=2)
 
 
 ### normalize and convert to categorical
@@ -321,14 +339,14 @@ for i in range(acquisition_iterations):
   Pooled_Y = y_Pool_Dropout[x_pool_index] 
 
   #elements where Pooled_Y is 10 (elements for which Oracle does not have label)
-  index_unknown_to_oracle = get_pool_index_unknwon_to_oracle(Pooled_Y)
+  index_unknown_to_oracle = get_pool_index_unknown_to_oracle(Pooled_Y)
 
   """
   Assign labels to these points from Pool Point Clusters
   """
   ### assigning random labels for now (until clustering method is implemented!!!)
   ### Return Pooled_Y 
-  Pooled_Y = assign_nearest_available_label(Pooled_Y, index_unknown_to_oracle)
+  Pooled_Y[index_unknown_to_oracle] = oracle.assign_nearest_available_label(Pooled_X[index_unknown_to_oracle])
 
   ## convert y_pool to categorical here
   Pooled_Y = keras.utils.to_categorical(Pooled_Y, num_classes)  
@@ -360,7 +378,7 @@ for i in range(acquisition_iterations):
   model.compile(loss=keras.losses.categorical_crossentropy,
                 optimizer=keras.optimizers.Adam(),
                 metrics=['accuracy'])
-
+  print(x_test.shape, y_test.shape)
   model.fit(x_train, y_train,
             batch_size=batch_size,
             epochs=epochs,
