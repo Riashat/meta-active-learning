@@ -8,4 +8,4 @@ oracle = KNOracle(x_train, y_train)
 print('oracle trained')
 print('making predictions:')
 print(np.sum(y_test[:50] == oracle.assign_nearest_available_label(x_test[:50]))/float(x_test[:50].shape[0]))
-
+print(oracle.return_nearest_available_example_and_label(x_test[:50], neighbors=2).shape)

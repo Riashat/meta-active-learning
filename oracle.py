@@ -30,3 +30,12 @@ class KNOracle(object):
 		"""
 
 		return self.classifier.predict(convert_2d_to_1d(X))
+
+	def return_nearest_available_example_and_label(self, X, neighbors=1):
+		"""
+		Returns the most similar example for the data provided
+		where we know the label for sure.
+		:param X: the data to return examples for
+		:return: X's and Y's that are similar to X
+		"""
+		return self.classifier.kneighbors(convert_2d_to_1d(X), return_distance=False, n_neighbors=neighbors)
