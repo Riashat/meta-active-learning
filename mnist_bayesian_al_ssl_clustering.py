@@ -30,8 +30,13 @@ named_args = parser.add_argument_group('named arguments')
 named_args.add_argument('-g', '--gpu',
                         help="""gpu to use""",
                         required=False, type=str, default='0')
-
+named_args.add_argument('-o', '--oracle',
+			help="""oracle to use either `nearestlabel`, `nearestpoint`""",
+			required=True, type=str)
 args = parser.parse_args()
+
+assert args.oracle in ['nearestlabel', 'nearestpoint']
+
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
@@ -351,8 +356,13 @@ for i in range(acquisition_iterations):
   """
   ### assigning random labels for now (until clustering method is implemented!!!)
   ### Return Pooled_Y 
-  Pooled_Y[index_unknown_to_oracle] = oracle.assign_nearest_available_label(Pooled_X[index_unknown_to_oracle])
-  print(Pooled_Y)
+
+  if args.oracle == 'nearestlabel':
+    Pooled_Y[index_unknown_to_oracle] = oracle.assign_nearest_available_label(Pooled_X[index_unknown_to_oracle])
+  elif args.oracle == 'nearestpoint':
+    pass  
+
+print(Pooled_Y)
   ## convert y_pool to categorical here
   Pooled_Y = keras.utils.to_categorical(Pooled_Y, num_classes)  
 
