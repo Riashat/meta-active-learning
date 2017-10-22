@@ -30,8 +30,21 @@ named_args = parser.add_argument_group('named arguments')
 named_args.add_argument('-g', '--gpu',
                         help="""gpu to use""",
                         required=False, type=str, default='0')
+named_args.add_argument('-o', '--oracle',
+			help="""oracle to use either `nearestlabel`, `nearestpoint`""",
+			required=True, type=str)
 
+named_args.add_argument('-e', '--epochs',
+      help="""# of epochs to train""",
+      required=False, type=int, default=1)
+
+named_args.add_argument('-d', '--dropoutiterations',
+      help="""# of dropout estimates""",
+      required=False, type=int, default=1)
 args = parser.parse_args()
+
+assert args.oracle in ['nearestlabel', 'nearestpoint']
+
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
@@ -170,17 +183,14 @@ def get_pool_index_unknown_to_oracle(Pooled_Y):
   return index_unknown_to_oracle
 
 
-
-def assign_nearest_available_label(Pooled_Y, index):
-  Pooled_Y[index] = randint(0, 9)
-  return Pooled_Y
-
-
-
-
 batch_size = 128
 num_classes = 10
-epochs = 4
+epochs = args.epochs
+acquisition_iterations = 1000
+## use MC Samples = 100
+dropout_iterations = args.dropoutiterations
+Queries = 10
+
 
 # input image dimensions
 img_rows, img_cols = 28, 28
@@ -222,7 +232,6 @@ Remove majority of labels (70% of data) from pool sets
 Use some form of clustering/similarity metric to infer labels of Unlabelled points
 based on existing labels available 
 """
-
 
 
 ### normalize and convert to categorical
@@ -288,11 +297,6 @@ print('Test accuracy:', score[1])
 
 
 print ("Performing Active Learning with Dropout BALD")
-acquisition_iterations = 1000
-
-## use MC Samples = 100
-dropout_iterations = 3
-Queries = 10
 
 for i in range(acquisition_iterations):
 
@@ -336,13 +340,13 @@ for i in range(acquisition_iterations):
   a_1d = U_X.flatten()
   x_pool_index = a_1d.argsort()[-Queries:][::-1]
 
+  # this is where some elements are assigned to the Pool X
   Pooled_X = X_Pool_Dropout[x_pool_index, :, :, :]
 
   """
   Oracle gives TRUE LABEL to model here 
   """
   Pooled_Y = y_Pool_Dropout[x_pool_index] 
-  print(Pooled_Y)
   #elements where Pooled_Y is 10 (elements for which Oracle does not have label)
   index_unknown_to_oracle = get_pool_index_unknown_to_oracle(Pooled_Y)
 
@@ -351,8 +355,15 @@ for i in range(acquisition_iterations):
   """
   ### assigning random labels for now (until clustering method is implemented!!!)
   ### Return Pooled_Y 
-  Pooled_Y[index_unknown_to_oracle] = oracle.assign_nearest_available_label(Pooled_X[index_unknown_to_oracle])
-  print(Pooled_Y)
+
+  if args.oracle == 'nearestlabel':
+    Pooled_Y[index_unknown_to_oracle] = oracle.assign_nearest_available_label(Pooled_X[index_unknown_to_oracle])
+  elif args.oracle == 'nearestpoint':
+    # this call returns the 1st closest point to the learner
+    X_closest, Y_closest = oracle.return_nearest_available_example_and_label(Pooled_X[index_unknown_to_oracle], neighbors=1)
+    Pooled_X[index_unknown_to_oracle] = X_closest
+    Pooled_Y[index_unknown_to_oracle] = Y_closest
+
   ## convert y_pool to categorical here
   Pooled_Y = keras.utils.to_categorical(Pooled_Y, num_classes)  
 
