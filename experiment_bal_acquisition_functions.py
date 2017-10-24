@@ -33,18 +33,25 @@ named_args = parser.add_argument_group('named arguments')
 named_args.add_argument('-g', '--gpu',
                         help="""gpu to use""",
                         required=False, type=str, default='0')
-named_args.add_argument('--acq_function',
-			help="""acq_function for active learning : 'bald', 'random', 'varratio', 'segnet', 'maxentropy'  """,
-      default='bald', 
-			required=True, type=str)
+
+# named_args.add_argument('--acq_function',
+# 			help="""acq_function for active learning : 'bald', 'random', 'varratio', 'segnet', 'maxentropy'  """,
+#       default='bald', 
+# 			required=True, type=str)
 
 named_args.add_argument('-e', '--epochs',
       help="""# of epochs to train""",
       required=False, type=int, default=1000)
 
+named_args.add_argument('--policy',
+      help="""acq_function for active learning : 'random_policy'  """,
+      required=True, type=str, default='random_policy')
+
+
 named_args.add_argument('-a', '--acquisitions',
       help="""# of acquisitions for active learning""",
       required=False, type=int, default=980)
+
 
 named_args.add_argument('-t', '--n_experiments',
       help="""# of experiments with different random seeds""",
@@ -169,8 +176,6 @@ Experiments = args.n_experiments
 Exp_Training_Loss = np.zeros(shape=(acquisition_iterations+1, Experiments))
 Exp_Valid_Acc = np.zeros(shape=(acquisition_iterations+1, Experiments))
 Exp_Test_Acc = np.zeros(shape=(acquisition_iterations+1, Experiments))
-
-acq_function = args.acq_function
  
 
 for e in range(Experiments):
@@ -269,6 +274,10 @@ for e in range(Experiments):
 
   all_test_acc[0,:] = accuracy
 
+  policy = args.policy
+
+
+
   for i in range(acquisition_iterations):
 
     print ("Acquisition Iteration", i)
@@ -279,6 +288,17 @@ for e in range(Experiments):
     X_Pool_Dropout = x_pool[pool_subset_dropout, :, :, :]
     y_Pool_Dropout = y_pool[pool_subset_dropout]
 
+    """
+    Baseline for BANDITS APPROACH : Select one of the acquisition functions based on a "random policy"
+    """
+    if policy == "random_policy":
+      all_acuisition_functions = ['bald', 'maxentropy', 'varratio', 'segnet']
+      acq_function = random.choice(all_acuisition_functions)
+    else:
+      raise Exception('Need a valid acquisition function')
+
+
+    print ("Using acquisition function :", acq_function)
     uncertain_pool_points = acquisition_functions(acq_function, X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations)
 
     a_1d = uncertain_pool_points.flatten()
