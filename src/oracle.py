@@ -45,3 +45,37 @@ class KNOracle(object):
 		close_data = self.classifier._fit_X[close_data_indices]
 		close_labels = self.classifier._y[close_data_indices]
 		return convert_1d_to_2d(close_data, X.shape[1] ), close_labels
+
+
+def ask_oracle(pool_uncertainties, n_queries, X_pool, Y_pool):
+	"""
+	An oracle that reveals the labels of 
+	the n_queries most uncertain points
+	:param pool_uncertainties: the uncertainty for each point
+	:param n_queries: number of points to ask for
+	:param X_pool: the training data for which the uncertainties were estimated
+	:param Y_pool: the training labels for which the uncertainties were estimated
+	:return: (X_revealed, Y_revealed) the n_queries most uncertain points with labels revealed
+	:return: (X_pool_prime, Y_pool_prime) the pool with revealed points removed.
+	"""
+    pool_uncertainties = pool_uncertainties.flatten()
+
+    # these points need to be revealed to the learner
+    pool_to_be_revealed = pool_uncertainties.argsort()[-n_queries:][::-1]
+
+    # Pooled_X = X_pool[pool_to_be_revealed]
+    # Pooled_Y = Y_pool[pool_to_be_revealed] 
+	X_revealed = X_pool[pool_to_be_revealed]
+    Y_revealed = Y_pool[pool_to_be_revealed] 
+
+    ## convert y_pool to categorical here
+    Y_revealed = keras.utils.to_categorical(Y_revealed, np.max(Y_pool)+1)  
+
+    # delete_Pool_X = np.delete(x_pool, pool_to_be_revealed, axis=0)
+    # delete_Pool_Y = np.delete(y_pool, pool_to_be_revealed, axis=0)
+
+    # the new pool with the revealed points deleted
+    X_pool_prime = np.delete(x_pool, pool_to_be_revealed, axis=0)
+    Y_pool_prime = np.delete(y_pool, pool_to_be_revealed, axis=0)
+
+    return (X_revealed, Y_revealed), (X_pool_prime, Y_pool_prime)

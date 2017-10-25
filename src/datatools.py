@@ -2,6 +2,7 @@ import keras
 from keras.datasets import mnist
 from keras import backend as K
 import numpy as np
+import random
 
 def get_mnist():
     """
@@ -85,8 +86,6 @@ def get_pool_data(x, y):
     
     return (x_train, y_train), (x_pool, y_pool)
 
-
-
 def data_pipeline(valid_ratio=0.1):
 
     # get training and testing data
@@ -107,3 +106,25 @@ def data_pipeline(valid_ratio=0.1):
 
     return training_data, validation_data, pool_data, testing_data
 
+def get_pool_subset(X_pool, Y_pool, subset_size=2000):
+    """
+    Creates a subset of the pool data for 
+    running dropout and getting uncertainties
+    :param X_pool: the complete pool data
+    :param Y_pool: the complete pool labels
+    :param subset_size:the size of the subset
+    :return: (X_pool_prime, Y_pool_prime) the original pool set with the subset removed.
+    :return: (X_pool_subset, Y_pool_subset) a subset of `subset_size` points from X_pool
+    """
+    subset_indices = np.asarray(random.sample(range(0,x_pool.shape[0]), subset_size))
+    X_pool_subset = X_pool[subset_indices]
+    Y_pool_subset = Y_pool[subset_indices]
+    X_pool = np.delete(X_pool, subset_indices, axis=0)
+    Y_pool = np.delete(Y_pool, subset_indices, axis=0)
+    return (X_pool, Y_pool), (X_pool_subset, Y_pool_subset)
+
+def combine_datasets(dataset_1, dataset_2):
+    x1, y1 = dataset_1
+    x2, y2 = dataset_2
+
+    return np.concatenate((x1, x2), axis=0), np.concatenate((y1, y2), axis=0)
