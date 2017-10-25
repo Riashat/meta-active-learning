@@ -10,14 +10,14 @@ from keras.layers.core import Lambda
 from keras import regularizers
 
 # bayesian CNN
-def cnn(input_shape,
-        output_classes,
-        conv_kernel_size= (3, 3),
-        n_filters= 32,
-        pool_size=(4, 4),
-        kernel_regularizer=regularizers.l2(0.01),
-        activity_regularizer=regularizers.l1(0.01),
-        optimizer=Adam(lr=0.01, decay=1e-6)):
+def bayesian_cnn(input_shape,
+                 output_classes,
+                 conv_kernel_size= (3, 3),
+                 n_filters= 32,
+                 pool_size=(4, 4),
+                 kernel_regularizer=regularizers.l2(0.01),
+                 activity_regularizer=regularizers.l1(0.01),
+                 optimizer=Adam(lr=0.01, decay=1e-6)):
 
     """
     Returns a CNN that can be used for mnist
