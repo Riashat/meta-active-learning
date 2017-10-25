@@ -15,6 +15,17 @@ class Policy(object):
 		NotImplementedError('Policy Abstract Class has no updater')
 
 
+class UniformPolicy(Policy):
+	def __init__(self, acquisition_functions):
+		assert len(acquisition_functions) == 1, 'Uniform policy can only have one acquisition function'
+		super().__init__(acquisition_functions)
+
+	def get_acquisition_function(self, *args, **kwargs):
+		return self.acquisition_functions[0]
+
+	def update_policy(self, *args, **kwargs):
+		pass
+
 
 class RandomPolicy(Policy):
 	"""
