@@ -1,6 +1,5 @@
 import math
 import numpy as np
-np.random.seed(1) # TODO
 import os
 import random
 from scipy.stats import mode

@@ -3,7 +3,6 @@ from keras.datasets import mnist
 from keras import backend as K
 import numpy as np
 import random
-
 def get_mnist():
     """
     Returns the MNIST dataset formattted and ready for training
