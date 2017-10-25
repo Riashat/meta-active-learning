@@ -5,10 +5,6 @@ import os
 import random
 from scipy.stats import mode
 
-
-# a list of all the acquisition functions available
-AVAILABLE = [bald, maxentropy, varratio, segnet]
-
 def bald(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
 
     score_All = np.zeros(shape=(X_Pool_Dropout.shape[0], num_classes))
@@ -62,7 +58,7 @@ def varratio(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterati
         All_Dropout_Classes = np.append(All_Dropout_Classes, dropout_classes, axis=1)
 
     uncertain_pool_points = np.zeros(shape=(X_Pool_Dropout.shape[0]))
-    
+
     for t in range(X_Pool_Dropout.shape[0]):
         L = np.array([0])
         for d_iter in range(dropout_iterations):
@@ -71,7 +67,7 @@ def varratio(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterati
         v = np.array(  [1 - Mode/float(dropout_iterations)])
         uncertain_pool_points[t] = v
 
-  return uncertain_pool_points
+    return uncertain_pool_points
 
 
 def segnet(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
@@ -93,9 +89,10 @@ def segnet(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iteration
             E = All_Std[t,:]
             uncertain_pool_points[t,0] = sum(E)
 
-  return uncertain_pool_points
+    return uncertain_pool_points
 
-
+# a list of all the acquisition functions available
+AVAILABLE = [bald, maxentropy, varratio, segnet]
 
 
 def acquisition_functions(acq_function, X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):

@@ -89,13 +89,13 @@ def get_pool_data(x, y):
 def data_pipeline(valid_ratio=0.1):
 
     # get training and testing data
-    training_data, testing_data = datatools.get_mnist()
+    training_data, testing_data = get_mnist()
     
     # get validation data
-    training_data, validation_data = datatools.get_valid_data(*training_data, valid_ratio=valid_ratio)
+    training_data, validation_data = get_valid_data(*training_data, valid_ratio=valid_ratio)
     
     # get pool data
-    training_data, pool_data = datatools.get_pool_data(*training_data)
+    training_data, pool_data = get_pool_data(*training_data)
     
     # normalize x's and convert y's to categorical arrays
     training_data = prep(*training_data)    
@@ -114,9 +114,10 @@ def get_pool_subset(X_pool, Y_pool, subset_size=2000):
     :param Y_pool: the complete pool labels
     :param subset_size:the size of the subset
     :return: (X_pool_prime, Y_pool_prime) the original pool set with the subset removed.
-    :return: (X_pool_subset, Y_pool_subset) a subset of `subset_size` points from X_pool
+    :return: (X_pool_subset, Y_pool_subset) a subset of `sub
+    set_size` points from X_pool
     """
-    subset_indices = np.asarray(random.sample(range(0,x_pool.shape[0]), subset_size))
+    subset_indices = np.asarray(random.sample(range(0,X_pool.shape[0]), subset_size))
     X_pool_subset = X_pool[subset_indices]
     Y_pool_subset = Y_pool[subset_indices]
     X_pool = np.delete(X_pool, subset_indices, axis=0)
