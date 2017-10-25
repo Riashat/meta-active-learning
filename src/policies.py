@@ -47,3 +47,25 @@ class BanditPolicy(Policy):
 	def update_policy(self, *args, **kwargs):
 		# update the counts or samplings etc.
 		pass
+
+
+def policy_parser(policy_name):
+	from src.acquisition_function import ACQUISITION_FUNCTIONS_TEXT
+
+	if policy_name == 'random':
+		print('Random policy where at every step we pick randomly from ')
+		print(ACQUISITION_FUNCTIONS_TEXT)
+		return RandomPolicy(ACQUISITION_FUNCTIONS_TEXT)
+	
+	elif policy_name.startswith('uniform-'):
+		print('Uniform policy where at every step the acquisition function is')
+		acquisition_function = policy_name.replace('uniform-', '')
+		print(acquisition_function)
+		return UniformPolicy([acquisition_function])
+	
+	elif policy_name == 'bandit':
+		print('Learned policy where at every step we pick according to a policy over ')
+		print(ACQUISITION_FUNCTIONS_TEXT)
+		
+		raise NotImplementedError('Bandit policy not implemented yet')
+
