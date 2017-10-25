@@ -9,6 +9,7 @@ from keras.optimizers import Adam
 from keras.layers.core import Lambda
 from keras import regularizers
 
+# bayesian CNN
 def cnn(input_shape,
         output_classes,
         conv_kernel_size= (3, 3),
@@ -47,7 +48,7 @@ def cnn(input_shape,
     model.add(Lambda(lambda x: K.dropout(x, level=0.5)))
     model.add(Dense(output_classes, activation='softmax'))
     model.compile(loss=categorical_crossentropy,
-    optimizer=optimizer,
-    metrics=['accuracy'])
+                  optimizer=optimizer,
+                  metrics=['accuracy'])
 
     return model

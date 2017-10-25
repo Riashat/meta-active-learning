@@ -92,10 +92,11 @@ def segnet(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iteration
     return uncertain_pool_points
 
 # a list of all the acquisition functions available
-AVAILABLE = [bald, maxentropy, varratio, segnet]
+ACQUISITION_FUNCTIONS = [bald, maxentropy, varratio, segnet]
+ACQUISITION_FUNCTIONS_TEXT = ['bald', 'maxentropy', 'varratio', 'segnet']
 
 
-def acquisition_functions(acq_function, X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
+def run_acquisition_function(acq_function, X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
     """
     Returns the uncertain pool points according to different acquisition functions
     :param acq_function: the name of the acquisition function to use
