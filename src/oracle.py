@@ -68,9 +68,7 @@ def ask_oracle(pool_uncertainties, n_queries, X_pool, Y_pool, n_classes=10):
     X_revealed = X_pool[pool_to_be_revealed]
     Y_revealed = Y_pool[pool_to_be_revealed] 
 
-    ## convert y_pool to categorical here
-    Y_revealed = keras.utils.to_categorical(Y_revealed, n_classes)  
-
+    
     # the new pool with the revealed points deleted
     X_pool_prime = np.delete(X_pool, pool_to_be_revealed, axis=0)
     Y_pool_prime = np.delete(Y_pool, pool_to_be_revealed, axis=0)

@@ -1,5 +1,5 @@
-from src.networks import cnn
+from src.networks import bayesian_cnn
 
 def test_cnn():
 
-	assert cnn((32, 32, 1), 10)
+	assert bayesian_cnn((32, 32, 1), 10)

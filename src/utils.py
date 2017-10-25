@@ -19,7 +19,7 @@ def get_parser():
             help="""# of epochs to train""",
             required=False, type=int, default=1000)
 
-      named_args.add_argument('--policy',
+      named_args.add_argument('-p', '--policy',
             help="""Policy for selecting acquisition functions : 'random', 'uniform-*'""",
             required=True, type=str, default='random')
 
@@ -48,7 +48,7 @@ class Logger(object):
             self.train_acc = []
             self.val_acc = []
             self.save_folder = os.path.join(folder, experiment_name+time.strftime('%y-%m-%d-%H-%M-%s'))
-            create_folder(save_folder)
+            create_folder(self.save_folder)
 
       def record_train_metrics(self, train_loss, train_acc):
             self.train_acc.append(train_acc)
@@ -66,4 +66,4 @@ class Logger(object):
 
       def save_args(self, args):
             with open(os.path.join(self.save_folder, 'params.json'), 'w') as f:
-                  json.dump(dict(args._get_kwargs(), f)
+                  json.dump(dict(args._get_kwargs()), f)

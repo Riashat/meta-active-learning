@@ -61,11 +61,12 @@ def policy_parser(policy_name):
 		print('Uniform policy where at every step the acquisition function is')
 		acquisition_function = policy_name.replace('uniform-', '')
 		print(acquisition_function)
+		assert acquisition_function in ACQUISITION_FUNCTIONS_TEXT
 		return UniformPolicy([acquisition_function])
 	
 	elif policy_name == 'bandit':
 		print('Learned policy where at every step we pick according to a policy over ')
 		print(ACQUISITION_FUNCTIONS_TEXT)
-		
+
 		raise NotImplementedError('Bandit policy not implemented yet')
 

@@ -1,5 +1,5 @@
 from __future__ import print_function
-import scipy as sp
+import os
 from src.utils import get_parser, Logger, create_folder
 
 args = get_parser().parse_args()
@@ -24,12 +24,12 @@ from src import datatools
 from src.networks import bayesian_cnn
 from src.oracle import ask_oracle
 from src.acquisition_function import run_acquisition_function, ACQUISITION_FUNCTIONS_TEXT
-from src import policies
+from src.policies import policy_parser
 
 batch_size = 128
 num_classes = 10
 epochs = args.epochs
-acquisition_iterations = args.n_acquisitions
+acquisition_iterations = args.acquisitions
 dropout_iterations = args.dropoutiterations
 n_queries = 10
 pool_subset_size = 2000 # the number of elements from the pool to run dropout sampling on
@@ -60,11 +60,12 @@ model = bayesian_cnn(input_shape=x_train.shape[1:],
 
 history = model.fit(x_train, y_train,
                     batch_size=batch_size,
-                    epochs=args.epochs) 
+                    epochs=args.epochs,
+                    validation_data=val_data) 
 # for efficiency purposes might want to remove testing on val set here
 
-train_loss = np.asarray(history.history.get('loss'))
-train_accuracy = np.asarray(history.history.get('accuracy'))
+train_loss = history.history.get('loss')
+train_accuracy = history.history.get('acc')
 
 # this val_accuracy is propa
 val_loss, val_accuracy = model.evaluate(*val_data, verbose=0)
@@ -111,12 +112,12 @@ for i in range(acquisition_iterations):
 
     history = model.fit(x_train, y_train,
                         batch_size=batch_size,
-                        epochs=args.epochs.
+                        epochs=args.epochs,
                         validation_data=val_data)
 
 
-    train_loss = np.asarray(history.history.get('loss'))
-    train_accuracy = np.asarray(history.history.get('accuracy'))
+    train_loss = history.history.get('loss')
+    train_accuracy = history.history.get('acc')
 
     # this val_accuracy is propa
     val_loss, val_accuracy = model.evaluate(*val_data, verbose=0)
