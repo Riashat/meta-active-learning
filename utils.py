@@ -1,4 +1,11 @@
 import argparse
+import numpy as np
+import random
+import os
+import time
+import json
+
+create_folder = lambda f: [ os.makedirs(f) if not os.path.exists(f) else False ]
 
 def get_parser():
       parser = argparse.ArgumentParser()
@@ -35,11 +42,13 @@ def get_parser():
 
 
 class Logger(object):
-      def __init__(self):
+      def __init__(self, experiment_name='', folder='./results'):
             self.train_loss = []
             self.val_loss = []
             self.train_acc = []
             self.val_acc = []
+            self.save_folder = os.path.join(folder, experiment_name+time.strftime('%y-%m-%d-%H-%M-%s'))
+            create_folder(save_folder)
 
       def record_train_metrics(self, train_loss, train_acc):
             self.train_acc.append(train_acc)
@@ -49,6 +58,12 @@ class Logger(object):
             self.val_acc.append(val_acc)
             self.val_loss.append(val_loss)
 
+      def save(self):
+            np.save(os.path.join(self.save_folder, "train_loss.npy"), self.train_loss)
+            np.save(os.path.join(self.save_folder, "val_loss.npy"), self.val_loss)
+            np.save(os.path.join(self.save_folder, "train_acc.npy"), self.train_acc)
+            np.save(os.path.join(self.save_folder, "val_acc.npy"), self.val_acc)
 
-      def save(self, args):
-            pass
+      def save_args(self, args):
+            with open(os.path.join(self.save_folder, 'params.json'), 'w') as f:
+                  json.dump(dict(args._get_kwargs(), f)

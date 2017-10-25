@@ -1,6 +1,6 @@
 from __future__ import print_function
 import scipy as sp
-from src.utils import get_parser, Logger
+from src.utils import get_parser, Logger, create_folder
 
 args = get_parser().parse_args()
 
@@ -13,9 +13,9 @@ import tensorflow as tf
 # Setting a seed as described in https://github.com/blei-lab/edward/pull/184
 # this is is useful for reproducibility
 # !!! DO NOT MOVE THE SEED TO AFTER IMPORTING KERAS !!!
-SEED = 1337
-np.random.seed(SEED)
-tf.set_random_seed(SEED)
+
+np.random.seed(args.seed)
+tf.set_random_seed(args.seed)
 if len(tf.get_default_graph()._nodes_by_id.keys()) > 0:
     raise RuntimeError('Seeding is not supported after initializing a part ' +
                        'of the graph.')
@@ -45,9 +45,9 @@ print('WARNING: only using 500 points for validation')
 
 print('POLICY: ',args.policy)
 policy = policy_parser(args.policy)
-logger = Logger()
-
-
+logger = Logger(experiment_name=args.policy, folder=args.folder)
+logger.save_args(args)
+print('Saving to ', logger.save_folder)
 
 print('Starting Experiment')
 
@@ -63,8 +63,8 @@ history = model.fit(x_train, y_train,
                     epochs=args.epochs) 
 # for efficiency purposes might want to remove testing on val set here
 
-train_loss = np.asarray(hist.history.get('loss'))
-train_accuracy = np.asarray(hist.history.get('accuracy'))
+train_loss = np.asarray(history.history.get('loss'))
+train_accuracy = np.asarray(history.history.get('accuracy'))
 
 # this val_accuracy is propa
 val_loss, val_accuracy = model.evaluate(*val_data, verbose=0)
@@ -115,8 +115,8 @@ for i in range(acquisition_iterations):
                         validation_data=val_data)
 
 
-    train_loss = np.asarray(hist.history.get('loss'))
-    train_accuracy = np.asarray(hist.history.get('accuracy'))
+    train_loss = np.asarray(history.history.get('loss'))
+    train_accuracy = np.asarray(history.history.get('accuracy'))
 
     # this val_accuracy is propa
     val_loss, val_accuracy = model.evaluate(*val_data, verbose=0)
@@ -127,3 +127,6 @@ for i in range(acquisition_iterations):
     logger.record_train_metrics(train_loss[-1], train_accuracy[-1])
     logger.record_val_metrics(val_loss, val_accuracy)
 
+
+logger.save()
+print('DONE')
