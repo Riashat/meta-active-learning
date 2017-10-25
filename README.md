@@ -5,13 +5,15 @@ Combining Bayesian Active Learning with Semi-Supervised Learning
 ## Requirements
 Python 3.5.2
 
-Keras version : 2.0.8
+See `requirements.txt`
 
-Theano : '0.9.0'
+You can install as `pip3.5 install -r requirements.txt --user`
 
-scikit-learn : '0.19.0'
+## Tests
+Some unit tests exist
+run `python3 -m pytest` on linux or `pytest` on os x.
 
-## To run `mnist_bayesian_al_ssl_clustering.py`
+## Running
 
 ```
 python3 mnist_bayesian_al_ssl_clustering.py -g GPU -o ORACLE_TYPE -e EPOCHS -d DROPOUT_ITERATIONS
