@@ -1,14 +1,38 @@
 import math
-import numpy
-np = numpy
+import numpy as np
 np.random.seed(1) # TODO
 import os
 import random
 from scipy.stats import mode
 
 
-def acquisition_functions(acq_function, X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations):
+def bald():
+  pass
 
+def maxentropy():
+  pass
+
+def varratio():
+  pass
+
+def segnet():
+  pass
+
+
+
+
+def acquisition_functions(acq_function, X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
+  """
+  Returns the uncertain pool points according to different acquisition functions
+  :param acq_function: the name of the acquisition function to use
+  :param X_Pool_Dropout: the Pool set to use
+  :param num_classes: the number of classes in the output of the model
+  :param model: the model to use
+  :param batch_size: the size of the batches to use when predicting
+  :param dropout_iterations: the number of dropout iterations to use
+
+  :return: the uncertainty of each point in the pool
+  """
   if acq_function == 'bald':
 
     print ("BALD Acquisition Function")
@@ -19,7 +43,7 @@ def acquisition_functions(acq_function, X_Pool_Dropout, num_classes, model, batc
     for d in range(dropout_iterations):
         print ('Dropout Iteration', d)
 
-        dropout_score = model.predict(X_Pool_Dropout,batch_size=batch_size, verbose=1)
+        dropout_score = model.predict(X_Pool_Dropout, batch_size=batch_size, verbose=1)
         #computing Entropy_Average_Pi
         score_All = score_All + dropout_score
         #computing Average_Entropy
