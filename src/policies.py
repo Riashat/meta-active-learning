@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 class Policy(object):
     def __init__(self, acquisition_functions):
@@ -62,7 +63,7 @@ class BanditPolicy(Policy):
         self.last_action = action
         return self.acquisition_functions[action]
 
-    def update_policy(self, reward):
+    def update_policy(self, reward, verbose=False):
         self.action_attempts[self.last_action] += 1
 
         if self.gamma is None:
@@ -73,12 +74,14 @@ class BanditPolicy(Policy):
 
         self._value_estimates[self.last_action] += g*(reward - q)
         self.t += 1
-        print('Policy updated')
+
+        if verbose:
+            print('Policy updated')
 
 class EpsilonGreedyBanditPolicy(BanditPolicy):
     """
     Choose the acquisition functions according to an 
-    epislon greedy policy
+    epsilon greedy policy
     """
     def __init__(self,
                  acquisition_functions,
@@ -86,7 +89,7 @@ class EpsilonGreedyBanditPolicy(BanditPolicy):
                  prior=0,
                  epsilon=0.5):
         super().__init__(acquisition_functions, gamma=gamma, prior=prior)
-        self.epislon = epislon
+        self.epsilon = epsilon
 
     def internal_policy(self):
         if np.random.random() < self.epsilon:

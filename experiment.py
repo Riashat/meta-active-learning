@@ -152,7 +152,7 @@ for i in range(acquisition_iterations):
     # note that internally the last action selected
     # is stored.
     print('Reward gained:', reward)
-    policy.update_policy(reward)
+    policy.update_policy(reward, verbose=True)
 
     prev_loss = val_loss
     prev_acc = val_accuracy

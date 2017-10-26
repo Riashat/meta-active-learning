@@ -139,7 +139,7 @@ class RewardProcess(object):
                                  current_accuracy,
                                  previous_logp,
                                  current_logp):
-                        return return current_accuracy
+                        return current_accuracy
 
             self.get_reward = get_reward
 
