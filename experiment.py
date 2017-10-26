@@ -108,8 +108,9 @@ for i in range(acquisition_iterations):
     x_pool, y_pool = datatools.combine_datasets(pool_without_subset, pool_subset_updated)
 
 
-    model = bayesian_cnn(input_shape=x_train.shape[1:],
-                         output_classes=n_classes)
+    model = cnn(input_shape=x_train.shape[1:],
+                output_classes=n_classes,
+                bayesian= args.model is 'bayesian')
 
     history = model.fit(x_train, y_train,
                         batch_size=batch_size,
