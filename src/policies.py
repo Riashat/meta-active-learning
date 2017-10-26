@@ -11,8 +11,9 @@ class Policy(object):
     def get_acquisition_function(self, *args, **kwargs):
         raise NotImplementedError('Policy Abstract Class has no getter')
 
-    def update_policy(self, reward, action=None):
-        print('No policy to update!')
+    def update_policy(self, reward, action=None, verbose=False):
+        if verbose:
+            print('No policy to update!')
         pass
 
 class UniformPolicy(Policy):
