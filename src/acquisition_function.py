@@ -90,9 +90,14 @@ def segnet(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iteration
 
     return uncertain_pool_points
 
+def random_acq(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
+    uncertain_pool_points = np.random.random(size=X_Pool_Dropout.shape[0]) # just assign everything a random value
+    return uncertain_pool_points
+
+
 # a list of all the acquisition functions available
 ACQUISITION_FUNCTIONS = [bald, maxentropy, varratio, segnet]
-ACQUISITION_FUNCTIONS_TEXT = ['bald', 'maxentropy', 'varratio', 'segnet']
+ACQUISITION_FUNCTIONS_TEXT = ['bald', 'maxentropy', 'varratio', 'segnet', 'random']
 
 
 def run_acquisition_function(acq_function, X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
@@ -110,7 +115,8 @@ def run_acquisition_function(acq_function, X_Pool_Dropout, num_classes, model, b
     if acq_function == 'bald':
         print ("BALD Acquisition Function")
         return bald(X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations)
-
+    if acq_function == 'random':
+        return random_acq(X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations)
     elif acq_function == 'maxentropy':
         print ("MaxEntropy Acquisition Function")
         return maxentropy(X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations)
