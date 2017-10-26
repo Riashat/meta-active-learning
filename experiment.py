@@ -44,7 +44,15 @@ print('WARNING: only using 500 points for validation')
 
 
 print('POLICY: ',args.policy)
-policy = policy_parser(args.policy)
+
+# this is the policy by which one should choose acquisition functions
+policy = policy_parser(args.policy, args)
+
+# this is the reward that is calculated based on previous acc/val 
+# and current acc/val 
+reward_process = RewardProcess(args.reward)
+
+# logger to record experiments
 logger = Logger(experiment_name=args.policy, folder=args.folder)
 logger.save_args(args)
 print('Saving to ', logger.save_folder)
@@ -68,7 +76,7 @@ history = model.fit(x_train, y_train,
 train_loss = history.history.get('loss')
 train_accuracy = history.history.get('acc')
 
-# this val_accuracy is propa
+
 val_loss, val_accuracy = model.evaluate(*val_data, verbose=0)
 
 print ("Accuracy on validation set with initial training dataset")
@@ -77,8 +85,11 @@ print('Validation accuracy:', val_accuracy)
 logger.record_train_metrics(train_loss[-1], train_accuracy[-1])
 logger.record_val_metrics(val_loss, val_accuracy)
 
+prev_loss = val_loss
+prev_acc = val_accuracy
+
 """
-START COLLECTION A NEW DATASET
+START COLLECTING A NEW DATASET
 """
 
 for i in range(acquisition_iterations):
@@ -129,7 +140,22 @@ for i in range(acquisition_iterations):
 
     logger.record_train_metrics(train_loss[-1], train_accuracy[-1])
     logger.record_val_metrics(val_loss, val_accuracy)
+    
 
+    # get the reward for making the acquisition
+    reward = reward_process.get_reward(prev_acc,
+                                       val_accuracy,
+                                       prev_loss,
+                                       val_loss)
+    
+    # update the policy based on this reward
+    # note that internally the last action selected
+    # is stored.
+    print('Reward gained:', reward)
+    policy.update_policy(reward)
+
+    prev_loss = val_loss
+    prev_acc = val_accuracy
 
 logger.save()
 print('DONE')
