@@ -3,6 +3,7 @@ from keras.datasets import mnist
 from keras import backend as K
 import numpy as np
 import random
+
 def get_mnist():
     """
     Returns the MNIST dataset formattted and ready for training
@@ -32,7 +33,8 @@ def get_mnist():
 def prep(x, y):
     x = x.astype('float32')
     x /= 255
-    y = keras.utils.to_categorical(y, np.max(y)+1)
+    n_classes = 10
+    y = keras.utils.to_categorical(y, n_classes)
     return x, y
 
 
@@ -50,9 +52,8 @@ def get_valid_data(x_train, y_train, valid_ratio=0.1):
     x_valid = x_train[-valid_shape:]
     y_valid = y_train[-valid_shape:]
 
-    x_train = x_train[0:-valid_shape]
-    y_train = y_train[0:-valid_shape]
-
+    x_train = x_train[:-valid_shape]
+    y_train = y_train[:-valid_shape]
 
     return (x_train, y_train), (x_valid, y_valid)
 
