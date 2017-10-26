@@ -38,6 +38,11 @@ def get_parser():
       named_args.add_argument('-s', '--seed',
             help="""Random seed to use""",
             required=False, type=int, default=25102017)
+      
+      named_args.add_argument('-m', '--model',
+            help="""Model to use: `bayesian` or `regular`""",
+            required=False, type=str, default='bayesian')
+      
       return parser
 
 

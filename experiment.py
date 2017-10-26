@@ -21,7 +21,7 @@ if len(tf.get_default_graph()._nodes_by_id.keys()) > 0:
                        'of the graph.')
 
 from src import datatools
-from src.networks import bayesian_cnn
+from src.networks import cnn
 from src.oracle import ask_oracle
 from src.acquisition_function import run_acquisition_function, ACQUISITION_FUNCTIONS_TEXT
 from src.policies import policy_parser
@@ -55,8 +55,9 @@ print('Starting Experiment')
 """
 GET INITIAL ESTIMATE OF VALIDATION ACCURACY
 """
-model = bayesian_cnn(input_shape=x_train.shape[1:],
-            output_classes=n_classes)
+model = cnn(input_shape=x_train.shape[1:],
+            output_classes=n_classes,
+            bayesian= args.model is 'bayesian')
 
 history = model.fit(x_train, y_train,
                     batch_size=batch_size,
