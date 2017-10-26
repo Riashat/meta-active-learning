@@ -57,7 +57,7 @@ GET INITIAL ESTIMATE OF VALIDATION ACCURACY
 """
 model = cnn(input_shape=x_train.shape[1:],
             output_classes=n_classes,
-            bayesian= args.model is 'bayesian')
+            bayesian= args.model == 'bayesian')
 
 history = model.fit(x_train, y_train,
                     batch_size=batch_size,
@@ -110,7 +110,7 @@ for i in range(acquisition_iterations):
 
     model = cnn(input_shape=x_train.shape[1:],
                 output_classes=n_classes,
-                bayesian= args.model is 'bayesian')
+                bayesian= args.model == 'bayesian')
 
     history = model.fit(x_train, y_train,
                         batch_size=batch_size,
