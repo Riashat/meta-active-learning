@@ -648,7 +648,7 @@ for e in range(Experiments):
     """
     Compute Reward for bandits based on validation performance
 
-    TODO HERE
+    Check this - Reward = ValidationA Accuracy
     """
     ### using valid_acc as the reward, instead of reward drawn from posterior?
     # reward, is_optimal = bandit.pull(action)
