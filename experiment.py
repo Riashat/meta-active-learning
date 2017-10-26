@@ -1,6 +1,6 @@
 from __future__ import print_function
 import os
-from src.utils import get_parser, Logger, create_folder
+from src.utils import get_parser, Logger, create_folder, RewardProcess
 
 args = get_parser().parse_args()
 
