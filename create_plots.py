@@ -1,5 +1,7 @@
 import numpy as np
 import os
+import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
 import argparse
 
@@ -45,4 +47,4 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     ax = plot_metric_curves(args.folders, args.metrics, ax=ax)
-    f.savefig(name+'.pdf')
+    f.savefig(args.name+'.pdf')
