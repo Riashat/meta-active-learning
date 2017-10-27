@@ -5,7 +5,7 @@ matplotlib.use('agg')
 import matplotlib.pyplot as plt
 import argparse
 
-get_experiment_name = lambda folder_name: list(filter(lambda x: len(x)>2, folder_name.split('/')))[-1]
+get_experiment_name = lambda folder_name: list(filter(lambda x: len(x)>2, folder_name.split('/')))[-2]
 
 
 def plot_metric_curves(folders, metrics, ax=None, size_of_acquisitions=10):
