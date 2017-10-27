@@ -79,6 +79,8 @@ class Logger(object):
             self.val_loss = []
             self.train_acc = []
             self.val_acc = []
+            self.test_loss = []
+            self.test_acc = []
             self.save_folder = os.path.join(folder, experiment_name+time.strftime('%y-%m-%d-%H-%M-%s'))
             create_folder(self.save_folder)
 
@@ -96,11 +98,20 @@ class Logger(object):
             self.val_acc.append(val_acc)
             self.val_loss.append(val_loss)
 
+      def record_test_metrics(self, test_loss, test_acc):
+            """
+            Record test metrics
+            """
+            self.test_acc.append(test_acc)
+            self.test_loss.append(test_loss)
+            
       def save(self):
             np.save(os.path.join(self.save_folder, "train_loss.npy"), self.train_loss)
             np.save(os.path.join(self.save_folder, "val_loss.npy"), self.val_loss)
             np.save(os.path.join(self.save_folder, "train_acc.npy"), self.train_acc)
             np.save(os.path.join(self.save_folder, "val_acc.npy"), self.val_acc)
+            np.save(os.path.join(self.save_folder, "test_acc.npy"), self.test_acc)
+            np.save(os.path.join(self.save_folder, "test_loss.npy"), self.test_loss)
 
       def save_args(self, args):
             """
@@ -143,3 +154,9 @@ class RewardProcess(object):
 
             self.get_reward = get_reward
 
+def stochastic_evaluate(model, data, n_forward_passes):
+      metrics = []
+      for i in range(n_forward_passes):
+            metrics.append(model.evaluate(*data))
+      metrics = np.array(metrics)
+      return np.mean(metrics, axis=0).tolist()

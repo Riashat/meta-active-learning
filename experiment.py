@@ -1,6 +1,12 @@
 from __future__ import print_function
 import os
-from src.utils import get_parser, Logger, create_folder, RewardProcess
+from src.utils import (
+    get_parser,
+    Logger,
+    create_folder,
+    RewardProcess,
+    stochastic_evaluate
+)
 
 args = get_parser().parse_args()
 
@@ -76,8 +82,7 @@ history = model.fit(x_train, y_train,
 train_loss = history.history.get('loss')
 train_accuracy = history.history.get('acc')
 
-
-val_loss, val_accuracy = model.evaluate(*val_data, verbose=0)
+val_loss, val_accuracy = stochastic_evaluate(model, val_data, dropout_iterations)
 
 print ("Accuracy on validation set with initial training dataset")
 print('Validation accuracy:', val_accuracy)
@@ -132,15 +137,14 @@ for i in range(acquisition_iterations):
     train_loss = history.history.get('loss')
     train_accuracy = history.history.get('acc')
 
-    # this val_accuracy is propa
-    val_loss, val_accuracy = model.evaluate(*val_data, verbose=0)
+    # this val_accuracy is used to update policy
+    val_loss, val_accuracy = stochastic_evaluate(model, val_data, dropout_iterations)
 
     print ("Accuracy on validation set after the ", i, 'th acquisition')
-    print('Validation accuracy:', val_accuracy)
+    print('Mean validation accuracy:', val_accuracy)
 
     logger.record_train_metrics(train_loss[-1], train_accuracy[-1])
     logger.record_val_metrics(val_loss, val_accuracy)
-    
 
     # get the reward for making the acquisition
     reward = reward_process.get_reward(prev_acc,
@@ -156,6 +160,10 @@ for i in range(acquisition_iterations):
 
     prev_loss = val_loss
     prev_acc = val_accuracy
+
+
+    test_loss, test_accuracy = stochastic_evaluate(model, test_data, dropout_iterations)
+    logger.record_test_metrics(test_loss, test_accuracy)
 
 logger.save()
 print('DONE')
