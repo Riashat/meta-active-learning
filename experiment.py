@@ -145,7 +145,7 @@ for i in range(acquisition_iterations):
 
     logger.record_train_metrics(train_loss[-1], train_accuracy[-1])
     logger.record_val_metrics(val_loss, val_accuracy)
-
+    logger.record_acquisition_function(acquisition_function_name)
     # get the reward for making the acquisition
     reward = reward_process.get_reward(prev_acc,
                                        val_accuracy,
@@ -156,11 +156,12 @@ for i in range(acquisition_iterations):
     # note that internally the last action selected
     # is stored.
     print('Reward gained:', reward)
+    logger.record_reward(reward)
+
     policy.update_policy(reward, verbose=True)
 
     prev_loss = val_loss
     prev_acc = val_accuracy
-
 
     test_loss, test_accuracy = stochastic_evaluate(model, test_data, dropout_iterations)
     logger.record_test_metrics(test_loss, test_accuracy)
