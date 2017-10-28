@@ -1,6 +1,5 @@
-# combining_bayesian_al_ssl
-Combining Bayesian Active Learning with Semi-Supervised Learning
-
+# Meta-Learning Bayesian Active Learning Algorithms
+Using Bandits to learn a policy to select acquisition functions
 
 ## Requirements
 Python 3.5.2
