@@ -1,0 +1,1 @@
+{"folder": "./results/", "model": "bayesian", "epochs": 50, "reward": "acc", "seed": 25102017, "gpu": "0", "policy_param": 0.5, "acquisitions": 20, "dropoutiterations": 5, "policy": "bandit-ucb", "gamma": null}

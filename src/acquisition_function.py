@@ -4,14 +4,12 @@ import os
 import random
 from scipy.stats import mode
 
-def bald(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
+def bald(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
 
     score_All = np.zeros(shape=(X_Pool_Dropout.shape[0], num_classes))
     All_Entropy_Dropout = np.zeros(shape=X_Pool_Dropout.shape[0])
 
     for d in range(dropout_iterations):
-        print ('Dropout Iteration', d)
-
         dropout_score = model.predict(X_Pool_Dropout, batch_size=batch_size, verbose=1)
         #computing Entropy_Average_Pi
         score_All = score_All + dropout_score
@@ -33,7 +31,7 @@ def bald(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=
 
     return uncertain_pool_points
 
-def maxentropy(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
+def maxentropy(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
     score_All = np.zeros(shape=(X_Pool_Dropout.shape[0], num_classes))
     for d in range(dropout_iterations):
         dropout_score = model.predict(X_Pool_Dropout,batch_size=batch_size, verbose=1)
@@ -48,7 +46,7 @@ def maxentropy(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_itera
 
     return uncertain_pool_points
 
-def varratio(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
+def varratio(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
     All_Dropout_Classes = np.zeros(shape=(X_Pool_Dropout.shape[0],1))
 
     for d in range(dropout_iterations):
@@ -69,7 +67,7 @@ def varratio(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterati
     return uncertain_pool_points
 
 
-def segnet(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
+def segnet(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
     All_Dropout_Scores = np.zeros(shape=(X_Pool_Dropout.shape[0], num_classes))
     for d in range(dropout_iterations):
         dropout_score = model.predict(X_Pool_Dropout,batch_size=batch_size, verbose=1)
@@ -90,7 +88,7 @@ def segnet(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iteration
 
     return uncertain_pool_points
 
-def random_acq(X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
+def random_acq(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
     uncertain_pool_points = np.random.random(size=X_Pool_Dropout.shape[0]) # just assign everything a random value
     return uncertain_pool_points
 
@@ -100,7 +98,7 @@ ACQUISITION_FUNCTIONS = [bald, maxentropy, varratio, segnet]
 ACQUISITION_FUNCTIONS_TEXT = ['bald', 'maxentropy', 'varratio', 'segnet', 'random']
 
 
-def run_acquisition_function(acq_function, X_Pool_Dropout, num_classes, model, batch_size=128, dropout_iterations=10):
+def run_acquisition_function(acq_function, X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=100):
     """
     Returns the uncertain pool points according to different acquisition functions
     :param acq_function: the name of the acquisition function to use

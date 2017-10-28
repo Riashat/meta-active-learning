@@ -8,8 +8,6 @@ def get_mnist():
     """
     Returns the MNIST dataset formattted and ready for training
     """
-
-
     # input image dimensions
     img_rows, img_cols = 28, 28
     num_classes = 10
