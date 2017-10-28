@@ -1,5 +1,4 @@
 import keras
-from keras.datasets import mnist
 from keras import backend as K
 import numpy as np
 import random
@@ -8,7 +7,7 @@ def get_mnist():
     """
     Returns the MNIST dataset formattted and ready for training
     """
-
+    from keras.datasets import mnist
 
     # input image dimensions
     img_rows, img_cols = 28, 28
@@ -29,6 +28,34 @@ def get_mnist():
 
     return (x_train, y_train), (x_test, y_test)
 
+def get_cifar10():
+    """
+    Returns the CIFAR 10 dataset formattted and ready for training
+    """
+
+    from keras.datasets import cifar10
+
+    # input image dimensions
+    img_rows, img_cols = 32, 32
+    n_channels = 3
+    num_classes = 10
+    # the data, shuffled and split between train and test sets
+    (x_train, y_train), (x_test, y_test) = cifar10.load_data()
+
+    if K.image_data_format() == 'channels_first':
+        print ("Using Channels first")
+        x_train = x_train.reshape(x_train.shape[0], n_channels, img_rows, img_cols)
+        x_test = x_test.reshape(x_test.shape[0], n_channels, img_rows, img_cols)
+        input_shape = (n_channels, img_rows, img_cols)
+    else:
+        print("Channels last")
+        x_train = x_train.reshape(x_train.shape[0], img_rows, img_cols, n_channels)
+        x_test = x_test.reshape(x_test.shape[0], img_rows, img_cols, n_channels)
+        input_shape = (img_rows, img_cols, n_channels)
+
+    return (x_train, y_train), (x_test, y_test)
+
+cifar10.load_data()
 
 def prep(x, y):
     x = x.astype('float32')
@@ -86,11 +113,15 @@ def get_pool_data(x, y):
     
     return (x_train, y_train), (x_pool, y_pool)
 
-def data_pipeline(valid_ratio=0.1):
+def data_pipeline(valid_ratio=0.1, dataset='mnist'):
 
     # get training and testing data
-    training_data, testing_data = get_mnist()
-    
+    if dataset == 'mnist':
+        training_data, testing_data = get_mnist()
+    elif dataset == 'cifar-10':
+        training_data, testing_data = get_cifar10()
+    else:
+        raise ValueError('No dataset found!')
     # get validation data
     training_data, validation_data = get_valid_data(*training_data, valid_ratio=valid_ratio)
     
