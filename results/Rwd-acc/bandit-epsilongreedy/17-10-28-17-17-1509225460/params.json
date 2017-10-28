@@ -1,0 +1,1 @@
+{"seed": 25102017, "acquisitions": 3, "dropoutiterations": 1, "folder": ".././results/Rwd-acc", "model": "bayesian", "policy": "bandit-epsilongreedy", "reward": "acc", "policy_param": 0.5, "epochs": 10, "gpu": "0", "gamma": 1.0}

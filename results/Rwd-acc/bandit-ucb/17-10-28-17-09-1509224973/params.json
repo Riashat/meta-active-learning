@@ -1,0 +1,1 @@
+{"policy": "bandit-ucb", "dropoutiterations": 1, "model": "bayesian", "acquisitions": 3, "epochs": 10, "seed": 25102017, "gpu": "0", "policy_param": 0.5, "reward": "acc", "gamma": 1.0, "folder": ".././results/Rwd-acc"}

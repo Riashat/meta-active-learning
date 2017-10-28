@@ -1,0 +1,1 @@
+{"policy": "bandit-epsilongreedy", "seed": 25102017, "folder": ".././results/Rwd-acc", "reward": "acc", "epochs": 10, "acquisitions": 3, "model": "bayesian", "policy_param": 0.5, "gpu": "0", "dropoutiterations": 1, "gamma": 1.0}

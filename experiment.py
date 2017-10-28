@@ -83,11 +83,14 @@ history = model.fit(x_train, y_train,
 train_loss = history.history.get('loss')
 train_accuracy = history.history.get('acc')
 
-val_loss, val_accuracy = stochastic_evaluate(model, val_data, dropout_iterations)
-test_loss, test_accuracy = stochastic_evaluate(model, test_data, dropout_iterations)
+import pdb; pdb.set_trace()
+
+val_loss, val_accuracy = stochastic_evaluate(model, val_data, min(5,dropout_iterations/5))
+test_loss, test_accuracy = stochastic_evaluate(model, test_data, min(20,dropout_iterations/5))
 
 print ("Accuracy on validation set with initial training dataset")
 print('Validation accuracy:', val_accuracy)
+print ('Test Accuracy', test_accuracy)
 
 logger.record_train_metrics(train_loss[-1], train_accuracy[-1])
 logger.record_val_metrics(val_loss, val_accuracy)
@@ -143,10 +146,9 @@ for i in range(acquisition_iterations):
     train_accuracy = history.history.get('acc')
 
     # this val_accuracy is used to update policy
-    val_loss, val_accuracy = stochastic_evaluate(model, val_data, dropout_iterations)
+    val_loss, val_accuracy = stochastic_evaluate(model, val_data, min(5, dropout_iterations/5))
 
-    print ("Accuracy on validation set after the ", i, 'th acquisition')
-    print('Mean validation accuracy:', val_accuracy)
+    print('Validation accuracy:', val_accuracy)
 
     logger.record_train_metrics(train_loss[-1], train_accuracy[-1])
     logger.record_val_metrics(val_loss, val_accuracy)
@@ -160,7 +162,7 @@ for i in range(acquisition_iterations):
     # update the policy based on this reward
     # note that internally the last action selected
     # is stored.
-    print('Reward gained:', reward)
+    # print('Reward gained:', reward)
     logger.record_reward(reward)
 
     policy.update_policy(reward, verbose=True)
@@ -168,7 +170,9 @@ for i in range(acquisition_iterations):
     prev_loss = val_loss
     prev_acc = val_accuracy
 
-    test_loss, test_accuracy = stochastic_evaluate(model, test_data, dropout_iterations)
+    test_loss, test_accuracy = stochastic_evaluate(model, test_data, min(20, dropout_iterations/5))
+
+    print ('Test Accuracy', test_accuracy)
     logger.record_test_metrics(test_loss, test_accuracy)
 
 logger.save()
