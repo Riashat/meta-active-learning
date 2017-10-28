@@ -17,19 +17,18 @@ def grid_search(args_vals):
     return ["".join(item) for item in itertools.product(*lists)]
 
 
-
 parser = argparse.ArgumentParser()
 parser.add_argument('-exp', type=int, default=5)
-parser.add_argument('-g', type=int, default=0, help=['specify GPU'])
-parser.add_argument('-e', type=int, default=1000)
+parser.add_argument('-g', required=False, type=str, default='0', help=['specify GPU'])
+parser.add_argument('-e', type=int, default=1000, help=['number of epochs for training'])
 parser.add_argument('-p', type=str, default='bandit-ucb', help=['bandit-ucb', 'bandit-epsilongreedy', 'random'])
-parser.add_argument('-a', type=int, default=980)
+parser.add_argument('-a', type=int, default=980, help=['total number of acquisitions'])
 parser.add_argument('-d', type=int, default=100, help='Dropout')
 parser.add_argument('-f', type=str, default='.././results/')
-parser.add_argument('-m', type=str, default='bayesian')
+parser.add_argument('-m', type=str, default='bayesian', help=['bayesian', 'deterministic'])
 parser.add_argument('-r', type=str, default='acc')
 parser.add_argument('-policyparam', type=int, default=0.5)
-parser.add_argument('-gamma', type=int, default=1)
+parser.add_argument('-gamma', required=False, type=float, default=None)
 
 locals().update(parser.parse_args().__dict__)    
 
@@ -41,7 +40,7 @@ job_prefix += exp_script
 args = parser.parse_args()
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+os.environ["CUDA_VISIBLE_DEVICES"] = args.g
 
 acquisitions = args.a
 epochs = args.e
