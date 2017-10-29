@@ -18,15 +18,12 @@ def grid_search(args_vals):
 
 
 parser = argparse.ArgumentParser()
-<<<<<<< HEAD
 parser.add_argument('-exp', type=int, default=1)
-=======
 parser.add_argument('-exp', type=int, default=5)
->>>>>>> 0ea5624f63ace096954014fe6414479c91c60579
 parser.add_argument('-g', required=False, type=str, default='0', help=['specify GPU'])
 parser.add_argument('-e', type=int, default=1000, help=['number of epochs for training'])
 parser.add_argument('-p', type=str, default='bandit-ucb', help=['bandit-ucb', 'bandit-epsilongreedy', 'random'])
-parser.add_argument('-a', type=int, default=980, help=['total number of acquisitions'])
+parser.add_argument('-a', type=int, default=98, help=['total number of acquisitions'])
 parser.add_argument('-d', type=int, default=100, help='Dropout')
 parser.add_argument('-f', type=str, default='.././results/')
 parser.add_argument('-m', type=str, default='bayesian', help=['bayesian', 'deterministic'])
