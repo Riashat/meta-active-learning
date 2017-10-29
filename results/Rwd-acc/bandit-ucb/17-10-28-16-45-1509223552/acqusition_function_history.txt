@@ -1,0 +1,3 @@
+segnet
+bald
+maxentropy

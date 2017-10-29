@@ -87,7 +87,7 @@ class Logger(object):
             self.test_acc = []
             self.acquisition_functions_used = []
             self.rewards = []
-            self.save_folder = os.path.join(folder, experiment_name+time.strftime('%y-%m-%d-%H-%M-%s'))
+            self.save_folder = os.path.join(folder, experiment_name, time.strftime('%y-%m-%d-%H-%M-%s'))
             create_folder(self.save_folder)
 
       def record_train_metrics(self, train_loss, train_acc):

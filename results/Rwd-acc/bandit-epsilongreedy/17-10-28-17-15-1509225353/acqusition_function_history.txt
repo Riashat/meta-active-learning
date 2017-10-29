@@ -1,0 +1,3 @@
+segnet
+segnet
+random
