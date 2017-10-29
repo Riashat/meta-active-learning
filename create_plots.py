@@ -148,15 +148,29 @@ if __name__ == '__main__':
     named_args = parser.add_argument_group('named arguments')
 
     named_args.add_argument('-f', '--folders',
-        help="""folders with the experiments""",
+        help="""folders with the experiments. 
+            This must be can be follows:
+            -f FOLDER1 FOLDER2
+
+            where FOLDER1 and FOLDER2 are two experiments
+            each with subfolders with replicates:
+            FOLDER1/
+                replicate1
+                replicate2
+            FOLDER2/
+                replicate1
+                replicate2
+            """,
         nargs='+', required=True, type=str)
 
     named_args.add_argument('-m', '--metrics',
-        help="""metrics to plot""",
+        help="""metrics to plot. can be multiple metrics like:
+            -m val_acc train_acc
+            or must be `-m acq` for plotting acquition functions""",
         nargs='+', required=True, type=str)
 
     named_args.add_argument('-name', '--name',
-        help="""name of the figure""",
+        help="""title of figure, will be saved as NAME.pdf""",
         required=True, type=str)
     
     args = parser.parse_args()
