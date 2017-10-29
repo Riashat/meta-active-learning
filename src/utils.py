@@ -35,7 +35,7 @@ def get_parser():
 
       named_args.add_argument('-a', '--acquisitions',
             help="""# of acquisitions for active learning""",
-            required=False, type=int, default=980)
+            required=False, type=int, default=98)
 
       named_args.add_argument('-d', '--dropoutiterations',
             help="""# of dropout estimates""",
