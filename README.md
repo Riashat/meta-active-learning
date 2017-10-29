@@ -84,11 +84,17 @@ optional arguments:
 
 named arguments:
   -f FOLDERS [FOLDERS ...], --folders FOLDERS [FOLDERS ...]
-                        folders with the experiments
+                        folders with the experiments. This must be can be
+                        follows: -f FOLDER1 FOLDER2 where FOLDER1 and FOLDER2
+                        are two experiments each with subfolders with
+                        replicates: FOLDER1/ replicate1 replicate2 FOLDER2/
+                        replicate1 replicate2
   -m METRICS [METRICS ...], --metrics METRICS [METRICS ...]
-                        metrics to plot
+                        metrics to plot. can be multiple metrics like: -m
+                        val_acc train_acc or must be `-m acq` for plotting
+                        acquition functions
   -name NAME, --name NAME
-                        name of the figure
+                        title of figure, will be saved as NAME.pdf
 
 ```
 
@@ -97,6 +103,11 @@ named arguments:
 python3.5 create_plots.py -f './results/experiment1' 'results/experiment2' -m 'val_acc' 'train_acc' -n 'accuracy_plots'
 ```
 
+This will create a figure called `accuracy_plots.pdf` which will plot the `val_acc`s and `train_acc`s from `experiment1` and `experiment2`
 
-This will create a figure called accuracy_plots.pdf which will plot the val_accs and train_accs from experiment1 and experiment2
 
+It is also possible to plot the acquisition function used in each scheme as follows:
+
+```
+python3.5 create_plots.py -f './results/experiment1' 'results/experiment2' -m acq -n 'acq curves'
+```
