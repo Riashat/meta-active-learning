@@ -83,10 +83,8 @@ history = model.fit(x_train, y_train,
 train_loss = history.history.get('loss')
 train_accuracy = history.history.get('acc')
 
-import pdb; pdb.set_trace()
-
-val_loss, val_accuracy = stochastic_evaluate(model, val_data, min(5,dropout_iterations/5))
-test_loss, test_accuracy = stochastic_evaluate(model, test_data, min(20,dropout_iterations/5))
+val_loss, val_accuracy = stochastic_evaluate(model, val_data, 20)
+test_loss, test_accuracy = stochastic_evaluate(model, test_data, 20)
 
 print ("Accuracy on validation set with initial training dataset")
 print('Validation accuracy:', val_accuracy)
@@ -146,7 +144,7 @@ for i in range(acquisition_iterations):
     train_accuracy = history.history.get('acc')
 
     # this val_accuracy is used to update policy
-    val_loss, val_accuracy = stochastic_evaluate(model, val_data, min(5, dropout_iterations/5))
+    val_loss, val_accuracy = stochastic_evaluate(model, val_data, 20)
 
     print('Validation accuracy:', val_accuracy)
 
@@ -170,7 +168,7 @@ for i in range(acquisition_iterations):
     prev_loss = val_loss
     prev_acc = val_accuracy
 
-    test_loss, test_accuracy = stochastic_evaluate(model, test_data, min(20, dropout_iterations/5))
+    test_loss, test_accuracy = stochastic_evaluate(model, test_data, 20)
 
     print ('Test Accuracy', test_accuracy)
     logger.record_test_metrics(test_loss, test_accuracy)
