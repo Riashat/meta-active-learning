@@ -100,7 +100,7 @@ named arguments:
 
 
 ```
-python3.5 create_plots.py -f './results/experiment1' 'results/experiment2' -m 'val_acc' 'train_acc' -n 'accuracy_plots'
+python3.5 ./plotting/create_plots.py -f './results/experiment1' 'results/experiment2' -m 'val_acc' 'train_acc' -n 'accuracy_plots'
 ```
 
 This will create a figure called `accuracy_plots.pdf` which will plot the `val_acc`s and `train_acc`s from `experiment1` and `experiment2`
@@ -109,5 +109,5 @@ This will create a figure called `accuracy_plots.pdf` which will plot the `val_a
 It is also possible to plot the acquisition function used in each scheme as follows:
 
 ```
-python3.5 create_plots.py -f './results/experiment1' 'results/experiment2' -m acq -n 'acq curves'
+python3.5 ./plotting/create_plots.py -f './results/experiment1' 'results/experiment2' -m acq -n 'acq curves'
 ```
