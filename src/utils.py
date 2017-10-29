@@ -41,6 +41,10 @@ def get_parser():
             help="""# of dropout estimates""",
             required=False, type=int, default=100)
 
+      named_args.add_argument('-data', '--data',
+            help="""the data to use, `mnist` and `cifar10` supported. mnist is default""",
+            required=False, type=str, default='mnist')
+
       named_args.add_argument('-f', '--folder',
             help="""Folder to save data to""",
             required=True, type=str, default='./results/')

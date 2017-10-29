@@ -39,8 +39,8 @@ dropout_iterations = args.dropoutiterations
 n_queries = 10
 pool_subset_size = 2000 # the number of elements from the pool to run dropout sampling on
 
-#training_data, validation_data, pool_data, testing_data
-(x_train, y_train), val_data, (x_pool, y_pool), test_data = datatools.data_pipeline(valid_ratio=0.1)
+(x_train, y_train), val_data, (x_pool, y_pool), test_data = datatools.data_pipeline(valid_ratio=0.1, dataset=args.data)
+
 n_classes = y_train.shape[1]
 
 
