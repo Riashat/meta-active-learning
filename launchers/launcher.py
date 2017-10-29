@@ -28,7 +28,7 @@ parser.add_argument('-d', type=int, default=100, help='Dropout')
 parser.add_argument('-f', type=str, default='.././results/')
 parser.add_argument('-m', type=str, default='bayesian', help=['bayesian', 'deterministic'])
 parser.add_argument('-r', type=str, default='acc')
-parser.add_argument('-policyparam', type=int, default=0.5)
+parser.add_argument('-policyparam', type=float, default=0.5)
 parser.add_argument('-gamma', required=False, type=float, default=None)
 
 locals().update(parser.parse_args().__dict__)    
