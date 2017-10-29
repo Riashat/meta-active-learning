@@ -42,7 +42,7 @@ def get_parser():
             required=False, type=int, default=100)
 
       named_args.add_argument('-data', '--data',
-            help="""the data to use, `mnist` and `cifar` supported""",
+            help="""the data to use, `mnist` and `cifar10` supported. mnist is default""",
             required=False, type=str, default='mnist')
 
       named_args.add_argument('-f', '--folder',

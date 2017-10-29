@@ -55,8 +55,6 @@ def get_cifar10():
 
     return (x_train, y_train), (x_test, y_test)
 
-cifar10.load_data()
-
 def prep(x, y):
     x = x.astype('float32')
     x /= 255
@@ -118,7 +116,7 @@ def data_pipeline(valid_ratio=0.1, dataset='mnist'):
     # get training and testing data
     if dataset == 'mnist':
         training_data, testing_data = get_mnist()
-    elif dataset == 'cifar-10':
+    elif dataset == 'cifar10':
         training_data, testing_data = get_cifar10()
     else:
         raise ValueError('No dataset found!')
