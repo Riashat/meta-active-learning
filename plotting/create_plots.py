@@ -103,7 +103,7 @@ def plot_acq_curves(folders, ax=None):
 
     possible_acqusition_functions = list(sorted(list(possible_acqusition_functions)))
 
-    for marker, (t, data_curves, expname) in zip(['-', '--', '.', ':-'], datas):
+    for marker, (t, data_curves, expname) in zip(['-', '--', ':', '-.'], datas):
         plottable_datas = [[ possible_acqusition_functions.index(acq) for acq in data_ ] for data_ in data_curves]
         for (i, curve),  color in zip(enumerate(plottable_datas), COLORS(len(plottable_datas))):
             ax.plot(t, curve, label=expname+'-'+str(i), linestyle=marker, c=color)
