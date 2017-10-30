@@ -20,7 +20,8 @@ def cnn(input_shape,
         # activity_regularizer=regularizers.l1(0.01),
         activity_regularizer=None,
         optimizer=Adam(lr=0.001, decay=1e-6),
-        bayesian=True):
+        bayesian=True,
+        train_size=20):
 
     """
     Returns a CNN that can be used for mnist
@@ -34,6 +35,7 @@ def cnn(input_shape,
     :param loss: the loss function to use 
     :returns: keras.models.Model instance that has been compiled.
     """
+    weight_constant = 2
     if bayesian:
         print('Using bayesian network')
     else:
@@ -55,7 +57,7 @@ def cnn(input_shape,
     model.add(Flatten())
     model.add(Dense(128,
                     activation='relu',
-                    kernel_regularizer=kernel_regularizer,
+                    kernel_regularizer=regularizers.l2(weight_constant/ float(train_size),
                     activity_regularizer=activity_regularizer))
 
     if bayesian:
