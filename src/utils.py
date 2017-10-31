@@ -85,13 +85,12 @@ def get_parser():
             help="""
                custom acquisition functions to use:
                Here are some defaults:
-                  3 arm trivial: [bald, random, negative_bald]
+                  3arm-trivial: [bald, random, negative_bald]
                   all: [] 
-
                Otherwise you can access any combination 
-               of acqusition functions you want
+               of acqusition functions you want by just passing their names
             """,
-            required=False, nargs='+' type=str, default='all')      
+            required=False, nargs='+', type=str, default='all')      
             
       return parser
 

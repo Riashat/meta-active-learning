@@ -17,7 +17,10 @@ run `python3 -m pytest` on linux or `pytest` on os x.
 ```
 usage: experiment.py [-h] [-g GPU] [-e EPOCHS] -p POLICY [-a ACQUISITIONS]
                      [-d DROPOUTITERATIONS] -f FOLDER [-s SEED] [-m MODEL]
-                     [-r REWARD] [-gamma GAMMA] [-policyparam POLICY_PARAM]
+                     [-r REWARD] [-data DATA] [-gamma GAMMA]
+                     [-policyparam POLICY_PARAM] [-w WEIGHT_DECAY]
+                     [-b BATCH_SIZE] [-q QUERIES]
+                     [-custom CUSTOM [CUSTOM ...]]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -45,21 +48,37 @@ named arguments:
   -r REWARD, --reward REWARD
                         Reward to use: `marginalacc`, `marginallogp`, `logp`,
                         `acc`
+  -data DATA, --data DATA
+                        the data to use, `mnist` and `cifar10` supported.
+                        mnist is default
   -gamma GAMMA, --gamma GAMMA
                         The gamma discount factor to use
   -policyparam POLICY_PARAM, --policy-param POLICY_PARAM
                         This is either epislon or c depending on which bandit
                         policy you chose
+  -w WEIGHT_DECAY, --weight_decay WEIGHT_DECAY
+                        Weight Decay for the L2 regularizer
+  -b BATCH_SIZE, --batch_size BATCH_SIZE
+                        Batch Size
+  -q QUERIES, --queries QUERIES
+                        Queries from Pool Set
+  -custom CUSTOM [CUSTOM ...], --custom CUSTOM [CUSTOM ...]
+                        custom acquisition functions to use: Here are some
+                        defaults: 3arm-trivial: [bald, random, negative_bald]
+                        all: [] Otherwise you can access any combination of
+                        acqusition functions you want by just passing their
+                        names
 
 ```
 
 ## Available Policies
 
-1. `random`: randomly pick a different acqusition function at each round
+1. `random`: randomly pick a different acqusition function at each round (this is basically bandit that doesn't use its Q values)
 2. `uniform-maxentropy`: use `maxentropy` acquisition function for the whole experiment
 1. `uniform-segnet`: use `segnet` acquisition function for the whole experiment
 1. `uniform-bald`: use `bald` acquisition function for the whole experiment
 1. `uniform-varratio`: use `varratio` acquisition function for the whole experiment
+1. `uniform-random`: use `random` acquisition function for the whole experiment
 1. `bandit-ucb`: Use UCB to learn which acquisition functions to pick
 2. `bandit-epsilongreedy`: use epsilon greedy to learn which acquisition functions to pick
 
