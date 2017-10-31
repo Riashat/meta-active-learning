@@ -36,11 +36,12 @@ num_classes = 10
 epochs = args.epochs
 acquisition_iterations = args.acquisitions
 dropout_iterations = args.dropoutiterations
-n_queries = 10
+weight_constant = args.weight_decay
+n_queries = 5
 pool_subset_size = 2000 # the number of elements from the pool to run dropout sampling on
 
-(x_train, y_train), val_data, (x_pool, y_pool), test_data = datatools.data_pipeline(valid_ratio=0.1, dataset=args.data)
-
+#training_data, validation_data, pool_data, testing_data
+(x_train, y_train), val_data, (x_pool, y_pool), test_data = datatools.data_pipeline(valid_ratio=0.1)
 n_classes = y_train.shape[1]
 
 
@@ -48,7 +49,7 @@ n_classes = y_train.shape[1]
 # for testing purposes:
 val_data = (val_data[0][:5000], val_data[1][:5000])
 print('WARNING: only using 500 points for validation')
-# test_data = (test_data[0][:500], test_data[1][:500])
+# test_data = (test_data[0][:1000], test_data[1][:1000])
 
 print('POLICY: ',args.policy)
 
@@ -72,20 +73,21 @@ GET INITIAL ESTIMATE OF VALIDATION ACCURACY
 """
 model = cnn(input_shape=x_train.shape[1:],
             output_classes=n_classes,
-            bayesian = args.model == 'bayesian',
-            train_size = x_train.shape[0] )
+            bayesian= args.model == 'bayesian',
+            train_size=x_train.shape[0],
+            weight_constant=weight_constant)
 
 history = model.fit(x_train, y_train,
                     batch_size=batch_size,
                     epochs=args.epochs) 
 
-# for efficiency purposes might want to remove testing on val set here
 
+# for efficiency purposes might want to remove testing on val set here
 train_loss = history.history.get('loss')
 train_accuracy = history.history.get('acc')
 
-val_loss, val_accuracy = stochastic_evaluate(model, val_data, 20)
-test_loss, test_accuracy = stochastic_evaluate(model, test_data, 20)
+val_loss, val_accuracy = stochastic_evaluate(model, val_data, 10)
+test_loss, test_accuracy = stochastic_evaluate(model, test_data, 10)
 
 print ("Accuracy on validation set with initial training dataset")
 print('Validation accuracy:', val_accuracy)
@@ -98,6 +100,9 @@ logger.record_test_metrics(test_loss, test_accuracy)
 
 prev_loss = val_loss
 prev_acc = val_accuracy
+
+
+
 
 
 """
@@ -119,6 +124,8 @@ for i in range(acquisition_iterations):
                                                      model,
                                                      dropout_iterations=dropout_iterations)
     
+    print ("Undertainty Estimates", uncertainty_estimates)
+
     # ask the oracle for labels of the top 'n_queries' uncertain points
     new_data_for_training, pool_subset_updated = ask_oracle(uncertainty_estimates,
                                                             n_queries,
@@ -134,7 +141,8 @@ for i in range(acquisition_iterations):
     model = cnn(input_shape=x_train.shape[1:],
                 output_classes=n_classes,
                 bayesian= args.model == 'bayesian',
-                train_size = x_train.shape[0])
+                train_size=x_train.shape[0],
+                weight_constant=weight_constant)
 
 
     history = model.fit(x_train, y_train,
@@ -146,7 +154,7 @@ for i in range(acquisition_iterations):
     train_accuracy = history.history.get('acc')
 
     # this val_accuracy is used to update policy
-    val_loss, val_accuracy = stochastic_evaluate(model, val_data, 20)
+    val_loss, val_accuracy = stochastic_evaluate(model, val_data, 10)
 
     print('Validation accuracy:', val_accuracy)
 
@@ -170,7 +178,7 @@ for i in range(acquisition_iterations):
     prev_loss = val_loss
     prev_acc = val_accuracy
 
-    test_loss, test_accuracy = stochastic_evaluate(model, test_data, 20)
+    test_loss, test_accuracy = stochastic_evaluate(model, test_data, 10)
 
     print ('Test Accuracy', test_accuracy)
     logger.record_test_metrics(test_loss, test_accuracy)
