@@ -79,8 +79,19 @@ def get_parser():
       
       named_args.add_argument('-q', '--queries',
             help="""Queries from Pool Set""",
-            required=False, type=int, default=10)      
-      
+            required=False, type=int, default=10)   
+
+      named_args.add_argument('-custom', '--custom',
+            help="""
+               custom acquisition functions to use:
+               Here are some defaults:
+                  3arm-trivial: [bald, random, negative_bald]
+                  all: [] 
+               Otherwise you can access any combination 
+               of acqusition functions you want by just passing their names
+            """,
+            required=False, nargs='+', type=str, default='all')      
+            
       return parser
 
 
