@@ -17,7 +17,7 @@ def get_parser():
 
       named_args.add_argument('-e', '--epochs',
             help="""# of epochs to train""",
-            required=False, type=int, default=1000)
+            required=False, type=int, default=50)
 
       named_args.add_argument('-p', '--policy',
             help="""Policy for selecting acquisition functions : 
@@ -71,7 +71,7 @@ def get_parser():
             required=False, type=float, default=0.5)  
       named_args.add_argument('-w', '--weight_decay',
             help="""Weight Decay for the L2 regularizer""",
-            required=False, type=float, default=1)                  
+            required=False, type=float, default=3)                  
       
       named_args.add_argument('-b', '--batch_size',
             help="""Batch Size""",
