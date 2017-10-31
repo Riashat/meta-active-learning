@@ -20,20 +20,19 @@ def grid_search(args_vals):
 parser = argparse.ArgumentParser()
 parser.add_argument('-exp', type=int, default=1)
 parser.add_argument('-g', required=False, type=str, default='0', help=['specify GPU'])
-parser.add_argument('-e', type=int, default=1000, help=['number of epochs for training'])
+parser.add_argument('-e', type=int, default=50, help=['number of epochs for training'])
 parser.add_argument('-p', type=str, default='bandit-ucb', help=['bandit-ucb', 'bandit-epsilongreedy', 'random'])
 parser.add_argument('-a', type=int, default=98, help=['total number of acquisitions'])
 parser.add_argument('-d', type=int, default=100, help='Dropout')
-parser.add_argument('-data', type=str, default='mnist', help='dataset to use')
 parser.add_argument('-f', type=str, default='.././results/')
 parser.add_argument('-m', type=str, default='bayesian', help=['bayesian', 'deterministic'])
 parser.add_argument('-r', type=str, default='marginalacc')
 parser.add_argument('-policyparam', type=float, default=0.5)
 parser.add_argument('-gamma', required=False, type=float, default=0.1)
-parser.add_argument('-w', required=False, type=float, default=1)
+parser.add_argument('-w', required=False, type=float, default=3.5)
 parser.add_argument('-b', required=False, type=int, default=128)
 parser.add_argument('-q', required=False, type=int, default=10)
-
+parser.add_argument('-data', required=False, type=str, default='mnist', help=['cifar10', 'mnist'])
 
 locals().update(parser.parse_args().__dict__)    
 
@@ -54,11 +53,11 @@ mc_samples = args.d
 reward = args.r
 model = args.m
 policy = args.p
-dataset = args.data
 gamma = args.gamma
 policyparameters = args.policyparam
 batch_size = args.b
 queries = args.q
+data = args.data
 
 experiments = args.exp
 save_result = save_dir + 'Rwd-' + reward
@@ -71,16 +70,15 @@ grid += [['a', [acquisitions]]]
 grid += [['d', [mc_samples]]]
 grid += [['f', [save_result]]]
 grid += [['m', [model]]]
-grid += [['data', [dataset]]]
 grid += [['r', [reward]]]
 grid += [['gamma', [gamma]]]
 grid += [['q', [queries]]]
 grid += [['policyparam', [policyparameters]]]
+grid += [['data', [data]]]
 
 ## CHECK: Use the fine-tuned L2 regularizer weight decay constant here (below is for hyperparameter tuning)
-grid += [['w', [0.001, 0.01, 0.1, 1, 2, 3]]]
-#grid += [['w', [2]]]
-
+#grid += [['w', [0.001, 0.01, 0.1, 1, 2, 3]]]
+grid += [['w', [3.5]]]
 #grid += [['b', [32, 64, 128]]]
 
 

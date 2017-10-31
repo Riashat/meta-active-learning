@@ -40,6 +40,7 @@ weight_constant = args.weight_decay
 n_stoch_evaluations = 10
 pool_subset_size = 2000 # the number of elements from the pool to run dropout sampling on
 
+print ("Using dataset : ", args.data)
 (x_train, y_train), val_data, (x_pool, y_pool), test_data = datatools.data_pipeline(valid_ratio=0.1, dataset=args.data)
 
 n_classes = y_train.shape[1]
