@@ -34,7 +34,11 @@ def bald(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=1
 def negative_bald(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
     # basically make the uncertainties negative so that when you sort them
     # you sort the one with lowest uncertainty first
-    return -1 * bald(X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations):
+    return -1 * bald(X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations)
+
+
+
+
 
 def maxentropy(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
     score_All = np.zeros(shape=(X_Pool_Dropout.shape[0], num_classes))
@@ -70,6 +74,13 @@ def varratio(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iteratio
         uncertain_pool_points[t] = v
 
     return uncertain_pool_points
+
+
+def negative_varratio(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
+    # basically make the uncertainties negative so that when you sort them
+    # you sort the one with lowest uncertainty first
+    return -1 * varratio(X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations)
+
 
 
 def segnet(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
@@ -138,6 +149,10 @@ def run_acquisition_function(acq_function, X_Pool_Dropout, num_classes, model, b
     elif acq_function == 'negative_bald':
         print ("Negative BALD Acquisition Function")
         return negative_bald(X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations)
+
+    elif acq_function == 'negative_varratio':
+        print ("Negative VarRatio Acquisition Function")
+        return negative_varratio(X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations)
 
     else:
         raise Exception('Need a valid acquisition function')
