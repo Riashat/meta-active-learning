@@ -31,6 +31,11 @@ def bald(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=1
 
     return uncertain_pool_points
 
+def negative_bald(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
+    # basically make the uncertainties negative so that when you sort them
+    # you sort the one with lowest uncertainty first
+    return -1 * bald(X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations):
+
 def maxentropy(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
     score_All = np.zeros(shape=(X_Pool_Dropout.shape[0], num_classes))
     for d in range(dropout_iterations):
@@ -94,9 +99,12 @@ def random_acq(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterat
 
 
 # a list of all the acquisition functions available
-ACQUISITION_FUNCTIONS = [bald, maxentropy, varratio, segnet]
-ACQUISITION_FUNCTIONS_TEXT = ['bald', 'maxentropy', 'varratio', 'segnet', 'random']
+ACQUISITION_FUNCTIONS = [bald, maxentropy, varratio, segnet, random_acq, negative_bald]
+ACQUISITION_FUNCTIONS_TEXT = ['bald', 'maxentropy', 'varratio', 'segnet', 'random', 'negative_bald']
 
+# for testing if the bandit learns to ignore "negative_bald"
+# @TODO:
+ACQUISITION_FUNCTIONS_BANDIT_TEST = ['bald', 'random', 'negative_bald']
 
 def run_acquisition_function(acq_function, X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=100):
     """
@@ -126,6 +134,10 @@ def run_acquisition_function(acq_function, X_Pool_Dropout, num_classes, model, b
     elif acq_function == "segnet":
         print ("Bayes Segnet Acquisition Function")
         return segnet(X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations)
+
+    elif acq_function == 'negative_bald':
+        print ("Negative BALD Acquisition Function")
+        return negative_bald(X_Pool_Dropout, num_classes, model, batch_size, dropout_iterations)
 
     else:
         raise Exception('Need a valid acquisition function')
