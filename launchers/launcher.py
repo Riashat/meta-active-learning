@@ -26,11 +26,12 @@ parser.add_argument('-a', type=int, default=98, help=['total number of acquisiti
 parser.add_argument('-d', type=int, default=100, help='Dropout')
 parser.add_argument('-f', type=str, default='.././results/')
 parser.add_argument('-m', type=str, default='bayesian', help=['bayesian', 'deterministic'])
-parser.add_argument('-r', type=str, default='acc')
+parser.add_argument('-r', type=str, default='marginalacc')
 parser.add_argument('-policyparam', type=float, default=0.5)
 parser.add_argument('-gamma', required=False, type=float, default=0.1)
 parser.add_argument('-w', required=False, type=float, default=1)
-
+parser.add_argument('-b', required=False, type=int, default=128)
+parser.add_argument('-q', required=False, type=int, default=10)
 
 
 locals().update(parser.parse_args().__dict__)    
@@ -54,6 +55,8 @@ model = args.m
 policy = args.p
 gamma = args.gamma
 policyparameters = args.policyparam
+batch_size = args.b
+queries = args.q
 
 experiments = args.exp
 save_result = save_dir + 'Rwd-' + reward
@@ -68,11 +71,14 @@ grid += [['f', [save_result]]]
 grid += [['m', [model]]]
 grid += [['r', [reward]]]
 grid += [['gamma', [gamma]]]
+grid += [['q', [queries]]]
 grid += [['policyparam', [policyparameters]]]
 
 ## CHECK: Use the fine-tuned L2 regularizer weight decay constant here (below is for hyperparameter tuning)
 grid += [['w', [0.001, 0.01, 0.1, 1, 2, 3]]]
-#grid += [['w', [0.01]]]
+#grid += [['w', [2]]]
+
+#grid += [['b', [32, 64, 128]]]
 
 
 
