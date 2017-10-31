@@ -69,6 +69,15 @@ def get_parser():
             help="""Weight Decay for the L2 regularizer""",
             required=False, type=float, default=1)                  
       
+      named_args.add_argument('-b', '--batch_size',
+            help="""Batch Size""",
+            required=False, type=int, default=128)                  
+      
+      named_args.add_argument('-q', '--queries',
+            help="""Queries from Pool Set""",
+            required=False, type=int, default=10)      
+      
+      
       return parser
 
 
