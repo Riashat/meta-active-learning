@@ -19,7 +19,6 @@ def grid_search(args_vals):
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-exp', type=int, default=1)
-parser.add_argument('-exp', type=int, default=5)
 parser.add_argument('-g', required=False, type=str, default='0', help=['specify GPU'])
 parser.add_argument('-e', type=int, default=1000, help=['number of epochs for training'])
 parser.add_argument('-p', type=str, default='bandit-ucb', help=['bandit-ucb', 'bandit-epsilongreedy', 'random'])
@@ -30,6 +29,9 @@ parser.add_argument('-m', type=str, default='bayesian', help=['bayesian', 'deter
 parser.add_argument('-r', type=str, default='acc')
 parser.add_argument('-policyparam', type=float, default=0.5)
 parser.add_argument('-gamma', required=False, type=float, default=0.1)
+parser.add_argument('-w', required=False, type=float, default=1)
+
+
 
 locals().update(parser.parse_args().__dict__)    
 
@@ -67,6 +69,10 @@ grid += [['m', [model]]]
 grid += [['r', [reward]]]
 grid += [['gamma', [gamma]]]
 grid += [['policyparam', [policyparameters]]]
+
+## CHECK: Use the fine-tuned L2 regularizer weight decay constant here (below is for hyperparameter tuning)
+grid += [['w', [0.001, 0.01, 0.1, 1, 2, 3]]]
+#grid += [['w', [0.01]]]
 
 
 
