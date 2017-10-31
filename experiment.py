@@ -31,13 +31,18 @@ from src.oracle import ask_oracle
 from src.acquisition_function import run_acquisition_function, ACQUISITION_FUNCTIONS_TEXT
 from src.policies import policy_parser
 
-batch_size = 32
-num_classes = 10
+
 epochs = args.epochs
 acquisition_iterations = args.acquisitions
 dropout_iterations = args.dropoutiterations
 weight_constant = args.weight_decay
-n_queries = 5
+batch_size = args.batch_size
+queries = args.queries
+
+
+batch_size = batch_size
+n_queries = queries
+num_classes = 10
 pool_subset_size = 2000 # the number of elements from the pool to run dropout sampling on
 
 #training_data, validation_data, pool_data, testing_data
@@ -47,9 +52,9 @@ n_classes = y_train.shape[1]
 
 #(x_valid, y_valid) = val_data
 # for testing purposes:
-val_data = (val_data[0][:5000], val_data[1][:5000])
+val_data = (val_data[0][:1000], val_data[1][:1000])
 print('WARNING: only using 500 points for validation')
-# test_data = (test_data[0][:1000], test_data[1][:1000])
+test_data = (test_data[0][:5000], test_data[1][:5000])
 
 print('POLICY: ',args.policy)
 
