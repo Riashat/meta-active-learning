@@ -35,7 +35,7 @@ def get_parser():
 
       named_args.add_argument('-a', '--acquisitions',
             help="""# of acquisitions for active learning""",
-            required=False, type=int, default=980)
+            required=False, type=int, default=98)
 
       named_args.add_argument('-d', '--dropoutiterations',
             help="""# of dropout estimates""",
@@ -57,6 +57,10 @@ def get_parser():
             help="""Reward to use: `marginalacc`, `marginallogp`, `logp`, `acc`""",
             required=False, type=str, default='marginalacc')
 
+      named_args.add_argument('-data', '--data',
+            help="""the data to use, `mnist` and `cifar10` supported. mnist is default""",
+            required=False, type=str, default='mnist')
+
       named_args.add_argument('-gamma', '--gamma',
             help="""The gamma discount factor to use""",
             required=False, type=float, default=None)
@@ -76,7 +80,6 @@ def get_parser():
       named_args.add_argument('-q', '--queries',
             help="""Queries from Pool Set""",
             required=False, type=int, default=10)      
-      
       
       return parser
 
