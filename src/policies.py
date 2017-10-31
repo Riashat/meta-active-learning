@@ -128,7 +128,10 @@ class UCBBanditPolicy(BanditPolicy):
 
 
 def policy_parser(policy_name, args):
-    from src.acquisition_function import ACQUISITION_FUNCTIONS_TEXT
+    from src.acquisition_function import (
+            ACQUISITION_FUNCTIONS_TEXT,
+            ACQUISITION_FUNCTIONS_BANDIT_TEST
+        )
     if policy_name == 'random':
         print('Random policy where at every step we pick randomly from ')
         print(ACQUISITION_FUNCTIONS_TEXT)
@@ -142,16 +145,25 @@ def policy_parser(policy_name, args):
         return UniformPolicy([acquisition_function])
 
     elif policy_name.startswith('bandit-'):
+
+        if 'all' in args.custom:
+            available_acqs = ACQUISITION_FUNCTIONS_TEXT
+        elif '3arm-trivial' in args.custom:
+            available_acqs = ACQUISITION_FUNCTIONS_BANDIT_TEST
+        else:
+            assert set(args.custom).issubset(set(ACQUISITION_FUNCTIONS_TEXT)), \
+                'Note that custom acquisition functions must be a subset of all acqusition functions available'
+            available_acqs = args.custom
         print('At every step we pick actions from ')
-        print(ACQUISITION_FUNCTIONS_TEXT)
+        print(available_acqs)
         policy = policy_name.replace('bandit-', '')
         print('according to a policy')
         print(policy)
         if policy == 'ucb':
-            return UCBBanditPolicy(ACQUISITION_FUNCTIONS_TEXT,
+            return UCBBanditPolicy(available_acqs,
                                    gamma=args.gamma,
                                    c=args.policy_param)
         elif policy == 'epsilongreedy':
-            return EpsilonGreedyBanditPolicy(ACQUISITION_FUNCTIONS_TEXT,
+            return EpsilonGreedyBanditPolicy(available_acqs,
                                              gamma=args.gamma,
                                              epsilon=args.policy_param)
