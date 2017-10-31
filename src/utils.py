@@ -35,15 +35,11 @@ def get_parser():
 
       named_args.add_argument('-a', '--acquisitions',
             help="""# of acquisitions for active learning""",
-            required=False, type=int, default=98)
+            required=False, type=int, default=980)
 
       named_args.add_argument('-d', '--dropoutiterations',
             help="""# of dropout estimates""",
             required=False, type=int, default=100)
-
-      named_args.add_argument('-data', '--data',
-            help="""the data to use, `mnist` and `cifar10` supported. mnist is default""",
-            required=False, type=str, default='mnist')
 
       named_args.add_argument('-f', '--folder',
             help="""Folder to save data to""",
@@ -68,7 +64,11 @@ def get_parser():
       named_args.add_argument('-policyparam', '--policy-param',
             help="""This is either epislon or c depending on which
                     bandit policy you chose""",
-            required=False, type=float, default=0.5)                  
+            required=False, type=float, default=0.5)  
+      named_args.add_argument('-w', '--weight_decay',
+            help="""Weight Decay for the L2 regularizer""",
+            required=False, type=float, default=1)                  
+      
       return parser
 
 
