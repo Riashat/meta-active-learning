@@ -24,6 +24,7 @@ parser.add_argument('-e', type=int, default=1000, help=['number of epochs for tr
 parser.add_argument('-p', type=str, default='bandit-ucb', help=['bandit-ucb', 'bandit-epsilongreedy', 'random'])
 parser.add_argument('-a', type=int, default=98, help=['total number of acquisitions'])
 parser.add_argument('-d', type=int, default=100, help='Dropout')
+parser.add_argument('-data', type=str, default='mnist', help='dataset to use')
 parser.add_argument('-f', type=str, default='.././results/')
 parser.add_argument('-m', type=str, default='bayesian', help=['bayesian', 'deterministic'])
 parser.add_argument('-r', type=str, default='marginalacc')
@@ -53,6 +54,7 @@ mc_samples = args.d
 reward = args.r
 model = args.m
 policy = args.p
+dataset = args.data
 gamma = args.gamma
 policyparameters = args.policyparam
 batch_size = args.b
@@ -69,6 +71,7 @@ grid += [['a', [acquisitions]]]
 grid += [['d', [mc_samples]]]
 grid += [['f', [save_result]]]
 grid += [['m', [model]]]
+grid += [['data', [dataset]]]
 grid += [['r', [reward]]]
 grid += [['gamma', [gamma]]]
 grid += [['q', [queries]]]
