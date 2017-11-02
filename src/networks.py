@@ -21,12 +21,9 @@ from keras.optimizers import SGD, Adadelta, Adagrad, Adam
 from keras.utils import np_utils, generic_utils
 from six.moves import range
 import numpy as np
-import scipy as sp
 from keras import backend as K  
 import random
 random.seed(5001)
-import scipy.io
-import matplotlib.pyplot as plt
 from keras.regularizers import l2, activity_l2
 
 
