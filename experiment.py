@@ -14,16 +14,16 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
 import numpy as np
-import tensorflow as tf
+# import tensorflow as tf
 
 # Setting a seed as described in https://github.com/blei-lab/edward/pull/184
 # this is is useful for reproducibility
 # !!! DO NOT MOVE THE SEED TO AFTER IMPORTING KERAS !!!
-np.random.seed(args.seed)
-tf.set_random_seed(args.seed)
-if len(tf.get_default_graph()._nodes_by_id.keys()) > 0:
-    raise RuntimeError('Seeding is not supported after initializing a part ' +
-                       'of the graph.')
+# np.random.seed(args.seed)
+# tf.set_random_seed(args.seed)
+# if len(tf.get_default_graph()._nodes_by_id.keys()) > 0:
+#     raise RuntimeError('Seeding is not supported after initializing a part ' +
+#                        'of the graph.')
 
 from src import datatools
 from src.networks import cnn
@@ -37,7 +37,7 @@ acquisition_iterations = args.acquisitions
 dropout_iterations = args.dropoutiterations
 n_queries = args.queries
 weight_constant = args.weight_decay
-n_stoch_evaluations = 10
+n_stoch_evaluations = 2
 pool_subset_size = 2000 # the number of elements from the pool to run dropout sampling on
 
 print ("Using dataset : ", args.data)
@@ -45,12 +45,14 @@ print ("Using dataset : ", args.data)
 
 n_classes = y_train.shape[1]
 
-
-#(x_valid, y_valid) = val_data
 # for testing purposes:
-val_data = (val_data[0][:5000], val_data[1][:5000])
+val_data = (val_data[0][:1000], val_data[1][:1000])
+(x_valid, y_valid) = val_data
+
+
 print('WARNING: only using 500 points for validation')
 # test_data = (test_data[0][:500], test_data[1][:500])
+(x_test, y_test) = test_data
 
 print('POLICY: ',args.policy)
 
@@ -78,28 +80,49 @@ model = cnn(input_shape=x_train.shape[1:],
             train_size=x_train.shape[0],
             weight_constant=weight_constant)
 
-history = model.fit(x_train, y_train,
-                    batch_size=batch_size,
-                    epochs=args.epochs) 
+
+# model = cnn(input_shape=x_train.shape[1:],
+#             output_classes=n_classes,
+#             train_size=x_train.shape[0])
+
+
+
+
+#hist = model.fit(x_train, y_train, batch_size=batch_size, nb_epoch=args.epochs, show_accuracy=True, verbose=1, validation_data=(X_valid, Y_valid))
+history = model.fit(x_train, y_train, batch_size=batch_size, nb_epoch=args.epochs, show_accuracy=True, verbose=1, validation_data = (x_valid, y_valid))
+
+# history = model.fit(x_train, y_train,
+#                     batch_size=batch_size,
+#                     epochs=args.epochs) 
 
 # for efficiency purposes might want to remove testing on val set here
 
 train_loss = history.history.get('loss')
 train_accuracy = history.history.get('acc')
 
-val_loss, val_accuracy = stochastic_evaluate(model, val_data, n_stoch_evaluations)
-test_loss, test_accuracy = stochastic_evaluate(model, test_data, n_stoch_evaluations)
+val_loss = history.history.get('val_loss')
+val_accuracy = history.history.get('val_acc')
+
+
+# val_loss, val_accuracy = stochastic_evaluate(model, val_data, n_stoch_evaluations)
+# test_loss, test_accuracy = stochastic_evaluate(model, test_data, n_stoch_evaluations)
+test_loss, test_accuracy = model.evaluate(x_test, y_test, show_accuracy=True, verbose=0)
+
 
 print ("Accuracy on validation set with initial training dataset")
 print('Validation accuracy:', val_accuracy)
 print ('Test Accuracy', test_accuracy)
 
 logger.record_train_metrics(train_loss[-1], train_accuracy[-1])
-logger.record_val_metrics(val_loss, val_accuracy)
+logger.record_val_metrics(val_loss[-1], val_accuracy[-1])
 logger.record_test_metrics(test_loss, test_accuracy)
 
 
 prev_loss = val_loss
+prev_acc = val_accuracy
+
+val_accuracy = np.asarray(val_accuracy)
+val_accuracy = val_accuracy[-1]
 prev_acc = val_accuracy
 
 
@@ -139,21 +162,38 @@ for i in range(acquisition_iterations):
                 train_size=x_train.shape[0],
                 weight_constant=weight_constant)
 
-    history = model.fit(x_train, y_train,
-                        batch_size=batch_size,
-                        epochs=args.epochs)
+
+    # model = cnn(input_shape=x_train.shape[1:],
+    #             output_classes=n_classes,
+    #             bayesian= args.model == 'bayesian',
+    #             train_size=x_train.shape[0],
+    #             weight_constant=weight_constant)
+
+    history = model.fit(x_train, y_train, batch_size=batch_size, nb_epoch=args.epochs, show_accuracy=True, verbose=1, validation_data = (x_valid, y_valid))
+
+    # history = model.fit(x_train, y_train,
+    #                     batch_size=batch_size,
+    #                     epochs=args.epochs)
 
     train_loss = history.history.get('loss')
     train_accuracy = history.history.get('acc')
 
+
+    val_loss = history.history.get('val_loss')
+    val_accuracy = history.history.get('val_acc')
+
     # this val_accuracy is used to update policy
-    val_loss, val_accuracy = stochastic_evaluate(model, val_data, n_stoch_evaluations)
+    # val_loss, val_accuracy = stochastic_evaluate(model, val_data, n_stoch_evaluations)
 
     print('Validation accuracy:', val_accuracy)
 
     logger.record_train_metrics(train_loss[-1], train_accuracy[-1])
-    logger.record_val_metrics(val_loss, val_accuracy)
+    logger.record_val_metrics(val_loss[-1], val_accuracy[-1])
     logger.record_acquisition_function(acquisition_function_name)
+    
+
+    val_accuracy = np.asarray(val_accuracy)
+    val_accuracy = val_accuracy[-1]
     # get the reward for making the acquisition
     reward = reward_process.get_reward(prev_acc,
                                        val_accuracy,
@@ -163,7 +203,7 @@ for i in range(acquisition_iterations):
     # update the policy based on this reward
     # note that internally the last action selected
     # is stored.
-    # print('Reward gained:', reward)
+    print('Reward gained:', reward)
     logger.record_reward(reward)
 
     policy.update_policy(reward, verbose=True)
@@ -171,7 +211,9 @@ for i in range(acquisition_iterations):
     prev_loss = val_loss
     prev_acc = val_accuracy
 
-    test_loss, test_accuracy = stochastic_evaluate(model, test_data, n_stoch_evaluations)
+    test_loss, test_accuracy = model.evaluate(x_test, y_test, show_accuracy=True, verbose=0)
+
+    # test_loss, test_accuracy = stochastic_evaluate(model, test_data, n_stoch_evaluations)
 
     print ('Test Accuracy', test_accuracy)
     logger.record_test_metrics(test_loss, test_accuracy)

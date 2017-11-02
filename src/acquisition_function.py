@@ -10,7 +10,7 @@ def bald(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=1
     All_Entropy_Dropout = np.zeros(shape=X_Pool_Dropout.shape[0])
 
     for d in range(dropout_iterations):
-        dropout_score = model.predict(X_Pool_Dropout, batch_size=batch_size, verbose=1)
+        dropout_score = model.predict_stochastic(X_Pool_Dropout, batch_size=batch_size, verbose=1)
         #computing Entropy_Average_Pi
         score_All = score_All + dropout_score
         #computing Average_Entropy
@@ -43,7 +43,7 @@ def negative_bald(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_ite
 def maxentropy(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
     score_All = np.zeros(shape=(X_Pool_Dropout.shape[0], num_classes))
     for d in range(dropout_iterations):
-        dropout_score = model.predict(X_Pool_Dropout,batch_size=batch_size, verbose=1)
+        dropout_score = model.predict_stochastic(X_Pool_Dropout,batch_size=batch_size, verbose=1)
         score_All = score_All + dropout_score
 
     Avg_Pi = np.divide(score_All, dropout_iterations)
@@ -59,7 +59,7 @@ def varratio(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iteratio
     All_Dropout_Classes = np.zeros(shape=(X_Pool_Dropout.shape[0],1))
 
     for d in range(dropout_iterations):
-        dropout_classes = model.predict_classes(X_Pool_Dropout,batch_size=batch_size, verbose=1)
+        dropout_classes = model.predict_classes_stochastic(X_Pool_Dropout,batch_size=batch_size, verbose=1)
         dropout_classes = np.array([dropout_classes]).T
         All_Dropout_Classes = np.append(All_Dropout_Classes, dropout_classes, axis=1)
 
@@ -86,7 +86,7 @@ def negative_varratio(X_Pool_Dropout, num_classes, model, batch_size=32, dropout
 def segnet(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterations=10):
     All_Dropout_Scores = np.zeros(shape=(X_Pool_Dropout.shape[0], num_classes))
     for d in range(dropout_iterations):
-        dropout_score = model.predict(X_Pool_Dropout,batch_size=batch_size, verbose=1)
+        dropout_score = model.predict_stochastic(X_Pool_Dropout,batch_size=batch_size, verbose=1)
         All_Dropout_Scores = np.append(All_Dropout_Scores, dropout_score, axis=1)
 
     All_Std = np.zeros(shape=(X_Pool_Dropout.shape[0],num_classes))
@@ -111,7 +111,7 @@ def random_acq(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterat
 
 # a list of all the acquisition functions available
 ACQUISITION_FUNCTIONS = [bald, maxentropy, varratio, segnet, random_acq, negative_bald]
-ACQUISITION_FUNCTIONS_TEXT = ['bald', 'maxentropy', 'varratio', 'segnet', 'random', 'negative_bald']
+ACQUISITION_FUNCTIONS_TEXT = ['bald', 'maxentropy', 'varratio', 'segnet', 'random', 'negative_bald', 'negative_varratio']
 
 # for testing if the bandit learns to ignore "negative_bald"
 # @TODO:
