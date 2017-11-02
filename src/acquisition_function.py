@@ -113,6 +113,9 @@ def random_acq(X_Pool_Dropout, num_classes, model, batch_size=32, dropout_iterat
 ACQUISITION_FUNCTIONS = [bald, maxentropy, varratio, segnet, random_acq, negative_bald]
 ACQUISITION_FUNCTIONS_TEXT = ['bald', 'maxentropy', 'varratio', 'segnet', 'random', 'negative_bald', 'negative_varratio']
 
+
+ACQUISITION_FUNCTIONS_WORKSHOP = ['bald', 'maxentropy', 'varratio', 'random']
+
 # for testing if the bandit learns to ignore "negative_bald"
 # @TODO:
 ACQUISITION_FUNCTIONS_BANDIT_TEST = ['bald', 'random', 'negative_bald']

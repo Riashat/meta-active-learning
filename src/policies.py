@@ -130,7 +130,8 @@ class UCBBanditPolicy(BanditPolicy):
 def policy_parser(policy_name, args):
     from src.acquisition_function import (
             ACQUISITION_FUNCTIONS_TEXT,
-            ACQUISITION_FUNCTIONS_BANDIT_TEST
+            ACQUISITION_FUNCTIONS_BANDIT_TEST,
+            ACQUISITION_FUNCTIONS_WORKSHOP
         )
     if policy_name == 'random':
         print('Random policy where at every step we pick randomly from ')
@@ -150,6 +151,8 @@ def policy_parser(policy_name, args):
             available_acqs = ACQUISITION_FUNCTIONS_TEXT
         elif '3arm-trivial' in args.custom:
             available_acqs = ACQUISITION_FUNCTIONS_BANDIT_TEST
+        elif '4arm-workshop' in args.custom:
+            available_acqs = ACQUISITION_FUNCTIONS_WORKSHOP
         else:
             assert set(args.custom).issubset(set(ACQUISITION_FUNCTIONS_TEXT)), \
                 'Note that custom acquisition functions must be a subset of all acqusition functions available'
