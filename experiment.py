@@ -10,8 +10,9 @@ from src.utils import (
 
 args = get_parser().parse_args()
 
-os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+if args.gpu != 'gm':
+    os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+    os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
 import numpy as np
 # import tensorflow as tf
