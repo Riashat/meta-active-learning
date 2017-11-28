@@ -6,6 +6,8 @@ import torch.nn.functional as F
 
 EPSILON = 1e-7
 
+def custom_softmax(input):
+    return torch.autograd.Variable(torch.div(torch.exp(input),torch.sum(torch.exp(input))),requires_grad=False)
 
 def kl_divergence_normal(mu, log_var):
     """
@@ -32,7 +34,8 @@ def discrete_uniform_prior(x):
 
     # Uniform prior over y
     prior = (1. / n) * torch.ones(batch_size, n)
-    prior = F.softmax(prior)
+
+    prior = custom_softmax(prior)#nn.Softmax(prior)
 
     cross_entropy = -torch.sum(x * torch.log(prior + EPSILON), dim=1)
 
@@ -94,4 +97,4 @@ class VariationalInferenceWithLabels(VariationalInference):
         log_likelihood = self.reconstruction(r, x)
         kl_divergence = [torch.sum(self.kl_div(mu, log_var), dim=-1) for _, mu, log_var in latent]
 
-        return log_likelihood + log_prior_y + sum(kl_divergence)
+        return log_likelihood , log_prior_y , sum(kl_divergence)#log_likelihood + log_prior_y + sum(kl_divergence)

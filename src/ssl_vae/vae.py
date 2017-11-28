@@ -6,7 +6,6 @@ M1 code replication from the paper
 This "Latent-feature discriminative model" is eqiuvalent
 to a classifier with VAE latent representation as input.
 """
-
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.nn import init
@@ -41,7 +40,7 @@ class Encoder(nn.Module):
         for i, layer in enumerate(self.hidden):
             x = layer(x)
             if i < len(self.hidden) - 1:
-                x = F.relu(x)
+                x = F.softplus(x)
         return self.sample(x)
 
 
@@ -70,7 +69,7 @@ class Decoder(nn.Module):
 
     def forward(self, x):
         for i, layer in enumerate(self.hidden):
-            x = F.relu(layer(x))
+            x = F.softplus(layer(x))
         x = self.output_activation(self.reconstruction(x))
         return x
 
@@ -85,17 +84,14 @@ class VariationalAutoencoder(nn.Module):
     :param dims (list (int)): Dimensions of the networks
         given by the number of neurons on the form
         [input_dim, [hidden_dims], latent_dim].
-    :return: (x_hat, latent) where latent is represented
-        by parameters of the z-distribution along with a
-        sample.
     """
     def __init__(self, dims):
         super(VariationalAutoencoder, self).__init__()
 
-        [x_dim, z_dim, h_dim] = dims
+        [x_dim, self.z_dim, h_dim] = dims
 
-        self.encoder = Encoder([x_dim, h_dim, z_dim])
-        self.decoder = Decoder([z_dim, list(reversed(h_dim)), x_dim])
+        self.encoder = Encoder([x_dim, h_dim, self.z_dim])
+        self.decoder = Decoder([self.z_dim, list(reversed(h_dim)), x_dim])
 
         for m in self.modules():
             if isinstance(m, nn.Linear):
@@ -104,6 +100,16 @@ class VariationalAutoencoder(nn.Module):
                     m.bias.data.zero_()
 
     def forward(self, x):
+        """
+        Runs a data point through the model in order
+        to provide its reconstruction and q distribution
+        parameters
+
+        :param x (torch.autograd.Variable): input data
+        :return: (x_hat, latent) where latent is represented
+        by parameters of the z-distribution along with a
+        sample
+        """
         z, mu, log_var = self.encoder(x)
         x_hat = self.decoder(z)
 
@@ -117,3 +123,17 @@ class VariationalAutoencoder(nn.Module):
         :return: (torch.autograd.Variable) generated sample
         """
         return self.decoder(z)
+
+
+class LadderVariationalAutoencoder(nn.Module):
+    """
+    Ladder Variational Autoencoder as described by
+    Sønderby et al (2016). Adds several stochastic
+    layers to improve the log-likelihood estimate.
+
+    :param dims (list (int)): Dimensions of the networks
+        given by the number of neurons on the form
+        [input_dim, [hidden_dims], latent_dim].
+    """
+    def __init__(self, dims):
+        super(LadderVariationalAutoencoder, self).__init__(dims)
