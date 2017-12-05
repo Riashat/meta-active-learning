@@ -1,0 +1,3 @@
+[submodule "src/ssl_vae/bayesbench"]
+	path = src/ssl_vae/bayesbench
+	url = https://github.com/zafarali/bayesbench.git
