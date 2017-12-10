@@ -218,6 +218,7 @@ class ssl_vae:
             approx_train_metrics=True)
 
     def predict(self,X):
+        ys = []
         for i in range(len(X)):
             x = X[i]
             if type(x) is not torch.autograd.Variable:
@@ -226,10 +227,10 @@ class ssl_vae:
             _, (z, _, _) = self.model(x)
             z = z.data
             z = z.view(1,len(z))
-            y = torch.FloatTensor(y)
             y_logits = self.classifier_m2.predict(z)
             #_, y_logits = torch.max(x,1)
-        return y_logits
+            ys.append(y_logits.data)
+        return np.array(ys)
 
 class ssl_vae_dataset(Dataset):
     def __init__(self, X, y=None, transform=None):
@@ -292,12 +293,12 @@ class SSClassifier:
                          num_workers=1,
                          lr_m1=3e-5,
                          lr_m2=1e-2,
-                         epochs_m1=1,
-                         epochs_m2=1,
+                         epochs_m1=50,
+                         epochs_m2=50,
                          dims=[512, 50, [600]],
                          verbose=True,
                          log=True,
-                         dropout=0.05)
+                         dropout=0.1)
 
     def __extract_features(self,X):
         from skimage.transform import resize
@@ -336,9 +337,11 @@ class SSClassifier:
         idx = np.random.randint(0,len(X_unlabeled),200)
         X_unlabeled = X_unlabeled[idx]
         self.X_unlabeled = self.__extract_features(X_unlabeled)
-        self.ssl_vae.train(X_labeled,Y_labeled,X_unlabeled)
+        self.ssl_vae.train(self.X_labeled,self.Y_labeled,self.X_unlabeled)
 
     def predict(self,X):
+        if K.image_data_format() is not 'channels_first':
+            X = X.reshape(X.shape[0],self.n_channels,self.img_rows,self.img_cols)
         X = self.__extract_features(X)
         return self.ssl_vae.predict(X)
 
@@ -350,23 +353,23 @@ if __name__ == "__main__":
     SSClassifier.train(X_labeled, Y_labeled, X_unlabeled)
     idx = np.random.randint(0,len(X_unlabeled),10)
     X_unlabeled = X_unlabeled[idx]
-    print(acc = SSClassifier.predict(X_unlabeled))
-    exit()
     trials = 5
     accs = []
+    y_true = np.argmax(Y_unlabeled[idx],axis=1)
+    from sklearn.metrics import accuracy_score
     for n in range(trials):
-        acc = SSClassifier.predict(X_unlabeled)
-        accs.append(acc)
+        y_pred = SSClassifier.predict(X_unlabeled)
+        accs.append(accuracy_score(y_true,y_pred))
     mean = lambda x: sum(x)/len(x)
     print("Accuracy")
     print("Mean: %.5f Variance: %.5f" % (mean(accs),
         sum(list(map(lambda x:(x-mean(accs))**2,accs)))/(len(accs)-1)
         ))
-    if dummy_ssl_vae.log:
-        dummy_ssl_vae.logger.write("Mean: %.5f Variance: %.5f" % (mean(accs),
+    if SSClassifier.ssl_vae.log:
+        SSClassifier.ssl_vae.logger.write("Mean: %.5f Variance: %.5f" % (mean(accs),
         sum(list(map(lambda x:(x-mean(accs))**2,accs)))/(len(accs)-1)
         ))
-    dummy_ssl_vae.logger.close()
+    SSClassifier.ssl_vae.logger.close()
 
 """
 import pickle
