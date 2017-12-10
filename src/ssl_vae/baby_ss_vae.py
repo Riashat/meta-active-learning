@@ -1,6 +1,7 @@
 import sys
 sys.path.append("semi-supervised")
 sys.path.append("bayesbench")
+sys.path.append("../")
 from torch.autograd import Variable
 import numpy as np
 import torch
@@ -18,32 +19,42 @@ from bayesbench.benchmarking import regression
 from bayesbench.networks.simple import SimpleMLP
 from bayesbench.utils.metrics import accuracy
 from bayesbench.methods import DeterministicMethod, MCDropoutMethod
+from datatools import data_pipeline
+
+# Keras CIFAR / MNIST utility
+from keras import backend as K
 
 def binary_cross_entropy(r, x):
-            return F.binary_cross_entropy(r, x, size_average=False)
+    return F.binary_cross_entropy(r, x, size_average=False)
+
 class bnn_dataset(Dataset):
-    def __init__(self, dl, m1):
-        self.dataset = dl.dataset
-        self.ds = self.dataset
+    def __init__(self, x,y, m1=None):
+        self.x = x
+        self.y = y
         self.m1 = m1
 
     def __len__(self):
-        return len(self.ds)
+        return len(self.x)
 
     def __getitem__(self, idx):
-        x, y = self.ds.mnist.data[idx], self.ds.mnist.target[idx]
-        x = torch.FloatTensor((x/255).astype(np.float32))
-        y = int(np.asscalar(y))
-        x = torch.autograd.Variable(x)
-        _, (z, _, _) = self.m1(x)
-        z = z.data
-        z = z.view(1,len(z))
-        y = generate_label(1, y, nlabels=10)
-        y = y.type(torch.FloatTensor)
-        return z,y
+        if self.m1 is not None:
+            x, y = self.x[idx], self.y[idx]
+            if type(x) is not torch.autograd.Variable:
+                x = torch.FloatTensor(x)
+                x = torch.autograd.Variable(x)
+            _, (z, _, _) = self.m1(x)
+            z = z.data
+            z = z.view(1,len(z))
+            y = torch.FloatTensor(y)
+            y = y.view(1,10)
+            #_,y = torch.max(y,1)
+
+            return z,y
+        else:
+            return self.x[idx]
+
 class ssl_vae:
-    
-    def __init__(self,labeled,unlabeled,#,X_labeled,Y_labeled,X_unlabeled,
+    def __init__(self,
                  batch_size=64,
                  num_workers=1,
                  lr_m1=3e-5,
@@ -80,14 +91,6 @@ class ssl_vae:
         if self.log:
             self.logger = open("log","w")
 
-        #labeled=ssl_vae_dataset(X_labeled,Y_labeled)
-        #unlabeled=ssl_vae_dataset(X_labeled)
-        
-        #self.unlabeled = DataLoader(unlabeled, batch_size=batch_size, shuffle=True, num_workers=num_workers)
-        #self.labeled = DataLoader(labeled, batch_size=batch_size, shuffle=True, num_workers=num_workers)
-        self.unlabeled = unlabeled
-        self.labeled = labeled
-
         self.network_params = {
         'input_dims': self.dims[1],
         'output_dims': 10,
@@ -98,7 +101,12 @@ class ssl_vae:
         'out_non_linearity':nn.Softmax()
         }
         
-    def train(self):
+    def train(self,X_labeled,Y_labeled,X_unlabeled):
+        self.X_labeled = X_labeled
+        self.X_unlabeled = X_unlabeled
+        self.Y_labeled = Y_labeled
+        self.unlabeled = bnn_dataset(self.X_unlabeled,None,None)
+        self.labeled = bnn_dataset(self.X_labeled,self.Y_labeled,None)
         self.__create_m1() # create m1
         self.__train_m1()  # train m1
         self.__create_m2() # create m2
@@ -117,9 +125,8 @@ class ssl_vae:
     def __train_m1(self):
         
         for epoch in range(self.epochs_m1):
-            for u,_ in self.unlabeled:
-                #u = u['X']
-                u = Variable(u)
+            for u in self.unlabeled:
+                #u = Variable(u)
                 
                 reconstruction, (_, z_mu, z_log_var) = self.model(u)
                 # Equation 3
@@ -129,15 +136,15 @@ class ssl_vae:
                 self.optimizer_m1.step()
                 self.optimizer_m1.zero_grad()
         
-            if self.verbose and epoch % 10== 0:
+            if self.verbose and epoch % 1== 0:
                 l = self.L.data[0]
                 print("Epoch: {0:} loss: {1:.3f}".format(epoch, l))
             if self.log and epoch % 10== 0:
                 l = self.L.data[0]
                 self.logger.write("Epoch: {0:} loss: {1:.3f}\n".format(epoch, l))
         for epoch in range(self.epochs_m1):
-            for u,_ in self.labeled:
-                u = Variable(u)
+            for u in self.labeled:
+                #u = Variable(u)
                 
                 reconstruction, (_, z_mu, z_log_var) = self.model(u)
                 # Equation 3
@@ -147,7 +154,7 @@ class ssl_vae:
                 self.optimizer_m1.step()
                 self.optimizer_m1.zero_grad()
         
-            if self.verbose and epoch % 10== 0:
+            if self.verbose and epoch % 1== 0:
                 l = self.L.data[0]
                 print("Epoch: {0:} loss: {1:.3f}".format(epoch, l))
             if self.log and epoch % 10== 0:
@@ -156,7 +163,7 @@ class ssl_vae:
 
          
     def __create_m2(self):
-        
+        """
         if not self.dropout:
             self.classifier_m2 = nn.Sequential(
             nn.Linear(self.dims[1], self.dims[2][0]),
@@ -165,16 +172,21 @@ class ssl_vae:
             nn.Softmax())
             self.optimizer_m2 = torch.optim.Adam(self.classifier_m2.parameters(), lr=self.lr_m2)
         else:
-            self.classifier_m2 = MCDropoutMethod(
-                    SimpleMLP(**self.network_params),
-                    F.binary_cross_entropy,
-                    N=len(self.labeled),
-                    dropout=0.5,
-                    tau=0.1,
-                    #metrics=accuracy,#lambda true,pred:accuracy(true,generate_label(1, int(pred), nlabels=10)),
-                    optimizer_params={'lr':self.lr_m2})  
+        """
+
+        self.classifier_m2 = MCDropoutMethod(
+                SimpleMLP(**self.network_params),
+                F.binary_cross_entropy,
+                N=len(self.labeled),
+                dropout=self.dropout,
+                tau=0.1,
+                metrics={},
+                #metrics=accuracy,#lambda true,pred:accuracy(true,generate_label(1, int(pred), nlabels=10)),
+                optimizer_params={'lr':self.lr_m2})  
+        self.bnn_train = bnn_dataset(self.X_labeled,self.Y_labeled,self.model)
        
     def __train_m2(self):
+        """
         if not self.dropout:
             for epoch in range(self.epochs_m2):
                 for x,y in self.labeled:
@@ -197,52 +209,29 @@ class ssl_vae:
                 if self.log and epoch % 10== 0:
                     l = self.loss.data[0]
                     self.logger.write("Epoch: {0:} loss: {1:.3f}\n".format(epoch, l))
-        else:
-            bnn_train = bnn_dataset(self.labeled, self.model)
-            self.classifier_m2.train(bnn_train,
-                val_dataloader=None,
-                epochs=self.epochs_m2,
-                log_every_x_batches=-1,
-                verbose=self.verbose,
-                approx_train_metrics=False)
-
+        else:"""
+        self.classifier_m2.train(self.bnn_train,
+            val_dataloader=None,
+            epochs=self.epochs_m2,
+            log_every_x_batches=-1,
+            verbose=False,
+            approx_train_metrics=True)
 
     def predict(self,X):
-        if not self.dropout:
-            if type(X) is DataLoader:
-                x, y = next(iter(X))
-            else:
-                x = X
-            _, (z, _, _) = self.model(Variable(x))
-            _, y_logits = torch.max(self.classifier_m2(z), 1)
-            _, y = torch.max(y,1)
-            if type(X) is DataLoader:
-                y_logits = y_logits.data
-                acc = sum(y==y_logits)/len(y)
-                print(acc)
-                return y,y_logits
-            else:
-                return y_logits
-        if type(X) is DataLoader:
-            acc = 0
-            for i in range(len(X)):
-                x, y = X.dataset.mnist.data[i], X.dataset.mnist.target[i]
-                x = torch.FloatTensor((x/255).astype(np.float32))
-                y = int(np.asscalar(y))
+        for i in range(len(X)):
+            x = X[i]
+            if type(x) is not torch.autograd.Variable:
+                x = torch.FloatTensor(x)
                 x = torch.autograd.Variable(x)
-                _, (z, _, _) = self.model(x)
-                z = z.data
-                z = z.view(1,len(z))
-                y = generate_label(1, y, nlabels=10)
-                y = y.type(torch.FloatTensor)
-                y_logits = self.classifier_m2.predict(z)
-                _, y = torch.max(y,1)
-                #_, y_logits = torch.max(x,1)
-                acc += int(y==y_logits.data)
-            acc = acc /len(X)
-            return acc
-class ssl_vae_dataset(Dataset):
+            _, (z, _, _) = self.model(x)
+            z = z.data
+            z = z.view(1,len(z))
+            y = torch.FloatTensor(y)
+            y_logits = self.classifier_m2.predict(z)
+            #_, y_logits = torch.max(x,1)
+        return y_logits
 
+class ssl_vae_dataset(Dataset):
     def __init__(self, X, y=None, transform=None):
         """
         Args:
@@ -269,51 +258,116 @@ class ssl_vae_dataset(Dataset):
             sample = self.transform(sample)
         return sample
 
-labels = np.arange(10)
-n = len(labels)
+class SSClassifier:
 
-# Load in data
-mnist_lab = LimitedMNIST('./', train=True, transform=torch.bernoulli, target_transform=onehot(n), digits=labels, fraction=0.1)
-mnist_ulab = LimitedMNIST('./', train=True, transform=torch.bernoulli, target_transform=onehot(n), digits=labels, fraction=0.8)
-mnist_val = LimitedMNIST('./', train=False, transform=torch.bernoulli, target_transform=onehot(n), digits=labels)
+    def __init__(self, deep_extractor="resnet18"):
+        """
+        X_labeled: n_examples x 3 x height x width
+        y_labeld: n_examples x n_classes
+        X_unlabeled: n_examples x 3 x height x width
+        deep_extractor: alexnet, vgg11, vgg13, vgg16, vgg19, resnet18, resnet34, resent50, resnet101, resnet152, squeezenet1_0, squeezenet1_1, densenet121, 
+            densenet169, densenet161, densenet201 or inception_v3
+        """
+        self.n_channels = 3
+        self.img_rows = 32 # CIFAR
+        self.img_cols = 32 # CIFAR
+        self.deep_extractor = deep_extractor
 
-# Unlabelled data
-unlabelled = torch.utils.data.DataLoader(mnist_ulab, batch_size=100, shuffle=True, num_workers=2)
+        self.__setup_SSClassifier()
 
-# Validation data
-validation = torch.utils.data.DataLoader(mnist_val, batch_size=1000, shuffle=False, num_workers=1)
 
-# Labelled data
-labelled = torch.utils.data.DataLoader(mnist_lab, batch_size=100, shuffle=True, num_workers=2)
+    def __setup_extractor(self,model_name):
+        from torchvision import models
+        extractor = models.__dict__[model_name](pretrained=True)
+        for param in extractor.parameters():
+            param.requires_grad = False
 
-dummy_ssl_vae =ssl_vae(labelled,unlabelled,
-                 batch_size=64,
-                 num_workers=2,
-                 lr_m1=3e-5,
-                 lr_m2=1e-2,
-                 epochs_m1=200,
-                 epochs_m2=200,
-                 dims=[784, 50, [600]],
-                 verbose=True,
-                 log=True,
-                 dropout=0.05)
-dummy_ssl_vae.train()
-print("Training done")
-trials = 5
-accs = []
-for n in range(trials):
-    acc = dummy_ssl_vae.predict(validation)
-    accs.append(acc)
-mean = lambda x: sum(x)/len(x)
-print("Accuracy")
-print("Mean: %.5f Variance: %.5f" % (mean(accs),
-    sum(list(map(lambda x:(x-mean(accs))**2,accs)))/(len(accs)-1)
-    ))
-if dummy_ssl_vae.log:
-    dummy_ssl_vae.logger.write("Mean: %.5f Variance: %.5f" % (mean(accs),
-    sum(list(map(lambda x:(x-mean(accs))**2,accs)))/(len(accs)-1)
-    ))
-dummy_ssl_vae.logger.close()
+        extractor = nn.Sequential(*list(extractor.children())[:-1])
+
+        return extractor
+
+    def __setup_SSClassifier(self):
+        self.ssl_vae =ssl_vae(
+                         batch_size=50,
+                         num_workers=1,
+                         lr_m1=3e-5,
+                         lr_m2=1e-2,
+                         epochs_m1=1,
+                         epochs_m2=1,
+                         dims=[512, 50, [600]],
+                         verbose=True,
+                         log=True,
+                         dropout=0.05)
+
+    def __extract_features(self,X):
+        from skimage.transform import resize
+
+        img_rows = 224
+        img_cols = 224
+
+        processed_X = []
+        for i in range(len(X)):
+            tmp = []
+            for ch in range(len(X[i])):
+                im = X[i][ch]
+                im = resize(im,(img_rows,img_cols),mode = "reflect")
+                tmp.append(im)
+            processed_X.append(tmp)
+
+        X = np.array(processed_X)
+        X = torch.autograd.Variable(torch.FloatTensor(X))
+
+        features = self.extractor(X)
+        return features.view(features.shape[0],-1)
+
+    def train(self,X_labeled,Y_labeled,X_unlabeled):
+
+        if K.image_data_format() is not 'channels_first':
+            X_labeled = X_labeled.reshape(X_labeled.shape[0],self.n_channels,self.img_rows,self.img_cols)
+            X_unlabeled = X_unlabeled.reshape(X_unlabeled.shape[0],self.n_channels,self.img_rows,self.img_cols)
+        self.n_classes = Y_labeled.shape[1]
+
+        self.extractor = self.__setup_extractor(self.deep_extractor)
+
+        idx = np.random.randint(0,len(X_labeled),200)
+        X_labeled = X_labeled[idx]
+        self.X_labeled = self.__extract_features(X_labeled)
+        self.Y_labeled = Y_labeled[idx]
+        idx = np.random.randint(0,len(X_unlabeled),200)
+        X_unlabeled = X_unlabeled[idx]
+        self.X_unlabeled = self.__extract_features(X_unlabeled)
+        self.ssl_vae.train(X_labeled,Y_labeled,X_unlabeled)
+
+    def predict(self,X):
+        X = self.__extract_features(X)
+        return self.ssl_vae.predict(X)
+
+if __name__ == "__main__":
+    training_data, validation_data, pool_data, testing_data = data_pipeline(valid_ratio=0.3, dataset='cifar10')
+    X_labeled,Y_labeled = validation_data #training_data
+    X_unlabeled, Y_unlabeled = pool_data #validation_data
+    SSClassifier = SSClassifier("resnet18")
+    SSClassifier.train(X_labeled, Y_labeled, X_unlabeled)
+    idx = np.random.randint(0,len(X_unlabeled),10)
+    X_unlabeled = X_unlabeled[idx]
+    print(acc = SSClassifier.predict(X_unlabeled))
+    exit()
+    trials = 5
+    accs = []
+    for n in range(trials):
+        acc = SSClassifier.predict(X_unlabeled)
+        accs.append(acc)
+    mean = lambda x: sum(x)/len(x)
+    print("Accuracy")
+    print("Mean: %.5f Variance: %.5f" % (mean(accs),
+        sum(list(map(lambda x:(x-mean(accs))**2,accs)))/(len(accs)-1)
+        ))
+    if dummy_ssl_vae.log:
+        dummy_ssl_vae.logger.write("Mean: %.5f Variance: %.5f" % (mean(accs),
+        sum(list(map(lambda x:(x-mean(accs))**2,accs)))/(len(accs)-1)
+        ))
+    dummy_ssl_vae.logger.close()
+
 """
 import pickle
 val=pickle.load(open("bnn_vae.pickle","rb"))

@@ -27,32 +27,20 @@ class Encoder(nn.Module):
         given by the number of neurons on the form
         [input_dim, [hidden_dims], latent_dim].
     """
-    def __init__(self, convnet, dims, encoder_activation):
+    def __init__(self, dims, encoder_activation):
         super(Encoder, self).__init__()
         self.encoder_activation = encoder_activation
-        self.convnet = convnet
         [x_dim, h_dim, z_dim] = dims
         neurons = [x_dim, *h_dim]
-        self.convnet = convnet
-        if self.convnet: # cnn
-            layers = [nn.Conv2d(3, 32, 3, stride=3, padding=1),  # b, 16, 10, 10
-            nn.ReLU(True),
-            #nn.MaxPool2d(2, stride=2),  # b, 16, 5, 5
-            #nn.Conv2d(16, 8, 3, stride=2, padding=1),  # b, 8, 3, 3
-            #nn.ReLU(True),
-            #nn.MaxPool2d(2, stride=1),  # b, 8, 2, 2
-            nn.Linear(10,neurons[-1])]
-        else: # dense
-            layers = [nn.Linear(neurons[i-1], neurons[i]) for i in range(1, len(neurons))]
+        layers = [nn.Linear(neurons[i-1], neurons[i]) for i in range(1, len(neurons))]
         self.hidden = nn.ModuleList(layers)
         self.sample = StochasticGaussian(h_dim[-1], z_dim)
 
     def forward(self, x):
         for i, layer in enumerate(self.hidden):
             x = layer(x)
-            if not self.convnet:
-                if i < len(self.hidden) - 1:
-                    x = self.encoder_activation(x)#F.relu(x)
+            if i < len(self.hidden) - 1:
+                x = self.encoder_activation(x)#F.relu(x)
         return self.sample(x)
 
 
@@ -68,23 +56,11 @@ class Decoder(nn.Module):
         given by the number of neurons on the form
         [latent_dim, [hidden_dims], input_dim].
     """
-    def __init__(self, convnet, dims, decoder_activation):
+    def __init__(self, dims, decoder_activation):
         super(Decoder, self).__init__()
         self.decoder_activation = decoder_activation
-        self.convnet = convnet
         [z_dim, h_dim, x_dim] = dims
         neurons = [z_dim, *h_dim]
-        """
-        if self.convnet:
-            layers = [nn.ConvTranspose2d(8, 16, 3, stride=2),  # b, 16, 5, 5
-            nn.ReLU(True),
-            nn.ConvTranspose2d(16, 8, 5, stride=3, padding=1),  # b, 8, 15, 15
-            nn.ReLU(True),
-            nn.ConvTranspose2d(8, 1, 2, stride=2, padding=1),  # b, 1, 28, 28
-            nn.Tanh()]#,
-            #nn.Linear(neurons[-2],neurons[-1])]
-        else:
-        """
         layers = [nn.Linear(neurons[i-1], neurons[i]) for i in range(1, len(neurons))]
     
         self.hidden = nn.ModuleList(layers)
@@ -93,11 +69,6 @@ class Decoder(nn.Module):
 
     def forward(self, x):
         for i, layer in enumerate(self.hidden):
-            """
-            if self.convnet:
-                x = layer(x)
-            else:
-            """
             x = self.decoder_activation(layer(x)) #F.relu(layer(x))
         x = self.output_activation(self.reconstruction(x))
         return x
@@ -119,10 +90,9 @@ class VariationalAutoencoder(nn.Module):
     """
     def __init__(self, convnet, dims ,encoder_activation=F.softplus, decoder_activation=F.softplus):
         super(VariationalAutoencoder, self).__init__()
-        self.convnet = convnet
         [x_dim, z_dim, h_dim] = dims
-        self.encoder = Encoder(self.convnet,[x_dim, h_dim, z_dim],encoder_activation)
-        self.decoder = Decoder(self.convnet,[z_dim, list(reversed(h_dim)), x_dim],decoder_activation)
+        self.encoder = Encoder([x_dim, h_dim, z_dim],encoder_activation)
+        self.decoder = Decoder([z_dim, list(reversed(h_dim)), x_dim],decoder_activation)
 
         for m in self.modules():
             if isinstance(m, nn.Linear):
