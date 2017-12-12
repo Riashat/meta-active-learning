@@ -8,9 +8,6 @@ from sklearn.neighbors import KDTree, KNeighborsClassifier
 import keras
 import numpy as np
 import sys
-sys.path.append('ssl_vae')
-
-from baby_ss_vae import SSClassifier
 
 
 def convert_2d_to_1d(X):
@@ -52,31 +49,6 @@ class KNOracle(object):
         close_data = self.classifier._fit_X[close_data_indices]
         close_labels = self.classifier._y[close_data_indices]
         return convert_1d_to_2d(close_data, X.shape[1] ), close_labels
-
-"""
-ssl_vae(X_labeled,Y_labeled,X_unlabeled)
-
-@return: Y_hat_unlabeled
-"""
-
-class SSOracle(object):
-    def __init__(self, X_labeled, Y_labeled, X_unlabeled):
-        """
-        Initialize a semi-supervised VAE
-        Train it on L+U data
-        """
-            self.deep_extractor = "resnet18"
-            self.SSClassifier = SSClassifier(self.deep_extractor)
-            self.train(X_labeled,Y_labeled,X_unlabeled)
-
-    def train(self,X_labeled,Y_labeled,X_unlabeled):
-        self.SSClassifier.train(X_labeled,Y_labeled,X_unlabeled)
-
-    def assign_best_label(self,X):
-        """
-        After training is performed, return the estimated labels
-        """
-        return self.SSClassifier.predict(X)
 
 def ask_oracle(pool_uncertainties, n_queries, X_pool, Y_pool, n_classes=10):
     """

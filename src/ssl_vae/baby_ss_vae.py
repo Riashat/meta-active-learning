@@ -10,9 +10,9 @@ import torch.nn.functional as F
 from torchvision import datasets, transforms
 from torch.utils.data import Dataset,DataLoader
 
-from data.limitedmnist import LimitedMNIST
+#from data.limitedmnist import LimitedMNIST
 from torchvision.datasets import MNIST
-from utils import generate_label, onehot
+from ss_utils import generate_label, onehot
 
 # BayesNet
 from bayesbench.benchmarking import regression
@@ -261,7 +261,7 @@ class ssl_vae_dataset(Dataset):
 
 class SSClassifier:
 
-    def __init__(self, deep_extractor="resnet18"):
+    def __init__(self, params, deep_extractor="resnet18"):
         """
         X_labeled: n_examples x 3 x height x width
         y_labeld: n_examples x n_classes
@@ -269,6 +269,7 @@ class SSClassifier:
         deep_extractor: alexnet, vgg11, vgg13, vgg16, vgg19, resnet18, resnet34, resent50, resnet101, resnet152, squeezenet1_0, squeezenet1_1, densenet121, 
             densenet169, densenet161, densenet201 or inception_v3
         """
+        self.params = params
         self.n_channels = 3
         self.img_rows = 32 # CIFAR
         self.img_cols = 32 # CIFAR
@@ -288,17 +289,7 @@ class SSClassifier:
         return extractor
 
     def __setup_SSClassifier(self):
-        self.ssl_vae =ssl_vae(
-                         batch_size=50,
-                         num_workers=1,
-                         lr_m1=3e-5,
-                         lr_m2=1e-2,
-                         epochs_m1=50,
-                         epochs_m2=50,
-                         dims=[512, 50, [600]],
-                         verbose=True,
-                         log=True,
-                         dropout=0.1)
+        self.ssl_vae =ssl_vae(*self.params)
 
     def __extract_features(self,X):
         from skimage.transform import resize
@@ -321,7 +312,7 @@ class SSClassifier:
         features = self.extractor(X)
         return features.view(features.shape[0],-1)
 
-    def train(self,X_labeled,Y_labeled,X_unlabeled):
+    def fit(self,X_labeled,Y_labeled,X_unlabeled):
 
         if K.image_data_format() is not 'channels_first':
             X_labeled = X_labeled.reshape(X_labeled.shape[0],self.n_channels,self.img_rows,self.img_cols)
@@ -350,7 +341,7 @@ if __name__ == "__main__":
     X_labeled,Y_labeled = validation_data #training_data
     X_unlabeled, Y_unlabeled = pool_data #validation_data
     SSClassifier = SSClassifier("resnet18")
-    SSClassifier.train(X_labeled, Y_labeled, X_unlabeled)
+    SSClassifier.fit(X_labeled, Y_labeled, X_unlabeled)
     idx = np.random.randint(0,len(X_unlabeled),10)
     X_unlabeled = X_unlabeled[idx]
     trials = 5
