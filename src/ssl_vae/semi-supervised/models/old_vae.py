@@ -88,7 +88,7 @@ class VariationalAutoencoder(nn.Module):
         by parameters of the z-distribution along with a
         sample.
     """
-    def __init__(self, convnet, dims ,encoder_activation=F.softplus, decoder_activation=F.softplus):
+    def __init__(self, dims ,encoder_activation=F.softplus, decoder_activation=F.softplus):
         super(VariationalAutoencoder, self).__init__()
         [x_dim, z_dim, h_dim] = dims
         self.encoder = Encoder([x_dim, h_dim, z_dim],encoder_activation)

@@ -83,15 +83,17 @@ params = {
     'num_workers':1,
     'lr_m1':3e-5,
     'lr_m2':1e-2,
-    'epochs_m1':50,
-    'epochs_m2':50,
+    'epochs_m1':10,
+    'epochs_m2':10,
     'dims':[512, 50, [600]],
     'verbose':True,
     'log':True,
     'dropout':0.1
 }
 model = SSClassifier(params, deep_extractor)
-history = model.fit(x_train,y_train,None) # None -> X_unlabeled
+history_m1, history_m2 = model.fit(x_train,y_train,x_pool) # Replace x_pool by x_unlabeled
+
+print(history_m1,history_m2)
 """
 model = cnn(input_shape=x_train.shape[1:],
             output_classes=n_classes,
@@ -105,8 +107,10 @@ history = model.fit(x_train, y_train,
 """
 # for efficiency purposes might want to remove testing on val set here
 
-train_loss = history.history.get('loss')
-train_accuracy = history.history.get('acc')
+train_loss_m1 = history_m1['loss']
+
+train_loss = history_m2[0]
+train_accuracy = history_m2[1]['accuracy']
 
 val_loss, val_accuracy = stochastic_evaluate(model, val_data, n_stoch_evaluations)
 test_loss, test_accuracy = stochastic_evaluate(model, test_data, n_stoch_evaluations)
@@ -154,18 +158,13 @@ for i in range(acquisition_iterations):
     x_train, y_train = datatools.combine_datasets((x_train, y_train), new_data_for_training)
     x_pool, y_pool = datatools.combine_datasets(pool_without_subset, pool_subset_updated)
 
-    model = cnn(input_shape=x_train.shape[1:],
-                output_classes=n_classes,
-                bayesian= args.model == 'bayesian',
-                train_size=x_train.shape[0],
-                weight_constant=weight_constant)
+    model = SSClassifier(params, deep_extractor)
+    history_m1, history_m2 = model.fit(x_train,y_train,x_pool_subset) # replace last arg by x_unlabeled
 
-    history = model.fit(x_train, y_train,
-                        batch_size=batch_size,
-                        epochs=args.epochs)
+    train_loss_m1 = history_m1['loss']
 
-    train_loss = history.history.get('loss')
-    train_accuracy = history.history.get('acc')
+    train_loss = history_m2[0]
+    train_accuracy = history_m2[1]['accuracy']
 
     # this val_accuracy is used to update policy
     val_loss, val_accuracy = stochastic_evaluate(model, val_data, n_stoch_evaluations)
