@@ -47,6 +47,7 @@ class bnn_dataset(Dataset):
             z = z.view(1,len(z))
             y = torch.FloatTensor(y)
             y = y.view(1,10)
+            _, y = torch.max(y,1)
             return z,y
         else:
             return self.x[idx]
@@ -172,7 +173,7 @@ class ssl_vae:
 
         self.classifier_m2 = MCDropoutMethod(
                 SimpleMLP(**self.network_params),
-                F.binary_cross_entropy,
+                F.cross_entropy,
                 N=len(self.labeled),
                 dropout=self.dropout,
                 tau=0.1,
@@ -191,7 +192,7 @@ class ssl_vae:
 
         return history
 
-    def predict(self,X):
+    def predict(self,X,convert_logits):
         ys = []
         for i in range(len(X)):
             x = X[i]
@@ -201,41 +202,14 @@ class ssl_vae:
             _, (z, _, _) = self.model(x)
             z = z.data
             z = z.view(1,len(z))
-            y_logits = self.classifier_m2.predict(z)
+            y_logits = self.classifier_m2.predict(z,convert_logits=convert_logits)
             #_, y_logits = torch.max(x,1)
-            ys.append(y_logits.data)
-        return np.array(ys)
-
-class ssl_vae_dataset(Dataset):
-    def __init__(self, X, y=None, transform=None):
-        """
-        Args:
-            X (matrix): input data
-            y (vector): labels for data. If None, assume unlabeled
-            transform (callable, optional): Optional transform to be applied
-                on a sample.
-        """
-        self.data_frame = X
-        self.size = len(self.data_frame)
-        self.labels = y
-        self.transform = transform
-
-    def __len__(self):
-        return self.size
-
-    def __getitem__(self, idx):
-        
-        if self.labels is not None: # labeled
-            sample = {'X': self.data_frame[idx] , 'y': self.labels[idx]}
-        else: # unlabeled
-            sample = {'X': self.data_frame[idx]}
-        if self.transform:
-            sample = self.transform(sample)
-        return sample
+            ys.append(y_logits.data.numpy())
+        return np.array(ys)[:,0,:]
 
 class SSClassifier:
 
-    def __init__(self, params, deep_extractor="resnet18"):
+    def __init__(self, params, deep_extractor="resnet18", convnet=True):
         """
         X_labeled: n_examples x 3 x height x width
         y_labeld: n_examples x n_classes
@@ -243,6 +217,7 @@ class SSClassifier:
         deep_extractor: alexnet, vgg11, vgg13, vgg16, vgg19, resnet18, resnet34, resent50, resnet101, resnet152, squeezenet1_0, squeezenet1_1, densenet121, 
             densenet169, densenet161, densenet201 or inception_v3
         """
+        self.convnet = convnet
         self.params = params
         self.n_channels = 3
         self.img_rows = 32 # CIFAR
@@ -288,32 +263,48 @@ class SSClassifier:
 
     def fit(self,X_labeled,Y_labeled,X_unlabeled):
 
-        if K.image_data_format() is not 'channels_first':
+        if self.convnet and K.image_data_format() is not 'channels_first':
             X_labeled = X_labeled.reshape(X_labeled.shape[0],self.n_channels,self.img_rows,self.img_cols)
             X_unlabeled = X_unlabeled.reshape(X_unlabeled.shape[0],self.n_channels,self.img_rows,self.img_cols)
         self.n_classes = Y_labeled.shape[1]
 
-        self.extractor = self.__setup_extractor(self.deep_extractor)
-
-        idx = np.random.randint(0,len(X_labeled),200)
-        X_labeled = X_labeled[idx]
-        self.X_labeled = self.__extract_features(X_labeled)
-        self.Y_labeled = Y_labeled[idx]
-        idx = np.random.randint(0,len(X_unlabeled),200)
-        X_unlabeled = X_unlabeled[idx]
-        self.X_unlabeled = self.__extract_features(X_unlabeled)
+        if self.convnet:
+            self.extractor = self.__setup_extractor(self.deep_extractor)
+            self.X_labeled = self.__extract_features(X_labeled)
+            self.X_unlabeled = self.__extract_features(X_unlabeled)
+        else:
+            X_labeled = X_labeled.reshape(X_labeled.shape[0],np.prod(X_labeled.shape[1:]))
+            X_unlabeled = X_unlabeled.reshape(X_unlabeled.shape[0],np.prod(X_unlabeled.shape[1:]))
+            self.X_labeled = torch.autograd.Variable(torch.FloatTensor(X_labeled))
+            self.X_unlabeled = torch.autograd.Variable(torch.FloatTensor(X_unlabeled))
+        self.Y_labeled = Y_labeled
         history = self.ssl_vae.train(self.X_labeled,self.Y_labeled,self.X_unlabeled)
 
         return history
 
     def predict(self,X):
-        if K.image_data_format() is not 'channels_first':
+        if self.convnet and K.image_data_format() is not 'channels_first':
             X = X.reshape(X.shape[0],self.n_channels,self.img_rows,self.img_cols)
-        X = self.__extract_features(X)
-        return self.ssl_vae.predict(X)
+        if self.convnet:
+            X = self.__extract_features(X)
+        else:
+            X = X.reshape(X.shape[0],np.prod(X.shape[1:]))
+            X = torch.autograd.Variable(torch.FloatTensor(X))
+        return self.ssl_vae.predict(X,convert_logits=False)
+
+    def evaluate(self,X,y_true):
+        y_pred = self.predict(X)
+        y_true = np.argmax(y_true,axis=1)
+        y_pred = Variable(torch.FloatTensor(y_pred))
+        y_true = Variable(torch.LongTensor(y_true))
+        loss = F.cross_entropy(y_pred,y_true)
+        _, logits = torch.max(y_pred,1)
+        y_true = y_true.type(torch.LongTensor)
+        acc = logits.eq(y_true.view_as(logits)).cpu().float().mean()
+        return loss, acc
 
 if __name__ == "__main__":
-    training_data, validation_data, pool_data, testing_data = data_pipeline(valid_ratio=0.3, dataset='cifar10')
+    training_data, validation_data, pool_data, testing_data = data_pipeline(valid_ratio=0.3, dataset='mnist')
     X_labeled,Y_labeled = validation_data #training_data
     X_unlabeled, Y_unlabeled = pool_data #validation_data
     params = {
@@ -323,12 +314,12 @@ if __name__ == "__main__":
         'lr_m2':1e-2,
         'epochs_m1':1,
         'epochs_m2':1,
-        'dims':[512, 50, [600]],
+        'dims':[784, 50, [600]], # 784: MNIST, 512: CIFAR10
         'verbose':True,
         'log':True,
         'dropout':0.1
     }
-    model = SSClassifier(params, "resnet18")
+    model = SSClassifier(params, "resnet18", convnet = False)
     history = model.fit(X_labeled, Y_labeled, X_unlabeled)
     idx = np.random.randint(0,len(X_unlabeled),10)
     X_unlabeled = X_unlabeled[idx]

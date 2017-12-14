@@ -1,1 +1,0 @@
-{"acquisitions": 98, "batch_size": 128, "custom": "all", "data": "cifar10", "dropoutiterations": 100, "epochs": 50, "folder": "experiment_ss", "gamma": null, "gpu": "0", "model": "bayesian", "policy": "uniform-bald", "policy_param": 0.5, "queries": 10, "reward": "marginalacc", "seed": 25102017, "weight_decay": 3}

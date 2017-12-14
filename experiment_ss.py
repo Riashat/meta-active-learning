@@ -46,7 +46,7 @@ n_stoch_evaluations = 10
 pool_subset_size = 2000 # the number of elements from the pool to run dropout sampling on
 
 print ("Using dataset : ", args.data)
-(x_train, y_train), val_data, (x_pool, y_pool), test_data = datatools.data_pipeline(valid_ratio=0.1, dataset=args.data)
+(x_train, y_train), val_data, (x_pool, y_pool), test_data = datatools.data_pipeline(valid_ratio=0.4, dataset=args.data)
 
 n_classes = y_train.shape[1]
 
@@ -83,17 +83,32 @@ params = {
     'num_workers':1,
     'lr_m1':3e-5,
     'lr_m2':1e-2,
-    'epochs_m1':10,
-    'epochs_m2':10,
-    'dims':[512, 50, [600]],
+    'epochs_m1':1,
+    'epochs_m2':1,
+    'dims':[784, 50, [600]],
     'verbose':True,
     'log':True,
     'dropout':0.1
 }
-model = SSClassifier(params, deep_extractor)
-history_m1, history_m2 = model.fit(x_train,y_train,x_pool) # Replace x_pool by x_unlabeled
+train_sizes = [x*50 for x in range(1,20)]
+pool_size = 500
+import pickle
+losses,accs = [], []
+for train_size in train_sizes:
+    x_train = x_train[:train_size]
+    y_train = y_train[:train_size]
+    x_pool = x_pool[:pool_size]
+    model = SSClassifier(params, deep_extractor, convnet = False)
+    history_m1, history_m2 = model.fit(x_train,y_train,x_pool) # Replace x_pool by x_unlabeled
 
-print(history_m1,history_m2)
+    val_loss, val_accuracy = stochastic_evaluate(model, val_data, n_stoch_evaluations)
+    losses.append(val_loss.data.numpy())
+    accs.append(val_accuracy.data.numpy())
+    
+    pickle.dump((np.array(losses),np.array(accs)),open("val_acc.pickle","wb"))
+
+
+
 """
 model = cnn(input_shape=x_train.shape[1:],
             output_classes=n_classes,
@@ -113,6 +128,8 @@ train_loss = history_m2[0]
 train_accuracy = history_m2[1]['accuracy']
 
 val_loss, val_accuracy = stochastic_evaluate(model, val_data, n_stoch_evaluations)
+print(val_loss)
+print(val_accuracy)
 test_loss, test_accuracy = stochastic_evaluate(model, test_data, n_stoch_evaluations)
 
 print ("Accuracy on validation set with initial training dataset")
