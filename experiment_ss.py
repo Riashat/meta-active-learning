@@ -80,12 +80,12 @@ GET INITIAL ESTIMATE OF VALIDATION ACCURACY
 deep_extractor = "resnet18"
 params = {
     'batch_size':50,
-    'num_workers':1,
+    'num_workers':2,
     'lr_m1':3e-5,
     'lr_m2':1e-2,
-    'epochs_m1':1,
-    'epochs_m2':1,
-    'dims':[784, 50, [600]],
+    'epochs_m1':100,
+    'epochs_m2':100,
+    'dims':[784, 50, [600,600]],
     'verbose':True,
     'log':True,
     'dropout':0.1
