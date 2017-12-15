@@ -88,7 +88,7 @@ class ssl_vae:
         self.log = log
         self.dropout = dropout
         if self.log:
-            self.logger = open("log","w")
+            self.logger = open("log.log","w")
 
         self.network_params = {
         'input_dims': self.dims[1],

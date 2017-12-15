@@ -1,3 +1,11 @@
+#### Added by Bogdan ####
+# experiments folder
+experiment_ss/
+*.pickle
+*.log
+
+#### Added by Bogdan - END - ####
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

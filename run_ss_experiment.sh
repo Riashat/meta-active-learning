@@ -16,11 +16,11 @@ module load cuda cudnn python/3.5.2
 module load python/3.5.2
 #!module load  python35-mpi4py/2.0.0
 
-cd home/bmazoure
+cd /home/bmazoure
 source activate env
 cd /project/6006774/bmazoure/algs/meta-active-learning
 python3 experiment_ss.py $@
 
-#! sbatch --time=24:00:00 --nodes=1 --gres=gpu:2 --mem=32000M --job-name=sslVAE run_ss_experiment.sh -p uniform-bald -f experiment_ss -data mnist
+#! sbatch --time=24:00:00 --kill-on-invalid-dep=yes --nodes=2 --gres=gpu:2 --mem=32000M --job-name=sslVAE run_ss_experiment.sh -p uniform-bald -f experiment_ss -data mnist
 #! visit https://docs.computecanada.ca/wiki/Using_GPUs_with_Slurm for information
 
