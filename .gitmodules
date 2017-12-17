@@ -1,3 +1,6 @@
 [submodule "src/ssl_vae/bayesbench"]
 	path = src/ssl_vae/bayesbench
 	url = https://github.com/zafarali/bayesbench.git
+[submodule "src/ssl_vae/probtorch"]
+	path = src/ssl_vae/probtorch
+	url = https://github.com/probtorch/probtorch.git
