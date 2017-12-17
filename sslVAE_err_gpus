@@ -1,0 +1,50 @@
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) openmpi/2.1.1
+
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "experiment_ss.py", line 113, in <module>
+    history = model.fit(x_train,y_train,x_pool)
+  File "./src/ssl_vae/baby_ss_vae.py", line 308, in fit
+    history = self.ssl_vae.train(self.X_labeled,self.Y_labeled,self.X_unlabeled)
+  File "./src/ssl_vae/baby_ss_vae.py", line 215, in train
+    train_elbo_labeled = self.__backward_pass(self.labeled)
+  File "./src/ssl_vae/baby_ss_vae.py", line 194, in __backward_pass
+    q = self.enc(images, labels_onehot, num_samples=self.samples)
+  File "/home/bmazoure/.local/easybuild/software/2017/Core/miniconda3/4.3.27/envs/env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 224, in __call__
+    result = self.forward(*input, **kwargs)
+  File "./src/ssl_vae/baby_ss_vae.py", line 52, in g
+    return f(*new_args, num_samples=num_samples, **new_kwargs)
+  File "./src/ssl_vae/baby_ss_vae.py", line 95, in forward
+    hiddens = self.enc_hidden(images) 
+  File "/home/bmazoure/.local/easybuild/software/2017/Core/miniconda3/4.3.27/envs/env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 224, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/bmazoure/.local/easybuild/software/2017/Core/miniconda3/4.3.27/envs/env/lib/python3.6/site-packages/torch/nn/modules/container.py", line 67, in forward
+    input = module(input)
+  File "/home/bmazoure/.local/easybuild/software/2017/Core/miniconda3/4.3.27/envs/env/lib/python3.6/site-packages/torch/nn/modules/module.py", line 224, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/bmazoure/.local/easybuild/software/2017/Core/miniconda3/4.3.27/envs/env/lib/python3.6/site-packages/torch/nn/modules/linear.py", line 53, in forward
+    return F.linear(input, self.weight, self.bias)
+  File "/home/bmazoure/.local/easybuild/software/2017/Core/miniconda3/4.3.27/envs/env/lib/python3.6/site-packages/torch/nn/functional.py", line 555, in linear
+    output = input.matmul(weight.t())
+  File "/home/bmazoure/.local/easybuild/software/2017/Core/miniconda3/4.3.27/envs/env/lib/python3.6/site-packages/torch/autograd/variable.py", line 560, in matmul
+    return torch.matmul(self, other)
+  File "/home/bmazoure/.local/easybuild/software/2017/Core/miniconda3/4.3.27/envs/env/lib/python3.6/site-packages/torch/functional.py", line 191, in matmul
+    output = torch.mm(tensor1, tensor2)
+  File "/home/bmazoure/.local/easybuild/software/2017/Core/miniconda3/4.3.27/envs/env/lib/python3.6/site-packages/torch/autograd/variable.py", line 579, in mm
+    return Addmm.apply(output, self, matrix, 0, 1, True)
+  File "/home/bmazoure/.local/easybuild/software/2017/Core/miniconda3/4.3.27/envs/env/lib/python3.6/site-packages/torch/autograd/_functions/blas.py", line 26, in forward
+    matrix1, matrix2, out=output)
+TypeError: torch.addmm received an invalid combination of arguments - got (int, torch.cuda.FloatTensor, int, torch.cuda.FloatTensor, torch.FloatTensor, out=torch.cuda.FloatTensor), but expected one of:
+ * (torch.cuda.FloatTensor source, torch.cuda.FloatTensor mat1, torch.cuda.FloatTensor mat2, *, torch.cuda.FloatTensor out)
+ * (torch.cuda.FloatTensor source, torch.cuda.sparse.FloatTensor mat1, torch.cuda.FloatTensor mat2, *, torch.cuda.FloatTensor out)
+ * (float beta, torch.cuda.FloatTensor source, torch.cuda.FloatTensor mat1, torch.cuda.FloatTensor mat2, *, torch.cuda.FloatTensor out)
+ * (torch.cuda.FloatTensor source, float alpha, torch.cuda.FloatTensor mat1, torch.cuda.FloatTensor mat2, *, torch.cuda.FloatTensor out)
+ * (float beta, torch.cuda.FloatTensor source, torch.cuda.sparse.FloatTensor mat1, torch.cuda.FloatTensor mat2, *, torch.cuda.FloatTensor out)
+ * (torch.cuda.FloatTensor source, float alpha, torch.cuda.sparse.FloatTensor mat1, torch.cuda.FloatTensor mat2, *, torch.cuda.FloatTensor out)
+ * (float beta, torch.cuda.FloatTensor source, float alpha, torch.cuda.FloatTensor mat1, torch.cuda.FloatTensor mat2, *, torch.cuda.FloatTensor out)
+      didn't match because some of the arguments have invalid types: (int, torch.cuda.FloatTensor, int, torch.cuda.FloatTensor, !torch.FloatTensor!, out=torch.cuda.FloatTensor)
+ * (float beta, torch.cuda.FloatTensor source, float alpha, torch.cuda.sparse.FloatTensor mat1, torch.cuda.FloatTensor mat2, *, torch.cuda.FloatTensor out)
+      didn't match because some of the arguments have invalid types: (int, torch.cuda.FloatTensor, int, !torch.cuda.FloatTensor!, !torch.FloatTensor!, out=torch.cuda.FloatTensor)
+

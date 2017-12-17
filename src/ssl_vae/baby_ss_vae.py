@@ -266,7 +266,7 @@ class ssl_vae:
                 y_preds.append(y_pred)
         if verbose == 1:
             return np.array(y_preds_one_hot)
-        return epoch_elbo / N, torch.LongTensor(np.array(y_preds))
+        return epoch_elbo / N, torch.LongTensor(np.array(y_preds)) if not self.cuda else torch.cuda.LongTensor(np.array(y_preds))
 
     def evaluate(self,X,y_true, infer =True):
         _, y_true = torch.max(y_true, 1)
@@ -318,7 +318,7 @@ class SSClassifier:
     def transform(self,X,features=True):
         if features:
             X = np.reshape(X,(X.shape[0],np.prod(X.shape[1:])))
-        return torch.FloatTensor(X)
+        return torch.FloatTensor(X) if not self.params['cuda'] else torch.cuda.FloatTensor(X.tolist())
 
 if __name__ == "__main__":
     training_data, validation_data, pool_data, testing_data = data_pipeline(valid_ratio=0.3, dataset='mnist')
