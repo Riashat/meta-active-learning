@@ -12,6 +12,7 @@ from src.utils import (
     RewardProcess,
     stochastic_evaluate
 )
+import keras
 from ssl_vae.baby_ss_vae import *
 
 args = get_parser().parse_args()
@@ -22,6 +23,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 import numpy as np
 import tensorflow as tf
 import pickle
+import torch
 
 # Setting a seed as described in https://github.com/blei-lab/edward/pull/184
 # this is is useful for reproducibility

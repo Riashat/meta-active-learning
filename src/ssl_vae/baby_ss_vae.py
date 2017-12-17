@@ -1,10 +1,9 @@
 import sys
-sys.path.append("bayesbench")
+#sys.path.append("bayesbench")
 sys.path.append("probtorch")
 sys.path.append("../")
 from torch.autograd import Variable
 import numpy as np
-from scipy.stats import norm
 import torch
 import torch.nn as nn
 from torch.nn import Parameter
@@ -24,10 +23,8 @@ from bayesbench.networks.simple import SimpleMLP
 from bayesbench.utils.metrics import accuracy
 from bayesbench.methods import DeterministicMethod, MCDropoutMethod
 """
-from datatools import data_pipeline
 
-# Keras CIFAR / MNIST utility
-from keras import backend as K
+from datatools import data_pipeline
 
 # Probtorch
 import probtorch
