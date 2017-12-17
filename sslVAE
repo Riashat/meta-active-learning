@@ -1,5 +1,0 @@
-
-Due to MODULEPATH changes, the following have been reloaded:
-  1) openmpi/2.1.1
-
-slurmstepd: error: *** JOB 3459444 ON cdr308 CANCELLED AT 2017-12-17T05:35:25 ***

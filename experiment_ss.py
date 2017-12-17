@@ -2,8 +2,9 @@ from __future__ import print_function
 import sys
 import os
 sys.path.append("./src")
-sys.path.append("./src/ssl_vae/semi-supervised")
-sys.path.append("./src/ssl_vae/bayesbench")
+sys.path.append("./src/ssl_vae/probtorch")
+#sys.path.append("./src/ssl_vae/semi-supervised")
+#sys.path.append("./src/ssl_vae/bayesbench")
 from src.utils import (
     get_parser,
     Logger,
@@ -20,6 +21,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
 import numpy as np
 import tensorflow as tf
+import pickle
 
 # Setting a seed as described in https://github.com/blei-lab/edward/pull/184
 # this is is useful for reproducibility
@@ -81,37 +83,54 @@ print('Starting Experiment')
 
 """
 GET INITIAL ESTIMATE OF VALIDATION ACCURACY
-"""
-deep_extractor = "resnet18"
+"""    
+logger_file = open(logger.save_folder+"/log.log","w")
 params = {
-    'batch_size':50,
-    'num_workers':3,
-    'lr_m1':3e-5,
-    'lr_m2':1e-2,
-    'epochs_m1':150,
-    'epochs_m2':150,
-    'dims':[784, 50, [600,600]],
-    'verbose':True,
-    'log':True,
-    'dropout':0.5
-}
-train_sizes = [150,500,3000]
-pool_size = 500
-import pickle
-losses,accs = [], []
-for train_size in train_sizes:
-    (x_train,y_train) , (x_pool,y_pool) = reshape_train_pool(x_train,y_train,x_pool,y_pool,train_size)
-    # x_pool = x_pool[:pool_size]
-    model = SSClassifier(params, deep_extractor, convnet = False)
-    history_m1, history_m2 = model.fit(x_train,y_train,x_pool) # Replace x_pool by x_unlabeled
+        'classes':10 if args.data in ['mnist','cifar10'] else y_train.shape[-1],
+        'batch_size':args.batch_size,
+        'lr':args.lr,
+        'epochs':args.epochs,
+        'dims':[784, 50, [600]], # 784: MNIST, 512: CIFAR10
+        'samples':args.samples,
+        'beta1':0.9,
+        'beta2':0.999,
+        'eps':1e-9,
+        'cuda':torch.cuda.is_available(),
+        'logger':logger_file
+    }
+train_size = args.training_size
+pool_size = args.pool_size
 
-    val_loss, val_accuracy = stochastic_evaluate(model, val_data, n_stoch_evaluations)
-    losses.append(val_loss)
-    accs.append(val_accuracy)
-    print(val_loss)
-    print(val_accuracy)
-    
-    pickle.dump((losses,accs),open("val_acc.pickle","wb"))
+if args.sanity_check == 1:
+    train_sizes = [50,150]#,500,1000,3000,5000]
+    pool_size = 5000
+    sizes = {}
+    for train_size in train_sizes:
+        (x_train,y_train) , (x_pool,y_pool) = reshape_train_pool(x_train,y_train,x_pool,y_pool,train_size)
+        x_pool = x_pool[:pool_size]
+        filepath = open(logger.save_folder+"/train_sizes.pickle","wb")
+        model = SSClassifier(params)
+        history = model.fit(x_train,y_train,x_pool)
+        val_loss ,val_accuracy = model.evaluate(val_data[0],val_data[1])
+        test_loss ,test_accuracy = model.evaluate(test_data[0],test_data[1])
+        train_loss = np.max(np.mean(history[:,0:2],axis=1),axis=0) # Take average labelled and unlabelled elbo and take max over epochs
+        train_accuracy = np.max(history[:,2],axis=0)
+        sizes[train_size]=history
+        pickle.dump(sizes,filepath)
+    filepath.close()
+    logger_file.close()
+
+(x_train,y_train) , (x_pool,y_pool) = reshape_train_pool(x_train,y_train,x_pool,y_pool,train_size)
+x_pool = x_pool[:pool_size]
+
+model = SSClassifier(params)
+history = model.fit(x_train,y_train,x_pool)
+val_loss ,val_accuracy = model.evaluate(val_data[0],val_data[1])
+test_loss ,test_accuracy = model.evaluate(test_data[0],test_data[1])
+train_loss = np.max(np.mean(history[:,0:2],axis=1),axis=0) # Take average labelled and unlabelled elbo and take max over epochs
+train_accuracy = np.max(history[:,2],axis=0)
+
+logger_file.close()
 
 """
 model = cnn(input_shape=x_train.shape[1:],
@@ -126,29 +145,17 @@ history = model.fit(x_train, y_train,
 """
 # for efficiency purposes might want to remove testing on val set here
 
-train_loss_m1 = history_m1['loss']
-
-train_loss = history_m2[0]
-train_accuracy = history_m2[1]['accuracy']
-
-val_loss, val_accuracy = stochastic_evaluate(model, val_data, n_stoch_evaluations)
-print(val_loss)
-print(val_accuracy)
-test_loss, test_accuracy = stochastic_evaluate(model, test_data, n_stoch_evaluations)
-
 print ("Accuracy on validation set with initial training dataset")
 print('Validation accuracy:', val_accuracy)
 print ('Test Accuracy', test_accuracy)
 
-logger.record_train_metrics(train_loss[-1], train_accuracy[-1])
+logger.record_train_metrics(train_loss, train_accuracy)
 logger.record_val_metrics(val_loss, val_accuracy)
 logger.record_test_metrics(test_loss, test_accuracy)
-
 
 prev_loss = val_loss
 prev_acc = val_accuracy
 
-exit()
 """
 START COLLECTING A NEW DATASET
 """
@@ -164,7 +171,7 @@ for i in range(acquisition_iterations):
     # get the uncertainty estimates for the pool subset
     uncertainty_estimates = run_acquisition_function(acquisition_function_name,
                                                      x_pool_subset,
-                                                     n_classes,
+                                                     params['classes'],
                                                      model,
                                                      dropout_iterations=dropout_iterations)
     
@@ -179,20 +186,16 @@ for i in range(acquisition_iterations):
     x_train, y_train = datatools.combine_datasets((x_train, y_train), new_data_for_training)
     x_pool, y_pool = datatools.combine_datasets(pool_without_subset, pool_subset_updated)
 
-    model = SSClassifier(params, deep_extractor)
-    history_m1, history_m2 = model.fit(x_train,y_train,x_pool_subset) # replace last arg by x_unlabeled
-
-    train_loss_m1 = history_m1['loss']
-
-    train_loss = history_m2[0]
-    train_accuracy = history_m2[1]['accuracy']
-
-    # this val_accuracy is used to update policy
-    val_loss, val_accuracy = stochastic_evaluate(model, val_data, n_stoch_evaluations)
+    model = SSClassifier(params)
+    history = model.fit(x_train,y_train,x_pool)
+    val_loss ,val_accuracy = model.evaluate(val_data[0],val_data[1])
+    test_loss ,test_accuracy = model.evaluate(test_data[0],test_data[1])
+    train_loss = np.max(np.mean(history[:,0:2],axis=1),axis=0) # Take average labelled and unlabelled elbo and take max over epochs
+    train_accuracy = np.max(history[:,2],axis=0)
 
     print('Validation accuracy:', val_accuracy)
 
-    logger.record_train_metrics(train_loss[-1], train_accuracy[-1])
+    logger.record_train_metrics(train_loss, train_accuracy)
     logger.record_val_metrics(val_loss, val_accuracy)
     logger.record_acquisition_function(acquisition_function_name)
     # get the reward for making the acquisition

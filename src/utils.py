@@ -79,7 +79,27 @@ def get_parser():
       
       named_args.add_argument('-q', '--queries',
             help="""Queries from Pool Set""",
-            required=False, type=int, default=10)   
+            required=False, type=int, default=10)
+
+      named_args.add_argument('-ts', '--training_size',
+            help="""Size of the training set""",
+            required=False, type=int, default=1000)   
+
+      named_args.add_argument('-ps', '--pool_size',
+            help="""Size of the pool set""",
+            required=False, type=int, default=5000)
+
+      named_args.add_argument('-lr', '--lr',
+            help="""Learning rate""",
+            required=False, type=float, default=3e-3)
+
+      named_args.add_argument('-samples', '--samples',
+            help="""Number of Monte Carlo samples""",
+            required=False, type=int, default=8)
+
+      named_args.add_argument('-check', '--sanity_check',
+            help="""Try various training set sizes in sanity check mode""",
+            required=False, type=int, default=0)
 
       named_args.add_argument('-custom', '--custom',
             help="""
