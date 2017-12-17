@@ -122,10 +122,8 @@ def data_pipeline(valid_ratio=0.1, dataset='mnist'):
         raise ValueError('No dataset found!')
     # get validation data
     training_data, validation_data = get_valid_data(*training_data, valid_ratio=valid_ratio)
-    
     # get pool data
     training_data, pool_data = get_pool_data(*training_data)
-    
     # normalize x's and convert y's to categorical arrays
     training_data = prep(*training_data)    
     testing_data = prep(*testing_data)

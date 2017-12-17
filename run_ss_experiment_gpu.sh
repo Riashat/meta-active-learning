@@ -1,10 +1,10 @@
 #!/bin/bash
 #!SBATCH --time=24:00:00
 #SBATCH --account=def-steele
-#!SBATCH --job-name=sslVAE
-#SBATCH --output=sslVAE_out
-#SBATCH --error=sslVAE
-#!SBATCH --gres=gpu:1  
+#!SBATCH --job-name=sslVAE_gpus
+#SBATCH --output=sslVAE_out_gpus
+#SBATCH --error=sslVAE_err_gpus
+#!SBATCH --gres=gpu:2  
 #!SBATCH --mem=32000M
 #SBATCH --mail-user=bogdan.mazoure@mail.mcgill.ca
 #SBATCH --mail-type=BEGIN
@@ -21,6 +21,5 @@ source activate env
 cd /project/6006774/bmazoure/algs/meta-active-learning
 python3 experiment_ss.py $@
 
-#! sbatch --time=24:00:00 --kill-on-invalid-dep=yes --nodes=2 --gres=gpu:2 --mem=32000M --job-name=sslVAE run_ss_experiment.sh -p uniform-bald -f experiment_ss -data mnist
-#! visit https://docs.computecanada.ca/wiki/Using_GPUs_with_Slurm for information
+#! sbatch --time=24:00:00 --kill-on-invalid-dep=yes --nodes=2 --gres=gpu:2 --mem=32000M --job-name=sslVAE_gpus run_ss_experiment_gpu.sh -p uniform-bald -f experiment_ss -data mnist
 

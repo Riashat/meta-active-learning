@@ -46,15 +46,20 @@ n_stoch_evaluations = 10
 pool_subset_size = 2000 # the number of elements from the pool to run dropout sampling on
 
 print ("Using dataset : ", args.data)
-(x_train, y_train), val_data, (x_pool, y_pool), test_data = datatools.data_pipeline(valid_ratio=0.4, dataset=args.data)
+(x_train, y_train), val_data, (x_pool, y_pool), test_data = datatools.data_pipeline(valid_ratio=0.1, dataset=args.data)
 
 n_classes = y_train.shape[1]
 
+def reshape_train_pool(x_train,y_train,x_pool,y_pool,train_size):
+    x,y = datatools.combine_datasets((x_train,y_train),(x_pool,y_pool))
+    indices = np.random.permutation(x.shape[0])
+    training_idx, test_idx = indices[:train_size], indices[train_size:]
+    return (x[training_idx,:], y[training_idx,:]), (x[test_idx,:], y[test_idx,:])
 
 #(x_valid, y_valid) = val_data
 # for testing purposes:
-val_data = (val_data[0][:5000], val_data[1][:5000])
-print('WARNING: only using 500 points for validation')
+#val_data = (val_data[0][:5000], val_data[1][:5000])
+#print('WARNING: only using 500 points for validation')
 # test_data = (test_data[0][:500], test_data[1][:500])
 
 print('POLICY: ',args.policy)
@@ -80,34 +85,33 @@ GET INITIAL ESTIMATE OF VALIDATION ACCURACY
 deep_extractor = "resnet18"
 params = {
     'batch_size':50,
-    'num_workers':2,
+    'num_workers':3,
     'lr_m1':3e-5,
     'lr_m2':1e-2,
-    'epochs_m1':100,
-    'epochs_m2':100,
+    'epochs_m1':150,
+    'epochs_m2':150,
     'dims':[784, 50, [600,600]],
     'verbose':True,
     'log':True,
-    'dropout':0.1
+    'dropout':0.5
 }
-train_sizes = [x*50 for x in range(1,20)]
+train_sizes = [150,500,3000]
 pool_size = 500
 import pickle
 losses,accs = [], []
 for train_size in train_sizes:
-    x_train = x_train[:train_size]
-    y_train = y_train[:train_size]
-    x_pool = x_pool[:pool_size]
+    (x_train,y_train) , (x_pool,y_pool) = reshape_train_pool(x_train,y_train,x_pool,y_pool,train_size)
+    # x_pool = x_pool[:pool_size]
     model = SSClassifier(params, deep_extractor, convnet = False)
     history_m1, history_m2 = model.fit(x_train,y_train,x_pool) # Replace x_pool by x_unlabeled
 
     val_loss, val_accuracy = stochastic_evaluate(model, val_data, n_stoch_evaluations)
-    losses.append(val_loss.data.numpy())
-    accs.append(val_accuracy.data.numpy())
+    losses.append(val_loss)
+    accs.append(val_accuracy)
+    print(val_loss)
+    print(val_accuracy)
     
-    pickle.dump((np.array(losses),np.array(accs)),open("val_acc.pickle","wb"))
-
-
+    pickle.dump((losses,accs),open("val_acc.pickle","wb"))
 
 """
 model = cnn(input_shape=x_train.shape[1:],
@@ -144,7 +148,7 @@ logger.record_test_metrics(test_loss, test_accuracy)
 prev_loss = val_loss
 prev_acc = val_accuracy
 
-
+exit()
 """
 START COLLECTING A NEW DATASET
 """
