@@ -114,7 +114,7 @@ aux_params = {
 train_size = args.training_size
 pool_size = args.pool_size
 
-if args.sanity_check == 1:
+if args.sanity_check == 1: # Make sure the network's accuracy is improving with # of labeled examples
     train_sizes = [50,150,500,1000,3000,5000]
     pool_size = 5000
     sizes = {}
@@ -132,6 +132,23 @@ if args.sanity_check == 1:
         pickle.dump(sizes,filepath)
     filepath.close()
     logger_file.close()
+    print("Sanity check 1 done")
+    exit()
+elif args.sanity_check == 2: # Check whether predictions are stochastic
+    (x_train,y_train) , (x_pool,y_pool) = reshape_train_pool(x_train,y_train,x_pool,y_pool,train_size)
+    x_pool = x_pool[:pool_size]
+    model = SSClassifier(params,**aux_params)
+    history = model.fit(x_train,y_train,x_pool)
+    preds = []
+    trials = 5
+    for trial in range(trials):
+        _, pred = model.predict(val_data[0])
+        preds.append(pred.numpy())
+    preds = np.array(preds)
+    print("Element-wise predictive variances: ")
+    print(np.var(preds,axis=0))
+    print("Sanity check 2 done")
+    exit()
 
 (x_train,y_train) , (x_pool,y_pool) = reshape_train_pool(x_train,y_train,x_pool,y_pool,train_size)
 x_pool = x_pool[:pool_size]
@@ -143,21 +160,6 @@ test_loss ,test_accuracy = model.evaluate(test_data[0],test_data[1])
 train_loss = np.max(np.mean(history[:,0:2],axis=1),axis=0) # Take average labelled and unlabelled elbo and take max over epochs
 train_accuracy = np.max(history[:,2],axis=0)
 
-logger_file.close()
-
-exit()
-
-"""
-model = cnn(input_shape=x_train.shape[1:],
-            output_classes=n_classes,
-            bayesian= args.model == 'bayesian',
-            train_size=x_train.shape[0],
-            weight_constant=weight_constant)
-
-history = model.fit(x_train, y_train,
-                    batch_size=batch_size,
-                    epochs=args.epochs) 
-"""
 # for efficiency purposes might want to remove testing on val set here
 
 print ("Accuracy on validation set with initial training dataset")
@@ -201,7 +203,7 @@ for i in range(acquisition_iterations):
     x_train, y_train = datatools.combine_datasets((x_train, y_train), new_data_for_training)
     x_pool, y_pool = datatools.combine_datasets(pool_without_subset, pool_subset_updated)
 
-    model = SSClassifier(params)
+    model = SSClassifier(params,**aux_params)
     history = model.fit(x_train,y_train,x_pool)
     val_loss ,val_accuracy = model.evaluate(val_data[0],val_data[1])
     test_loss ,test_accuracy = model.evaluate(test_data[0],test_data[1])
@@ -230,10 +232,9 @@ for i in range(acquisition_iterations):
     prev_loss = val_loss
     prev_acc = val_accuracy
 
-    test_loss, test_accuracy = stochastic_evaluate(model, test_data, n_stoch_evaluations)
-
     print ('Test Accuracy', test_accuracy)
     logger.record_test_metrics(test_loss, test_accuracy)
 
+logger_file.close()
 logger.save()
 print('DONE')

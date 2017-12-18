@@ -315,14 +315,20 @@ class ssl_vae:
                 y_samples = q['digits'].value
                 y_expect = (w.unsqueeze(-1) * y_samples).sum(0)
                 if verbose==1:
-                    y_preds_one_hot.append(y_expect)
+                    if self.cuda:
+                        y_preds_one_hot.append(y_expect.data.cpu())
+                    else:
+                        y_preds_one_hot.append(y_expect.data)
                 _ , y_pred = y_expect.data.max(-1)
                 if self.cuda:
                     y_pred = y_pred.cpu()
                 y_preds.append(y_pred)
             else:
                 if verbose==1:
-                    y_preds_one_hot.append(q['digits'].value.data)
+                    if self.cuda:
+                        y_preds_one_hot.append(q['digits'].value.data.cpu())
+                    else:
+                        y_preds_one_hot.append(q['digits'].value.data)
                 _, y_pred = q['digits'].value.data.max(-1)
                 if self.cuda:
                     y_pred = y_pred.cpu()
