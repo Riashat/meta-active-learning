@@ -98,8 +98,19 @@ params = {
         'beta2':0.999,
         'eps':1e-9,
         'cuda':torch.cuda.is_available(),
-        'logger':logger_file
-    }
+        'logger':logger_file,
+        'cnn':args.cnn
+}
+
+"""
+parameters for CNN
+"""
+aux_params = {
+    'n_channels':1,
+    'img_rows':28,
+    'img_cols':28
+}
+
 train_size = args.training_size
 pool_size = args.pool_size
 
@@ -111,7 +122,7 @@ if args.sanity_check == 1:
         (x_train,y_train) , (x_pool,y_pool) = reshape_train_pool(x_train,y_train,x_pool,y_pool,train_size)
         x_pool = x_pool[:pool_size]
         filepath = open(logger.save_folder+"/train_sizes.pickle","wb")
-        model = SSClassifier(params)
+        model = SSClassifier(params,**aux_params)
         history = model.fit(x_train,y_train,x_pool)
         val_loss ,val_accuracy = model.evaluate(val_data[0],val_data[1])
         test_loss ,test_accuracy = model.evaluate(test_data[0],test_data[1])
@@ -125,7 +136,7 @@ if args.sanity_check == 1:
 (x_train,y_train) , (x_pool,y_pool) = reshape_train_pool(x_train,y_train,x_pool,y_pool,train_size)
 x_pool = x_pool[:pool_size]
 
-model = SSClassifier(params)
+model = SSClassifier(params,**aux_params)
 history = model.fit(x_train,y_train,x_pool)
 val_loss ,val_accuracy = model.evaluate(val_data[0],val_data[1])
 test_loss ,test_accuracy = model.evaluate(test_data[0],test_data[1])
@@ -133,6 +144,8 @@ train_loss = np.max(np.mean(history[:,0:2],axis=1),axis=0) # Take average labell
 train_accuracy = np.max(history[:,2],axis=0)
 
 logger_file.close()
+
+exit()
 
 """
 model = cnn(input_shape=x_train.shape[1:],

@@ -23,7 +23,7 @@ from bayesbench.networks.simple import SimpleMLP
 from bayesbench.utils.metrics import accuracy
 from bayesbench.methods import DeterministicMethod, MCDropoutMethod
 """
-
+from keras import backend as K
 from datatools import data_pipeline
 
 # Probtorch
@@ -77,28 +77,53 @@ class Encoder(nn.Module):
                        num_digits,
                        num_style,
                        num_batch,
-                       cuda):
+                       cuda,
+                       cnn,
+                       input_dimensions):
         super(self.__class__, self).__init__()
-        self.enc_hidden = nn.Sequential( 
+        self.cnn = cnn
+        if self.cnn:
+            self.enc_cnn_1 = nn.Conv2d(input_dimensions[1], 10, kernel_size=5)
+            self.enc_cnn_2 = nn.Conv2d(10, 20, kernel_size=5)
+            self.enc_linear_1 = nn.Linear(320, 50)
+            self.enc_linear_2 = nn.Linear(50, num_hidden)
+        else:
+            self.enc_hidden = nn.Sequential( 
                             nn.Linear(num_pixels, num_hidden),
                             nn.ReLU())
-        if cuda:
-            self.enc_hidden.cuda()
         self.digit_log_weights = nn.Linear(num_hidden, num_digits)
-        if cuda:
-            self.digit_log_weights.cuda()
         self.digit_temp = 0.66
         self.style_mean = nn.Linear(num_hidden + num_digits, num_style)
-        if cuda:
-            self.style_mean.cuda()
         self.style_log_std = nn.Linear(num_hidden + num_digits, num_style)
         if cuda:
+            if self.cnn:
+                self.enc_hidden.cuda()
+            self.digit_log_weights.cuda()
+            self.style_mean.cuda()
             self.style_log_std.cuda()
     
     @expand_inputs
     def forward(self, images, labels=None, num_samples=None):
         q = probtorch.Trace()
-        hiddens = self.enc_hidden(images) 
+        if self.cnn:
+            hiddens = []
+            def hidden_pass(inp):
+                hiddens = self.enc_cnn_1(inp)
+                hiddens = F.selu(F.max_pool2d(hiddens, 2))
+                hiddens = self.enc_cnn_2(hiddens)
+                hiddens = F.selu(F.max_pool2d(hiddens, 2))
+                hiddens = hiddens.view([inp.size(0), -1])
+                hiddens = F.selu(self.enc_linear_1(hiddens))
+                hiddens = self.enc_linear_2(hiddens)
+                hiddens = F.relu(hiddens)
+                return hiddens
+            for i in range(images.size(0)):
+                h = hidden_pass(images[i])
+                h = h.unsqueeze(0)
+                hiddens.append(h)
+            hiddens = torch.cat(hiddens, 0)
+        else:
+            hiddens = self.enc_hidden(images) 
         digits = q.concrete(self.digit_log_weights(hiddens),
                             self.digit_temp,
                             value=labels,
@@ -117,8 +142,12 @@ class Decoder(nn.Module):
                        num_digits,
                        num_style,
                        eps,
-                       cuda):
+                       cuda,
+                       cnn,
+                       input_dimensions):
         super(self.__class__, self).__init__()
+        self.cnn = cnn
+        self.input_dimensions = input_dimensions
         self.num_digits = num_digits
         self.digit_log_weights = Parameter(torch.zeros(num_digits)) if not cuda else Parameter(torch.zeros(num_digits).cuda())
         self.digit_temp = 0.66
@@ -128,12 +157,15 @@ class Decoder(nn.Module):
         self.dec_hidden = nn.Sequential(
                             nn.Linear(num_style + num_digits, num_hidden),
                             nn.ReLU())
-        if cuda:
-            self.dec_hidden.cuda()
-        self.dec_image = nn.Sequential(
+        if cnn:
+            self.dec_linear_1 = nn.Linear(num_hidden, 160)
+            self.dec_linear_2 = nn.Linear(160, num_pixels)
+        else:
+            self.dec_image = nn.Sequential(
                            nn.Linear(num_hidden, num_pixels),
                            nn.Sigmoid())
         if cuda:
+            self.dec_hidden.cuda()
             self.dec_image.cuda()
 
     def forward(self, images=None, q=None):
@@ -145,7 +177,20 @@ class Decoder(nn.Module):
                           value=q['styles'],
                           name='styles')
         hiddens = self.dec_hidden(torch.cat([digits, styles], -1))
-        images_mean = self.dec_image(hiddens)
+        if self.cnn:
+            def hidden_pass(inp):
+                out = F.selu(self.dec_linear_1(inp))
+                out = F.sigmoid(self.dec_linear_2(out))
+                out = out.view([inp.size(0), self.input_dimensions[1], self.input_dimensions[2],self.input_dimensions[3]])
+                return out
+            images_mean = []
+            for i in range(hiddens.size(0)):
+                h = hidden_pass(hiddens[i])
+                h = h.unsqueeze(0)
+                images_mean.append(h)
+            images_mean = torch.cat(images_mean, 0)
+        else:    
+            images_mean = self.dec_image(hiddens)
         p.loss(lambda x_hat, x: -(torch.log(x_hat + self.eps) * x + 
                                   torch.log(1 - x_hat + self.eps) * (1-x)).sum(-1),
                images_mean, images, name='images')
@@ -163,7 +208,9 @@ class ssl_vae:
                  samples,
                  eps,
                  cuda,
-                 logger):
+                 logger,
+                 cnn,
+                 input_dimensions):
         self.classes = classes
         self.batch_size = batch_size
         self.lr = lr
@@ -175,9 +222,11 @@ class ssl_vae:
         self.eps = eps
         self.cuda = cuda
         self.logger = logger
+        self.cnn = cnn
+        self.input_dimensions = input_dimensions
         self.uuid = str(uuid.uuid4())
-        self.enc = Encoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],num_batch=batch_size,cuda=self.cuda)
-        self.dec = Decoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],eps=self.eps,cuda=self.cuda)
+        self.enc = Encoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],num_batch=batch_size,cuda=self.cuda,cnn=self.cnn,input_dimensions=self.input_dimensions)
+        self.dec = Decoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],eps=self.eps,cuda=self.cuda,cnn=self.cnn,input_dimensions=self.input_dimensions)
         self.optimizer =  torch.optim.Adam(list(self.enc.parameters())+list(self.dec.parameters()),
                               lr=self.lr,
                               betas=(self.beta1, self.beta2))
@@ -191,7 +240,7 @@ class ssl_vae:
             (images, labels_onehot) = data[b]
             if images.size()[0] == self.batch_size:
                 N += self.batch_size
-                images = images.view(-1, self.dims[0])
+                #images = images.view(-1, self.dims[0])
                 if self.cuda:
                     images = images.cuda()
                     if labels_onehot is not None:
@@ -244,9 +293,11 @@ class ssl_vae:
         N = 0
         y_preds = []
         y_preds_one_hot = []
-        for b, images in enumerate(X):
-            N += 1
-            images = images.view(-1, self.dims[0])
+        X = bnn_dataset(X,None,self.batch_size)
+        for b in range(len(X)):
+            (images, labels_onehot) = X[b]
+            N += self.batch_size
+            #images = images.view(-1, self.dims[0])
             if self.cuda:
                 images = images.cuda()
             images = Variable(images)
@@ -277,8 +328,10 @@ class ssl_vae:
                     y_pred = y_pred.cpu()
                 y_preds.append(y_pred)
         if verbose == 1:
+            y_preds_one_hot = torch.cat(y_preds_one_hot,0)
             return np.array(y_preds_one_hot)
-        return epoch_elbo / N, torch.LongTensor(np.array(y_preds)) if not self.cuda else torch.cuda.LongTensor(np.array(y_preds))
+        y_preds = torch.cat(y_preds,0)
+        return epoch_elbo / N, y_preds #torch.LongTensor(np.array(y_preds)) if not self.cuda else torch.cuda.LongTensor(np.array(y_preds))
 
     def evaluate(self,X,y_true, infer =True):
         _, y_true = torch.max(y_true, 1)
@@ -298,15 +351,15 @@ class ssl_vae:
 
 class SSClassifier:
 
-    def __init__(self, params):
+    def __init__(self, params, n_channels, img_rows, img_cols):
         self.params = params
-        self.n_channels = 1
-        self.img_rows = 28 
-        self.img_cols = 28 
+        self.n_channels = n_channels
+        self.img_rows = img_rows
+        self.img_cols = img_cols
         self.__setup_SSClassifier()
 
     def __setup_SSClassifier(self):
-        self.ssl_vae =ssl_vae(**self.params)
+        self.ssl_vae =ssl_vae(**self.params, input_dimensions=(self.params['batch_size'],self.n_channels,self.img_rows,self.img_cols))
 
     def fit(self,X_labeled,Y_labeled,X_unlabeled):
         X_labeled = self.transform(X_labeled)
@@ -329,7 +382,11 @@ class SSClassifier:
 
     def transform(self,X,features=True):
         if features:
-            X = np.reshape(X,(X.shape[0],np.prod(X.shape[1:])))
+            if self.params['cnn']:
+                if K.image_data_format() is not 'channels_first':
+                    X = X.reshape(X.shape[0],self.n_channels,self.img_rows,self.img_cols)
+            else:
+                X = np.reshape(X,(X.shape[0],np.prod(X.shape[1:])))
         return torch.FloatTensor(X) if not self.params['cuda'] else torch.cuda.FloatTensor(X.tolist())
 
 if __name__ == "__main__":

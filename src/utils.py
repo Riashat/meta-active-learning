@@ -101,6 +101,10 @@ def get_parser():
             help="""Try various training set sizes in sanity check mode""",
             required=False, type=int, default=0)
 
+      named_args.add_argument('-cnn', '--cnn',
+            help="""Use a Convolutional layer instead of an MLP""",
+            required=False, type=int, default=0)
+
       named_args.add_argument('-custom', '--custom',
             help="""
                custom acquisition functions to use:
