@@ -104,7 +104,7 @@ train_size = args.training_size
 pool_size = args.pool_size
 
 if args.sanity_check == 1:
-    train_sizes = [50,150]#,500,1000,3000,5000]
+    train_sizes = [50,150,500,1000,3000,5000]
     pool_size = 5000
     sizes = {}
     for train_size in train_sizes:

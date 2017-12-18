@@ -4,122 +4,3631 @@ POLICY:  uniform-bald
 Uniform policy where at every step the acquisition function is
 bald
 Reward process initialized using: marginalacc
-Saving to  experiment_ss/uniform-bald/17-12-17-13-57-1513547827
+Saving to  experiment_ss/uniform-bald/17-12-17-17-23-1513560231
 Starting Experiment
-Variable containing:
+Validation: ELBO -152.6296 Accuracy 0.0800 UUID 5d1e
 
-Columns 0 to 5 
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09
- 1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09
- 1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09
- 1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09
+[Epoch 0] Train: Labeled ELBO -10.9675 Unlabeled ELBO -3.6268 Accuracy 0.0800 (1s) UUID 5d1e
+Validation: ELBO -140.0347 Accuracy 0.1200 UUID 5d1e
 
-Columns 6 to 9 
- 1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00
- 1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00
- 1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00
- 1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e+00
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09
- 1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e+00  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e+00  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e+00  1.0000e-09  1.0000e-09  1.0000e-09
- 1.0000e-09  1.0000e-09  1.0000e-09  1.0000e-09
-[torch.cuda.FloatTensor of size 50x10 (GPU 0)]
+[Epoch 1] Train: Labeled ELBO -3.0614 Unlabeled ELBO -2.9197 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -131.9263 Accuracy 0.1400 UUID 5d1e
 
-Variable containing:
- 0.0000  0.0000  0.0000  ...   0.0000  0.0000  0.0000
- 0.0000  0.0000  0.0000  ...   0.0000  0.0000  0.0000
- 0.0000  0.0000  0.0000  ...   0.0000  0.0000  0.0000
-          ...             ⋱             ...          
- 0.0000  0.0000  0.0000  ...   0.0000  0.0000  0.0000
- 0.0000  0.0000  0.0000  ...   0.0000  0.0000  0.0000
- 0.0000  0.0000  0.0000  ...   0.0000  0.0000  0.0000
-[torch.cuda.FloatTensor of size 50x784 (GPU 0)]
+[Epoch 2] Train: Labeled ELBO -2.8248 Unlabeled ELBO -2.7420 Accuracy 0.1400 (0s) UUID 5d1e
+Validation: ELBO -126.1044 Accuracy 0.1400 UUID 5d1e
+
+[Epoch 3] Train: Labeled ELBO -2.6850 Unlabeled ELBO -2.6242 Accuracy 0.1400 (0s) UUID 5d1e
+Validation: ELBO -121.1840 Accuracy 0.1600 UUID 5d1e
+
+[Epoch 4] Train: Labeled ELBO -2.6157 Unlabeled ELBO -2.5378 Accuracy 0.1600 (0s) UUID 5d1e
+Validation: ELBO -118.5123 Accuracy 0.1600 UUID 5d1e
+
+[Epoch 5] Train: Labeled ELBO -2.4843 Unlabeled ELBO -2.4740 Accuracy 0.1600 (0s) UUID 5d1e
+Validation: ELBO -117.4369 Accuracy 0.1600 UUID 5d1e
+
+[Epoch 6] Train: Labeled ELBO -2.4156 Unlabeled ELBO -2.4263 Accuracy 0.1600 (0s) UUID 5d1e
+Validation: ELBO -114.4369 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 7] Train: Labeled ELBO -2.4054 Unlabeled ELBO -2.3766 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -113.6752 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 8] Train: Labeled ELBO -2.3798 Unlabeled ELBO -2.3382 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -110.6833 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 9] Train: Labeled ELBO -2.3106 Unlabeled ELBO -2.3105 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -111.5506 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 10] Train: Labeled ELBO -2.3002 Unlabeled ELBO -2.2750 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -108.7053 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 11] Train: Labeled ELBO -2.2713 Unlabeled ELBO -2.2488 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -107.3772 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 12] Train: Labeled ELBO -2.2482 Unlabeled ELBO -2.2286 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -108.8032 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 13] Train: Labeled ELBO -2.2347 Unlabeled ELBO -2.2076 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -104.7845 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 14] Train: Labeled ELBO -2.2112 Unlabeled ELBO -2.1852 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -104.3198 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 15] Train: Labeled ELBO -2.1621 Unlabeled ELBO -2.1700 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -104.3382 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 16] Train: Labeled ELBO -2.1477 Unlabeled ELBO -2.1577 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -104.4735 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 17] Train: Labeled ELBO -2.1346 Unlabeled ELBO -2.1471 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -104.7152 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 18] Train: Labeled ELBO -2.1312 Unlabeled ELBO -2.1385 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -103.8205 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 19] Train: Labeled ELBO -2.1452 Unlabeled ELBO -2.1267 Accuracy 0.0800 (1s) UUID 5d1e
+Validation: ELBO -104.1174 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 20] Train: Labeled ELBO -2.1500 Unlabeled ELBO -2.1186 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -105.9861 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 21] Train: Labeled ELBO -2.1083 Unlabeled ELBO -2.1114 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -102.5200 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 22] Train: Labeled ELBO -2.1415 Unlabeled ELBO -2.1042 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -102.6283 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 23] Train: Labeled ELBO -2.1115 Unlabeled ELBO -2.1014 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -102.4716 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 24] Train: Labeled ELBO -2.1056 Unlabeled ELBO -2.0947 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -102.9214 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 25] Train: Labeled ELBO -2.0662 Unlabeled ELBO -2.0880 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -101.6649 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 26] Train: Labeled ELBO -2.0890 Unlabeled ELBO -2.0849 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -101.8380 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 27] Train: Labeled ELBO -2.0647 Unlabeled ELBO -2.0792 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -102.6025 Accuracy 0.0600 UUID 5d1e
+
+[Epoch 28] Train: Labeled ELBO -2.0803 Unlabeled ELBO -2.0734 Accuracy 0.0600 (0s) UUID 5d1e
+Validation: ELBO -101.6546 Accuracy 0.0600 UUID 5d1e
+
+[Epoch 29] Train: Labeled ELBO -2.0753 Unlabeled ELBO -2.0706 Accuracy 0.0600 (1s) UUID 5d1e
+Validation: ELBO -102.4930 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 30] Train: Labeled ELBO -2.0916 Unlabeled ELBO -2.0685 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -101.6660 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 31] Train: Labeled ELBO -2.0531 Unlabeled ELBO -2.0619 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -102.1310 Accuracy 0.0600 UUID 5d1e
+
+[Epoch 32] Train: Labeled ELBO -2.0738 Unlabeled ELBO -2.0584 Accuracy 0.0600 (0s) UUID 5d1e
+Validation: ELBO -102.3821 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 33] Train: Labeled ELBO -2.0323 Unlabeled ELBO -2.0519 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -102.7526 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 34] Train: Labeled ELBO -2.0388 Unlabeled ELBO -2.0533 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -101.1377 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 35] Train: Labeled ELBO -2.0453 Unlabeled ELBO -2.0473 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -100.6607 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 36] Train: Labeled ELBO -2.0131 Unlabeled ELBO -2.0495 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -101.4738 Accuracy 0.0600 UUID 5d1e
+
+[Epoch 37] Train: Labeled ELBO -2.0120 Unlabeled ELBO -2.0456 Accuracy 0.0600 (0s) UUID 5d1e
+Validation: ELBO -101.9379 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 38] Train: Labeled ELBO -2.0429 Unlabeled ELBO -2.0409 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -101.2838 Accuracy 0.1400 UUID 5d1e
+
+[Epoch 39] Train: Labeled ELBO -1.9961 Unlabeled ELBO -2.0375 Accuracy 0.1400 (0s) UUID 5d1e
+Validation: ELBO -103.0242 Accuracy 0.0600 UUID 5d1e
+
+[Epoch 40] Train: Labeled ELBO -2.0054 Unlabeled ELBO -2.0361 Accuracy 0.0600 (0s) UUID 5d1e
+Validation: ELBO -101.6145 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 41] Train: Labeled ELBO -2.0386 Unlabeled ELBO -2.0299 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -102.3297 Accuracy 0.0600 UUID 5d1e
+
+[Epoch 42] Train: Labeled ELBO -1.9729 Unlabeled ELBO -2.0294 Accuracy 0.0600 (0s) UUID 5d1e
+Validation: ELBO -101.8798 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 43] Train: Labeled ELBO -2.0024 Unlabeled ELBO -2.0315 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -102.5557 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 44] Train: Labeled ELBO -2.0086 Unlabeled ELBO -2.0284 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -101.7885 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 45] Train: Labeled ELBO -1.9605 Unlabeled ELBO -2.0247 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -100.9861 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 46] Train: Labeled ELBO -1.9921 Unlabeled ELBO -2.0215 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -102.6338 Accuracy 0.0600 UUID 5d1e
+
+[Epoch 47] Train: Labeled ELBO -1.9567 Unlabeled ELBO -2.0189 Accuracy 0.0600 (0s) UUID 5d1e
+Validation: ELBO -101.5134 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 48] Train: Labeled ELBO -1.9705 Unlabeled ELBO -2.0187 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -101.5925 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 49] Train: Labeled ELBO -1.9810 Unlabeled ELBO -2.0179 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -101.5596 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 50] Train: Labeled ELBO -1.9601 Unlabeled ELBO -2.0169 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -102.7575 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 51] Train: Labeled ELBO -1.9607 Unlabeled ELBO -2.0112 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -100.3340 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 52] Train: Labeled ELBO -1.9611 Unlabeled ELBO -2.0090 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -101.7967 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 53] Train: Labeled ELBO -1.9570 Unlabeled ELBO -2.0098 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -101.0026 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 54] Train: Labeled ELBO -1.9708 Unlabeled ELBO -2.0028 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -101.4667 Accuracy 0.0600 UUID 5d1e
+
+[Epoch 55] Train: Labeled ELBO -1.9680 Unlabeled ELBO -2.0058 Accuracy 0.0600 (0s) UUID 5d1e
+Validation: ELBO -101.0618 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 56] Train: Labeled ELBO -1.9534 Unlabeled ELBO -2.0038 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -100.8910 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 57] Train: Labeled ELBO -1.9696 Unlabeled ELBO -1.9982 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -101.5585 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 58] Train: Labeled ELBO -1.9473 Unlabeled ELBO -1.9982 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -102.0825 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 59] Train: Labeled ELBO -1.9468 Unlabeled ELBO -1.9986 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -101.9446 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 60] Train: Labeled ELBO -1.9593 Unlabeled ELBO -1.9993 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -101.3205 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 61] Train: Labeled ELBO -1.9445 Unlabeled ELBO -1.9983 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -101.8097 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 62] Train: Labeled ELBO -1.9450 Unlabeled ELBO -1.9937 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -101.2333 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 63] Train: Labeled ELBO -1.9379 Unlabeled ELBO -1.9954 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -101.2187 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 64] Train: Labeled ELBO -1.9510 Unlabeled ELBO -1.9948 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -101.1231 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 65] Train: Labeled ELBO -1.9120 Unlabeled ELBO -1.9914 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -102.3434 Accuracy 0.0400 UUID 5d1e
+
+[Epoch 66] Train: Labeled ELBO -1.9061 Unlabeled ELBO -1.9916 Accuracy 0.0400 (0s) UUID 5d1e
+Validation: ELBO -101.7399 Accuracy 0.0600 UUID 5d1e
+
+[Epoch 67] Train: Labeled ELBO -1.9266 Unlabeled ELBO -1.9882 Accuracy 0.0600 (0s) UUID 5d1e
+Validation: ELBO -100.7520 Accuracy 0.0800 UUID 5d1e
+
+[Epoch 68] Train: Labeled ELBO -1.9289 Unlabeled ELBO -1.9846 Accuracy 0.0800 (0s) UUID 5d1e
+Validation: ELBO -100.4151 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 69] Train: Labeled ELBO -1.9095 Unlabeled ELBO -1.9899 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -102.1296 Accuracy 0.1000 UUID 5d1e
+
+[Epoch 70] Train: Labeled ELBO -1.9193 Unlabeled ELBO -1.9824 Accuracy 0.1000 (0s) UUID 5d1e
+Validation: ELBO -103.4364 Accuracy 0.1200 UUID 5d1e
+
+[Epoch 71] Train: Labeled ELBO -1.9043 Unlabeled ELBO -1.9853 Accuracy 0.1200 (0s) UUID 5d1e
+Validation: ELBO -102.6892 Accuracy 0.1400 UUID 5d1e
+
+[Epoch 72] Train: Labeled ELBO -1.9481 Unlabeled ELBO -1.9944 Accuracy 0.1400 (0s) UUID 5d1e
+Validation: ELBO -102.2333 Accuracy 0.1600 UUID 5d1e
+
+[Epoch 73] Train: Labeled ELBO -1.9266 Unlabeled ELBO -1.9821 Accuracy 0.1600 (0s) UUID 5d1e
+Validation: ELBO -101.3970 Accuracy 0.1400 UUID 5d1e
+
+[Epoch 74] Train: Labeled ELBO -1.9236 Unlabeled ELBO -1.9842 Accuracy 0.1400 (0s) UUID 5d1e
+Validation: ELBO -100.6689 Accuracy 0.2000 UUID 5d1e
+
+[Epoch 75] Train: Labeled ELBO -1.9408 Unlabeled ELBO -1.9849 Accuracy 0.2000 (0s) UUID 5d1e
+Validation: ELBO -101.5004 Accuracy 0.2400 UUID 5d1e
+
+[Epoch 76] Train: Labeled ELBO -1.9053 Unlabeled ELBO -1.9837 Accuracy 0.2400 (0s) UUID 5d1e
+Validation: ELBO -100.5388 Accuracy 0.2200 UUID 5d1e
+
+[Epoch 77] Train: Labeled ELBO -1.9191 Unlabeled ELBO -1.9782 Accuracy 0.2200 (0s) UUID 5d1e
+Validation: ELBO -100.3573 Accuracy 0.2600 UUID 5d1e
+
+[Epoch 78] Train: Labeled ELBO -1.9226 Unlabeled ELBO -1.9817 Accuracy 0.2600 (0s) UUID 5d1e
+Validation: ELBO -99.9286 Accuracy 0.2200 UUID 5d1e
+
+[Epoch 79] Train: Labeled ELBO -1.9119 Unlabeled ELBO -1.9796 Accuracy 0.2200 (0s) UUID 5d1e
+Validation: ELBO -100.7272 Accuracy 0.2000 UUID 5d1e
+
+[Epoch 80] Train: Labeled ELBO -1.8955 Unlabeled ELBO -1.9755 Accuracy 0.2000 (0s) UUID 5d1e
+Validation: ELBO -100.4207 Accuracy 0.2800 UUID 5d1e
+
+[Epoch 81] Train: Labeled ELBO -1.9268 Unlabeled ELBO -1.9766 Accuracy 0.2800 (0s) UUID 5d1e
+Validation: ELBO -99.6755 Accuracy 0.2600 UUID 5d1e
+
+[Epoch 82] Train: Labeled ELBO -1.9226 Unlabeled ELBO -1.9769 Accuracy 0.2600 (0s) UUID 5d1e
+Validation: ELBO -100.1429 Accuracy 0.2800 UUID 5d1e
+
+[Epoch 83] Train: Labeled ELBO -1.8968 Unlabeled ELBO -1.9722 Accuracy 0.2800 (0s) UUID 5d1e
+Validation: ELBO -99.9654 Accuracy 0.2400 UUID 5d1e
+
+[Epoch 84] Train: Labeled ELBO -1.9257 Unlabeled ELBO -1.9741 Accuracy 0.2400 (0s) UUID 5d1e
+Validation: ELBO -99.9988 Accuracy 0.3000 UUID 5d1e
+
+[Epoch 85] Train: Labeled ELBO -1.9195 Unlabeled ELBO -1.9717 Accuracy 0.3000 (0s) UUID 5d1e
+Validation: ELBO -101.1605 Accuracy 0.2600 UUID 5d1e
+
+[Epoch 86] Train: Labeled ELBO -1.9213 Unlabeled ELBO -1.9682 Accuracy 0.2600 (0s) UUID 5d1e
+Validation: ELBO -101.2087 Accuracy 0.2400 UUID 5d1e
+
+[Epoch 87] Train: Labeled ELBO -1.9096 Unlabeled ELBO -1.9715 Accuracy 0.2400 (0s) UUID 5d1e
+Validation: ELBO -100.9803 Accuracy 0.2600 UUID 5d1e
+
+[Epoch 88] Train: Labeled ELBO -1.9186 Unlabeled ELBO -1.9700 Accuracy 0.2600 (0s) UUID 5d1e
+Validation: ELBO -100.6427 Accuracy 0.2800 UUID 5d1e
+
+[Epoch 89] Train: Labeled ELBO -1.9186 Unlabeled ELBO -1.9691 Accuracy 0.2800 (0s) UUID 5d1e
+Validation: ELBO -100.0234 Accuracy 0.2000 UUID 5d1e
+
+[Epoch 90] Train: Labeled ELBO -1.8858 Unlabeled ELBO -1.9681 Accuracy 0.2000 (0s) UUID 5d1e
+Validation: ELBO -100.5597 Accuracy 0.2800 UUID 5d1e
+
+[Epoch 91] Train: Labeled ELBO -1.9339 Unlabeled ELBO -1.9709 Accuracy 0.2800 (0s) UUID 5d1e
+Validation: ELBO -99.9059 Accuracy 0.2000 UUID 5d1e
+
+[Epoch 92] Train: Labeled ELBO -1.9138 Unlabeled ELBO -1.9647 Accuracy 0.2000 (0s) UUID 5d1e
+Validation: ELBO -99.0531 Accuracy 0.3000 UUID 5d1e
+
+[Epoch 93] Train: Labeled ELBO -1.9118 Unlabeled ELBO -1.9654 Accuracy 0.3000 (0s) UUID 5d1e
+Validation: ELBO -100.5214 Accuracy 0.2400 UUID 5d1e
+
+[Epoch 94] Train: Labeled ELBO -1.9021 Unlabeled ELBO -1.9655 Accuracy 0.2400 (0s) UUID 5d1e
+Validation: ELBO -102.3223 Accuracy 0.3000 UUID 5d1e
+
+[Epoch 95] Train: Labeled ELBO -1.9195 Unlabeled ELBO -1.9670 Accuracy 0.3000 (0s) UUID 5d1e
+Validation: ELBO -100.1533 Accuracy 0.3200 UUID 5d1e
+
+[Epoch 96] Train: Labeled ELBO -1.9157 Unlabeled ELBO -1.9635 Accuracy 0.3200 (0s) UUID 5d1e
+Validation: ELBO -99.5129 Accuracy 0.3200 UUID 5d1e
+
+[Epoch 97] Train: Labeled ELBO -1.9000 Unlabeled ELBO -1.9673 Accuracy 0.3200 (0s) UUID 5d1e
+Validation: ELBO -99.7552 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 98] Train: Labeled ELBO -1.9119 Unlabeled ELBO -1.9599 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -100.2136 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 99] Train: Labeled ELBO -1.9051 Unlabeled ELBO -1.9641 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -99.5052 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 100] Train: Labeled ELBO -1.9035 Unlabeled ELBO -1.9629 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -101.1200 Accuracy 0.3200 UUID 5d1e
+
+[Epoch 101] Train: Labeled ELBO -1.9016 Unlabeled ELBO -1.9610 Accuracy 0.3200 (0s) UUID 5d1e
+Validation: ELBO -99.6881 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 102] Train: Labeled ELBO -1.9041 Unlabeled ELBO -1.9594 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -101.0947 Accuracy 0.3400 UUID 5d1e
+
+[Epoch 103] Train: Labeled ELBO -1.9009 Unlabeled ELBO -1.9592 Accuracy 0.3400 (0s) UUID 5d1e
+Validation: ELBO -101.8366 Accuracy 0.3400 UUID 5d1e
+
+[Epoch 104] Train: Labeled ELBO -1.8834 Unlabeled ELBO -1.9574 Accuracy 0.3400 (0s) UUID 5d1e
+Validation: ELBO -98.6430 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 105] Train: Labeled ELBO -1.9096 Unlabeled ELBO -1.9586 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -100.0005 Accuracy 0.3400 UUID 5d1e
+
+[Epoch 106] Train: Labeled ELBO -1.9032 Unlabeled ELBO -1.9565 Accuracy 0.3400 (0s) UUID 5d1e
+Validation: ELBO -99.9030 Accuracy 0.3200 UUID 5d1e
+
+[Epoch 107] Train: Labeled ELBO -1.9179 Unlabeled ELBO -1.9540 Accuracy 0.3200 (0s) UUID 5d1e
+Validation: ELBO -99.6767 Accuracy 0.3200 UUID 5d1e
+
+[Epoch 108] Train: Labeled ELBO -1.8996 Unlabeled ELBO -1.9583 Accuracy 0.3200 (0s) UUID 5d1e
+Validation: ELBO -100.5453 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 109] Train: Labeled ELBO -1.9037 Unlabeled ELBO -1.9507 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -100.9634 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 110] Train: Labeled ELBO -1.9108 Unlabeled ELBO -1.9567 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -102.3108 Accuracy 0.3000 UUID 5d1e
+
+[Epoch 111] Train: Labeled ELBO -1.9005 Unlabeled ELBO -1.9523 Accuracy 0.3000 (0s) UUID 5d1e
+Validation: ELBO -99.2211 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 112] Train: Labeled ELBO -1.8964 Unlabeled ELBO -1.9479 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -100.2854 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 113] Train: Labeled ELBO -1.8903 Unlabeled ELBO -1.9512 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -99.6959 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 114] Train: Labeled ELBO -1.8940 Unlabeled ELBO -1.9538 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -100.0675 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 115] Train: Labeled ELBO -1.9020 Unlabeled ELBO -1.9500 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -100.3966 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 116] Train: Labeled ELBO -1.9045 Unlabeled ELBO -1.9489 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -99.6152 Accuracy 0.3400 UUID 5d1e
+
+[Epoch 117] Train: Labeled ELBO -1.8941 Unlabeled ELBO -1.9463 Accuracy 0.3400 (0s) UUID 5d1e
+Validation: ELBO -98.3625 Accuracy 0.3800 UUID 5d1e
+
+[Epoch 118] Train: Labeled ELBO -1.8923 Unlabeled ELBO -1.9447 Accuracy 0.3800 (0s) UUID 5d1e
+Validation: ELBO -99.1666 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 119] Train: Labeled ELBO -1.8886 Unlabeled ELBO -1.9449 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -100.2280 Accuracy 0.3400 UUID 5d1e
+
+[Epoch 120] Train: Labeled ELBO -1.9081 Unlabeled ELBO -1.9420 Accuracy 0.3400 (0s) UUID 5d1e
+Validation: ELBO -100.0202 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 121] Train: Labeled ELBO -1.9059 Unlabeled ELBO -1.9464 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -99.7988 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 122] Train: Labeled ELBO -1.9035 Unlabeled ELBO -1.9428 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -98.8815 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 123] Train: Labeled ELBO -1.8881 Unlabeled ELBO -1.9465 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -98.2607 Accuracy 0.4600 UUID 5d1e
+
+[Epoch 124] Train: Labeled ELBO -1.8923 Unlabeled ELBO -1.9436 Accuracy 0.4600 (0s) UUID 5d1e
+Validation: ELBO -98.2248 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 125] Train: Labeled ELBO -1.8888 Unlabeled ELBO -1.9411 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -99.2749 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 126] Train: Labeled ELBO -1.8890 Unlabeled ELBO -1.9395 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -99.0537 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 127] Train: Labeled ELBO -1.9088 Unlabeled ELBO -1.9444 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -100.0073 Accuracy 0.3400 UUID 5d1e
+
+[Epoch 128] Train: Labeled ELBO -1.8809 Unlabeled ELBO -1.9388 Accuracy 0.3400 (0s) UUID 5d1e
+Validation: ELBO -100.2399 Accuracy 0.3800 UUID 5d1e
+
+[Epoch 129] Train: Labeled ELBO -1.9065 Unlabeled ELBO -1.9386 Accuracy 0.3800 (0s) UUID 5d1e
+Validation: ELBO -99.9075 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 130] Train: Labeled ELBO -1.9019 Unlabeled ELBO -1.9428 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -99.3482 Accuracy 0.3800 UUID 5d1e
+
+[Epoch 131] Train: Labeled ELBO -1.8981 Unlabeled ELBO -1.9414 Accuracy 0.3800 (0s) UUID 5d1e
+Validation: ELBO -99.3006 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 132] Train: Labeled ELBO -1.8905 Unlabeled ELBO -1.9360 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -99.7565 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 133] Train: Labeled ELBO -1.9007 Unlabeled ELBO -1.9347 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -100.2387 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 134] Train: Labeled ELBO -1.8884 Unlabeled ELBO -1.9386 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -99.5046 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 135] Train: Labeled ELBO -1.8950 Unlabeled ELBO -1.9360 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -100.4388 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 136] Train: Labeled ELBO -1.9058 Unlabeled ELBO -1.9347 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -98.8380 Accuracy 0.3800 UUID 5d1e
+
+[Epoch 137] Train: Labeled ELBO -1.8964 Unlabeled ELBO -1.9334 Accuracy 0.3800 (0s) UUID 5d1e
+Validation: ELBO -100.0096 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 138] Train: Labeled ELBO -1.9019 Unlabeled ELBO -1.9399 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -100.9050 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 139] Train: Labeled ELBO -1.8894 Unlabeled ELBO -1.9283 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -99.7710 Accuracy 0.3400 UUID 5d1e
+
+[Epoch 140] Train: Labeled ELBO -1.8899 Unlabeled ELBO -1.9337 Accuracy 0.3400 (0s) UUID 5d1e
+Validation: ELBO -98.6458 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 141] Train: Labeled ELBO -1.8917 Unlabeled ELBO -1.9357 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -100.8440 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 142] Train: Labeled ELBO -1.8914 Unlabeled ELBO -1.9325 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -98.5703 Accuracy 0.3800 UUID 5d1e
+
+[Epoch 143] Train: Labeled ELBO -1.8965 Unlabeled ELBO -1.9308 Accuracy 0.3800 (0s) UUID 5d1e
+Validation: ELBO -99.7100 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 144] Train: Labeled ELBO -1.8954 Unlabeled ELBO -1.9299 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -99.9248 Accuracy 0.3600 UUID 5d1e
+
+[Epoch 145] Train: Labeled ELBO -1.9059 Unlabeled ELBO -1.9296 Accuracy 0.3600 (0s) UUID 5d1e
+Validation: ELBO -98.3502 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 146] Train: Labeled ELBO -1.9029 Unlabeled ELBO -1.9286 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -100.6153 Accuracy 0.3800 UUID 5d1e
+
+[Epoch 147] Train: Labeled ELBO -1.8899 Unlabeled ELBO -1.9286 Accuracy 0.3800 (0s) UUID 5d1e
+Validation: ELBO -99.3474 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 148] Train: Labeled ELBO -1.9076 Unlabeled ELBO -1.9272 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -99.9347 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 149] Train: Labeled ELBO -1.8869 Unlabeled ELBO -1.9304 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -100.1576 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 150] Train: Labeled ELBO -1.8536 Unlabeled ELBO -1.9324 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -99.5796 Accuracy 0.3800 UUID 5d1e
+
+[Epoch 151] Train: Labeled ELBO -1.8981 Unlabeled ELBO -1.9291 Accuracy 0.3800 (0s) UUID 5d1e
+Validation: ELBO -100.3787 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 152] Train: Labeled ELBO -1.8738 Unlabeled ELBO -1.9269 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -99.1445 Accuracy 0.4600 UUID 5d1e
+
+[Epoch 153] Train: Labeled ELBO -1.8867 Unlabeled ELBO -1.9265 Accuracy 0.4600 (0s) UUID 5d1e
+Validation: ELBO -99.9551 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 154] Train: Labeled ELBO -1.8969 Unlabeled ELBO -1.9261 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -99.0346 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 155] Train: Labeled ELBO -1.8707 Unlabeled ELBO -1.9261 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -100.9610 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 156] Train: Labeled ELBO -1.9036 Unlabeled ELBO -1.9282 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -99.0508 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 157] Train: Labeled ELBO -1.9189 Unlabeled ELBO -1.9245 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -100.0195 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 158] Train: Labeled ELBO -1.9044 Unlabeled ELBO -1.9251 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -99.5157 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 159] Train: Labeled ELBO -1.9035 Unlabeled ELBO -1.9262 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -98.7109 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 160] Train: Labeled ELBO -1.9015 Unlabeled ELBO -1.9294 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -99.3771 Accuracy 0.3800 UUID 5d1e
+
+[Epoch 161] Train: Labeled ELBO -1.8694 Unlabeled ELBO -1.9249 Accuracy 0.3800 (0s) UUID 5d1e
+Validation: ELBO -99.8734 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 162] Train: Labeled ELBO -1.8887 Unlabeled ELBO -1.9263 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -98.5054 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 163] Train: Labeled ELBO -1.8810 Unlabeled ELBO -1.9211 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -99.1829 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 164] Train: Labeled ELBO -1.8845 Unlabeled ELBO -1.9237 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -99.5586 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 165] Train: Labeled ELBO -1.8855 Unlabeled ELBO -1.9265 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -99.4312 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 166] Train: Labeled ELBO -1.8959 Unlabeled ELBO -1.9249 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -99.9484 Accuracy 0.3800 UUID 5d1e
+
+[Epoch 167] Train: Labeled ELBO -1.8724 Unlabeled ELBO -1.9236 Accuracy 0.3800 (0s) UUID 5d1e
+Validation: ELBO -98.5070 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 168] Train: Labeled ELBO -1.9016 Unlabeled ELBO -1.9224 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -99.6085 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 169] Train: Labeled ELBO -1.8807 Unlabeled ELBO -1.9181 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -98.7569 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 170] Train: Labeled ELBO -1.8907 Unlabeled ELBO -1.9204 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -98.5358 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 171] Train: Labeled ELBO -1.8630 Unlabeled ELBO -1.9236 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -99.0192 Accuracy 0.4600 UUID 5d1e
+
+[Epoch 172] Train: Labeled ELBO -1.8637 Unlabeled ELBO -1.9218 Accuracy 0.4600 (0s) UUID 5d1e
+Validation: ELBO -99.7641 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 173] Train: Labeled ELBO -1.9038 Unlabeled ELBO -1.9206 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -97.8885 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 174] Train: Labeled ELBO -1.9071 Unlabeled ELBO -1.9177 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -99.7946 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 175] Train: Labeled ELBO -1.8709 Unlabeled ELBO -1.9197 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -99.5748 Accuracy 0.4600 UUID 5d1e
+
+[Epoch 176] Train: Labeled ELBO -1.8887 Unlabeled ELBO -1.9186 Accuracy 0.4600 (0s) UUID 5d1e
+Validation: ELBO -99.6434 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 177] Train: Labeled ELBO -1.8796 Unlabeled ELBO -1.9166 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -99.3156 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 178] Train: Labeled ELBO -1.8830 Unlabeled ELBO -1.9178 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -99.0055 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 179] Train: Labeled ELBO -1.8651 Unlabeled ELBO -1.9193 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -99.3034 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 180] Train: Labeled ELBO -1.9108 Unlabeled ELBO -1.9140 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -100.1025 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 181] Train: Labeled ELBO -1.8746 Unlabeled ELBO -1.9195 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -99.6104 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 182] Train: Labeled ELBO -1.8841 Unlabeled ELBO -1.9177 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -98.9259 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 183] Train: Labeled ELBO -1.9028 Unlabeled ELBO -1.9178 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -99.2432 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 184] Train: Labeled ELBO -1.9109 Unlabeled ELBO -1.9175 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -97.8691 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 185] Train: Labeled ELBO -1.8799 Unlabeled ELBO -1.9168 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -98.6584 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 186] Train: Labeled ELBO -1.8901 Unlabeled ELBO -1.9178 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -98.7769 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 187] Train: Labeled ELBO -1.9016 Unlabeled ELBO -1.9167 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -99.0611 Accuracy 0.4600 UUID 5d1e
+
+[Epoch 188] Train: Labeled ELBO -1.8608 Unlabeled ELBO -1.9164 Accuracy 0.4600 (0s) UUID 5d1e
+Validation: ELBO -99.0115 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 189] Train: Labeled ELBO -1.8904 Unlabeled ELBO -1.9146 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -98.7117 Accuracy 0.4600 UUID 5d1e
+
+[Epoch 190] Train: Labeled ELBO -1.8944 Unlabeled ELBO -1.9141 Accuracy 0.4600 (0s) UUID 5d1e
+Validation: ELBO -98.5125 Accuracy 0.4800 UUID 5d1e
+
+[Epoch 191] Train: Labeled ELBO -1.8825 Unlabeled ELBO -1.9177 Accuracy 0.4800 (0s) UUID 5d1e
+Validation: ELBO -98.5246 Accuracy 0.4600 UUID 5d1e
+
+[Epoch 192] Train: Labeled ELBO -1.8717 Unlabeled ELBO -1.9134 Accuracy 0.4600 (0s) UUID 5d1e
+Validation: ELBO -99.4671 Accuracy 0.4600 UUID 5d1e
+
+[Epoch 193] Train: Labeled ELBO -1.8723 Unlabeled ELBO -1.9172 Accuracy 0.4600 (0s) UUID 5d1e
+Validation: ELBO -99.9660 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 194] Train: Labeled ELBO -1.8859 Unlabeled ELBO -1.9180 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -100.0904 Accuracy 0.4000 UUID 5d1e
+
+[Epoch 195] Train: Labeled ELBO -1.9011 Unlabeled ELBO -1.9153 Accuracy 0.4000 (0s) UUID 5d1e
+Validation: ELBO -100.4866 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 196] Train: Labeled ELBO -1.8764 Unlabeled ELBO -1.9122 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -99.3961 Accuracy 0.4400 UUID 5d1e
+
+[Epoch 197] Train: Labeled ELBO -1.8889 Unlabeled ELBO -1.9141 Accuracy 0.4400 (0s) UUID 5d1e
+Validation: ELBO -99.1157 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 198] Train: Labeled ELBO -1.8751 Unlabeled ELBO -1.9123 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -99.5477 Accuracy 0.4200 UUID 5d1e
+
+[Epoch 199] Train: Labeled ELBO -1.8697 Unlabeled ELBO -1.9164 Accuracy 0.4200 (0s) UUID 5d1e
+Validation: ELBO -113.5052 Accuracy 0.3572 UUID 5d1e
+
+Validation: ELBO -112.8760 Accuracy 0.3338 UUID 5d1e
+
+Validation: ELBO -157.4833 Accuracy 0.1333 UUID 82b0
+
+[Epoch 0] Train: Labeled ELBO -8.8242 Unlabeled ELBO -3.5132 Accuracy 0.1333 (1s) UUID 82b0
+Validation: ELBO -146.7249 Accuracy 0.1333 UUID 82b0
+
+[Epoch 1] Train: Labeled ELBO -3.1675 Unlabeled ELBO -2.9104 Accuracy 0.1333 (1s) UUID 82b0
+Validation: ELBO -138.6751 Accuracy 0.1933 UUID 82b0
+
+[Epoch 2] Train: Labeled ELBO -2.9869 Unlabeled ELBO -2.7415 Accuracy 0.1933 (1s) UUID 82b0
+Validation: ELBO -134.2651 Accuracy 0.1800 UUID 82b0
+
+[Epoch 3] Train: Labeled ELBO -2.8147 Unlabeled ELBO -2.6257 Accuracy 0.1800 (1s) UUID 82b0
+Validation: ELBO -128.5163 Accuracy 0.1733 UUID 82b0
+
+[Epoch 4] Train: Labeled ELBO -2.7364 Unlabeled ELBO -2.5496 Accuracy 0.1733 (1s) UUID 82b0
+Validation: ELBO -126.2636 Accuracy 0.2133 UUID 82b0
+
+[Epoch 5] Train: Labeled ELBO -2.6500 Unlabeled ELBO -2.4781 Accuracy 0.2133 (1s) UUID 82b0
+Validation: ELBO -125.7261 Accuracy 0.2133 UUID 82b0
+
+[Epoch 6] Train: Labeled ELBO -2.5834 Unlabeled ELBO -2.4292 Accuracy 0.2133 (1s) UUID 82b0
+Validation: ELBO -122.7185 Accuracy 0.2667 UUID 82b0
+
+[Epoch 7] Train: Labeled ELBO -2.5881 Unlabeled ELBO -2.3832 Accuracy 0.2667 (1s) UUID 82b0
+Validation: ELBO -120.7315 Accuracy 0.2667 UUID 82b0
+
+[Epoch 8] Train: Labeled ELBO -2.5184 Unlabeled ELBO -2.3411 Accuracy 0.2667 (1s) UUID 82b0
+Validation: ELBO -119.3298 Accuracy 0.2467 UUID 82b0
+
+[Epoch 9] Train: Labeled ELBO -2.4722 Unlabeled ELBO -2.3161 Accuracy 0.2467 (1s) UUID 82b0
+Validation: ELBO -117.1972 Accuracy 0.2267 UUID 82b0
+
+[Epoch 10] Train: Labeled ELBO -2.4551 Unlabeled ELBO -2.2789 Accuracy 0.2267 (1s) UUID 82b0
+Validation: ELBO -116.2586 Accuracy 0.2467 UUID 82b0
+
+[Epoch 11] Train: Labeled ELBO -2.4112 Unlabeled ELBO -2.2570 Accuracy 0.2467 (1s) UUID 82b0
+Validation: ELBO -116.0594 Accuracy 0.2267 UUID 82b0
+
+[Epoch 12] Train: Labeled ELBO -2.3837 Unlabeled ELBO -2.2392 Accuracy 0.2267 (1s) UUID 82b0
+Validation: ELBO -116.1858 Accuracy 0.2467 UUID 82b0
+
+[Epoch 13] Train: Labeled ELBO -2.3686 Unlabeled ELBO -2.2169 Accuracy 0.2467 (1s) UUID 82b0
+Validation: ELBO -114.0439 Accuracy 0.2600 UUID 82b0
+
+[Epoch 14] Train: Labeled ELBO -2.3628 Unlabeled ELBO -2.1997 Accuracy 0.2600 (1s) UUID 82b0
+Validation: ELBO -112.3230 Accuracy 0.2533 UUID 82b0
+
+[Epoch 15] Train: Labeled ELBO -2.3334 Unlabeled ELBO -2.1843 Accuracy 0.2533 (1s) UUID 82b0
+Validation: ELBO -112.5675 Accuracy 0.2400 UUID 82b0
+
+[Epoch 16] Train: Labeled ELBO -2.3077 Unlabeled ELBO -2.1721 Accuracy 0.2400 (1s) UUID 82b0
+Validation: ELBO -112.5389 Accuracy 0.2533 UUID 82b0
+
+[Epoch 17] Train: Labeled ELBO -2.3047 Unlabeled ELBO -2.1541 Accuracy 0.2533 (1s) UUID 82b0
+Validation: ELBO -111.9705 Accuracy 0.2533 UUID 82b0
+
+[Epoch 18] Train: Labeled ELBO -2.2839 Unlabeled ELBO -2.1463 Accuracy 0.2533 (1s) UUID 82b0
+Validation: ELBO -111.7333 Accuracy 0.2333 UUID 82b0
+
+[Epoch 19] Train: Labeled ELBO -2.2747 Unlabeled ELBO -2.1408 Accuracy 0.2333 (1s) UUID 82b0
+Validation: ELBO -110.5554 Accuracy 0.2867 UUID 82b0
+
+[Epoch 20] Train: Labeled ELBO -2.2659 Unlabeled ELBO -2.1263 Accuracy 0.2867 (1s) UUID 82b0
+Validation: ELBO -110.4958 Accuracy 0.3067 UUID 82b0
+
+[Epoch 21] Train: Labeled ELBO -2.2487 Unlabeled ELBO -2.1215 Accuracy 0.3067 (1s) UUID 82b0
+Validation: ELBO -110.7450 Accuracy 0.2933 UUID 82b0
+
+[Epoch 22] Train: Labeled ELBO -2.2426 Unlabeled ELBO -2.1132 Accuracy 0.2933 (1s) UUID 82b0
+Validation: ELBO -109.5499 Accuracy 0.3400 UUID 82b0
+
+[Epoch 23] Train: Labeled ELBO -2.2423 Unlabeled ELBO -2.1044 Accuracy 0.3400 (1s) UUID 82b0
+Validation: ELBO -109.5661 Accuracy 0.3400 UUID 82b0
+
+[Epoch 24] Train: Labeled ELBO -2.2230 Unlabeled ELBO -2.0958 Accuracy 0.3400 (1s) UUID 82b0
+Validation: ELBO -109.0400 Accuracy 0.3200 UUID 82b0
+
+[Epoch 25] Train: Labeled ELBO -2.1890 Unlabeled ELBO -2.0872 Accuracy 0.3200 (1s) UUID 82b0
+Validation: ELBO -108.8836 Accuracy 0.3600 UUID 82b0
+
+[Epoch 26] Train: Labeled ELBO -2.1954 Unlabeled ELBO -2.0858 Accuracy 0.3600 (1s) UUID 82b0
+Validation: ELBO -108.6871 Accuracy 0.3333 UUID 82b0
+
+[Epoch 27] Train: Labeled ELBO -2.1787 Unlabeled ELBO -2.0804 Accuracy 0.3333 (1s) UUID 82b0
+Validation: ELBO -108.2661 Accuracy 0.3333 UUID 82b0
+
+[Epoch 28] Train: Labeled ELBO -2.1773 Unlabeled ELBO -2.0734 Accuracy 0.3333 (1s) UUID 82b0
+Validation: ELBO -108.8187 Accuracy 0.3467 UUID 82b0
+
+[Epoch 29] Train: Labeled ELBO -2.1789 Unlabeled ELBO -2.0716 Accuracy 0.3467 (1s) UUID 82b0
+Validation: ELBO -107.4659 Accuracy 0.3467 UUID 82b0
+
+[Epoch 30] Train: Labeled ELBO -2.1600 Unlabeled ELBO -2.0644 Accuracy 0.3467 (1s) UUID 82b0
+Validation: ELBO -107.5010 Accuracy 0.3733 UUID 82b0
+
+[Epoch 31] Train: Labeled ELBO -2.1505 Unlabeled ELBO -2.0569 Accuracy 0.3733 (1s) UUID 82b0
+Validation: ELBO -107.9243 Accuracy 0.3667 UUID 82b0
+
+[Epoch 32] Train: Labeled ELBO -2.1504 Unlabeled ELBO -2.0580 Accuracy 0.3667 (1s) UUID 82b0
+Validation: ELBO -106.6378 Accuracy 0.3800 UUID 82b0
+
+[Epoch 33] Train: Labeled ELBO -2.1493 Unlabeled ELBO -2.0533 Accuracy 0.3800 (1s) UUID 82b0
+Validation: ELBO -106.6666 Accuracy 0.4067 UUID 82b0
+
+[Epoch 34] Train: Labeled ELBO -2.1239 Unlabeled ELBO -2.0470 Accuracy 0.4067 (1s) UUID 82b0
+Validation: ELBO -107.2109 Accuracy 0.4333 UUID 82b0
+
+[Epoch 35] Train: Labeled ELBO -2.1140 Unlabeled ELBO -2.0465 Accuracy 0.4333 (1s) UUID 82b0
+Validation: ELBO -106.2734 Accuracy 0.4200 UUID 82b0
+
+[Epoch 36] Train: Labeled ELBO -2.1367 Unlabeled ELBO -2.0442 Accuracy 0.4200 (1s) UUID 82b0
+Validation: ELBO -107.3051 Accuracy 0.4533 UUID 82b0
+
+[Epoch 37] Train: Labeled ELBO -2.1165 Unlabeled ELBO -2.0410 Accuracy 0.4533 (1s) UUID 82b0
+Validation: ELBO -106.5031 Accuracy 0.4667 UUID 82b0
+
+[Epoch 38] Train: Labeled ELBO -2.1233 Unlabeled ELBO -2.0354 Accuracy 0.4667 (1s) UUID 82b0
+Validation: ELBO -105.7443 Accuracy 0.5467 UUID 82b0
+
+[Epoch 39] Train: Labeled ELBO -2.1071 Unlabeled ELBO -2.0298 Accuracy 0.5467 (1s) UUID 82b0
+Validation: ELBO -105.7845 Accuracy 0.5267 UUID 82b0
+
+[Epoch 40] Train: Labeled ELBO -2.0984 Unlabeled ELBO -2.0285 Accuracy 0.5267 (1s) UUID 82b0
+Validation: ELBO -106.1707 Accuracy 0.4667 UUID 82b0
+
+[Epoch 41] Train: Labeled ELBO -2.1024 Unlabeled ELBO -2.0218 Accuracy 0.4667 (1s) UUID 82b0
+Validation: ELBO -105.5003 Accuracy 0.5467 UUID 82b0
+
+[Epoch 42] Train: Labeled ELBO -2.0885 Unlabeled ELBO -2.0190 Accuracy 0.5467 (1s) UUID 82b0
+Validation: ELBO -104.5727 Accuracy 0.5600 UUID 82b0
+
+[Epoch 43] Train: Labeled ELBO -2.0854 Unlabeled ELBO -2.0153 Accuracy 0.5600 (1s) UUID 82b0
+Validation: ELBO -105.0983 Accuracy 0.5267 UUID 82b0
+
+[Epoch 44] Train: Labeled ELBO -2.0855 Unlabeled ELBO -2.0142 Accuracy 0.5267 (1s) UUID 82b0
+Validation: ELBO -105.6136 Accuracy 0.5133 UUID 82b0
+
+[Epoch 45] Train: Labeled ELBO -2.0793 Unlabeled ELBO -2.0146 Accuracy 0.5133 (1s) UUID 82b0
+Validation: ELBO -105.2097 Accuracy 0.5067 UUID 82b0
+
+[Epoch 46] Train: Labeled ELBO -2.0975 Unlabeled ELBO -2.0093 Accuracy 0.5067 (1s) UUID 82b0
+Validation: ELBO -105.1004 Accuracy 0.5533 UUID 82b0
+
+[Epoch 47] Train: Labeled ELBO -2.0829 Unlabeled ELBO -2.0059 Accuracy 0.5533 (1s) UUID 82b0
+Validation: ELBO -104.7781 Accuracy 0.5467 UUID 82b0
+
+[Epoch 48] Train: Labeled ELBO -2.0831 Unlabeled ELBO -2.0064 Accuracy 0.5467 (1s) UUID 82b0
+Validation: ELBO -104.6076 Accuracy 0.5200 UUID 82b0
+
+[Epoch 49] Train: Labeled ELBO -2.0605 Unlabeled ELBO -1.9996 Accuracy 0.5200 (1s) UUID 82b0
+Validation: ELBO -104.5543 Accuracy 0.5600 UUID 82b0
+
+[Epoch 50] Train: Labeled ELBO -2.0599 Unlabeled ELBO -2.0008 Accuracy 0.5600 (1s) UUID 82b0
+Validation: ELBO -104.8424 Accuracy 0.5733 UUID 82b0
+
+[Epoch 51] Train: Labeled ELBO -2.0681 Unlabeled ELBO -1.9990 Accuracy 0.5733 (1s) UUID 82b0
+Validation: ELBO -104.6460 Accuracy 0.5400 UUID 82b0
+
+[Epoch 52] Train: Labeled ELBO -2.0625 Unlabeled ELBO -1.9981 Accuracy 0.5400 (1s) UUID 82b0
+Validation: ELBO -105.2611 Accuracy 0.5600 UUID 82b0
+
+[Epoch 53] Train: Labeled ELBO -2.0624 Unlabeled ELBO -1.9952 Accuracy 0.5600 (1s) UUID 82b0
+Validation: ELBO -104.3426 Accuracy 0.5733 UUID 82b0
+
+[Epoch 54] Train: Labeled ELBO -2.0758 Unlabeled ELBO -1.9970 Accuracy 0.5733 (1s) UUID 82b0
+Validation: ELBO -104.3435 Accuracy 0.5600 UUID 82b0
+
+[Epoch 55] Train: Labeled ELBO -2.0451 Unlabeled ELBO -1.9933 Accuracy 0.5600 (1s) UUID 82b0
+Validation: ELBO -104.3117 Accuracy 0.5400 UUID 82b0
+
+[Epoch 56] Train: Labeled ELBO -2.0394 Unlabeled ELBO -1.9931 Accuracy 0.5400 (1s) UUID 82b0
+Validation: ELBO -104.6353 Accuracy 0.6000 UUID 82b0
+
+[Epoch 57] Train: Labeled ELBO -2.0439 Unlabeled ELBO -1.9864 Accuracy 0.6000 (1s) UUID 82b0
+Validation: ELBO -104.4367 Accuracy 0.5667 UUID 82b0
+
+[Epoch 58] Train: Labeled ELBO -2.0572 Unlabeled ELBO -1.9905 Accuracy 0.5667 (1s) UUID 82b0
+Validation: ELBO -103.8304 Accuracy 0.5800 UUID 82b0
+
+[Epoch 59] Train: Labeled ELBO -2.0613 Unlabeled ELBO -1.9839 Accuracy 0.5800 (1s) UUID 82b0
+Validation: ELBO -103.9129 Accuracy 0.6267 UUID 82b0
+
+[Epoch 60] Train: Labeled ELBO -2.0301 Unlabeled ELBO -1.9863 Accuracy 0.6267 (1s) UUID 82b0
+Validation: ELBO -103.6643 Accuracy 0.6000 UUID 82b0
+
+[Epoch 61] Train: Labeled ELBO -2.0316 Unlabeled ELBO -1.9852 Accuracy 0.6000 (1s) UUID 82b0
+Validation: ELBO -103.5109 Accuracy 0.6200 UUID 82b0
+
+[Epoch 62] Train: Labeled ELBO -2.0311 Unlabeled ELBO -1.9826 Accuracy 0.6200 (1s) UUID 82b0
+Validation: ELBO -103.3471 Accuracy 0.5667 UUID 82b0
+
+[Epoch 63] Train: Labeled ELBO -2.0419 Unlabeled ELBO -1.9795 Accuracy 0.5667 (1s) UUID 82b0
+Validation: ELBO -104.2468 Accuracy 0.5800 UUID 82b0
+
+[Epoch 64] Train: Labeled ELBO -2.0384 Unlabeled ELBO -1.9788 Accuracy 0.5800 (1s) UUID 82b0
+Validation: ELBO -103.6737 Accuracy 0.5800 UUID 82b0
+
+[Epoch 65] Train: Labeled ELBO -2.0318 Unlabeled ELBO -1.9764 Accuracy 0.5800 (1s) UUID 82b0
+Validation: ELBO -103.7016 Accuracy 0.5933 UUID 82b0
+
+[Epoch 66] Train: Labeled ELBO -2.0256 Unlabeled ELBO -1.9746 Accuracy 0.5933 (1s) UUID 82b0
+Validation: ELBO -103.5957 Accuracy 0.6467 UUID 82b0
+
+[Epoch 67] Train: Labeled ELBO -2.0400 Unlabeled ELBO -1.9774 Accuracy 0.6467 (1s) UUID 82b0
+Validation: ELBO -102.9542 Accuracy 0.6467 UUID 82b0
+
+[Epoch 68] Train: Labeled ELBO -2.0183 Unlabeled ELBO -1.9707 Accuracy 0.6467 (1s) UUID 82b0
+Validation: ELBO -103.1267 Accuracy 0.6200 UUID 82b0
+
+[Epoch 69] Train: Labeled ELBO -2.0190 Unlabeled ELBO -1.9742 Accuracy 0.6200 (1s) UUID 82b0
+Validation: ELBO -103.2238 Accuracy 0.6267 UUID 82b0
+
+[Epoch 70] Train: Labeled ELBO -2.0166 Unlabeled ELBO -1.9716 Accuracy 0.6267 (1s) UUID 82b0
+Validation: ELBO -102.4231 Accuracy 0.6400 UUID 82b0
+
+[Epoch 71] Train: Labeled ELBO -2.0275 Unlabeled ELBO -1.9664 Accuracy 0.6400 (1s) UUID 82b0
+Validation: ELBO -102.7197 Accuracy 0.6200 UUID 82b0
+
+[Epoch 72] Train: Labeled ELBO -2.0136 Unlabeled ELBO -1.9707 Accuracy 0.6200 (1s) UUID 82b0
+Validation: ELBO -102.9571 Accuracy 0.6667 UUID 82b0
+
+[Epoch 73] Train: Labeled ELBO -2.0216 Unlabeled ELBO -1.9648 Accuracy 0.6667 (1s) UUID 82b0
+Validation: ELBO -102.9009 Accuracy 0.6733 UUID 82b0
+
+[Epoch 74] Train: Labeled ELBO -2.0087 Unlabeled ELBO -1.9653 Accuracy 0.6733 (1s) UUID 82b0
+Validation: ELBO -103.0635 Accuracy 0.6067 UUID 82b0
+
+[Epoch 75] Train: Labeled ELBO -2.0296 Unlabeled ELBO -1.9661 Accuracy 0.6067 (1s) UUID 82b0
+Validation: ELBO -102.9545 Accuracy 0.6467 UUID 82b0
+
+[Epoch 76] Train: Labeled ELBO -2.0096 Unlabeled ELBO -1.9644 Accuracy 0.6467 (1s) UUID 82b0
+Validation: ELBO -103.0465 Accuracy 0.6733 UUID 82b0
+
+[Epoch 77] Train: Labeled ELBO -2.0068 Unlabeled ELBO -1.9611 Accuracy 0.6733 (1s) UUID 82b0
+Validation: ELBO -102.8382 Accuracy 0.6600 UUID 82b0
+
+[Epoch 78] Train: Labeled ELBO -2.0168 Unlabeled ELBO -1.9635 Accuracy 0.6600 (1s) UUID 82b0
+Validation: ELBO -102.7985 Accuracy 0.6533 UUID 82b0
+
+[Epoch 79] Train: Labeled ELBO -2.0132 Unlabeled ELBO -1.9625 Accuracy 0.6533 (1s) UUID 82b0
+Validation: ELBO -102.0096 Accuracy 0.7267 UUID 82b0
+
+[Epoch 80] Train: Labeled ELBO -2.0125 Unlabeled ELBO -1.9566 Accuracy 0.7267 (1s) UUID 82b0
+Validation: ELBO -102.4109 Accuracy 0.6733 UUID 82b0
+
+[Epoch 81] Train: Labeled ELBO -2.0095 Unlabeled ELBO -1.9545 Accuracy 0.6733 (1s) UUID 82b0
+Validation: ELBO -103.2720 Accuracy 0.6867 UUID 82b0
+
+[Epoch 82] Train: Labeled ELBO -2.0077 Unlabeled ELBO -1.9603 Accuracy 0.6867 (1s) UUID 82b0
+Validation: ELBO -102.0061 Accuracy 0.6800 UUID 82b0
+
+[Epoch 83] Train: Labeled ELBO -2.0235 Unlabeled ELBO -1.9580 Accuracy 0.6800 (1s) UUID 82b0
+Validation: ELBO -101.8649 Accuracy 0.7133 UUID 82b0
+
+[Epoch 84] Train: Labeled ELBO -2.0233 Unlabeled ELBO -1.9590 Accuracy 0.7133 (1s) UUID 82b0
+Validation: ELBO -101.6541 Accuracy 0.6867 UUID 82b0
+
+[Epoch 85] Train: Labeled ELBO -2.0221 Unlabeled ELBO -1.9581 Accuracy 0.6867 (1s) UUID 82b0
+Validation: ELBO -101.7231 Accuracy 0.7000 UUID 82b0
+
+[Epoch 86] Train: Labeled ELBO -2.0042 Unlabeled ELBO -1.9521 Accuracy 0.7000 (1s) UUID 82b0
+Validation: ELBO -102.3709 Accuracy 0.6933 UUID 82b0
+
+[Epoch 87] Train: Labeled ELBO -2.0036 Unlabeled ELBO -1.9527 Accuracy 0.6933 (1s) UUID 82b0
+Validation: ELBO -102.0248 Accuracy 0.6667 UUID 82b0
+
+[Epoch 88] Train: Labeled ELBO -2.0000 Unlabeled ELBO -1.9511 Accuracy 0.6667 (1s) UUID 82b0
+Validation: ELBO -101.9394 Accuracy 0.7000 UUID 82b0
+
+[Epoch 89] Train: Labeled ELBO -2.0091 Unlabeled ELBO -1.9525 Accuracy 0.7000 (1s) UUID 82b0
+Validation: ELBO -101.7729 Accuracy 0.6933 UUID 82b0
+
+[Epoch 90] Train: Labeled ELBO -2.0085 Unlabeled ELBO -1.9531 Accuracy 0.6933 (1s) UUID 82b0
+Validation: ELBO -101.9981 Accuracy 0.6733 UUID 82b0
+
+[Epoch 91] Train: Labeled ELBO -1.9988 Unlabeled ELBO -1.9514 Accuracy 0.6733 (1s) UUID 82b0
+Validation: ELBO -101.9106 Accuracy 0.6800 UUID 82b0
+
+[Epoch 92] Train: Labeled ELBO -2.0049 Unlabeled ELBO -1.9507 Accuracy 0.6800 (1s) UUID 82b0
+Validation: ELBO -102.5425 Accuracy 0.6867 UUID 82b0
+
+[Epoch 93] Train: Labeled ELBO -2.0087 Unlabeled ELBO -1.9466 Accuracy 0.6867 (1s) UUID 82b0
+Validation: ELBO -102.0149 Accuracy 0.7067 UUID 82b0
+
+[Epoch 94] Train: Labeled ELBO -2.0067 Unlabeled ELBO -1.9522 Accuracy 0.7067 (1s) UUID 82b0
+Validation: ELBO -101.6762 Accuracy 0.6867 UUID 82b0
+
+[Epoch 95] Train: Labeled ELBO -1.9953 Unlabeled ELBO -1.9487 Accuracy 0.6867 (1s) UUID 82b0
+Validation: ELBO -100.8522 Accuracy 0.7067 UUID 82b0
+
+[Epoch 96] Train: Labeled ELBO -1.9943 Unlabeled ELBO -1.9451 Accuracy 0.7067 (1s) UUID 82b0
+Validation: ELBO -102.0006 Accuracy 0.6933 UUID 82b0
+
+[Epoch 97] Train: Labeled ELBO -1.9845 Unlabeled ELBO -1.9468 Accuracy 0.6933 (1s) UUID 82b0
+Validation: ELBO -101.7396 Accuracy 0.7067 UUID 82b0
+
+[Epoch 98] Train: Labeled ELBO -2.0084 Unlabeled ELBO -1.9430 Accuracy 0.7067 (1s) UUID 82b0
+Validation: ELBO -101.3796 Accuracy 0.6867 UUID 82b0
+
+[Epoch 99] Train: Labeled ELBO -1.9949 Unlabeled ELBO -1.9400 Accuracy 0.6867 (1s) UUID 82b0
+Validation: ELBO -101.1768 Accuracy 0.6867 UUID 82b0
+
+[Epoch 100] Train: Labeled ELBO -1.9955 Unlabeled ELBO -1.9466 Accuracy 0.6867 (1s) UUID 82b0
+Validation: ELBO -102.3089 Accuracy 0.6733 UUID 82b0
+
+[Epoch 101] Train: Labeled ELBO -1.9947 Unlabeled ELBO -1.9431 Accuracy 0.6733 (1s) UUID 82b0
+Validation: ELBO -101.4254 Accuracy 0.7067 UUID 82b0
+
+[Epoch 102] Train: Labeled ELBO -2.0055 Unlabeled ELBO -1.9420 Accuracy 0.7067 (1s) UUID 82b0
+Validation: ELBO -101.5508 Accuracy 0.7067 UUID 82b0
+
+[Epoch 103] Train: Labeled ELBO -1.9982 Unlabeled ELBO -1.9409 Accuracy 0.7067 (1s) UUID 82b0
+Validation: ELBO -101.2013 Accuracy 0.7000 UUID 82b0
+
+[Epoch 104] Train: Labeled ELBO -1.9928 Unlabeled ELBO -1.9398 Accuracy 0.7000 (1s) UUID 82b0
+Validation: ELBO -101.8423 Accuracy 0.7067 UUID 82b0
+
+[Epoch 105] Train: Labeled ELBO -1.9872 Unlabeled ELBO -1.9413 Accuracy 0.7067 (1s) UUID 82b0
+Validation: ELBO -100.9322 Accuracy 0.7200 UUID 82b0
+
+[Epoch 106] Train: Labeled ELBO -1.9833 Unlabeled ELBO -1.9378 Accuracy 0.7200 (1s) UUID 82b0
+Validation: ELBO -100.9953 Accuracy 0.7067 UUID 82b0
+
+[Epoch 107] Train: Labeled ELBO -1.9968 Unlabeled ELBO -1.9372 Accuracy 0.7067 (1s) UUID 82b0
+Validation: ELBO -101.4574 Accuracy 0.6933 UUID 82b0
+
+[Epoch 108] Train: Labeled ELBO -1.9949 Unlabeled ELBO -1.9390 Accuracy 0.6933 (1s) UUID 82b0
+Validation: ELBO -101.8067 Accuracy 0.6933 UUID 82b0
+
+[Epoch 109] Train: Labeled ELBO -1.9961 Unlabeled ELBO -1.9356 Accuracy 0.6933 (1s) UUID 82b0
+Validation: ELBO -101.3264 Accuracy 0.6933 UUID 82b0
+
+[Epoch 110] Train: Labeled ELBO -1.9959 Unlabeled ELBO -1.9384 Accuracy 0.6933 (1s) UUID 82b0
+Validation: ELBO -100.9037 Accuracy 0.7067 UUID 82b0
+
+[Epoch 111] Train: Labeled ELBO -1.9891 Unlabeled ELBO -1.9389 Accuracy 0.7067 (1s) UUID 82b0
+Validation: ELBO -100.9437 Accuracy 0.7533 UUID 82b0
+
+[Epoch 112] Train: Labeled ELBO -1.9859 Unlabeled ELBO -1.9373 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -101.0235 Accuracy 0.7400 UUID 82b0
+
+[Epoch 113] Train: Labeled ELBO -1.9863 Unlabeled ELBO -1.9388 Accuracy 0.7400 (1s) UUID 82b0
+Validation: ELBO -101.5073 Accuracy 0.7000 UUID 82b0
+
+[Epoch 114] Train: Labeled ELBO -1.9893 Unlabeled ELBO -1.9377 Accuracy 0.7000 (1s) UUID 82b0
+Validation: ELBO -100.9674 Accuracy 0.7467 UUID 82b0
+
+[Epoch 115] Train: Labeled ELBO -2.0028 Unlabeled ELBO -1.9359 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -100.8499 Accuracy 0.7200 UUID 82b0
+
+[Epoch 116] Train: Labeled ELBO -1.9943 Unlabeled ELBO -1.9313 Accuracy 0.7200 (1s) UUID 82b0
+Validation: ELBO -101.6393 Accuracy 0.7533 UUID 82b0
+
+[Epoch 117] Train: Labeled ELBO -1.9929 Unlabeled ELBO -1.9322 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -101.7401 Accuracy 0.7133 UUID 82b0
+
+[Epoch 118] Train: Labeled ELBO -2.0043 Unlabeled ELBO -1.9334 Accuracy 0.7133 (1s) UUID 82b0
+Validation: ELBO -100.8973 Accuracy 0.7000 UUID 82b0
+
+[Epoch 119] Train: Labeled ELBO -2.0015 Unlabeled ELBO -1.9317 Accuracy 0.7000 (1s) UUID 82b0
+Validation: ELBO -100.7824 Accuracy 0.7667 UUID 82b0
+
+[Epoch 120] Train: Labeled ELBO -1.9782 Unlabeled ELBO -1.9297 Accuracy 0.7667 (1s) UUID 82b0
+Validation: ELBO -101.2058 Accuracy 0.7333 UUID 82b0
+
+[Epoch 121] Train: Labeled ELBO -1.9747 Unlabeled ELBO -1.9317 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -101.0861 Accuracy 0.7267 UUID 82b0
+
+[Epoch 122] Train: Labeled ELBO -1.9885 Unlabeled ELBO -1.9305 Accuracy 0.7267 (1s) UUID 82b0
+Validation: ELBO -100.8882 Accuracy 0.7200 UUID 82b0
+
+[Epoch 123] Train: Labeled ELBO -1.9893 Unlabeled ELBO -1.9283 Accuracy 0.7200 (1s) UUID 82b0
+Validation: ELBO -101.1248 Accuracy 0.7200 UUID 82b0
+
+[Epoch 124] Train: Labeled ELBO -1.9832 Unlabeled ELBO -1.9273 Accuracy 0.7200 (1s) UUID 82b0
+Validation: ELBO -99.9372 Accuracy 0.7267 UUID 82b0
+
+[Epoch 125] Train: Labeled ELBO -1.9959 Unlabeled ELBO -1.9288 Accuracy 0.7267 (1s) UUID 82b0
+Validation: ELBO -100.6954 Accuracy 0.7000 UUID 82b0
+
+[Epoch 126] Train: Labeled ELBO -1.9794 Unlabeled ELBO -1.9237 Accuracy 0.7000 (1s) UUID 82b0
+Validation: ELBO -100.9295 Accuracy 0.6933 UUID 82b0
+
+[Epoch 127] Train: Labeled ELBO -1.9813 Unlabeled ELBO -1.9277 Accuracy 0.6933 (1s) UUID 82b0
+Validation: ELBO -101.5021 Accuracy 0.7533 UUID 82b0
+
+[Epoch 128] Train: Labeled ELBO -1.9769 Unlabeled ELBO -1.9322 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -101.0784 Accuracy 0.7267 UUID 82b0
+
+[Epoch 129] Train: Labeled ELBO -1.9921 Unlabeled ELBO -1.9294 Accuracy 0.7267 (1s) UUID 82b0
+Validation: ELBO -101.2406 Accuracy 0.7333 UUID 82b0
+
+[Epoch 130] Train: Labeled ELBO -1.9943 Unlabeled ELBO -1.9277 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -100.8439 Accuracy 0.7267 UUID 82b0
+
+[Epoch 131] Train: Labeled ELBO -1.9826 Unlabeled ELBO -1.9267 Accuracy 0.7267 (1s) UUID 82b0
+Validation: ELBO -101.1531 Accuracy 0.7333 UUID 82b0
+
+[Epoch 132] Train: Labeled ELBO -1.9799 Unlabeled ELBO -1.9250 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -101.2053 Accuracy 0.7267 UUID 82b0
+
+[Epoch 133] Train: Labeled ELBO -1.9823 Unlabeled ELBO -1.9244 Accuracy 0.7267 (1s) UUID 82b0
+Validation: ELBO -101.4581 Accuracy 0.7533 UUID 82b0
+
+[Epoch 134] Train: Labeled ELBO -1.9897 Unlabeled ELBO -1.9265 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -101.7275 Accuracy 0.7200 UUID 82b0
+
+[Epoch 135] Train: Labeled ELBO -1.9948 Unlabeled ELBO -1.9279 Accuracy 0.7200 (1s) UUID 82b0
+Validation: ELBO -101.0822 Accuracy 0.7267 UUID 82b0
+
+[Epoch 136] Train: Labeled ELBO -1.9765 Unlabeled ELBO -1.9227 Accuracy 0.7267 (1s) UUID 82b0
+Validation: ELBO -100.0750 Accuracy 0.7333 UUID 82b0
+
+[Epoch 137] Train: Labeled ELBO -1.9750 Unlabeled ELBO -1.9237 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -100.9553 Accuracy 0.7467 UUID 82b0
+
+[Epoch 138] Train: Labeled ELBO -1.9829 Unlabeled ELBO -1.9253 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -101.1805 Accuracy 0.7067 UUID 82b0
+
+[Epoch 139] Train: Labeled ELBO -1.9848 Unlabeled ELBO -1.9274 Accuracy 0.7067 (1s) UUID 82b0
+Validation: ELBO -100.7449 Accuracy 0.7533 UUID 82b0
+
+[Epoch 140] Train: Labeled ELBO -1.9956 Unlabeled ELBO -1.9238 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -100.3918 Accuracy 0.7267 UUID 82b0
+
+[Epoch 141] Train: Labeled ELBO -1.9767 Unlabeled ELBO -1.9261 Accuracy 0.7267 (1s) UUID 82b0
+Validation: ELBO -100.7287 Accuracy 0.7467 UUID 82b0
+
+[Epoch 142] Train: Labeled ELBO -1.9785 Unlabeled ELBO -1.9261 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -101.2035 Accuracy 0.7533 UUID 82b0
+
+[Epoch 143] Train: Labeled ELBO -1.9832 Unlabeled ELBO -1.9216 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -101.0065 Accuracy 0.7400 UUID 82b0
+
+[Epoch 144] Train: Labeled ELBO -1.9857 Unlabeled ELBO -1.9202 Accuracy 0.7400 (1s) UUID 82b0
+Validation: ELBO -100.8778 Accuracy 0.7600 UUID 82b0
+
+[Epoch 145] Train: Labeled ELBO -1.9787 Unlabeled ELBO -1.9221 Accuracy 0.7600 (1s) UUID 82b0
+Validation: ELBO -100.7438 Accuracy 0.7533 UUID 82b0
+
+[Epoch 146] Train: Labeled ELBO -1.9839 Unlabeled ELBO -1.9173 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -99.8682 Accuracy 0.7600 UUID 82b0
+
+[Epoch 147] Train: Labeled ELBO -1.9700 Unlabeled ELBO -1.9207 Accuracy 0.7600 (1s) UUID 82b0
+Validation: ELBO -100.4444 Accuracy 0.7533 UUID 82b0
+
+[Epoch 148] Train: Labeled ELBO -1.9730 Unlabeled ELBO -1.9174 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -100.9046 Accuracy 0.7333 UUID 82b0
+
+[Epoch 149] Train: Labeled ELBO -1.9768 Unlabeled ELBO -1.9195 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -99.9729 Accuracy 0.7467 UUID 82b0
+
+[Epoch 150] Train: Labeled ELBO -1.9875 Unlabeled ELBO -1.9148 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -100.8567 Accuracy 0.7333 UUID 82b0
+
+[Epoch 151] Train: Labeled ELBO -1.9740 Unlabeled ELBO -1.9190 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -99.8439 Accuracy 0.7667 UUID 82b0
+
+[Epoch 152] Train: Labeled ELBO -1.9614 Unlabeled ELBO -1.9223 Accuracy 0.7667 (1s) UUID 82b0
+Validation: ELBO -100.2998 Accuracy 0.7333 UUID 82b0
+
+[Epoch 153] Train: Labeled ELBO -1.9705 Unlabeled ELBO -1.9199 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -100.5559 Accuracy 0.7467 UUID 82b0
+
+[Epoch 154] Train: Labeled ELBO -1.9826 Unlabeled ELBO -1.9175 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -100.2812 Accuracy 0.7533 UUID 82b0
+
+[Epoch 155] Train: Labeled ELBO -1.9850 Unlabeled ELBO -1.9174 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -100.5495 Accuracy 0.7533 UUID 82b0
+
+[Epoch 156] Train: Labeled ELBO -1.9914 Unlabeled ELBO -1.9186 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -100.4002 Accuracy 0.7400 UUID 82b0
+
+[Epoch 157] Train: Labeled ELBO -1.9716 Unlabeled ELBO -1.9158 Accuracy 0.7400 (1s) UUID 82b0
+Validation: ELBO -99.4618 Accuracy 0.7333 UUID 82b0
+
+[Epoch 158] Train: Labeled ELBO -1.9792 Unlabeled ELBO -1.9132 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -100.9605 Accuracy 0.7600 UUID 82b0
+
+[Epoch 159] Train: Labeled ELBO -1.9736 Unlabeled ELBO -1.9151 Accuracy 0.7600 (1s) UUID 82b0
+Validation: ELBO -99.9841 Accuracy 0.7600 UUID 82b0
+
+[Epoch 160] Train: Labeled ELBO -1.9856 Unlabeled ELBO -1.9132 Accuracy 0.7600 (1s) UUID 82b0
+Validation: ELBO -99.8706 Accuracy 0.7733 UUID 82b0
+
+[Epoch 161] Train: Labeled ELBO -1.9813 Unlabeled ELBO -1.9230 Accuracy 0.7733 (1s) UUID 82b0
+Validation: ELBO -100.2308 Accuracy 0.7533 UUID 82b0
+
+[Epoch 162] Train: Labeled ELBO -1.9831 Unlabeled ELBO -1.9165 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -100.1855 Accuracy 0.7400 UUID 82b0
+
+[Epoch 163] Train: Labeled ELBO -1.9734 Unlabeled ELBO -1.9137 Accuracy 0.7400 (1s) UUID 82b0
+Validation: ELBO -100.7904 Accuracy 0.7333 UUID 82b0
+
+[Epoch 164] Train: Labeled ELBO -1.9737 Unlabeled ELBO -1.9153 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -99.8478 Accuracy 0.7667 UUID 82b0
+
+[Epoch 165] Train: Labeled ELBO -1.9728 Unlabeled ELBO -1.9099 Accuracy 0.7667 (1s) UUID 82b0
+Validation: ELBO -99.9982 Accuracy 0.7333 UUID 82b0
+
+[Epoch 166] Train: Labeled ELBO -1.9754 Unlabeled ELBO -1.9129 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -101.1015 Accuracy 0.7467 UUID 82b0
+
+[Epoch 167] Train: Labeled ELBO -1.9704 Unlabeled ELBO -1.9122 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -100.6082 Accuracy 0.7667 UUID 82b0
+
+[Epoch 168] Train: Labeled ELBO -1.9820 Unlabeled ELBO -1.9108 Accuracy 0.7667 (1s) UUID 82b0
+Validation: ELBO -100.4427 Accuracy 0.7333 UUID 82b0
+
+[Epoch 169] Train: Labeled ELBO -1.9677 Unlabeled ELBO -1.9117 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -100.1383 Accuracy 0.7333 UUID 82b0
+
+[Epoch 170] Train: Labeled ELBO -1.9569 Unlabeled ELBO -1.9117 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -100.1213 Accuracy 0.7867 UUID 82b0
+
+[Epoch 171] Train: Labeled ELBO -1.9767 Unlabeled ELBO -1.9074 Accuracy 0.7867 (1s) UUID 82b0
+Validation: ELBO -99.9068 Accuracy 0.7867 UUID 82b0
+
+[Epoch 172] Train: Labeled ELBO -1.9592 Unlabeled ELBO -1.9101 Accuracy 0.7867 (1s) UUID 82b0
+Validation: ELBO -100.2463 Accuracy 0.7600 UUID 82b0
+
+[Epoch 173] Train: Labeled ELBO -1.9702 Unlabeled ELBO -1.9062 Accuracy 0.7600 (1s) UUID 82b0
+Validation: ELBO -100.1600 Accuracy 0.7467 UUID 82b0
+
+[Epoch 174] Train: Labeled ELBO -1.9743 Unlabeled ELBO -1.9146 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -100.1310 Accuracy 0.7533 UUID 82b0
+
+[Epoch 175] Train: Labeled ELBO -1.9849 Unlabeled ELBO -1.9093 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -100.1477 Accuracy 0.7467 UUID 82b0
+
+[Epoch 176] Train: Labeled ELBO -1.9811 Unlabeled ELBO -1.9085 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -100.0286 Accuracy 0.7467 UUID 82b0
+
+[Epoch 177] Train: Labeled ELBO -1.9606 Unlabeled ELBO -1.9080 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -100.6539 Accuracy 0.7733 UUID 82b0
+
+[Epoch 178] Train: Labeled ELBO -1.9647 Unlabeled ELBO -1.9090 Accuracy 0.7733 (1s) UUID 82b0
+Validation: ELBO -100.1852 Accuracy 0.7667 UUID 82b0
+
+[Epoch 179] Train: Labeled ELBO -1.9738 Unlabeled ELBO -1.9086 Accuracy 0.7667 (1s) UUID 82b0
+Validation: ELBO -100.3140 Accuracy 0.7467 UUID 82b0
+
+[Epoch 180] Train: Labeled ELBO -1.9682 Unlabeled ELBO -1.9075 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -100.0474 Accuracy 0.7867 UUID 82b0
+
+[Epoch 181] Train: Labeled ELBO -1.9673 Unlabeled ELBO -1.9126 Accuracy 0.7867 (1s) UUID 82b0
+Validation: ELBO -100.1898 Accuracy 0.7667 UUID 82b0
+
+[Epoch 182] Train: Labeled ELBO -1.9741 Unlabeled ELBO -1.9104 Accuracy 0.7667 (1s) UUID 82b0
+Validation: ELBO -99.9804 Accuracy 0.7600 UUID 82b0
+
+[Epoch 183] Train: Labeled ELBO -1.9641 Unlabeled ELBO -1.9070 Accuracy 0.7600 (1s) UUID 82b0
+Validation: ELBO -99.9214 Accuracy 0.7867 UUID 82b0
+
+[Epoch 184] Train: Labeled ELBO -1.9676 Unlabeled ELBO -1.9101 Accuracy 0.7867 (1s) UUID 82b0
+Validation: ELBO -100.0568 Accuracy 0.7667 UUID 82b0
+
+[Epoch 185] Train: Labeled ELBO -1.9612 Unlabeled ELBO -1.9069 Accuracy 0.7667 (1s) UUID 82b0
+Validation: ELBO -100.3071 Accuracy 0.7467 UUID 82b0
+
+[Epoch 186] Train: Labeled ELBO -1.9659 Unlabeled ELBO -1.9030 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -99.4805 Accuracy 0.7667 UUID 82b0
+
+[Epoch 187] Train: Labeled ELBO -1.9595 Unlabeled ELBO -1.9032 Accuracy 0.7667 (1s) UUID 82b0
+Validation: ELBO -101.4307 Accuracy 0.7467 UUID 82b0
+
+[Epoch 188] Train: Labeled ELBO -1.9550 Unlabeled ELBO -1.9029 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -100.3153 Accuracy 0.7800 UUID 82b0
+
+[Epoch 189] Train: Labeled ELBO -1.9680 Unlabeled ELBO -1.9034 Accuracy 0.7800 (1s) UUID 82b0
+Validation: ELBO -100.0492 Accuracy 0.7533 UUID 82b0
+
+[Epoch 190] Train: Labeled ELBO -1.9696 Unlabeled ELBO -1.9056 Accuracy 0.7533 (1s) UUID 82b0
+Validation: ELBO -100.7382 Accuracy 0.7333 UUID 82b0
+
+[Epoch 191] Train: Labeled ELBO -1.9625 Unlabeled ELBO -1.9076 Accuracy 0.7333 (1s) UUID 82b0
+Validation: ELBO -99.8724 Accuracy 0.7667 UUID 82b0
+
+[Epoch 192] Train: Labeled ELBO -1.9737 Unlabeled ELBO -1.9050 Accuracy 0.7667 (1s) UUID 82b0
+Validation: ELBO -100.1357 Accuracy 0.7600 UUID 82b0
+
+[Epoch 193] Train: Labeled ELBO -1.9614 Unlabeled ELBO -1.9073 Accuracy 0.7600 (1s) UUID 82b0
+Validation: ELBO -100.3942 Accuracy 0.7467 UUID 82b0
+
+[Epoch 194] Train: Labeled ELBO -1.9717 Unlabeled ELBO -1.9000 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -99.9362 Accuracy 0.7667 UUID 82b0
+
+[Epoch 195] Train: Labeled ELBO -1.9578 Unlabeled ELBO -1.9012 Accuracy 0.7667 (1s) UUID 82b0
+Validation: ELBO -100.1009 Accuracy 0.7267 UUID 82b0
+
+[Epoch 196] Train: Labeled ELBO -1.9541 Unlabeled ELBO -1.9038 Accuracy 0.7267 (1s) UUID 82b0
+Validation: ELBO -100.8143 Accuracy 0.7467 UUID 82b0
+
+[Epoch 197] Train: Labeled ELBO -1.9699 Unlabeled ELBO -1.9042 Accuracy 0.7467 (1s) UUID 82b0
+Validation: ELBO -100.5048 Accuracy 0.7800 UUID 82b0
+
+[Epoch 198] Train: Labeled ELBO -1.9672 Unlabeled ELBO -1.9007 Accuracy 0.7800 (1s) UUID 82b0
+Validation: ELBO -99.8788 Accuracy 0.8133 UUID 82b0
+
+[Epoch 199] Train: Labeled ELBO -1.9693 Unlabeled ELBO -1.9017 Accuracy 0.8133 (1s) UUID 82b0
+Validation: ELBO -112.9026 Accuracy 0.6642 UUID 82b0
+
+Validation: ELBO -112.3708 Accuracy 0.6378 UUID 82b0
+
+Validation: ELBO -154.1096 Accuracy 0.2020 UUID 3539
+
+[Epoch 0] Train: Labeled ELBO -5.9436 Unlabeled ELBO -3.4612 Accuracy 0.2020 (2s) UUID 3539
+Validation: ELBO -141.0018 Accuracy 0.3300 UUID 3539
+
+[Epoch 1] Train: Labeled ELBO -3.0819 Unlabeled ELBO -2.8898 Accuracy 0.3300 (2s) UUID 3539
+Validation: ELBO -133.7975 Accuracy 0.3720 UUID 3539
+
+[Epoch 2] Train: Labeled ELBO -2.8317 Unlabeled ELBO -2.7146 Accuracy 0.3720 (2s) UUID 3539
+Validation: ELBO -128.9978 Accuracy 0.4060 UUID 3539
+
+[Epoch 3] Train: Labeled ELBO -2.6945 Unlabeled ELBO -2.6049 Accuracy 0.4060 (2s) UUID 3539
+Validation: ELBO -125.7383 Accuracy 0.4140 UUID 3539
+
+[Epoch 4] Train: Labeled ELBO -2.6239 Unlabeled ELBO -2.5259 Accuracy 0.4140 (2s) UUID 3539
+Validation: ELBO -121.9527 Accuracy 0.4540 UUID 3539
+
+[Epoch 5] Train: Labeled ELBO -2.5371 Unlabeled ELBO -2.4619 Accuracy 0.4540 (2s) UUID 3539
+Validation: ELBO -119.8392 Accuracy 0.5220 UUID 3539
+
+[Epoch 6] Train: Labeled ELBO -2.4792 Unlabeled ELBO -2.4023 Accuracy 0.5220 (2s) UUID 3539
+Validation: ELBO -117.6482 Accuracy 0.5400 UUID 3539
+
+[Epoch 7] Train: Labeled ELBO -2.4285 Unlabeled ELBO -2.3593 Accuracy 0.5400 (2s) UUID 3539
+Validation: ELBO -115.7993 Accuracy 0.5900 UUID 3539
+
+[Epoch 8] Train: Labeled ELBO -2.3877 Unlabeled ELBO -2.3164 Accuracy 0.5900 (2s) UUID 3539
+Validation: ELBO -114.6396 Accuracy 0.6580 UUID 3539
+
+[Epoch 9] Train: Labeled ELBO -2.3427 Unlabeled ELBO -2.2799 Accuracy 0.6580 (2s) UUID 3539
+Validation: ELBO -113.3312 Accuracy 0.6480 UUID 3539
+
+[Epoch 10] Train: Labeled ELBO -2.3050 Unlabeled ELBO -2.2520 Accuracy 0.6480 (2s) UUID 3539
+Validation: ELBO -112.0130 Accuracy 0.6940 UUID 3539
+
+[Epoch 11] Train: Labeled ELBO -2.2745 Unlabeled ELBO -2.2290 Accuracy 0.6940 (2s) UUID 3539
+Validation: ELBO -111.3039 Accuracy 0.7040 UUID 3539
+
+[Epoch 12] Train: Labeled ELBO -2.2482 Unlabeled ELBO -2.2032 Accuracy 0.7040 (2s) UUID 3539
+Validation: ELBO -110.1663 Accuracy 0.7280 UUID 3539
+
+[Epoch 13] Train: Labeled ELBO -2.2354 Unlabeled ELBO -2.1898 Accuracy 0.7280 (2s) UUID 3539
+Validation: ELBO -109.4385 Accuracy 0.7460 UUID 3539
+
+[Epoch 14] Train: Labeled ELBO -2.2084 Unlabeled ELBO -2.1726 Accuracy 0.7460 (2s) UUID 3539
+Validation: ELBO -108.4022 Accuracy 0.7580 UUID 3539
+
+[Epoch 15] Train: Labeled ELBO -2.1855 Unlabeled ELBO -2.1556 Accuracy 0.7580 (2s) UUID 3539
+Validation: ELBO -107.3910 Accuracy 0.7820 UUID 3539
+
+[Epoch 16] Train: Labeled ELBO -2.1804 Unlabeled ELBO -2.1436 Accuracy 0.7820 (2s) UUID 3539
+Validation: ELBO -107.0295 Accuracy 0.7880 UUID 3539
+
+[Epoch 17] Train: Labeled ELBO -2.1482 Unlabeled ELBO -2.1289 Accuracy 0.7880 (2s) UUID 3539
+Validation: ELBO -106.8248 Accuracy 0.7900 UUID 3539
+
+[Epoch 18] Train: Labeled ELBO -2.1440 Unlabeled ELBO -2.1235 Accuracy 0.7900 (2s) UUID 3539
+Validation: ELBO -106.2781 Accuracy 0.7880 UUID 3539
+
+[Epoch 19] Train: Labeled ELBO -2.1497 Unlabeled ELBO -2.1128 Accuracy 0.7880 (2s) UUID 3539
+Validation: ELBO -106.3393 Accuracy 0.7820 UUID 3539
+
+[Epoch 20] Train: Labeled ELBO -2.1211 Unlabeled ELBO -2.1007 Accuracy 0.7820 (2s) UUID 3539
+Validation: ELBO -105.0345 Accuracy 0.7920 UUID 3539
+
+[Epoch 21] Train: Labeled ELBO -2.1213 Unlabeled ELBO -2.0962 Accuracy 0.7920 (2s) UUID 3539
+Validation: ELBO -104.8049 Accuracy 0.8020 UUID 3539
+
+[Epoch 22] Train: Labeled ELBO -2.1055 Unlabeled ELBO -2.0885 Accuracy 0.8020 (2s) UUID 3539
+Validation: ELBO -103.9995 Accuracy 0.8080 UUID 3539
+
+[Epoch 23] Train: Labeled ELBO -2.0994 Unlabeled ELBO -2.0799 Accuracy 0.8080 (2s) UUID 3539
+Validation: ELBO -104.8864 Accuracy 0.8080 UUID 3539
+
+[Epoch 24] Train: Labeled ELBO -2.0940 Unlabeled ELBO -2.0781 Accuracy 0.8080 (2s) UUID 3539
+Validation: ELBO -105.2899 Accuracy 0.8100 UUID 3539
+
+[Epoch 25] Train: Labeled ELBO -2.0975 Unlabeled ELBO -2.0691 Accuracy 0.8100 (2s) UUID 3539
+Validation: ELBO -103.8171 Accuracy 0.8160 UUID 3539
+
+[Epoch 26] Train: Labeled ELBO -2.0920 Unlabeled ELBO -2.0662 Accuracy 0.8160 (2s) UUID 3539
+Validation: ELBO -103.8670 Accuracy 0.8240 UUID 3539
+
+[Epoch 27] Train: Labeled ELBO -2.0753 Unlabeled ELBO -2.0558 Accuracy 0.8240 (2s) UUID 3539
+Validation: ELBO -103.6387 Accuracy 0.8120 UUID 3539
+
+[Epoch 28] Train: Labeled ELBO -2.0724 Unlabeled ELBO -2.0583 Accuracy 0.8120 (2s) UUID 3539
+Validation: ELBO -103.3150 Accuracy 0.8200 UUID 3539
+
+[Epoch 29] Train: Labeled ELBO -2.0730 Unlabeled ELBO -2.0559 Accuracy 0.8200 (2s) UUID 3539
+Validation: ELBO -103.2778 Accuracy 0.8240 UUID 3539
+
+[Epoch 30] Train: Labeled ELBO -2.0675 Unlabeled ELBO -2.0452 Accuracy 0.8240 (2s) UUID 3539
+Validation: ELBO -103.1633 Accuracy 0.8180 UUID 3539
+
+[Epoch 31] Train: Labeled ELBO -2.0571 Unlabeled ELBO -2.0400 Accuracy 0.8180 (2s) UUID 3539
+Validation: ELBO -102.7144 Accuracy 0.8180 UUID 3539
+
+[Epoch 32] Train: Labeled ELBO -2.0588 Unlabeled ELBO -2.0373 Accuracy 0.8180 (2s) UUID 3539
+Validation: ELBO -102.9098 Accuracy 0.8200 UUID 3539
+
+[Epoch 33] Train: Labeled ELBO -2.0514 Unlabeled ELBO -2.0282 Accuracy 0.8200 (2s) UUID 3539
+Validation: ELBO -102.7288 Accuracy 0.8280 UUID 3539
+
+[Epoch 34] Train: Labeled ELBO -2.0423 Unlabeled ELBO -2.0306 Accuracy 0.8280 (2s) UUID 3539
+Validation: ELBO -102.6661 Accuracy 0.8200 UUID 3539
+
+[Epoch 35] Train: Labeled ELBO -2.0416 Unlabeled ELBO -2.0291 Accuracy 0.8200 (2s) UUID 3539
+Validation: ELBO -102.4580 Accuracy 0.8380 UUID 3539
+
+[Epoch 36] Train: Labeled ELBO -2.0379 Unlabeled ELBO -2.0214 Accuracy 0.8380 (2s) UUID 3539
+Validation: ELBO -102.2080 Accuracy 0.8420 UUID 3539
+
+[Epoch 37] Train: Labeled ELBO -2.0349 Unlabeled ELBO -2.0196 Accuracy 0.8420 (2s) UUID 3539
+Validation: ELBO -101.7256 Accuracy 0.8360 UUID 3539
+
+[Epoch 38] Train: Labeled ELBO -2.0297 Unlabeled ELBO -2.0214 Accuracy 0.8360 (2s) UUID 3539
+Validation: ELBO -102.1105 Accuracy 0.8420 UUID 3539
+
+[Epoch 39] Train: Labeled ELBO -2.0266 Unlabeled ELBO -2.0144 Accuracy 0.8420 (2s) UUID 3539
+Validation: ELBO -102.0833 Accuracy 0.8480 UUID 3539
+
+[Epoch 40] Train: Labeled ELBO -2.0273 Unlabeled ELBO -2.0104 Accuracy 0.8480 (2s) UUID 3539
+Validation: ELBO -101.7937 Accuracy 0.8400 UUID 3539
+
+[Epoch 41] Train: Labeled ELBO -2.0260 Unlabeled ELBO -2.0082 Accuracy 0.8400 (2s) UUID 3539
+Validation: ELBO -101.5818 Accuracy 0.8400 UUID 3539
+
+[Epoch 42] Train: Labeled ELBO -2.0266 Unlabeled ELBO -2.0084 Accuracy 0.8400 (2s) UUID 3539
+Validation: ELBO -101.5687 Accuracy 0.8500 UUID 3539
+
+[Epoch 43] Train: Labeled ELBO -2.0216 Unlabeled ELBO -2.0048 Accuracy 0.8500 (2s) UUID 3539
+Validation: ELBO -101.0760 Accuracy 0.8520 UUID 3539
+
+[Epoch 44] Train: Labeled ELBO -2.0155 Unlabeled ELBO -2.0026 Accuracy 0.8520 (2s) UUID 3539
+Validation: ELBO -101.4132 Accuracy 0.8400 UUID 3539
+
+[Epoch 45] Train: Labeled ELBO -2.0076 Unlabeled ELBO -1.9997 Accuracy 0.8400 (2s) UUID 3539
+Validation: ELBO -101.2453 Accuracy 0.8500 UUID 3539
+
+[Epoch 46] Train: Labeled ELBO -2.0088 Unlabeled ELBO -1.9994 Accuracy 0.8500 (2s) UUID 3539
+Validation: ELBO -101.4205 Accuracy 0.8720 UUID 3539
+
+[Epoch 47] Train: Labeled ELBO -2.0041 Unlabeled ELBO -1.9975 Accuracy 0.8720 (2s) UUID 3539
+Validation: ELBO -100.9271 Accuracy 0.8780 UUID 3539
+
+[Epoch 48] Train: Labeled ELBO -2.0024 Unlabeled ELBO -1.9949 Accuracy 0.8780 (2s) UUID 3539
+Validation: ELBO -100.9368 Accuracy 0.8660 UUID 3539
+
+[Epoch 49] Train: Labeled ELBO -2.0033 Unlabeled ELBO -1.9918 Accuracy 0.8660 (2s) UUID 3539
+Validation: ELBO -101.0241 Accuracy 0.8720 UUID 3539
+
+[Epoch 50] Train: Labeled ELBO -2.0003 Unlabeled ELBO -1.9885 Accuracy 0.8720 (2s) UUID 3539
+Validation: ELBO -100.5294 Accuracy 0.8700 UUID 3539
+
+[Epoch 51] Train: Labeled ELBO -2.0064 Unlabeled ELBO -1.9857 Accuracy 0.8700 (2s) UUID 3539
+Validation: ELBO -100.3581 Accuracy 0.8740 UUID 3539
+
+[Epoch 52] Train: Labeled ELBO -1.9830 Unlabeled ELBO -1.9819 Accuracy 0.8740 (2s) UUID 3539
+Validation: ELBO -100.0540 Accuracy 0.8640 UUID 3539
+
+[Epoch 53] Train: Labeled ELBO -1.9800 Unlabeled ELBO -1.9801 Accuracy 0.8640 (2s) UUID 3539
+Validation: ELBO -100.3296 Accuracy 0.8760 UUID 3539
+
+[Epoch 54] Train: Labeled ELBO -1.9836 Unlabeled ELBO -1.9861 Accuracy 0.8760 (2s) UUID 3539
+Validation: ELBO -100.4259 Accuracy 0.8760 UUID 3539
+
+[Epoch 55] Train: Labeled ELBO -1.9961 Unlabeled ELBO -1.9814 Accuracy 0.8760 (2s) UUID 3539
+Validation: ELBO -100.2832 Accuracy 0.8700 UUID 3539
+
+[Epoch 56] Train: Labeled ELBO -1.9822 Unlabeled ELBO -1.9788 Accuracy 0.8700 (2s) UUID 3539
+Validation: ELBO -100.6004 Accuracy 0.8780 UUID 3539
+
+[Epoch 57] Train: Labeled ELBO -1.9787 Unlabeled ELBO -1.9777 Accuracy 0.8780 (2s) UUID 3539
+Validation: ELBO -100.1861 Accuracy 0.8800 UUID 3539
+
+[Epoch 58] Train: Labeled ELBO -1.9824 Unlabeled ELBO -1.9727 Accuracy 0.8800 (2s) UUID 3539
+Validation: ELBO -99.4712 Accuracy 0.8820 UUID 3539
+
+[Epoch 59] Train: Labeled ELBO -1.9812 Unlabeled ELBO -1.9717 Accuracy 0.8820 (2s) UUID 3539
+Validation: ELBO -99.7421 Accuracy 0.8780 UUID 3539
+
+[Epoch 60] Train: Labeled ELBO -1.9726 Unlabeled ELBO -1.9646 Accuracy 0.8780 (2s) UUID 3539
+Validation: ELBO -100.1129 Accuracy 0.8940 UUID 3539
+
+[Epoch 61] Train: Labeled ELBO -1.9726 Unlabeled ELBO -1.9720 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -100.1457 Accuracy 0.8860 UUID 3539
+
+[Epoch 62] Train: Labeled ELBO -1.9692 Unlabeled ELBO -1.9633 Accuracy 0.8860 (2s) UUID 3539
+Validation: ELBO -99.6948 Accuracy 0.8880 UUID 3539
+
+[Epoch 63] Train: Labeled ELBO -1.9743 Unlabeled ELBO -1.9663 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -99.8236 Accuracy 0.8720 UUID 3539
+
+[Epoch 64] Train: Labeled ELBO -1.9697 Unlabeled ELBO -1.9617 Accuracy 0.8720 (2s) UUID 3539
+Validation: ELBO -99.5299 Accuracy 0.8840 UUID 3539
+
+[Epoch 65] Train: Labeled ELBO -1.9644 Unlabeled ELBO -1.9625 Accuracy 0.8840 (2s) UUID 3539
+Validation: ELBO -99.9336 Accuracy 0.8740 UUID 3539
+
+[Epoch 66] Train: Labeled ELBO -1.9666 Unlabeled ELBO -1.9611 Accuracy 0.8740 (2s) UUID 3539
+Validation: ELBO -99.6154 Accuracy 0.8820 UUID 3539
+
+[Epoch 67] Train: Labeled ELBO -1.9633 Unlabeled ELBO -1.9631 Accuracy 0.8820 (2s) UUID 3539
+Validation: ELBO -99.2184 Accuracy 0.8860 UUID 3539
+
+[Epoch 68] Train: Labeled ELBO -1.9665 Unlabeled ELBO -1.9594 Accuracy 0.8860 (2s) UUID 3539
+Validation: ELBO -98.9954 Accuracy 0.8740 UUID 3539
+
+[Epoch 69] Train: Labeled ELBO -1.9587 Unlabeled ELBO -1.9543 Accuracy 0.8740 (2s) UUID 3539
+Validation: ELBO -99.0792 Accuracy 0.8880 UUID 3539
+
+[Epoch 70] Train: Labeled ELBO -1.9591 Unlabeled ELBO -1.9529 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -99.3176 Accuracy 0.8880 UUID 3539
+
+[Epoch 71] Train: Labeled ELBO -1.9550 Unlabeled ELBO -1.9572 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -99.0982 Accuracy 0.8740 UUID 3539
+
+[Epoch 72] Train: Labeled ELBO -1.9470 Unlabeled ELBO -1.9536 Accuracy 0.8740 (2s) UUID 3539
+Validation: ELBO -98.3441 Accuracy 0.8840 UUID 3539
+
+[Epoch 73] Train: Labeled ELBO -1.9515 Unlabeled ELBO -1.9534 Accuracy 0.8840 (2s) UUID 3539
+Validation: ELBO -99.5710 Accuracy 0.8720 UUID 3539
+
+[Epoch 74] Train: Labeled ELBO -1.9521 Unlabeled ELBO -1.9488 Accuracy 0.8720 (2s) UUID 3539
+Validation: ELBO -99.8095 Accuracy 0.8880 UUID 3539
+
+[Epoch 75] Train: Labeled ELBO -1.9551 Unlabeled ELBO -1.9555 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -99.3256 Accuracy 0.8880 UUID 3539
+
+[Epoch 76] Train: Labeled ELBO -1.9575 Unlabeled ELBO -1.9521 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -99.0245 Accuracy 0.8880 UUID 3539
+
+[Epoch 77] Train: Labeled ELBO -1.9580 Unlabeled ELBO -1.9505 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -99.6906 Accuracy 0.8820 UUID 3539
+
+[Epoch 78] Train: Labeled ELBO -1.9524 Unlabeled ELBO -1.9458 Accuracy 0.8820 (2s) UUID 3539
+Validation: ELBO -98.7071 Accuracy 0.8820 UUID 3539
+
+[Epoch 79] Train: Labeled ELBO -1.9499 Unlabeled ELBO -1.9450 Accuracy 0.8820 (2s) UUID 3539
+Validation: ELBO -98.3865 Accuracy 0.8900 UUID 3539
+
+[Epoch 80] Train: Labeled ELBO -1.9421 Unlabeled ELBO -1.9410 Accuracy 0.8900 (2s) UUID 3539
+Validation: ELBO -98.3351 Accuracy 0.8900 UUID 3539
+
+[Epoch 81] Train: Labeled ELBO -1.9396 Unlabeled ELBO -1.9406 Accuracy 0.8900 (2s) UUID 3539
+Validation: ELBO -98.9284 Accuracy 0.8860 UUID 3539
+
+[Epoch 82] Train: Labeled ELBO -1.9447 Unlabeled ELBO -1.9392 Accuracy 0.8860 (2s) UUID 3539
+Validation: ELBO -98.7792 Accuracy 0.8980 UUID 3539
+
+[Epoch 83] Train: Labeled ELBO -1.9433 Unlabeled ELBO -1.9453 Accuracy 0.8980 (2s) UUID 3539
+Validation: ELBO -99.2090 Accuracy 0.8920 UUID 3539
+
+[Epoch 84] Train: Labeled ELBO -1.9410 Unlabeled ELBO -1.9414 Accuracy 0.8920 (2s) UUID 3539
+Validation: ELBO -99.1231 Accuracy 0.9020 UUID 3539
+
+[Epoch 85] Train: Labeled ELBO -1.9509 Unlabeled ELBO -1.9443 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -99.2908 Accuracy 0.8800 UUID 3539
+
+[Epoch 86] Train: Labeled ELBO -1.9426 Unlabeled ELBO -1.9419 Accuracy 0.8800 (2s) UUID 3539
+Validation: ELBO -99.0596 Accuracy 0.8920 UUID 3539
+
+[Epoch 87] Train: Labeled ELBO -1.9543 Unlabeled ELBO -1.9375 Accuracy 0.8920 (2s) UUID 3539
+Validation: ELBO -98.7844 Accuracy 0.8720 UUID 3539
+
+[Epoch 88] Train: Labeled ELBO -1.9405 Unlabeled ELBO -1.9416 Accuracy 0.8720 (2s) UUID 3539
+Validation: ELBO -98.8742 Accuracy 0.8800 UUID 3539
+
+[Epoch 89] Train: Labeled ELBO -1.9397 Unlabeled ELBO -1.9393 Accuracy 0.8800 (2s) UUID 3539
+Validation: ELBO -98.0796 Accuracy 0.8940 UUID 3539
+
+[Epoch 90] Train: Labeled ELBO -1.9421 Unlabeled ELBO -1.9347 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -98.3940 Accuracy 0.8940 UUID 3539
+
+[Epoch 91] Train: Labeled ELBO -1.9309 Unlabeled ELBO -1.9313 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -98.5417 Accuracy 0.8860 UUID 3539
+
+[Epoch 92] Train: Labeled ELBO -1.9387 Unlabeled ELBO -1.9309 Accuracy 0.8860 (2s) UUID 3539
+Validation: ELBO -98.9266 Accuracy 0.8840 UUID 3539
+
+[Epoch 93] Train: Labeled ELBO -1.9268 Unlabeled ELBO -1.9359 Accuracy 0.8840 (2s) UUID 3539
+Validation: ELBO -99.0985 Accuracy 0.8960 UUID 3539
+
+[Epoch 94] Train: Labeled ELBO -1.9357 Unlabeled ELBO -1.9316 Accuracy 0.8960 (2s) UUID 3539
+Validation: ELBO -98.4280 Accuracy 0.8920 UUID 3539
+
+[Epoch 95] Train: Labeled ELBO -1.9473 Unlabeled ELBO -1.9349 Accuracy 0.8920 (2s) UUID 3539
+Validation: ELBO -98.8079 Accuracy 0.8880 UUID 3539
+
+[Epoch 96] Train: Labeled ELBO -1.9331 Unlabeled ELBO -1.9302 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -98.3719 Accuracy 0.8940 UUID 3539
+
+[Epoch 97] Train: Labeled ELBO -1.9330 Unlabeled ELBO -1.9338 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -98.7438 Accuracy 0.8940 UUID 3539
+
+[Epoch 98] Train: Labeled ELBO -1.9337 Unlabeled ELBO -1.9293 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -98.6203 Accuracy 0.8880 UUID 3539
+
+[Epoch 99] Train: Labeled ELBO -1.9296 Unlabeled ELBO -1.9283 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -98.4866 Accuracy 0.8880 UUID 3539
+
+[Epoch 100] Train: Labeled ELBO -1.9315 Unlabeled ELBO -1.9254 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -98.6617 Accuracy 0.8960 UUID 3539
+
+[Epoch 101] Train: Labeled ELBO -1.9312 Unlabeled ELBO -1.9267 Accuracy 0.8960 (2s) UUID 3539
+Validation: ELBO -97.7022 Accuracy 0.8900 UUID 3539
+
+[Epoch 102] Train: Labeled ELBO -1.9302 Unlabeled ELBO -1.9217 Accuracy 0.8900 (2s) UUID 3539
+Validation: ELBO -97.8139 Accuracy 0.8980 UUID 3539
+
+[Epoch 103] Train: Labeled ELBO -1.9201 Unlabeled ELBO -1.9247 Accuracy 0.8980 (2s) UUID 3539
+Validation: ELBO -98.2458 Accuracy 0.8880 UUID 3539
+
+[Epoch 104] Train: Labeled ELBO -1.9246 Unlabeled ELBO -1.9242 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -98.1137 Accuracy 0.9080 UUID 3539
+
+[Epoch 105] Train: Labeled ELBO -1.9343 Unlabeled ELBO -1.9251 Accuracy 0.9080 (2s) UUID 3539
+Validation: ELBO -98.4940 Accuracy 0.8920 UUID 3539
+
+[Epoch 106] Train: Labeled ELBO -1.9280 Unlabeled ELBO -1.9238 Accuracy 0.8920 (2s) UUID 3539
+Validation: ELBO -98.1372 Accuracy 0.8980 UUID 3539
+
+[Epoch 107] Train: Labeled ELBO -1.9228 Unlabeled ELBO -1.9267 Accuracy 0.8980 (2s) UUID 3539
+Validation: ELBO -98.0908 Accuracy 0.8980 UUID 3539
+
+[Epoch 108] Train: Labeled ELBO -1.9323 Unlabeled ELBO -1.9238 Accuracy 0.8980 (2s) UUID 3539
+Validation: ELBO -98.4117 Accuracy 0.8880 UUID 3539
+
+[Epoch 109] Train: Labeled ELBO -1.9305 Unlabeled ELBO -1.9239 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -98.8340 Accuracy 0.8980 UUID 3539
+
+[Epoch 110] Train: Labeled ELBO -1.9255 Unlabeled ELBO -1.9222 Accuracy 0.8980 (2s) UUID 3539
+Validation: ELBO -98.5966 Accuracy 0.8900 UUID 3539
+
+[Epoch 111] Train: Labeled ELBO -1.9307 Unlabeled ELBO -1.9194 Accuracy 0.8900 (2s) UUID 3539
+Validation: ELBO -98.3743 Accuracy 0.8840 UUID 3539
+
+[Epoch 112] Train: Labeled ELBO -1.9301 Unlabeled ELBO -1.9160 Accuracy 0.8840 (2s) UUID 3539
+Validation: ELBO -97.8502 Accuracy 0.8760 UUID 3539
+
+[Epoch 113] Train: Labeled ELBO -1.9167 Unlabeled ELBO -1.9163 Accuracy 0.8760 (2s) UUID 3539
+Validation: ELBO -98.3978 Accuracy 0.8980 UUID 3539
+
+[Epoch 114] Train: Labeled ELBO -1.9167 Unlabeled ELBO -1.9191 Accuracy 0.8980 (2s) UUID 3539
+Validation: ELBO -98.7417 Accuracy 0.8880 UUID 3539
+
+[Epoch 115] Train: Labeled ELBO -1.9291 Unlabeled ELBO -1.9195 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -98.6634 Accuracy 0.8900 UUID 3539
+
+[Epoch 116] Train: Labeled ELBO -1.9221 Unlabeled ELBO -1.9177 Accuracy 0.8900 (2s) UUID 3539
+Validation: ELBO -97.9158 Accuracy 0.8920 UUID 3539
+
+[Epoch 117] Train: Labeled ELBO -1.9215 Unlabeled ELBO -1.9184 Accuracy 0.8920 (2s) UUID 3539
+Validation: ELBO -98.4796 Accuracy 0.8820 UUID 3539
+
+[Epoch 118] Train: Labeled ELBO -1.9196 Unlabeled ELBO -1.9194 Accuracy 0.8820 (2s) UUID 3539
+Validation: ELBO -97.2655 Accuracy 0.9020 UUID 3539
+
+[Epoch 119] Train: Labeled ELBO -1.9228 Unlabeled ELBO -1.9155 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -98.2455 Accuracy 0.9060 UUID 3539
+
+[Epoch 120] Train: Labeled ELBO -1.9106 Unlabeled ELBO -1.9165 Accuracy 0.9060 (2s) UUID 3539
+Validation: ELBO -98.0456 Accuracy 0.8920 UUID 3539
+
+[Epoch 121] Train: Labeled ELBO -1.9351 Unlabeled ELBO -1.9193 Accuracy 0.8920 (2s) UUID 3539
+Validation: ELBO -97.4141 Accuracy 0.9000 UUID 3539
+
+[Epoch 122] Train: Labeled ELBO -1.9212 Unlabeled ELBO -1.9125 Accuracy 0.9000 (2s) UUID 3539
+Validation: ELBO -98.0999 Accuracy 0.9040 UUID 3539
+
+[Epoch 123] Train: Labeled ELBO -1.9162 Unlabeled ELBO -1.9152 Accuracy 0.9040 (2s) UUID 3539
+Validation: ELBO -98.2903 Accuracy 0.8960 UUID 3539
+
+[Epoch 124] Train: Labeled ELBO -1.9196 Unlabeled ELBO -1.9143 Accuracy 0.8960 (2s) UUID 3539
+Validation: ELBO -98.2914 Accuracy 0.8860 UUID 3539
+
+[Epoch 125] Train: Labeled ELBO -1.9152 Unlabeled ELBO -1.9156 Accuracy 0.8860 (2s) UUID 3539
+Validation: ELBO -98.7422 Accuracy 0.8920 UUID 3539
+
+[Epoch 126] Train: Labeled ELBO -1.9196 Unlabeled ELBO -1.9141 Accuracy 0.8920 (2s) UUID 3539
+Validation: ELBO -98.0138 Accuracy 0.8920 UUID 3539
+
+[Epoch 127] Train: Labeled ELBO -1.9214 Unlabeled ELBO -1.9106 Accuracy 0.8920 (2s) UUID 3539
+Validation: ELBO -98.0109 Accuracy 0.8820 UUID 3539
+
+[Epoch 128] Train: Labeled ELBO -1.9197 Unlabeled ELBO -1.9132 Accuracy 0.8820 (2s) UUID 3539
+Validation: ELBO -98.2697 Accuracy 0.9060 UUID 3539
+
+[Epoch 129] Train: Labeled ELBO -1.9104 Unlabeled ELBO -1.9119 Accuracy 0.9060 (2s) UUID 3539
+Validation: ELBO -97.2251 Accuracy 0.8960 UUID 3539
+
+[Epoch 130] Train: Labeled ELBO -1.9158 Unlabeled ELBO -1.9112 Accuracy 0.8960 (2s) UUID 3539
+Validation: ELBO -98.3772 Accuracy 0.8960 UUID 3539
+
+[Epoch 131] Train: Labeled ELBO -1.9162 Unlabeled ELBO -1.9060 Accuracy 0.8960 (2s) UUID 3539
+Validation: ELBO -99.1363 Accuracy 0.8780 UUID 3539
+
+[Epoch 132] Train: Labeled ELBO -1.9197 Unlabeled ELBO -1.9100 Accuracy 0.8780 (2s) UUID 3539
+Validation: ELBO -97.7600 Accuracy 0.9080 UUID 3539
+
+[Epoch 133] Train: Labeled ELBO -1.9211 Unlabeled ELBO -1.9097 Accuracy 0.9080 (2s) UUID 3539
+Validation: ELBO -98.0445 Accuracy 0.9040 UUID 3539
+
+[Epoch 134] Train: Labeled ELBO -1.9127 Unlabeled ELBO -1.9068 Accuracy 0.9040 (2s) UUID 3539
+Validation: ELBO -97.8624 Accuracy 0.8960 UUID 3539
+
+[Epoch 135] Train: Labeled ELBO -1.9092 Unlabeled ELBO -1.9100 Accuracy 0.8960 (2s) UUID 3539
+Validation: ELBO -98.6488 Accuracy 0.8720 UUID 3539
+
+[Epoch 136] Train: Labeled ELBO -1.9155 Unlabeled ELBO -1.9122 Accuracy 0.8720 (2s) UUID 3539
+Validation: ELBO -98.1719 Accuracy 0.9020 UUID 3539
+
+[Epoch 137] Train: Labeled ELBO -1.9162 Unlabeled ELBO -1.9134 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -98.1050 Accuracy 0.8980 UUID 3539
+
+[Epoch 138] Train: Labeled ELBO -1.9254 Unlabeled ELBO -1.9070 Accuracy 0.8980 (2s) UUID 3539
+Validation: ELBO -98.2522 Accuracy 0.8900 UUID 3539
+
+[Epoch 139] Train: Labeled ELBO -1.9101 Unlabeled ELBO -1.9063 Accuracy 0.8900 (2s) UUID 3539
+Validation: ELBO -98.0759 Accuracy 0.9020 UUID 3539
+
+[Epoch 140] Train: Labeled ELBO -1.9174 Unlabeled ELBO -1.9034 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -98.2424 Accuracy 0.9000 UUID 3539
+
+[Epoch 141] Train: Labeled ELBO -1.9048 Unlabeled ELBO -1.9074 Accuracy 0.9000 (2s) UUID 3539
+Validation: ELBO -97.9880 Accuracy 0.9060 UUID 3539
+
+[Epoch 142] Train: Labeled ELBO -1.9170 Unlabeled ELBO -1.9065 Accuracy 0.9060 (2s) UUID 3539
+Validation: ELBO -97.3428 Accuracy 0.9040 UUID 3539
+
+[Epoch 143] Train: Labeled ELBO -1.9159 Unlabeled ELBO -1.9061 Accuracy 0.9040 (2s) UUID 3539
+Validation: ELBO -98.0226 Accuracy 0.9020 UUID 3539
+
+[Epoch 144] Train: Labeled ELBO -1.9050 Unlabeled ELBO -1.9013 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -97.8986 Accuracy 0.8980 UUID 3539
+
+[Epoch 145] Train: Labeled ELBO -1.9021 Unlabeled ELBO -1.9057 Accuracy 0.8980 (2s) UUID 3539
+Validation: ELBO -98.2141 Accuracy 0.8960 UUID 3539
+
+[Epoch 146] Train: Labeled ELBO -1.9081 Unlabeled ELBO -1.9045 Accuracy 0.8960 (2s) UUID 3539
+Validation: ELBO -97.2505 Accuracy 0.9060 UUID 3539
+
+[Epoch 147] Train: Labeled ELBO -1.9075 Unlabeled ELBO -1.9030 Accuracy 0.9060 (2s) UUID 3539
+Validation: ELBO -97.6269 Accuracy 0.8940 UUID 3539
+
+[Epoch 148] Train: Labeled ELBO -1.9113 Unlabeled ELBO -1.9045 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -97.7704 Accuracy 0.9020 UUID 3539
+
+[Epoch 149] Train: Labeled ELBO -1.9051 Unlabeled ELBO -1.9043 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -98.6042 Accuracy 0.9020 UUID 3539
+
+[Epoch 150] Train: Labeled ELBO -1.9186 Unlabeled ELBO -1.8991 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -98.5843 Accuracy 0.8980 UUID 3539
+
+[Epoch 151] Train: Labeled ELBO -1.9094 Unlabeled ELBO -1.9020 Accuracy 0.8980 (2s) UUID 3539
+Validation: ELBO -98.0173 Accuracy 0.8940 UUID 3539
+
+[Epoch 152] Train: Labeled ELBO -1.9101 Unlabeled ELBO -1.9036 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -97.8743 Accuracy 0.8880 UUID 3539
+
+[Epoch 153] Train: Labeled ELBO -1.8993 Unlabeled ELBO -1.8997 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -97.3542 Accuracy 0.9120 UUID 3539
+
+[Epoch 154] Train: Labeled ELBO -1.9019 Unlabeled ELBO -1.9013 Accuracy 0.9120 (2s) UUID 3539
+Validation: ELBO -98.2211 Accuracy 0.9020 UUID 3539
+
+[Epoch 155] Train: Labeled ELBO -1.9091 Unlabeled ELBO -1.8997 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -97.8118 Accuracy 0.8880 UUID 3539
+
+[Epoch 156] Train: Labeled ELBO -1.9100 Unlabeled ELBO -1.9028 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -97.5600 Accuracy 0.8920 UUID 3539
+
+[Epoch 157] Train: Labeled ELBO -1.8999 Unlabeled ELBO -1.9016 Accuracy 0.8920 (2s) UUID 3539
+Validation: ELBO -97.4367 Accuracy 0.8940 UUID 3539
+
+[Epoch 158] Train: Labeled ELBO -1.9086 Unlabeled ELBO -1.8982 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -97.2407 Accuracy 0.9060 UUID 3539
+
+[Epoch 159] Train: Labeled ELBO -1.8994 Unlabeled ELBO -1.9034 Accuracy 0.9060 (2s) UUID 3539
+Validation: ELBO -97.2631 Accuracy 0.9040 UUID 3539
+
+[Epoch 160] Train: Labeled ELBO -1.9089 Unlabeled ELBO -1.9031 Accuracy 0.9040 (2s) UUID 3539
+Validation: ELBO -96.7407 Accuracy 0.9040 UUID 3539
+
+[Epoch 161] Train: Labeled ELBO -1.9042 Unlabeled ELBO -1.9005 Accuracy 0.9040 (2s) UUID 3539
+Validation: ELBO -97.5724 Accuracy 0.9060 UUID 3539
+
+[Epoch 162] Train: Labeled ELBO -1.8944 Unlabeled ELBO -1.8969 Accuracy 0.9060 (2s) UUID 3539
+Validation: ELBO -97.6688 Accuracy 0.8960 UUID 3539
+
+[Epoch 163] Train: Labeled ELBO -1.8999 Unlabeled ELBO -1.8969 Accuracy 0.8960 (2s) UUID 3539
+Validation: ELBO -97.6847 Accuracy 0.9080 UUID 3539
+
+[Epoch 164] Train: Labeled ELBO -1.9032 Unlabeled ELBO -1.8978 Accuracy 0.9080 (2s) UUID 3539
+Validation: ELBO -97.5411 Accuracy 0.8980 UUID 3539
+
+[Epoch 165] Train: Labeled ELBO -1.9034 Unlabeled ELBO -1.8978 Accuracy 0.8980 (2s) UUID 3539
+Validation: ELBO -97.6484 Accuracy 0.9100 UUID 3539
+
+[Epoch 166] Train: Labeled ELBO -1.8978 Unlabeled ELBO -1.8972 Accuracy 0.9100 (2s) UUID 3539
+Validation: ELBO -97.4261 Accuracy 0.9100 UUID 3539
+
+[Epoch 167] Train: Labeled ELBO -1.8970 Unlabeled ELBO -1.9000 Accuracy 0.9100 (2s) UUID 3539
+Validation: ELBO -98.2772 Accuracy 0.9020 UUID 3539
+
+[Epoch 168] Train: Labeled ELBO -1.9027 Unlabeled ELBO -1.8964 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -97.7816 Accuracy 0.9000 UUID 3539
+
+[Epoch 169] Train: Labeled ELBO -1.9143 Unlabeled ELBO -1.9015 Accuracy 0.9000 (2s) UUID 3539
+Validation: ELBO -97.2525 Accuracy 0.9080 UUID 3539
+
+[Epoch 170] Train: Labeled ELBO -1.9137 Unlabeled ELBO -1.8933 Accuracy 0.9080 (2s) UUID 3539
+Validation: ELBO -97.4348 Accuracy 0.8900 UUID 3539
+
+[Epoch 171] Train: Labeled ELBO -1.8949 Unlabeled ELBO -1.8947 Accuracy 0.8900 (2s) UUID 3539
+Validation: ELBO -98.3414 Accuracy 0.8940 UUID 3539
+
+[Epoch 172] Train: Labeled ELBO -1.8970 Unlabeled ELBO -1.8959 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -98.1650 Accuracy 0.8980 UUID 3539
+
+[Epoch 173] Train: Labeled ELBO -1.9036 Unlabeled ELBO -1.8957 Accuracy 0.8980 (2s) UUID 3539
+Validation: ELBO -97.2650 Accuracy 0.9020 UUID 3539
+
+[Epoch 174] Train: Labeled ELBO -1.9055 Unlabeled ELBO -1.8941 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -97.5742 Accuracy 0.9020 UUID 3539
+
+[Epoch 175] Train: Labeled ELBO -1.8943 Unlabeled ELBO -1.8977 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -97.9286 Accuracy 0.8920 UUID 3539
+
+[Epoch 176] Train: Labeled ELBO -1.9058 Unlabeled ELBO -1.8925 Accuracy 0.8920 (2s) UUID 3539
+Validation: ELBO -97.2416 Accuracy 0.9020 UUID 3539
+
+[Epoch 177] Train: Labeled ELBO -1.8964 Unlabeled ELBO -1.8899 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -97.0406 Accuracy 0.8940 UUID 3539
+
+[Epoch 178] Train: Labeled ELBO -1.8933 Unlabeled ELBO -1.8924 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -98.0646 Accuracy 0.9040 UUID 3539
+
+[Epoch 179] Train: Labeled ELBO -1.8980 Unlabeled ELBO -1.8903 Accuracy 0.9040 (2s) UUID 3539
+Validation: ELBO -97.2273 Accuracy 0.8920 UUID 3539
+
+[Epoch 180] Train: Labeled ELBO -1.9055 Unlabeled ELBO -1.8904 Accuracy 0.8920 (2s) UUID 3539
+Validation: ELBO -96.3800 Accuracy 0.9080 UUID 3539
+
+[Epoch 181] Train: Labeled ELBO -1.8981 Unlabeled ELBO -1.8894 Accuracy 0.9080 (2s) UUID 3539
+Validation: ELBO -97.3173 Accuracy 0.9020 UUID 3539
+
+[Epoch 182] Train: Labeled ELBO -1.8924 Unlabeled ELBO -1.8941 Accuracy 0.9020 (2s) UUID 3539
+Validation: ELBO -97.6322 Accuracy 0.8900 UUID 3539
+
+[Epoch 183] Train: Labeled ELBO -1.8953 Unlabeled ELBO -1.8955 Accuracy 0.8900 (2s) UUID 3539
+Validation: ELBO -97.7074 Accuracy 0.8940 UUID 3539
+
+[Epoch 184] Train: Labeled ELBO -1.9053 Unlabeled ELBO -1.8947 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -97.7504 Accuracy 0.8900 UUID 3539
+
+[Epoch 185] Train: Labeled ELBO -1.8956 Unlabeled ELBO -1.8931 Accuracy 0.8900 (2s) UUID 3539
+Validation: ELBO -97.9228 Accuracy 0.8880 UUID 3539
+
+[Epoch 186] Train: Labeled ELBO -1.8958 Unlabeled ELBO -1.8881 Accuracy 0.8880 (2s) UUID 3539
+Validation: ELBO -97.2065 Accuracy 0.9040 UUID 3539
+
+[Epoch 187] Train: Labeled ELBO -1.8955 Unlabeled ELBO -1.8912 Accuracy 0.9040 (2s) UUID 3539
+Validation: ELBO -97.5235 Accuracy 0.9060 UUID 3539
+
+[Epoch 188] Train: Labeled ELBO -1.8926 Unlabeled ELBO -1.8917 Accuracy 0.9060 (2s) UUID 3539
+Validation: ELBO -96.7989 Accuracy 0.9080 UUID 3539
+
+[Epoch 189] Train: Labeled ELBO -1.8974 Unlabeled ELBO -1.8925 Accuracy 0.9080 (2s) UUID 3539
+Validation: ELBO -98.2051 Accuracy 0.8940 UUID 3539
+
+[Epoch 190] Train: Labeled ELBO -1.8891 Unlabeled ELBO -1.8911 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -96.4878 Accuracy 0.9120 UUID 3539
+
+[Epoch 191] Train: Labeled ELBO -1.8972 Unlabeled ELBO -1.8880 Accuracy 0.9120 (2s) UUID 3539
+Validation: ELBO -97.3491 Accuracy 0.9060 UUID 3539
+
+[Epoch 192] Train: Labeled ELBO -1.8859 Unlabeled ELBO -1.8891 Accuracy 0.9060 (2s) UUID 3539
+Validation: ELBO -97.3853 Accuracy 0.9080 UUID 3539
+
+[Epoch 193] Train: Labeled ELBO -1.8939 Unlabeled ELBO -1.8890 Accuracy 0.9080 (2s) UUID 3539
+Validation: ELBO -97.6248 Accuracy 0.8960 UUID 3539
+
+[Epoch 194] Train: Labeled ELBO -1.8931 Unlabeled ELBO -1.8862 Accuracy 0.8960 (2s) UUID 3539
+Validation: ELBO -96.9002 Accuracy 0.8940 UUID 3539
+
+[Epoch 195] Train: Labeled ELBO -1.8918 Unlabeled ELBO -1.8884 Accuracy 0.8940 (2s) UUID 3539
+Validation: ELBO -96.8263 Accuracy 0.8960 UUID 3539
+
+[Epoch 196] Train: Labeled ELBO -1.8963 Unlabeled ELBO -1.8868 Accuracy 0.8960 (2s) UUID 3539
+Validation: ELBO -97.4145 Accuracy 0.9060 UUID 3539
+
+[Epoch 197] Train: Labeled ELBO -1.8882 Unlabeled ELBO -1.8881 Accuracy 0.9060 (2s) UUID 3539
+Validation: ELBO -97.1783 Accuracy 0.9100 UUID 3539
+
+[Epoch 198] Train: Labeled ELBO -1.8916 Unlabeled ELBO -1.8866 Accuracy 0.9100 (2s) UUID 3539
+Validation: ELBO -97.2092 Accuracy 0.9080 UUID 3539
+
+[Epoch 199] Train: Labeled ELBO -1.8880 Unlabeled ELBO -1.8903 Accuracy 0.9080 (2s) UUID 3539
+Validation: ELBO -113.0427 Accuracy 0.8690 UUID 3539
+
+Validation: ELBO -112.6568 Accuracy 0.8445 UUID 3539
+
+Validation: ELBO -153.4206 Accuracy 0.3920 UUID b9db
+
+[Epoch 0] Train: Labeled ELBO -5.0234 Unlabeled ELBO -3.3708 Accuracy 0.3920 (4s) UUID b9db
+Validation: ELBO -140.9147 Accuracy 0.5140 UUID b9db
+
+[Epoch 1] Train: Labeled ELBO -3.0500 Unlabeled ELBO -2.8910 Accuracy 0.5140 (4s) UUID b9db
+Validation: ELBO -133.0174 Accuracy 0.5750 UUID b9db
+
+[Epoch 2] Train: Labeled ELBO -2.8168 Unlabeled ELBO -2.7068 Accuracy 0.5750 (4s) UUID b9db
+Validation: ELBO -128.0613 Accuracy 0.6430 UUID b9db
+
+[Epoch 3] Train: Labeled ELBO -2.6625 Unlabeled ELBO -2.5950 Accuracy 0.6430 (4s) UUID b9db
+Validation: ELBO -124.7362 Accuracy 0.7270 UUID b9db
+
+[Epoch 4] Train: Labeled ELBO -2.5614 Unlabeled ELBO -2.5104 Accuracy 0.7270 (4s) UUID b9db
+Validation: ELBO -121.8186 Accuracy 0.7350 UUID b9db
+
+[Epoch 5] Train: Labeled ELBO -2.4967 Unlabeled ELBO -2.4369 Accuracy 0.7350 (4s) UUID b9db
+Validation: ELBO -118.2714 Accuracy 0.7540 UUID b9db
+
+[Epoch 6] Train: Labeled ELBO -2.4403 Unlabeled ELBO -2.3843 Accuracy 0.7540 (4s) UUID b9db
+Validation: ELBO -116.2305 Accuracy 0.7850 UUID b9db
+
+[Epoch 7] Train: Labeled ELBO -2.3694 Unlabeled ELBO -2.3369 Accuracy 0.7850 (4s) UUID b9db
+Validation: ELBO -114.2317 Accuracy 0.7910 UUID b9db
+
+[Epoch 8] Train: Labeled ELBO -2.3296 Unlabeled ELBO -2.2946 Accuracy 0.7910 (4s) UUID b9db
+Validation: ELBO -112.2339 Accuracy 0.7720 UUID b9db
+
+[Epoch 9] Train: Labeled ELBO -2.2910 Unlabeled ELBO -2.2572 Accuracy 0.7720 (4s) UUID b9db
+Validation: ELBO -111.3790 Accuracy 0.7830 UUID b9db
+
+[Epoch 10] Train: Labeled ELBO -2.2605 Unlabeled ELBO -2.2277 Accuracy 0.7830 (4s) UUID b9db
+Validation: ELBO -110.0324 Accuracy 0.8000 UUID b9db
+
+[Epoch 11] Train: Labeled ELBO -2.2313 Unlabeled ELBO -2.2066 Accuracy 0.8000 (4s) UUID b9db
+Validation: ELBO -109.1835 Accuracy 0.8060 UUID b9db
+
+[Epoch 12] Train: Labeled ELBO -2.2074 Unlabeled ELBO -2.1831 Accuracy 0.8060 (4s) UUID b9db
+Validation: ELBO -108.4050 Accuracy 0.8100 UUID b9db
+
+[Epoch 13] Train: Labeled ELBO -2.1895 Unlabeled ELBO -2.1624 Accuracy 0.8100 (4s) UUID b9db
+Validation: ELBO -107.4682 Accuracy 0.8180 UUID b9db
+
+[Epoch 14] Train: Labeled ELBO -2.1733 Unlabeled ELBO -2.1527 Accuracy 0.8180 (4s) UUID b9db
+Validation: ELBO -107.3950 Accuracy 0.8210 UUID b9db
+
+[Epoch 15] Train: Labeled ELBO -2.1578 Unlabeled ELBO -2.1363 Accuracy 0.8210 (4s) UUID b9db
+Validation: ELBO -106.5018 Accuracy 0.8180 UUID b9db
+
+[Epoch 16] Train: Labeled ELBO -2.1482 Unlabeled ELBO -2.1289 Accuracy 0.8180 (4s) UUID b9db
+Validation: ELBO -106.1007 Accuracy 0.8330 UUID b9db
+
+[Epoch 17] Train: Labeled ELBO -2.1300 Unlabeled ELBO -2.1214 Accuracy 0.8330 (4s) UUID b9db
+Validation: ELBO -105.8295 Accuracy 0.8410 UUID b9db
+
+[Epoch 18] Train: Labeled ELBO -2.1231 Unlabeled ELBO -2.1068 Accuracy 0.8410 (4s) UUID b9db
+Validation: ELBO -105.8374 Accuracy 0.8350 UUID b9db
+
+[Epoch 19] Train: Labeled ELBO -2.1066 Unlabeled ELBO -2.0962 Accuracy 0.8350 (4s) UUID b9db
+Validation: ELBO -105.0187 Accuracy 0.8410 UUID b9db
+
+[Epoch 20] Train: Labeled ELBO -2.1027 Unlabeled ELBO -2.0900 Accuracy 0.8410 (4s) UUID b9db
+Validation: ELBO -104.6816 Accuracy 0.8460 UUID b9db
+
+[Epoch 21] Train: Labeled ELBO -2.1018 Unlabeled ELBO -2.0783 Accuracy 0.8460 (4s) UUID b9db
+Validation: ELBO -104.3795 Accuracy 0.8600 UUID b9db
+
+[Epoch 22] Train: Labeled ELBO -2.0828 Unlabeled ELBO -2.0761 Accuracy 0.8600 (4s) UUID b9db
+Validation: ELBO -104.1788 Accuracy 0.8510 UUID b9db
+
+[Epoch 23] Train: Labeled ELBO -2.0839 Unlabeled ELBO -2.0689 Accuracy 0.8510 (4s) UUID b9db
+Validation: ELBO -104.1916 Accuracy 0.8450 UUID b9db
+
+[Epoch 24] Train: Labeled ELBO -2.0790 Unlabeled ELBO -2.0642 Accuracy 0.8450 (4s) UUID b9db
+Validation: ELBO -103.6820 Accuracy 0.8670 UUID b9db
+
+[Epoch 25] Train: Labeled ELBO -2.0707 Unlabeled ELBO -2.0601 Accuracy 0.8670 (4s) UUID b9db
+Validation: ELBO -103.2323 Accuracy 0.8510 UUID b9db
+
+[Epoch 26] Train: Labeled ELBO -2.0624 Unlabeled ELBO -2.0563 Accuracy 0.8510 (4s) UUID b9db
+Validation: ELBO -103.3867 Accuracy 0.8620 UUID b9db
+
+[Epoch 27] Train: Labeled ELBO -2.0539 Unlabeled ELBO -2.0520 Accuracy 0.8620 (4s) UUID b9db
+Validation: ELBO -103.0856 Accuracy 0.8490 UUID b9db
+
+[Epoch 28] Train: Labeled ELBO -2.0581 Unlabeled ELBO -2.0499 Accuracy 0.8490 (4s) UUID b9db
+Validation: ELBO -102.6524 Accuracy 0.8600 UUID b9db
+
+[Epoch 29] Train: Labeled ELBO -2.0536 Unlabeled ELBO -2.0468 Accuracy 0.8600 (4s) UUID b9db
+Validation: ELBO -102.3782 Accuracy 0.8630 UUID b9db
+
+[Epoch 30] Train: Labeled ELBO -2.0423 Unlabeled ELBO -2.0359 Accuracy 0.8630 (4s) UUID b9db
+Validation: ELBO -102.5007 Accuracy 0.8720 UUID b9db
+
+[Epoch 31] Train: Labeled ELBO -2.0371 Unlabeled ELBO -2.0327 Accuracy 0.8720 (4s) UUID b9db
+Validation: ELBO -102.8208 Accuracy 0.8680 UUID b9db
+
+[Epoch 32] Train: Labeled ELBO -2.0342 Unlabeled ELBO -2.0308 Accuracy 0.8680 (4s) UUID b9db
+Validation: ELBO -101.6490 Accuracy 0.8690 UUID b9db
+
+[Epoch 33] Train: Labeled ELBO -2.0328 Unlabeled ELBO -2.0264 Accuracy 0.8690 (4s) UUID b9db
+Validation: ELBO -101.4631 Accuracy 0.8730 UUID b9db
+
+[Epoch 34] Train: Labeled ELBO -2.0310 Unlabeled ELBO -2.0206 Accuracy 0.8730 (4s) UUID b9db
+Validation: ELBO -101.5678 Accuracy 0.8770 UUID b9db
+
+[Epoch 35] Train: Labeled ELBO -2.0164 Unlabeled ELBO -2.0138 Accuracy 0.8770 (4s) UUID b9db
+Validation: ELBO -101.5425 Accuracy 0.8700 UUID b9db
+
+[Epoch 36] Train: Labeled ELBO -2.0202 Unlabeled ELBO -2.0144 Accuracy 0.8700 (4s) UUID b9db
+Validation: ELBO -101.4482 Accuracy 0.8870 UUID b9db
+
+[Epoch 37] Train: Labeled ELBO -2.0206 Unlabeled ELBO -2.0143 Accuracy 0.8870 (4s) UUID b9db
+Validation: ELBO -101.4801 Accuracy 0.8810 UUID b9db
+
+[Epoch 38] Train: Labeled ELBO -2.0116 Unlabeled ELBO -2.0069 Accuracy 0.8810 (4s) UUID b9db
+Validation: ELBO -101.7044 Accuracy 0.8620 UUID b9db
+
+[Epoch 39] Train: Labeled ELBO -2.0124 Unlabeled ELBO -2.0080 Accuracy 0.8620 (4s) UUID b9db
+Validation: ELBO -101.2051 Accuracy 0.8710 UUID b9db
+
+[Epoch 40] Train: Labeled ELBO -2.0107 Unlabeled ELBO -2.0039 Accuracy 0.8710 (4s) UUID b9db
+Validation: ELBO -100.9518 Accuracy 0.8710 UUID b9db
+
+[Epoch 41] Train: Labeled ELBO -2.0058 Unlabeled ELBO -2.0020 Accuracy 0.8710 (4s) UUID b9db
+Validation: ELBO -100.6730 Accuracy 0.8710 UUID b9db
+
+[Epoch 42] Train: Labeled ELBO -2.0072 Unlabeled ELBO -2.0014 Accuracy 0.8710 (4s) UUID b9db
+Validation: ELBO -101.8408 Accuracy 0.8640 UUID b9db
+
+[Epoch 43] Train: Labeled ELBO -2.0018 Unlabeled ELBO -2.0023 Accuracy 0.8640 (4s) UUID b9db
+Validation: ELBO -100.3371 Accuracy 0.8870 UUID b9db
+
+[Epoch 44] Train: Labeled ELBO -2.0006 Unlabeled ELBO -1.9931 Accuracy 0.8870 (4s) UUID b9db
+Validation: ELBO -100.6172 Accuracy 0.8890 UUID b9db
+
+[Epoch 45] Train: Labeled ELBO -1.9955 Unlabeled ELBO -1.9911 Accuracy 0.8890 (4s) UUID b9db
+Validation: ELBO -100.5997 Accuracy 0.8880 UUID b9db
+
+[Epoch 46] Train: Labeled ELBO -1.9944 Unlabeled ELBO -1.9879 Accuracy 0.8880 (4s) UUID b9db
+Validation: ELBO -100.4226 Accuracy 0.8820 UUID b9db
+
+[Epoch 47] Train: Labeled ELBO -1.9944 Unlabeled ELBO -1.9909 Accuracy 0.8820 (4s) UUID b9db
+Validation: ELBO -100.4559 Accuracy 0.8820 UUID b9db
+
+[Epoch 48] Train: Labeled ELBO -1.9857 Unlabeled ELBO -1.9865 Accuracy 0.8820 (4s) UUID b9db
+Validation: ELBO -100.6936 Accuracy 0.8770 UUID b9db
+
+[Epoch 49] Train: Labeled ELBO -1.9908 Unlabeled ELBO -1.9871 Accuracy 0.8770 (4s) UUID b9db
+Validation: ELBO -100.7755 Accuracy 0.8900 UUID b9db
+
+[Epoch 50] Train: Labeled ELBO -1.9831 Unlabeled ELBO -1.9880 Accuracy 0.8900 (4s) UUID b9db
+Validation: ELBO -100.8563 Accuracy 0.8890 UUID b9db
+
+[Epoch 51] Train: Labeled ELBO -1.9810 Unlabeled ELBO -1.9835 Accuracy 0.8890 (4s) UUID b9db
+Validation: ELBO -100.2812 Accuracy 0.8870 UUID b9db
+
+[Epoch 52] Train: Labeled ELBO -1.9844 Unlabeled ELBO -1.9839 Accuracy 0.8870 (4s) UUID b9db
+Validation: ELBO -100.0056 Accuracy 0.8840 UUID b9db
+
+[Epoch 53] Train: Labeled ELBO -1.9857 Unlabeled ELBO -1.9746 Accuracy 0.8840 (4s) UUID b9db
+Validation: ELBO -100.1167 Accuracy 0.8990 UUID b9db
+
+[Epoch 54] Train: Labeled ELBO -1.9800 Unlabeled ELBO -1.9762 Accuracy 0.8990 (4s) UUID b9db
+Validation: ELBO -99.6257 Accuracy 0.8850 UUID b9db
+
+[Epoch 55] Train: Labeled ELBO -1.9806 Unlabeled ELBO -1.9744 Accuracy 0.8850 (4s) UUID b9db
+Validation: ELBO -99.7089 Accuracy 0.8900 UUID b9db
+
+[Epoch 56] Train: Labeled ELBO -1.9713 Unlabeled ELBO -1.9705 Accuracy 0.8900 (4s) UUID b9db
+Validation: ELBO -99.7001 Accuracy 0.8810 UUID b9db
+
+[Epoch 57] Train: Labeled ELBO -1.9680 Unlabeled ELBO -1.9663 Accuracy 0.8810 (4s) UUID b9db
+Validation: ELBO -99.6782 Accuracy 0.8840 UUID b9db
+
+[Epoch 58] Train: Labeled ELBO -1.9713 Unlabeled ELBO -1.9721 Accuracy 0.8840 (4s) UUID b9db
+Validation: ELBO -99.2587 Accuracy 0.8930 UUID b9db
+
+[Epoch 59] Train: Labeled ELBO -1.9709 Unlabeled ELBO -1.9700 Accuracy 0.8930 (4s) UUID b9db
+Validation: ELBO -99.6644 Accuracy 0.8850 UUID b9db
+
+[Epoch 60] Train: Labeled ELBO -1.9609 Unlabeled ELBO -1.9668 Accuracy 0.8850 (4s) UUID b9db
+Validation: ELBO -99.4156 Accuracy 0.8970 UUID b9db
+
+[Epoch 61] Train: Labeled ELBO -1.9618 Unlabeled ELBO -1.9685 Accuracy 0.8970 (4s) UUID b9db
+Validation: ELBO -99.6501 Accuracy 0.8800 UUID b9db
+
+[Epoch 62] Train: Labeled ELBO -1.9684 Unlabeled ELBO -1.9682 Accuracy 0.8800 (4s) UUID b9db
+Validation: ELBO -99.9021 Accuracy 0.8850 UUID b9db
+
+[Epoch 63] Train: Labeled ELBO -1.9747 Unlabeled ELBO -1.9656 Accuracy 0.8850 (4s) UUID b9db
+Validation: ELBO -99.3266 Accuracy 0.8810 UUID b9db
+
+[Epoch 64] Train: Labeled ELBO -1.9634 Unlabeled ELBO -1.9568 Accuracy 0.8810 (4s) UUID b9db
+Validation: ELBO -99.2525 Accuracy 0.8900 UUID b9db
+
+[Epoch 65] Train: Labeled ELBO -1.9651 Unlabeled ELBO -1.9625 Accuracy 0.8900 (4s) UUID b9db
+Validation: ELBO -99.2091 Accuracy 0.8950 UUID b9db
+
+[Epoch 66] Train: Labeled ELBO -1.9691 Unlabeled ELBO -1.9612 Accuracy 0.8950 (4s) UUID b9db
+Validation: ELBO -99.8099 Accuracy 0.8820 UUID b9db
+
+[Epoch 67] Train: Labeled ELBO -1.9596 Unlabeled ELBO -1.9568 Accuracy 0.8820 (4s) UUID b9db
+Validation: ELBO -99.3765 Accuracy 0.8950 UUID b9db
+
+[Epoch 68] Train: Labeled ELBO -1.9580 Unlabeled ELBO -1.9575 Accuracy 0.8950 (4s) UUID b9db
+Validation: ELBO -99.5528 Accuracy 0.9000 UUID b9db
+
+[Epoch 69] Train: Labeled ELBO -1.9543 Unlabeled ELBO -1.9577 Accuracy 0.9000 (4s) UUID b9db
+Validation: ELBO -99.0219 Accuracy 0.8950 UUID b9db
+
+[Epoch 70] Train: Labeled ELBO -1.9582 Unlabeled ELBO -1.9581 Accuracy 0.8950 (4s) UUID b9db
+Validation: ELBO -98.9337 Accuracy 0.8950 UUID b9db
+
+[Epoch 71] Train: Labeled ELBO -1.9571 Unlabeled ELBO -1.9568 Accuracy 0.8950 (4s) UUID b9db
+Validation: ELBO -99.3039 Accuracy 0.8990 UUID b9db
+
+[Epoch 72] Train: Labeled ELBO -1.9511 Unlabeled ELBO -1.9532 Accuracy 0.8990 (4s) UUID b9db
+Validation: ELBO -99.4289 Accuracy 0.8920 UUID b9db
+
+[Epoch 73] Train: Labeled ELBO -1.9511 Unlabeled ELBO -1.9507 Accuracy 0.8920 (4s) UUID b9db
+Validation: ELBO -98.9173 Accuracy 0.8920 UUID b9db
+
+[Epoch 74] Train: Labeled ELBO -1.9487 Unlabeled ELBO -1.9518 Accuracy 0.8920 (4s) UUID b9db
+Validation: ELBO -98.3389 Accuracy 0.8960 UUID b9db
+
+[Epoch 75] Train: Labeled ELBO -1.9518 Unlabeled ELBO -1.9497 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -98.4475 Accuracy 0.8870 UUID b9db
+
+[Epoch 76] Train: Labeled ELBO -1.9442 Unlabeled ELBO -1.9502 Accuracy 0.8870 (4s) UUID b9db
+Validation: ELBO -98.5983 Accuracy 0.8890 UUID b9db
+
+[Epoch 77] Train: Labeled ELBO -1.9487 Unlabeled ELBO -1.9461 Accuracy 0.8890 (4s) UUID b9db
+Validation: ELBO -99.5285 Accuracy 0.8860 UUID b9db
+
+[Epoch 78] Train: Labeled ELBO -1.9460 Unlabeled ELBO -1.9477 Accuracy 0.8860 (4s) UUID b9db
+Validation: ELBO -98.9466 Accuracy 0.8930 UUID b9db
+
+[Epoch 79] Train: Labeled ELBO -1.9466 Unlabeled ELBO -1.9438 Accuracy 0.8930 (4s) UUID b9db
+Validation: ELBO -98.4113 Accuracy 0.9000 UUID b9db
+
+[Epoch 80] Train: Labeled ELBO -1.9446 Unlabeled ELBO -1.9460 Accuracy 0.9000 (4s) UUID b9db
+Validation: ELBO -98.6555 Accuracy 0.8900 UUID b9db
+
+[Epoch 81] Train: Labeled ELBO -1.9471 Unlabeled ELBO -1.9434 Accuracy 0.8900 (4s) UUID b9db
+Validation: ELBO -98.6955 Accuracy 0.9010 UUID b9db
+
+[Epoch 82] Train: Labeled ELBO -1.9427 Unlabeled ELBO -1.9434 Accuracy 0.9010 (4s) UUID b9db
+Validation: ELBO -99.1137 Accuracy 0.8920 UUID b9db
+
+[Epoch 83] Train: Labeled ELBO -1.9483 Unlabeled ELBO -1.9416 Accuracy 0.8920 (4s) UUID b9db
+Validation: ELBO -99.0107 Accuracy 0.8840 UUID b9db
+
+[Epoch 84] Train: Labeled ELBO -1.9412 Unlabeled ELBO -1.9360 Accuracy 0.8840 (4s) UUID b9db
+Validation: ELBO -98.2836 Accuracy 0.8960 UUID b9db
+
+[Epoch 85] Train: Labeled ELBO -1.9425 Unlabeled ELBO -1.9370 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -98.9841 Accuracy 0.8960 UUID b9db
+
+[Epoch 86] Train: Labeled ELBO -1.9367 Unlabeled ELBO -1.9350 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -98.8482 Accuracy 0.8890 UUID b9db
+
+[Epoch 87] Train: Labeled ELBO -1.9403 Unlabeled ELBO -1.9416 Accuracy 0.8890 (4s) UUID b9db
+Validation: ELBO -98.5713 Accuracy 0.8900 UUID b9db
+
+[Epoch 88] Train: Labeled ELBO -1.9377 Unlabeled ELBO -1.9368 Accuracy 0.8900 (4s) UUID b9db
+Validation: ELBO -98.2518 Accuracy 0.9030 UUID b9db
+
+[Epoch 89] Train: Labeled ELBO -1.9389 Unlabeled ELBO -1.9391 Accuracy 0.9030 (4s) UUID b9db
+Validation: ELBO -98.7314 Accuracy 0.8960 UUID b9db
+
+[Epoch 90] Train: Labeled ELBO -1.9406 Unlabeled ELBO -1.9393 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -98.3010 Accuracy 0.8920 UUID b9db
+
+[Epoch 91] Train: Labeled ELBO -1.9387 Unlabeled ELBO -1.9345 Accuracy 0.8920 (4s) UUID b9db
+Validation: ELBO -98.5274 Accuracy 0.8890 UUID b9db
+
+[Epoch 92] Train: Labeled ELBO -1.9361 Unlabeled ELBO -1.9332 Accuracy 0.8890 (4s) UUID b9db
+Validation: ELBO -98.5159 Accuracy 0.8950 UUID b9db
+
+[Epoch 93] Train: Labeled ELBO -1.9314 Unlabeled ELBO -1.9361 Accuracy 0.8950 (4s) UUID b9db
+Validation: ELBO -98.6431 Accuracy 0.8980 UUID b9db
+
+[Epoch 94] Train: Labeled ELBO -1.9358 Unlabeled ELBO -1.9362 Accuracy 0.8980 (4s) UUID b9db
+Validation: ELBO -98.6366 Accuracy 0.8990 UUID b9db
+
+[Epoch 95] Train: Labeled ELBO -1.9357 Unlabeled ELBO -1.9335 Accuracy 0.8990 (4s) UUID b9db
+Validation: ELBO -98.4274 Accuracy 0.9070 UUID b9db
+
+[Epoch 96] Train: Labeled ELBO -1.9349 Unlabeled ELBO -1.9349 Accuracy 0.9070 (4s) UUID b9db
+Validation: ELBO -98.4268 Accuracy 0.8960 UUID b9db
+
+[Epoch 97] Train: Labeled ELBO -1.9382 Unlabeled ELBO -1.9285 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -98.5660 Accuracy 0.8960 UUID b9db
+
+[Epoch 98] Train: Labeled ELBO -1.9312 Unlabeled ELBO -1.9298 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -98.3559 Accuracy 0.8940 UUID b9db
+
+[Epoch 99] Train: Labeled ELBO -1.9311 Unlabeled ELBO -1.9269 Accuracy 0.8940 (4s) UUID b9db
+Validation: ELBO -98.4031 Accuracy 0.8960 UUID b9db
+
+[Epoch 100] Train: Labeled ELBO -1.9352 Unlabeled ELBO -1.9332 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -98.4217 Accuracy 0.8950 UUID b9db
+
+[Epoch 101] Train: Labeled ELBO -1.9325 Unlabeled ELBO -1.9340 Accuracy 0.8950 (4s) UUID b9db
+Validation: ELBO -99.1151 Accuracy 0.8930 UUID b9db
+
+[Epoch 102] Train: Labeled ELBO -1.9328 Unlabeled ELBO -1.9310 Accuracy 0.8930 (4s) UUID b9db
+Validation: ELBO -98.2218 Accuracy 0.8900 UUID b9db
+
+[Epoch 103] Train: Labeled ELBO -1.9379 Unlabeled ELBO -1.9286 Accuracy 0.8900 (4s) UUID b9db
+Validation: ELBO -98.3517 Accuracy 0.8900 UUID b9db
+
+[Epoch 104] Train: Labeled ELBO -1.9235 Unlabeled ELBO -1.9232 Accuracy 0.8900 (4s) UUID b9db
+Validation: ELBO -98.5656 Accuracy 0.8870 UUID b9db
+
+[Epoch 105] Train: Labeled ELBO -1.9275 Unlabeled ELBO -1.9280 Accuracy 0.8870 (4s) UUID b9db
+Validation: ELBO -97.5953 Accuracy 0.9050 UUID b9db
+
+[Epoch 106] Train: Labeled ELBO -1.9301 Unlabeled ELBO -1.9255 Accuracy 0.9050 (4s) UUID b9db
+Validation: ELBO -98.0613 Accuracy 0.8840 UUID b9db
+
+[Epoch 107] Train: Labeled ELBO -1.9189 Unlabeled ELBO -1.9221 Accuracy 0.8840 (4s) UUID b9db
+Validation: ELBO -98.3727 Accuracy 0.8890 UUID b9db
+
+[Epoch 108] Train: Labeled ELBO -1.9253 Unlabeled ELBO -1.9204 Accuracy 0.8890 (4s) UUID b9db
+Validation: ELBO -98.2108 Accuracy 0.8940 UUID b9db
+
+[Epoch 109] Train: Labeled ELBO -1.9219 Unlabeled ELBO -1.9207 Accuracy 0.8940 (4s) UUID b9db
+Validation: ELBO -97.8653 Accuracy 0.8880 UUID b9db
+
+[Epoch 110] Train: Labeled ELBO -1.9272 Unlabeled ELBO -1.9242 Accuracy 0.8880 (4s) UUID b9db
+Validation: ELBO -98.0097 Accuracy 0.8900 UUID b9db
+
+[Epoch 111] Train: Labeled ELBO -1.9200 Unlabeled ELBO -1.9208 Accuracy 0.8900 (4s) UUID b9db
+Validation: ELBO -98.0966 Accuracy 0.8900 UUID b9db
+
+[Epoch 112] Train: Labeled ELBO -1.9215 Unlabeled ELBO -1.9217 Accuracy 0.8900 (4s) UUID b9db
+Validation: ELBO -97.6059 Accuracy 0.9010 UUID b9db
+
+[Epoch 113] Train: Labeled ELBO -1.9252 Unlabeled ELBO -1.9196 Accuracy 0.9010 (4s) UUID b9db
+Validation: ELBO -98.3013 Accuracy 0.8940 UUID b9db
+
+[Epoch 114] Train: Labeled ELBO -1.9211 Unlabeled ELBO -1.9204 Accuracy 0.8940 (4s) UUID b9db
+Validation: ELBO -97.7333 Accuracy 0.8950 UUID b9db
+
+[Epoch 115] Train: Labeled ELBO -1.9193 Unlabeled ELBO -1.9177 Accuracy 0.8950 (4s) UUID b9db
+Validation: ELBO -97.6358 Accuracy 0.9040 UUID b9db
+
+[Epoch 116] Train: Labeled ELBO -1.9184 Unlabeled ELBO -1.9160 Accuracy 0.9040 (4s) UUID b9db
+Validation: ELBO -98.1483 Accuracy 0.8850 UUID b9db
+
+[Epoch 117] Train: Labeled ELBO -1.9211 Unlabeled ELBO -1.9247 Accuracy 0.8850 (4s) UUID b9db
+Validation: ELBO -97.9662 Accuracy 0.8930 UUID b9db
+
+[Epoch 118] Train: Labeled ELBO -1.9212 Unlabeled ELBO -1.9198 Accuracy 0.8930 (4s) UUID b9db
+Validation: ELBO -97.8424 Accuracy 0.8940 UUID b9db
+
+[Epoch 119] Train: Labeled ELBO -1.9217 Unlabeled ELBO -1.9171 Accuracy 0.8940 (4s) UUID b9db
+Validation: ELBO -97.8169 Accuracy 0.9050 UUID b9db
+
+[Epoch 120] Train: Labeled ELBO -1.9213 Unlabeled ELBO -1.9148 Accuracy 0.9050 (4s) UUID b9db
+Validation: ELBO -97.5192 Accuracy 0.9020 UUID b9db
+
+[Epoch 121] Train: Labeled ELBO -1.9278 Unlabeled ELBO -1.9179 Accuracy 0.9020 (4s) UUID b9db
+Validation: ELBO -97.9168 Accuracy 0.8970 UUID b9db
+
+[Epoch 122] Train: Labeled ELBO -1.9114 Unlabeled ELBO -1.9196 Accuracy 0.8970 (4s) UUID b9db
+Validation: ELBO -97.9230 Accuracy 0.8920 UUID b9db
+
+[Epoch 123] Train: Labeled ELBO -1.9178 Unlabeled ELBO -1.9174 Accuracy 0.8920 (4s) UUID b9db
+Validation: ELBO -97.6151 Accuracy 0.8920 UUID b9db
+
+[Epoch 124] Train: Labeled ELBO -1.9139 Unlabeled ELBO -1.9125 Accuracy 0.8920 (4s) UUID b9db
+Validation: ELBO -97.7859 Accuracy 0.9000 UUID b9db
+
+[Epoch 125] Train: Labeled ELBO -1.9131 Unlabeled ELBO -1.9114 Accuracy 0.9000 (4s) UUID b9db
+Validation: ELBO -97.7418 Accuracy 0.8920 UUID b9db
+
+[Epoch 126] Train: Labeled ELBO -1.9153 Unlabeled ELBO -1.9144 Accuracy 0.8920 (4s) UUID b9db
+Validation: ELBO -97.7564 Accuracy 0.8980 UUID b9db
+
+[Epoch 127] Train: Labeled ELBO -1.9175 Unlabeled ELBO -1.9132 Accuracy 0.8980 (4s) UUID b9db
+Validation: ELBO -98.1062 Accuracy 0.9010 UUID b9db
+
+[Epoch 128] Train: Labeled ELBO -1.9082 Unlabeled ELBO -1.9151 Accuracy 0.9010 (4s) UUID b9db
+Validation: ELBO -98.1196 Accuracy 0.8920 UUID b9db
+
+[Epoch 129] Train: Labeled ELBO -1.9178 Unlabeled ELBO -1.9141 Accuracy 0.8920 (4s) UUID b9db
+Validation: ELBO -98.1945 Accuracy 0.9030 UUID b9db
+
+[Epoch 130] Train: Labeled ELBO -1.9222 Unlabeled ELBO -1.9167 Accuracy 0.9030 (4s) UUID b9db
+Validation: ELBO -97.8093 Accuracy 0.8970 UUID b9db
+
+[Epoch 131] Train: Labeled ELBO -1.9223 Unlabeled ELBO -1.9155 Accuracy 0.8970 (4s) UUID b9db
+Validation: ELBO -97.7576 Accuracy 0.9010 UUID b9db
+
+[Epoch 132] Train: Labeled ELBO -1.9153 Unlabeled ELBO -1.9157 Accuracy 0.9010 (4s) UUID b9db
+Validation: ELBO -97.7243 Accuracy 0.8990 UUID b9db
+
+[Epoch 133] Train: Labeled ELBO -1.9184 Unlabeled ELBO -1.9112 Accuracy 0.8990 (4s) UUID b9db
+Validation: ELBO -97.7502 Accuracy 0.8990 UUID b9db
+
+[Epoch 134] Train: Labeled ELBO -1.9102 Unlabeled ELBO -1.9040 Accuracy 0.8990 (4s) UUID b9db
+Validation: ELBO -98.0573 Accuracy 0.8850 UUID b9db
+
+[Epoch 135] Train: Labeled ELBO -1.9056 Unlabeled ELBO -1.9066 Accuracy 0.8850 (4s) UUID b9db
+Validation: ELBO -98.1553 Accuracy 0.9000 UUID b9db
+
+[Epoch 136] Train: Labeled ELBO -1.9123 Unlabeled ELBO -1.9102 Accuracy 0.9000 (4s) UUID b9db
+Validation: ELBO -97.8578 Accuracy 0.9070 UUID b9db
+
+[Epoch 137] Train: Labeled ELBO -1.9150 Unlabeled ELBO -1.9098 Accuracy 0.9070 (4s) UUID b9db
+Validation: ELBO -97.6113 Accuracy 0.8910 UUID b9db
+
+[Epoch 138] Train: Labeled ELBO -1.9070 Unlabeled ELBO -1.9067 Accuracy 0.8910 (4s) UUID b9db
+Validation: ELBO -97.4835 Accuracy 0.8960 UUID b9db
+
+[Epoch 139] Train: Labeled ELBO -1.9089 Unlabeled ELBO -1.9093 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -97.6645 Accuracy 0.8920 UUID b9db
+
+[Epoch 140] Train: Labeled ELBO -1.9096 Unlabeled ELBO -1.9047 Accuracy 0.8920 (4s) UUID b9db
+Validation: ELBO -98.1517 Accuracy 0.8900 UUID b9db
+
+[Epoch 141] Train: Labeled ELBO -1.9094 Unlabeled ELBO -1.9093 Accuracy 0.8900 (4s) UUID b9db
+Validation: ELBO -97.8774 Accuracy 0.8990 UUID b9db
+
+[Epoch 142] Train: Labeled ELBO -1.9137 Unlabeled ELBO -1.9092 Accuracy 0.8990 (4s) UUID b9db
+Validation: ELBO -97.6751 Accuracy 0.8970 UUID b9db
+
+[Epoch 143] Train: Labeled ELBO -1.9128 Unlabeled ELBO -1.9061 Accuracy 0.8970 (4s) UUID b9db
+Validation: ELBO -98.5636 Accuracy 0.9000 UUID b9db
+
+[Epoch 144] Train: Labeled ELBO -1.9076 Unlabeled ELBO -1.9079 Accuracy 0.9000 (4s) UUID b9db
+Validation: ELBO -98.5623 Accuracy 0.8940 UUID b9db
+
+[Epoch 145] Train: Labeled ELBO -1.9132 Unlabeled ELBO -1.9104 Accuracy 0.8940 (4s) UUID b9db
+Validation: ELBO -97.8835 Accuracy 0.8980 UUID b9db
+
+[Epoch 146] Train: Labeled ELBO -1.9220 Unlabeled ELBO -1.9144 Accuracy 0.8980 (4s) UUID b9db
+Validation: ELBO -97.5279 Accuracy 0.8960 UUID b9db
+
+[Epoch 147] Train: Labeled ELBO -1.9116 Unlabeled ELBO -1.9068 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -97.3036 Accuracy 0.9090 UUID b9db
+
+[Epoch 148] Train: Labeled ELBO -1.9054 Unlabeled ELBO -1.9064 Accuracy 0.9090 (4s) UUID b9db
+Validation: ELBO -97.8328 Accuracy 0.8990 UUID b9db
+
+[Epoch 149] Train: Labeled ELBO -1.9016 Unlabeled ELBO -1.9022 Accuracy 0.8990 (4s) UUID b9db
+Validation: ELBO -97.2549 Accuracy 0.8970 UUID b9db
+
+[Epoch 150] Train: Labeled ELBO -1.9046 Unlabeled ELBO -1.9051 Accuracy 0.8970 (4s) UUID b9db
+Validation: ELBO -97.7213 Accuracy 0.8970 UUID b9db
+
+[Epoch 151] Train: Labeled ELBO -1.9047 Unlabeled ELBO -1.9014 Accuracy 0.8970 (4s) UUID b9db
+Validation: ELBO -97.4492 Accuracy 0.9020 UUID b9db
+
+[Epoch 152] Train: Labeled ELBO -1.9053 Unlabeled ELBO -1.9048 Accuracy 0.9020 (4s) UUID b9db
+Validation: ELBO -97.3681 Accuracy 0.8880 UUID b9db
+
+[Epoch 153] Train: Labeled ELBO -1.9116 Unlabeled ELBO -1.9020 Accuracy 0.8880 (4s) UUID b9db
+Validation: ELBO -98.1702 Accuracy 0.8850 UUID b9db
+
+[Epoch 154] Train: Labeled ELBO -1.9019 Unlabeled ELBO -1.9039 Accuracy 0.8850 (4s) UUID b9db
+Validation: ELBO -97.5046 Accuracy 0.8980 UUID b9db
+
+[Epoch 155] Train: Labeled ELBO -1.9022 Unlabeled ELBO -1.9027 Accuracy 0.8980 (4s) UUID b9db
+Validation: ELBO -98.0181 Accuracy 0.8910 UUID b9db
+
+[Epoch 156] Train: Labeled ELBO -1.9104 Unlabeled ELBO -1.9058 Accuracy 0.8910 (4s) UUID b9db
+Validation: ELBO -97.8195 Accuracy 0.9020 UUID b9db
+
+[Epoch 157] Train: Labeled ELBO -1.8993 Unlabeled ELBO -1.9068 Accuracy 0.9020 (4s) UUID b9db
+Validation: ELBO -97.8506 Accuracy 0.8960 UUID b9db
+
+[Epoch 158] Train: Labeled ELBO -1.9069 Unlabeled ELBO -1.8986 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -98.2777 Accuracy 0.8900 UUID b9db
+
+[Epoch 159] Train: Labeled ELBO -1.9019 Unlabeled ELBO -1.9017 Accuracy 0.8900 (4s) UUID b9db
+Validation: ELBO -97.2842 Accuracy 0.9000 UUID b9db
+
+[Epoch 160] Train: Labeled ELBO -1.9060 Unlabeled ELBO -1.9036 Accuracy 0.9000 (4s) UUID b9db
+Validation: ELBO -97.3158 Accuracy 0.9020 UUID b9db
+
+[Epoch 161] Train: Labeled ELBO -1.9029 Unlabeled ELBO -1.9006 Accuracy 0.9020 (4s) UUID b9db
+Validation: ELBO -97.4394 Accuracy 0.9020 UUID b9db
+
+[Epoch 162] Train: Labeled ELBO -1.9027 Unlabeled ELBO -1.9028 Accuracy 0.9020 (4s) UUID b9db
+Validation: ELBO -97.6059 Accuracy 0.8940 UUID b9db
+
+[Epoch 163] Train: Labeled ELBO -1.8989 Unlabeled ELBO -1.9013 Accuracy 0.8940 (4s) UUID b9db
+Validation: ELBO -97.4436 Accuracy 0.8980 UUID b9db
+
+[Epoch 164] Train: Labeled ELBO -1.9072 Unlabeled ELBO -1.8994 Accuracy 0.8980 (4s) UUID b9db
+Validation: ELBO -97.7361 Accuracy 0.8990 UUID b9db
+
+[Epoch 165] Train: Labeled ELBO -1.8985 Unlabeled ELBO -1.9026 Accuracy 0.8990 (4s) UUID b9db
+Validation: ELBO -97.4729 Accuracy 0.8960 UUID b9db
+
+[Epoch 166] Train: Labeled ELBO -1.8966 Unlabeled ELBO -1.8991 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -97.5708 Accuracy 0.8960 UUID b9db
+
+[Epoch 167] Train: Labeled ELBO -1.9030 Unlabeled ELBO -1.8998 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -97.6009 Accuracy 0.8990 UUID b9db
+
+[Epoch 168] Train: Labeled ELBO -1.9039 Unlabeled ELBO -1.8981 Accuracy 0.8990 (4s) UUID b9db
+Validation: ELBO -97.8006 Accuracy 0.8940 UUID b9db
+
+[Epoch 169] Train: Labeled ELBO -1.9074 Unlabeled ELBO -1.8985 Accuracy 0.8940 (4s) UUID b9db
+Validation: ELBO -97.2108 Accuracy 0.8960 UUID b9db
+
+[Epoch 170] Train: Labeled ELBO -1.9011 Unlabeled ELBO -1.8969 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -97.8593 Accuracy 0.8950 UUID b9db
+
+[Epoch 171] Train: Labeled ELBO -1.8983 Unlabeled ELBO -1.8964 Accuracy 0.8950 (4s) UUID b9db
+Validation: ELBO -97.3567 Accuracy 0.8960 UUID b9db
+
+[Epoch 172] Train: Labeled ELBO -1.8956 Unlabeled ELBO -1.8961 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -97.5214 Accuracy 0.8940 UUID b9db
+
+[Epoch 173] Train: Labeled ELBO -1.8923 Unlabeled ELBO -1.8941 Accuracy 0.8940 (4s) UUID b9db
+Validation: ELBO -97.3946 Accuracy 0.9070 UUID b9db
+
+[Epoch 174] Train: Labeled ELBO -1.8965 Unlabeled ELBO -1.8951 Accuracy 0.9070 (4s) UUID b9db
+Validation: ELBO -97.5259 Accuracy 0.8940 UUID b9db
+
+[Epoch 175] Train: Labeled ELBO -1.8974 Unlabeled ELBO -1.8944 Accuracy 0.8940 (4s) UUID b9db
+Validation: ELBO -98.1571 Accuracy 0.8990 UUID b9db
+
+[Epoch 176] Train: Labeled ELBO -1.8975 Unlabeled ELBO -1.8983 Accuracy 0.8990 (4s) UUID b9db
+Validation: ELBO -97.7696 Accuracy 0.9020 UUID b9db
+
+[Epoch 177] Train: Labeled ELBO -1.8989 Unlabeled ELBO -1.8960 Accuracy 0.9020 (4s) UUID b9db
+Validation: ELBO -97.5427 Accuracy 0.9000 UUID b9db
+
+[Epoch 178] Train: Labeled ELBO -1.9005 Unlabeled ELBO -1.8999 Accuracy 0.9000 (4s) UUID b9db
+Validation: ELBO -97.1541 Accuracy 0.9040 UUID b9db
+
+[Epoch 179] Train: Labeled ELBO -1.8957 Unlabeled ELBO -1.8947 Accuracy 0.9040 (4s) UUID b9db
+Validation: ELBO -97.5398 Accuracy 0.8950 UUID b9db
+
+[Epoch 180] Train: Labeled ELBO -1.9009 Unlabeled ELBO -1.8989 Accuracy 0.8950 (4s) UUID b9db
+Validation: ELBO -98.2949 Accuracy 0.8900 UUID b9db
+
+[Epoch 181] Train: Labeled ELBO -1.8955 Unlabeled ELBO -1.8979 Accuracy 0.8900 (4s) UUID b9db
+Validation: ELBO -97.6652 Accuracy 0.9010 UUID b9db
+
+[Epoch 182] Train: Labeled ELBO -1.8973 Unlabeled ELBO -1.8954 Accuracy 0.9010 (4s) UUID b9db
+Validation: ELBO -97.1265 Accuracy 0.8950 UUID b9db
+
+[Epoch 183] Train: Labeled ELBO -1.8993 Unlabeled ELBO -1.8949 Accuracy 0.8950 (4s) UUID b9db
+Validation: ELBO -98.1693 Accuracy 0.8920 UUID b9db
+
+[Epoch 184] Train: Labeled ELBO -1.8925 Unlabeled ELBO -1.8968 Accuracy 0.8920 (4s) UUID b9db
+Validation: ELBO -97.1749 Accuracy 0.8940 UUID b9db
+
+[Epoch 185] Train: Labeled ELBO -1.8962 Unlabeled ELBO -1.8972 Accuracy 0.8940 (4s) UUID b9db
+Validation: ELBO -97.6112 Accuracy 0.8970 UUID b9db
+
+[Epoch 186] Train: Labeled ELBO -1.8958 Unlabeled ELBO -1.8960 Accuracy 0.8970 (4s) UUID b9db
+Validation: ELBO -97.8581 Accuracy 0.8980 UUID b9db
+
+[Epoch 187] Train: Labeled ELBO -1.8979 Unlabeled ELBO -1.8932 Accuracy 0.8980 (4s) UUID b9db
+Validation: ELBO -97.6117 Accuracy 0.8990 UUID b9db
+
+[Epoch 188] Train: Labeled ELBO -1.8919 Unlabeled ELBO -1.8962 Accuracy 0.8990 (4s) UUID b9db
+Validation: ELBO -97.8682 Accuracy 0.8990 UUID b9db
+
+[Epoch 189] Train: Labeled ELBO -1.8967 Unlabeled ELBO -1.8952 Accuracy 0.8990 (4s) UUID b9db
+Validation: ELBO -97.2337 Accuracy 0.8970 UUID b9db
+
+[Epoch 190] Train: Labeled ELBO -1.8947 Unlabeled ELBO -1.8933 Accuracy 0.8970 (4s) UUID b9db
+Validation: ELBO -97.1091 Accuracy 0.8920 UUID b9db
+
+[Epoch 191] Train: Labeled ELBO -1.8914 Unlabeled ELBO -1.8917 Accuracy 0.8920 (4s) UUID b9db
+Validation: ELBO -98.3680 Accuracy 0.9040 UUID b9db
+
+[Epoch 192] Train: Labeled ELBO -1.8911 Unlabeled ELBO -1.8934 Accuracy 0.9040 (4s) UUID b9db
+Validation: ELBO -97.6258 Accuracy 0.9010 UUID b9db
+
+[Epoch 193] Train: Labeled ELBO -1.8997 Unlabeled ELBO -1.8965 Accuracy 0.9010 (4s) UUID b9db
+Validation: ELBO -98.1598 Accuracy 0.8960 UUID b9db
+
+[Epoch 194] Train: Labeled ELBO -1.8896 Unlabeled ELBO -1.8971 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -98.0032 Accuracy 0.9020 UUID b9db
+
+[Epoch 195] Train: Labeled ELBO -1.9041 Unlabeled ELBO -1.8933 Accuracy 0.9020 (4s) UUID b9db
+Validation: ELBO -97.5965 Accuracy 0.8960 UUID b9db
+
+[Epoch 196] Train: Labeled ELBO -1.8995 Unlabeled ELBO -1.8951 Accuracy 0.8960 (4s) UUID b9db
+Validation: ELBO -97.2787 Accuracy 0.8970 UUID b9db
+
+[Epoch 197] Train: Labeled ELBO -1.8976 Unlabeled ELBO -1.8932 Accuracy 0.8970 (4s) UUID b9db
+Validation: ELBO -97.6160 Accuracy 0.8930 UUID b9db
+
+[Epoch 198] Train: Labeled ELBO -1.8901 Unlabeled ELBO -1.8935 Accuracy 0.8930 (4s) UUID b9db
+Validation: ELBO -97.6789 Accuracy 0.8930 UUID b9db
+
+[Epoch 199] Train: Labeled ELBO -1.8934 Unlabeled ELBO -1.8881 Accuracy 0.8930 (4s) UUID b9db
+Validation: ELBO -112.4363 Accuracy 0.8808 UUID b9db
+
+Validation: ELBO -111.9224 Accuracy 0.8611 UUID b9db
+
+Validation: ELBO -153.1217 Accuracy 0.4517 UUID 995f
+
+[Epoch 0] Train: Labeled ELBO -4.0801 Unlabeled ELBO -3.1647 Accuracy 0.4517 (10s) UUID 995f
+Validation: ELBO -139.3465 Accuracy 0.5923 UUID 995f
+
+[Epoch 1] Train: Labeled ELBO -2.9464 Unlabeled ELBO -2.8375 Accuracy 0.5923 (10s) UUID 995f
+Validation: ELBO -132.0788 Accuracy 0.6847 UUID 995f
+
+[Epoch 2] Train: Labeled ELBO -2.7297 Unlabeled ELBO -2.6922 Accuracy 0.6847 (10s) UUID 995f
+Validation: ELBO -127.6909 Accuracy 0.7457 UUID 995f
+
+[Epoch 3] Train: Labeled ELBO -2.6078 Unlabeled ELBO -2.5797 Accuracy 0.7457 (10s) UUID 995f
+Validation: ELBO -124.6616 Accuracy 0.7580 UUID 995f
+
+[Epoch 4] Train: Labeled ELBO -2.5127 Unlabeled ELBO -2.5002 Accuracy 0.7580 (10s) UUID 995f
+Validation: ELBO -119.6703 Accuracy 0.7920 UUID 995f
+
+[Epoch 5] Train: Labeled ELBO -2.4513 Unlabeled ELBO -2.4238 Accuracy 0.7920 (10s) UUID 995f
+Validation: ELBO -117.5953 Accuracy 0.8083 UUID 995f
+
+[Epoch 6] Train: Labeled ELBO -2.3816 Unlabeled ELBO -2.3729 Accuracy 0.8083 (10s) UUID 995f
+Validation: ELBO -115.0207 Accuracy 0.8200 UUID 995f
+
+[Epoch 7] Train: Labeled ELBO -2.3350 Unlabeled ELBO -2.3298 Accuracy 0.8200 (10s) UUID 995f
+Validation: ELBO -113.5939 Accuracy 0.8280 UUID 995f
+
+[Epoch 8] Train: Labeled ELBO -2.3006 Unlabeled ELBO -2.2927 Accuracy 0.8280 (10s) UUID 995f
+Validation: ELBO -112.2140 Accuracy 0.8390 UUID 995f
+
+[Epoch 9] Train: Labeled ELBO -2.2642 Unlabeled ELBO -2.2635 Accuracy 0.8390 (10s) UUID 995f
+Validation: ELBO -110.7530 Accuracy 0.8407 UUID 995f
+
+[Epoch 10] Train: Labeled ELBO -2.2355 Unlabeled ELBO -2.2329 Accuracy 0.8407 (10s) UUID 995f
+Validation: ELBO -109.9013 Accuracy 0.8393 UUID 995f
+
+[Epoch 11] Train: Labeled ELBO -2.2113 Unlabeled ELBO -2.2159 Accuracy 0.8393 (10s) UUID 995f
+Validation: ELBO -109.1409 Accuracy 0.8487 UUID 995f
+
+[Epoch 12] Train: Labeled ELBO -2.1894 Unlabeled ELBO -2.1940 Accuracy 0.8487 (10s) UUID 995f
+Validation: ELBO -108.4194 Accuracy 0.8583 UUID 995f
+
+[Epoch 13] Train: Labeled ELBO -2.1742 Unlabeled ELBO -2.1717 Accuracy 0.8583 (10s) UUID 995f
+Validation: ELBO -107.2255 Accuracy 0.8773 UUID 995f
+
+[Epoch 14] Train: Labeled ELBO -2.1549 Unlabeled ELBO -2.1556 Accuracy 0.8773 (10s) UUID 995f
+Validation: ELBO -107.3868 Accuracy 0.8740 UUID 995f
+
+[Epoch 15] Train: Labeled ELBO -2.1393 Unlabeled ELBO -2.1437 Accuracy 0.8740 (10s) UUID 995f
+Validation: ELBO -106.3816 Accuracy 0.8797 UUID 995f
+
+[Epoch 16] Train: Labeled ELBO -2.1274 Unlabeled ELBO -2.1314 Accuracy 0.8797 (10s) UUID 995f
+Validation: ELBO -105.6851 Accuracy 0.8830 UUID 995f
+
+[Epoch 17] Train: Labeled ELBO -2.1128 Unlabeled ELBO -2.1218 Accuracy 0.8830 (10s) UUID 995f
+Validation: ELBO -105.5334 Accuracy 0.8753 UUID 995f
+
+[Epoch 18] Train: Labeled ELBO -2.1058 Unlabeled ELBO -2.1102 Accuracy 0.8753 (10s) UUID 995f
+Validation: ELBO -105.6185 Accuracy 0.8790 UUID 995f
+
+[Epoch 19] Train: Labeled ELBO -2.0950 Unlabeled ELBO -2.1070 Accuracy 0.8790 (10s) UUID 995f
+Validation: ELBO -104.4629 Accuracy 0.8890 UUID 995f
+
+[Epoch 20] Train: Labeled ELBO -2.0883 Unlabeled ELBO -2.0907 Accuracy 0.8890 (10s) UUID 995f
+Validation: ELBO -104.1724 Accuracy 0.8883 UUID 995f
+
+[Epoch 21] Train: Labeled ELBO -2.0778 Unlabeled ELBO -2.0883 Accuracy 0.8883 (10s) UUID 995f
+Validation: ELBO -104.3599 Accuracy 0.8907 UUID 995f
+
+[Epoch 22] Train: Labeled ELBO -2.0713 Unlabeled ELBO -2.0839 Accuracy 0.8907 (10s) UUID 995f
+Validation: ELBO -103.8948 Accuracy 0.8907 UUID 995f
+
+[Epoch 23] Train: Labeled ELBO -2.0683 Unlabeled ELBO -2.0741 Accuracy 0.8907 (10s) UUID 995f
+Validation: ELBO -103.7891 Accuracy 0.9010 UUID 995f
+
+[Epoch 24] Train: Labeled ELBO -2.0565 Unlabeled ELBO -2.0664 Accuracy 0.9010 (10s) UUID 995f
+Validation: ELBO -103.1501 Accuracy 0.8953 UUID 995f
+
+[Epoch 25] Train: Labeled ELBO -2.0503 Unlabeled ELBO -2.0671 Accuracy 0.8953 (10s) UUID 995f
+Validation: ELBO -103.2697 Accuracy 0.8990 UUID 995f
+
+[Epoch 26] Train: Labeled ELBO -2.0475 Unlabeled ELBO -2.0608 Accuracy 0.8990 (10s) UUID 995f
+Validation: ELBO -102.8462 Accuracy 0.9020 UUID 995f
+
+[Epoch 27] Train: Labeled ELBO -2.0421 Unlabeled ELBO -2.0516 Accuracy 0.9020 (10s) UUID 995f
+Validation: ELBO -102.9444 Accuracy 0.9010 UUID 995f
+
+[Epoch 28] Train: Labeled ELBO -2.0362 Unlabeled ELBO -2.0441 Accuracy 0.9010 (10s) UUID 995f
+Validation: ELBO -102.1367 Accuracy 0.9080 UUID 995f
+
+[Epoch 29] Train: Labeled ELBO -2.0323 Unlabeled ELBO -2.0475 Accuracy 0.9080 (10s) UUID 995f
+Validation: ELBO -103.0543 Accuracy 0.9087 UUID 995f
+
+[Epoch 30] Train: Labeled ELBO -2.0282 Unlabeled ELBO -2.0397 Accuracy 0.9087 (10s) UUID 995f
+Validation: ELBO -102.7359 Accuracy 0.8987 UUID 995f
+
+[Epoch 31] Train: Labeled ELBO -2.0288 Unlabeled ELBO -2.0338 Accuracy 0.8987 (10s) UUID 995f
+Validation: ELBO -101.8811 Accuracy 0.9130 UUID 995f
+
+[Epoch 32] Train: Labeled ELBO -2.0228 Unlabeled ELBO -2.0313 Accuracy 0.9130 (10s) UUID 995f
+Validation: ELBO -102.3549 Accuracy 0.9060 UUID 995f
+
+[Epoch 33] Train: Labeled ELBO -2.0181 Unlabeled ELBO -2.0303 Accuracy 0.9060 (10s) UUID 995f
+Validation: ELBO -102.1382 Accuracy 0.9017 UUID 995f
+
+[Epoch 34] Train: Labeled ELBO -2.0165 Unlabeled ELBO -2.0242 Accuracy 0.9017 (10s) UUID 995f
+Validation: ELBO -101.6113 Accuracy 0.9140 UUID 995f
+
+[Epoch 35] Train: Labeled ELBO -2.0103 Unlabeled ELBO -2.0171 Accuracy 0.9140 (10s) UUID 995f
+Validation: ELBO -101.1521 Accuracy 0.9030 UUID 995f
+
+[Epoch 36] Train: Labeled ELBO -2.0012 Unlabeled ELBO -2.0114 Accuracy 0.9030 (10s) UUID 995f
+Validation: ELBO -101.3036 Accuracy 0.9070 UUID 995f
+
+[Epoch 37] Train: Labeled ELBO -2.0022 Unlabeled ELBO -2.0173 Accuracy 0.9070 (10s) UUID 995f
+Validation: ELBO -101.3521 Accuracy 0.9120 UUID 995f
+
+[Epoch 38] Train: Labeled ELBO -2.0002 Unlabeled ELBO -2.0113 Accuracy 0.9120 (10s) UUID 995f
+Validation: ELBO -101.3208 Accuracy 0.8993 UUID 995f
+
+[Epoch 39] Train: Labeled ELBO -2.0001 Unlabeled ELBO -2.0102 Accuracy 0.8993 (10s) UUID 995f
+Validation: ELBO -100.9641 Accuracy 0.9200 UUID 995f
+
+[Epoch 40] Train: Labeled ELBO -1.9958 Unlabeled ELBO -2.0059 Accuracy 0.9200 (10s) UUID 995f
+Validation: ELBO -100.5412 Accuracy 0.9130 UUID 995f
+
+[Epoch 41] Train: Labeled ELBO -1.9934 Unlabeled ELBO -2.0015 Accuracy 0.9130 (10s) UUID 995f
+Validation: ELBO -100.7980 Accuracy 0.9103 UUID 995f
+
+[Epoch 42] Train: Labeled ELBO -1.9868 Unlabeled ELBO -2.0011 Accuracy 0.9103 (10s) UUID 995f
+Validation: ELBO -100.1476 Accuracy 0.9153 UUID 995f
+
+[Epoch 43] Train: Labeled ELBO -1.9895 Unlabeled ELBO -1.9938 Accuracy 0.9153 (10s) UUID 995f
+Validation: ELBO -101.1142 Accuracy 0.9047 UUID 995f
+
+[Epoch 44] Train: Labeled ELBO -1.9860 Unlabeled ELBO -1.9965 Accuracy 0.9047 (10s) UUID 995f
+Validation: ELBO -100.4877 Accuracy 0.9173 UUID 995f
+
+[Epoch 45] Train: Labeled ELBO -1.9831 Unlabeled ELBO -1.9949 Accuracy 0.9173 (10s) UUID 995f
+Validation: ELBO -101.4345 Accuracy 0.9093 UUID 995f
+
+[Epoch 46] Train: Labeled ELBO -1.9824 Unlabeled ELBO -1.9893 Accuracy 0.9093 (10s) UUID 995f
+Validation: ELBO -100.7365 Accuracy 0.9160 UUID 995f
+
+[Epoch 47] Train: Labeled ELBO -1.9857 Unlabeled ELBO -1.9991 Accuracy 0.9160 (10s) UUID 995f
+Validation: ELBO -100.0339 Accuracy 0.9200 UUID 995f
+
+[Epoch 48] Train: Labeled ELBO -1.9752 Unlabeled ELBO -1.9857 Accuracy 0.9200 (10s) UUID 995f
+Validation: ELBO -100.7205 Accuracy 0.9087 UUID 995f
+
+[Epoch 49] Train: Labeled ELBO -1.9761 Unlabeled ELBO -1.9837 Accuracy 0.9087 (10s) UUID 995f
+Validation: ELBO -100.1888 Accuracy 0.9177 UUID 995f
+
+[Epoch 50] Train: Labeled ELBO -1.9757 Unlabeled ELBO -1.9848 Accuracy 0.9177 (10s) UUID 995f
+Validation: ELBO -100.3889 Accuracy 0.9200 UUID 995f
+
+[Epoch 51] Train: Labeled ELBO -1.9712 Unlabeled ELBO -1.9759 Accuracy 0.9200 (10s) UUID 995f
+Validation: ELBO -99.9703 Accuracy 0.9197 UUID 995f
+
+[Epoch 52] Train: Labeled ELBO -1.9679 Unlabeled ELBO -1.9765 Accuracy 0.9197 (10s) UUID 995f
+Validation: ELBO -100.3227 Accuracy 0.9197 UUID 995f
+
+[Epoch 53] Train: Labeled ELBO -1.9654 Unlabeled ELBO -1.9786 Accuracy 0.9197 (10s) UUID 995f
+Validation: ELBO -99.8617 Accuracy 0.9100 UUID 995f
+
+[Epoch 54] Train: Labeled ELBO -1.9665 Unlabeled ELBO -1.9760 Accuracy 0.9100 (10s) UUID 995f
+Validation: ELBO -99.8016 Accuracy 0.9250 UUID 995f
+
+[Epoch 55] Train: Labeled ELBO -1.9635 Unlabeled ELBO -1.9758 Accuracy 0.9250 (10s) UUID 995f
+Validation: ELBO -99.4327 Accuracy 0.9190 UUID 995f
+
+[Epoch 56] Train: Labeled ELBO -1.9633 Unlabeled ELBO -1.9699 Accuracy 0.9190 (10s) UUID 995f
+Validation: ELBO -99.7157 Accuracy 0.9147 UUID 995f
+
+[Epoch 57] Train: Labeled ELBO -1.9626 Unlabeled ELBO -1.9722 Accuracy 0.9147 (10s) UUID 995f
+Validation: ELBO -99.4385 Accuracy 0.9243 UUID 995f
+
+[Epoch 58] Train: Labeled ELBO -1.9588 Unlabeled ELBO -1.9670 Accuracy 0.9243 (10s) UUID 995f
+Validation: ELBO -99.2214 Accuracy 0.9213 UUID 995f
+
+[Epoch 59] Train: Labeled ELBO -1.9592 Unlabeled ELBO -1.9661 Accuracy 0.9213 (10s) UUID 995f
+Validation: ELBO -99.7966 Accuracy 0.9250 UUID 995f
+
+[Epoch 60] Train: Labeled ELBO -1.9591 Unlabeled ELBO -1.9715 Accuracy 0.9250 (10s) UUID 995f
+Validation: ELBO -99.1264 Accuracy 0.9237 UUID 995f
+
+[Epoch 61] Train: Labeled ELBO -1.9560 Unlabeled ELBO -1.9641 Accuracy 0.9237 (10s) UUID 995f
+Validation: ELBO -99.0776 Accuracy 0.9220 UUID 995f
+
+[Epoch 62] Train: Labeled ELBO -1.9555 Unlabeled ELBO -1.9603 Accuracy 0.9220 (10s) UUID 995f
+Validation: ELBO -99.2092 Accuracy 0.9223 UUID 995f
+
+[Epoch 63] Train: Labeled ELBO -1.9522 Unlabeled ELBO -1.9678 Accuracy 0.9223 (10s) UUID 995f
+Validation: ELBO -99.3537 Accuracy 0.9197 UUID 995f
+
+[Epoch 64] Train: Labeled ELBO -1.9509 Unlabeled ELBO -1.9625 Accuracy 0.9197 (10s) UUID 995f
+Validation: ELBO -98.9852 Accuracy 0.9227 UUID 995f
+
+[Epoch 65] Train: Labeled ELBO -1.9514 Unlabeled ELBO -1.9562 Accuracy 0.9227 (10s) UUID 995f
+Validation: ELBO -100.2291 Accuracy 0.9147 UUID 995f
+
+[Epoch 66] Train: Labeled ELBO -1.9513 Unlabeled ELBO -1.9639 Accuracy 0.9147 (10s) UUID 995f
+Validation: ELBO -98.9286 Accuracy 0.9257 UUID 995f
+
+[Epoch 67] Train: Labeled ELBO -1.9466 Unlabeled ELBO -1.9594 Accuracy 0.9257 (10s) UUID 995f
+Validation: ELBO -99.3531 Accuracy 0.9143 UUID 995f
+
+[Epoch 68] Train: Labeled ELBO -1.9466 Unlabeled ELBO -1.9569 Accuracy 0.9143 (10s) UUID 995f
+Validation: ELBO -99.2247 Accuracy 0.9190 UUID 995f
+
+[Epoch 69] Train: Labeled ELBO -1.9451 Unlabeled ELBO -1.9528 Accuracy 0.9190 (10s) UUID 995f
+Validation: ELBO -99.5349 Accuracy 0.9227 UUID 995f
+
+[Epoch 70] Train: Labeled ELBO -1.9406 Unlabeled ELBO -1.9535 Accuracy 0.9227 (10s) UUID 995f
+Validation: ELBO -99.2496 Accuracy 0.9220 UUID 995f
+
+[Epoch 71] Train: Labeled ELBO -1.9444 Unlabeled ELBO -1.9489 Accuracy 0.9220 (10s) UUID 995f
+Validation: ELBO -99.1057 Accuracy 0.9253 UUID 995f
+
+[Epoch 72] Train: Labeled ELBO -1.9379 Unlabeled ELBO -1.9490 Accuracy 0.9253 (10s) UUID 995f
+Validation: ELBO -98.4726 Accuracy 0.9267 UUID 995f
+
+[Epoch 73] Train: Labeled ELBO -1.9426 Unlabeled ELBO -1.9484 Accuracy 0.9267 (10s) UUID 995f
+Validation: ELBO -98.3520 Accuracy 0.9300 UUID 995f
+
+[Epoch 74] Train: Labeled ELBO -1.9378 Unlabeled ELBO -1.9479 Accuracy 0.9300 (10s) UUID 995f
+Validation: ELBO -98.9655 Accuracy 0.9187 UUID 995f
+
+[Epoch 75] Train: Labeled ELBO -1.9378 Unlabeled ELBO -1.9467 Accuracy 0.9187 (10s) UUID 995f
+Validation: ELBO -98.3840 Accuracy 0.9273 UUID 995f
+
+[Epoch 76] Train: Labeled ELBO -1.9413 Unlabeled ELBO -1.9421 Accuracy 0.9273 (10s) UUID 995f
+Validation: ELBO -99.4029 Accuracy 0.9223 UUID 995f
+
+[Epoch 77] Train: Labeled ELBO -1.9397 Unlabeled ELBO -1.9459 Accuracy 0.9223 (10s) UUID 995f
+Validation: ELBO -98.2637 Accuracy 0.9260 UUID 995f
+
+[Epoch 78] Train: Labeled ELBO -1.9380 Unlabeled ELBO -1.9441 Accuracy 0.9260 (10s) UUID 995f
+Validation: ELBO -98.3945 Accuracy 0.9310 UUID 995f
+
+[Epoch 79] Train: Labeled ELBO -1.9356 Unlabeled ELBO -1.9427 Accuracy 0.9310 (10s) UUID 995f
+Validation: ELBO -98.9954 Accuracy 0.9233 UUID 995f
+
+[Epoch 80] Train: Labeled ELBO -1.9426 Unlabeled ELBO -1.9499 Accuracy 0.9233 (10s) UUID 995f
+Validation: ELBO -98.6322 Accuracy 0.9303 UUID 995f
+
+[Epoch 81] Train: Labeled ELBO -1.9370 Unlabeled ELBO -1.9498 Accuracy 0.9303 (10s) UUID 995f
+Validation: ELBO -98.3051 Accuracy 0.9210 UUID 995f
+
+[Epoch 82] Train: Labeled ELBO -1.9343 Unlabeled ELBO -1.9439 Accuracy 0.9210 (10s) UUID 995f
+Validation: ELBO -99.0926 Accuracy 0.9170 UUID 995f
+
+[Epoch 83] Train: Labeled ELBO -1.9302 Unlabeled ELBO -1.9372 Accuracy 0.9170 (10s) UUID 995f
+Validation: ELBO -98.3274 Accuracy 0.9267 UUID 995f
+
+[Epoch 84] Train: Labeled ELBO -1.9354 Unlabeled ELBO -1.9453 Accuracy 0.9267 (10s) UUID 995f
+Validation: ELBO -98.3921 Accuracy 0.9237 UUID 995f
+
+[Epoch 85] Train: Labeled ELBO -1.9286 Unlabeled ELBO -1.9355 Accuracy 0.9237 (10s) UUID 995f
+Validation: ELBO -98.6559 Accuracy 0.9217 UUID 995f
+
+[Epoch 86] Train: Labeled ELBO -1.9273 Unlabeled ELBO -1.9360 Accuracy 0.9217 (10s) UUID 995f
+Validation: ELBO -99.1782 Accuracy 0.9157 UUID 995f
+
+[Epoch 87] Train: Labeled ELBO -1.9280 Unlabeled ELBO -1.9423 Accuracy 0.9157 (10s) UUID 995f
+Validation: ELBO -98.8214 Accuracy 0.9363 UUID 995f
+
+[Epoch 88] Train: Labeled ELBO -1.9289 Unlabeled ELBO -1.9333 Accuracy 0.9363 (10s) UUID 995f
+Validation: ELBO -98.9563 Accuracy 0.9293 UUID 995f
+
+[Epoch 89] Train: Labeled ELBO -1.9285 Unlabeled ELBO -1.9362 Accuracy 0.9293 (10s) UUID 995f
+Validation: ELBO -98.7879 Accuracy 0.9267 UUID 995f
+
+[Epoch 90] Train: Labeled ELBO -1.9306 Unlabeled ELBO -1.9337 Accuracy 0.9267 (10s) UUID 995f
+Validation: ELBO -98.5618 Accuracy 0.9283 UUID 995f
+
+[Epoch 91] Train: Labeled ELBO -1.9240 Unlabeled ELBO -1.9315 Accuracy 0.9283 (10s) UUID 995f
+Validation: ELBO -98.1823 Accuracy 0.9257 UUID 995f
+
+[Epoch 92] Train: Labeled ELBO -1.9224 Unlabeled ELBO -1.9339 Accuracy 0.9257 (10s) UUID 995f
+Validation: ELBO -98.3028 Accuracy 0.9377 UUID 995f
+
+[Epoch 93] Train: Labeled ELBO -1.9300 Unlabeled ELBO -1.9333 Accuracy 0.9377 (10s) UUID 995f
+Validation: ELBO -98.9542 Accuracy 0.9230 UUID 995f
+
+[Epoch 94] Train: Labeled ELBO -1.9240 Unlabeled ELBO -1.9310 Accuracy 0.9230 (10s) UUID 995f
+Validation: ELBO -98.6553 Accuracy 0.9273 UUID 995f
+
+[Epoch 95] Train: Labeled ELBO -1.9221 Unlabeled ELBO -1.9330 Accuracy 0.9273 (10s) UUID 995f
+Validation: ELBO -98.2816 Accuracy 0.9357 UUID 995f
+
+[Epoch 96] Train: Labeled ELBO -1.9229 Unlabeled ELBO -1.9302 Accuracy 0.9357 (10s) UUID 995f
+Validation: ELBO -98.5749 Accuracy 0.9277 UUID 995f
+
+[Epoch 97] Train: Labeled ELBO -1.9197 Unlabeled ELBO -1.9312 Accuracy 0.9277 (10s) UUID 995f
+Validation: ELBO -97.9975 Accuracy 0.9323 UUID 995f
+
+[Epoch 98] Train: Labeled ELBO -1.9227 Unlabeled ELBO -1.9257 Accuracy 0.9323 (10s) UUID 995f
+Validation: ELBO -98.8713 Accuracy 0.9243 UUID 995f
+
+[Epoch 99] Train: Labeled ELBO -1.9176 Unlabeled ELBO -1.9364 Accuracy 0.9243 (10s) UUID 995f
+Validation: ELBO -97.9312 Accuracy 0.9327 UUID 995f
+
+[Epoch 100] Train: Labeled ELBO -1.9222 Unlabeled ELBO -1.9276 Accuracy 0.9327 (10s) UUID 995f
+Validation: ELBO -98.4507 Accuracy 0.9227 UUID 995f
+
+[Epoch 101] Train: Labeled ELBO -1.9177 Unlabeled ELBO -1.9271 Accuracy 0.9227 (10s) UUID 995f
+Validation: ELBO -97.4033 Accuracy 0.9340 UUID 995f
+
+[Epoch 102] Train: Labeled ELBO -1.9194 Unlabeled ELBO -1.9227 Accuracy 0.9340 (10s) UUID 995f
+Validation: ELBO -97.8980 Accuracy 0.9230 UUID 995f
+
+[Epoch 103] Train: Labeled ELBO -1.9179 Unlabeled ELBO -1.9199 Accuracy 0.9230 (10s) UUID 995f
+Validation: ELBO -97.5097 Accuracy 0.9363 UUID 995f
+
+[Epoch 104] Train: Labeled ELBO -1.9149 Unlabeled ELBO -1.9176 Accuracy 0.9363 (10s) UUID 995f
+Validation: ELBO -97.8345 Accuracy 0.9307 UUID 995f
+
+[Epoch 105] Train: Labeled ELBO -1.9165 Unlabeled ELBO -1.9263 Accuracy 0.9307 (10s) UUID 995f
+Validation: ELBO -98.2991 Accuracy 0.9283 UUID 995f
+
+[Epoch 106] Train: Labeled ELBO -1.9170 Unlabeled ELBO -1.9172 Accuracy 0.9283 (10s) UUID 995f
+Validation: ELBO -98.1865 Accuracy 0.9303 UUID 995f
+
+[Epoch 107] Train: Labeled ELBO -1.9146 Unlabeled ELBO -1.9228 Accuracy 0.9303 (10s) UUID 995f
+Validation: ELBO -98.0206 Accuracy 0.9263 UUID 995f
+
+[Epoch 108] Train: Labeled ELBO -1.9142 Unlabeled ELBO -1.9285 Accuracy 0.9263 (10s) UUID 995f
+Validation: ELBO -98.7152 Accuracy 0.9237 UUID 995f
+
+[Epoch 109] Train: Labeled ELBO -1.9149 Unlabeled ELBO -1.9201 Accuracy 0.9237 (10s) UUID 995f
+Validation: ELBO -98.5106 Accuracy 0.9260 UUID 995f
+
+[Epoch 110] Train: Labeled ELBO -1.9185 Unlabeled ELBO -1.9209 Accuracy 0.9260 (10s) UUID 995f
+Validation: ELBO -97.7852 Accuracy 0.9213 UUID 995f
+
+[Epoch 111] Train: Labeled ELBO -1.9144 Unlabeled ELBO -1.9154 Accuracy 0.9213 (10s) UUID 995f
+Validation: ELBO -98.3357 Accuracy 0.9263 UUID 995f
+
+[Epoch 112] Train: Labeled ELBO -1.9075 Unlabeled ELBO -1.9179 Accuracy 0.9263 (10s) UUID 995f
+Validation: ELBO -97.4760 Accuracy 0.9293 UUID 995f
+
+[Epoch 113] Train: Labeled ELBO -1.9117 Unlabeled ELBO -1.9166 Accuracy 0.9293 (10s) UUID 995f
+Validation: ELBO -98.6816 Accuracy 0.9297 UUID 995f
+
+[Epoch 114] Train: Labeled ELBO -1.9108 Unlabeled ELBO -1.9182 Accuracy 0.9297 (10s) UUID 995f
+Validation: ELBO -97.3853 Accuracy 0.9327 UUID 995f
+
+[Epoch 115] Train: Labeled ELBO -1.9129 Unlabeled ELBO -1.9142 Accuracy 0.9327 (10s) UUID 995f
+Validation: ELBO -98.0453 Accuracy 0.9253 UUID 995f
+
+[Epoch 116] Train: Labeled ELBO -1.9108 Unlabeled ELBO -1.9210 Accuracy 0.9253 (10s) UUID 995f
+Validation: ELBO -98.2310 Accuracy 0.9243 UUID 995f
+
+[Epoch 117] Train: Labeled ELBO -1.9123 Unlabeled ELBO -1.9136 Accuracy 0.9243 (10s) UUID 995f
+Validation: ELBO -97.6101 Accuracy 0.9313 UUID 995f
+
+[Epoch 118] Train: Labeled ELBO -1.9115 Unlabeled ELBO -1.9139 Accuracy 0.9313 (10s) UUID 995f
+Validation: ELBO -97.5609 Accuracy 0.9287 UUID 995f
+
+[Epoch 119] Train: Labeled ELBO -1.9080 Unlabeled ELBO -1.9093 Accuracy 0.9287 (10s) UUID 995f
+Validation: ELBO -97.7583 Accuracy 0.9333 UUID 995f
+
+[Epoch 120] Train: Labeled ELBO -1.9034 Unlabeled ELBO -1.9167 Accuracy 0.9333 (10s) UUID 995f
+Validation: ELBO -97.5118 Accuracy 0.9277 UUID 995f
+
+[Epoch 121] Train: Labeled ELBO -1.9055 Unlabeled ELBO -1.9126 Accuracy 0.9277 (10s) UUID 995f
+Validation: ELBO -97.9299 Accuracy 0.9287 UUID 995f
+
+[Epoch 122] Train: Labeled ELBO -1.9059 Unlabeled ELBO -1.9145 Accuracy 0.9287 (10s) UUID 995f
+Validation: ELBO -97.7033 Accuracy 0.9310 UUID 995f
+
+[Epoch 123] Train: Labeled ELBO -1.9079 Unlabeled ELBO -1.9149 Accuracy 0.9310 (10s) UUID 995f
+Validation: ELBO -97.8676 Accuracy 0.9277 UUID 995f
+
+[Epoch 124] Train: Labeled ELBO -1.9084 Unlabeled ELBO -1.9161 Accuracy 0.9277 (10s) UUID 995f
+Validation: ELBO -98.0236 Accuracy 0.9273 UUID 995f
+
+[Epoch 125] Train: Labeled ELBO -1.9067 Unlabeled ELBO -1.9124 Accuracy 0.9273 (10s) UUID 995f
+Validation: ELBO -98.0097 Accuracy 0.9197 UUID 995f
+
+[Epoch 126] Train: Labeled ELBO -1.9079 Unlabeled ELBO -1.9129 Accuracy 0.9197 (10s) UUID 995f
+Validation: ELBO -97.9550 Accuracy 0.9230 UUID 995f
+
+[Epoch 127] Train: Labeled ELBO -1.9035 Unlabeled ELBO -1.9067 Accuracy 0.9230 (10s) UUID 995f
+Validation: ELBO -98.0499 Accuracy 0.9237 UUID 995f
+
+[Epoch 128] Train: Labeled ELBO -1.9020 Unlabeled ELBO -1.9170 Accuracy 0.9237 (10s) UUID 995f
+Validation: ELBO -98.2810 Accuracy 0.9160 UUID 995f
+
+[Epoch 129] Train: Labeled ELBO -1.9121 Unlabeled ELBO -1.9109 Accuracy 0.9160 (10s) UUID 995f
+Validation: ELBO -99.1917 Accuracy 0.9140 UUID 995f
+
+[Epoch 130] Train: Labeled ELBO -1.9087 Unlabeled ELBO -1.9149 Accuracy 0.9140 (10s) UUID 995f
+Validation: ELBO -98.8380 Accuracy 0.9257 UUID 995f
+
+[Epoch 131] Train: Labeled ELBO -1.9134 Unlabeled ELBO -1.9167 Accuracy 0.9257 (10s) UUID 995f
+Validation: ELBO -97.7652 Accuracy 0.9277 UUID 995f
+
+[Epoch 132] Train: Labeled ELBO -1.9030 Unlabeled ELBO -1.9097 Accuracy 0.9277 (10s) UUID 995f
+Validation: ELBO -97.4675 Accuracy 0.9340 UUID 995f
+
+[Epoch 133] Train: Labeled ELBO -1.9058 Unlabeled ELBO -1.9097 Accuracy 0.9340 (10s) UUID 995f
+Validation: ELBO -97.8816 Accuracy 0.9273 UUID 995f
+
+[Epoch 134] Train: Labeled ELBO -1.9031 Unlabeled ELBO -1.9103 Accuracy 0.9273 (10s) UUID 995f
+Validation: ELBO -97.9886 Accuracy 0.9220 UUID 995f
+
+[Epoch 135] Train: Labeled ELBO -1.9051 Unlabeled ELBO -1.9054 Accuracy 0.9220 (10s) UUID 995f
+Validation: ELBO -97.6887 Accuracy 0.9313 UUID 995f
+
+[Epoch 136] Train: Labeled ELBO -1.9020 Unlabeled ELBO -1.9081 Accuracy 0.9313 (10s) UUID 995f
+Validation: ELBO -97.5954 Accuracy 0.9330 UUID 995f
+
+[Epoch 137] Train: Labeled ELBO -1.8997 Unlabeled ELBO -1.9145 Accuracy 0.9330 (10s) UUID 995f
+Validation: ELBO -97.1476 Accuracy 0.9353 UUID 995f
+
+[Epoch 138] Train: Labeled ELBO -1.9045 Unlabeled ELBO -1.9059 Accuracy 0.9353 (10s) UUID 995f
+Validation: ELBO -97.3737 Accuracy 0.9373 UUID 995f
+
+[Epoch 139] Train: Labeled ELBO -1.9023 Unlabeled ELBO -1.9053 Accuracy 0.9373 (10s) UUID 995f
+Validation: ELBO -97.5905 Accuracy 0.9367 UUID 995f
+
+[Epoch 140] Train: Labeled ELBO -1.9010 Unlabeled ELBO -1.9067 Accuracy 0.9367 (10s) UUID 995f
+Validation: ELBO -97.0433 Accuracy 0.9347 UUID 995f
+
+[Epoch 141] Train: Labeled ELBO -1.9005 Unlabeled ELBO -1.9005 Accuracy 0.9347 (10s) UUID 995f
+Validation: ELBO -97.2661 Accuracy 0.9293 UUID 995f
+
+[Epoch 142] Train: Labeled ELBO -1.8985 Unlabeled ELBO -1.9048 Accuracy 0.9293 (10s) UUID 995f
+Validation: ELBO -97.3425 Accuracy 0.9347 UUID 995f
+
+[Epoch 143] Train: Labeled ELBO -1.8997 Unlabeled ELBO -1.9031 Accuracy 0.9347 (10s) UUID 995f
+Validation: ELBO -97.0793 Accuracy 0.9300 UUID 995f
+
+[Epoch 144] Train: Labeled ELBO -1.8943 Unlabeled ELBO -1.8960 Accuracy 0.9300 (10s) UUID 995f
+Validation: ELBO -97.3022 Accuracy 0.9267 UUID 995f
+
+[Epoch 145] Train: Labeled ELBO -1.8938 Unlabeled ELBO -1.8997 Accuracy 0.9267 (10s) UUID 995f
+Validation: ELBO -97.9469 Accuracy 0.9350 UUID 995f
+
+[Epoch 146] Train: Labeled ELBO -1.8980 Unlabeled ELBO -1.9063 Accuracy 0.9350 (10s) UUID 995f
+Validation: ELBO -97.1781 Accuracy 0.9380 UUID 995f
+
+[Epoch 147] Train: Labeled ELBO -1.8978 Unlabeled ELBO -1.9048 Accuracy 0.9380 (10s) UUID 995f
+Validation: ELBO -96.9691 Accuracy 0.9387 UUID 995f
+
+[Epoch 148] Train: Labeled ELBO -1.8968 Unlabeled ELBO -1.9023 Accuracy 0.9387 (10s) UUID 995f
+Validation: ELBO -97.7371 Accuracy 0.9317 UUID 995f
+
+[Epoch 149] Train: Labeled ELBO -1.8961 Unlabeled ELBO -1.8988 Accuracy 0.9317 (10s) UUID 995f
+Validation: ELBO -97.0570 Accuracy 0.9387 UUID 995f
+
+[Epoch 150] Train: Labeled ELBO -1.8930 Unlabeled ELBO -1.9011 Accuracy 0.9387 (10s) UUID 995f
+Validation: ELBO -97.0686 Accuracy 0.9333 UUID 995f
+
+[Epoch 151] Train: Labeled ELBO -1.8932 Unlabeled ELBO -1.9007 Accuracy 0.9333 (10s) UUID 995f
+Validation: ELBO -97.4921 Accuracy 0.9323 UUID 995f
+
+[Epoch 152] Train: Labeled ELBO -1.8989 Unlabeled ELBO -1.9009 Accuracy 0.9323 (10s) UUID 995f
+Validation: ELBO -97.4891 Accuracy 0.9283 UUID 995f
+
+[Epoch 153] Train: Labeled ELBO -1.8945 Unlabeled ELBO -1.8996 Accuracy 0.9283 (10s) UUID 995f
+Validation: ELBO -98.1184 Accuracy 0.9343 UUID 995f
+
+[Epoch 154] Train: Labeled ELBO -1.8957 Unlabeled ELBO -1.8997 Accuracy 0.9343 (10s) UUID 995f
+Validation: ELBO -98.1060 Accuracy 0.9277 UUID 995f
+
+[Epoch 155] Train: Labeled ELBO -1.8920 Unlabeled ELBO -1.9051 Accuracy 0.9277 (10s) UUID 995f
+Validation: ELBO -97.5739 Accuracy 0.9283 UUID 995f
+
+[Epoch 156] Train: Labeled ELBO -1.8990 Unlabeled ELBO -1.9032 Accuracy 0.9283 (10s) UUID 995f
+Validation: ELBO -98.4708 Accuracy 0.9363 UUID 995f
+
+[Epoch 157] Train: Labeled ELBO -1.8955 Unlabeled ELBO -1.9003 Accuracy 0.9363 (11s) UUID 995f
+Validation: ELBO -97.1541 Accuracy 0.9313 UUID 995f
+
+[Epoch 158] Train: Labeled ELBO -1.8947 Unlabeled ELBO -1.8966 Accuracy 0.9313 (10s) UUID 995f
+Validation: ELBO -97.8559 Accuracy 0.9237 UUID 995f
+
+[Epoch 159] Train: Labeled ELBO -1.8913 Unlabeled ELBO -1.9008 Accuracy 0.9237 (11s) UUID 995f
+Validation: ELBO -98.3197 Accuracy 0.9340 UUID 995f
+
+[Epoch 160] Train: Labeled ELBO -1.8930 Unlabeled ELBO -1.9053 Accuracy 0.9340 (10s) UUID 995f
+Validation: ELBO -97.2915 Accuracy 0.9313 UUID 995f
+
+[Epoch 161] Train: Labeled ELBO -1.8921 Unlabeled ELBO -1.8989 Accuracy 0.9313 (10s) UUID 995f
+Validation: ELBO -97.4734 Accuracy 0.9303 UUID 995f
+
+[Epoch 162] Train: Labeled ELBO -1.8910 Unlabeled ELBO -1.8974 Accuracy 0.9303 (10s) UUID 995f
+Validation: ELBO -97.8541 Accuracy 0.9277 UUID 995f
+
+[Epoch 163] Train: Labeled ELBO -1.8912 Unlabeled ELBO -1.9009 Accuracy 0.9277 (10s) UUID 995f
+Validation: ELBO -96.9692 Accuracy 0.9313 UUID 995f
+
+[Epoch 164] Train: Labeled ELBO -1.8939 Unlabeled ELBO -1.8954 Accuracy 0.9313 (10s) UUID 995f
+Validation: ELBO -97.9792 Accuracy 0.9210 UUID 995f
+
+[Epoch 165] Train: Labeled ELBO -1.8894 Unlabeled ELBO -1.8931 Accuracy 0.9210 (10s) UUID 995f
+Validation: ELBO -97.2860 Accuracy 0.9253 UUID 995f
+
+[Epoch 166] Train: Labeled ELBO -1.8956 Unlabeled ELBO -1.8958 Accuracy 0.9253 (10s) UUID 995f
+Validation: ELBO -97.3178 Accuracy 0.9330 UUID 995f
+
+[Epoch 167] Train: Labeled ELBO -1.8916 Unlabeled ELBO -1.9008 Accuracy 0.9330 (10s) UUID 995f
+Validation: ELBO -97.2189 Accuracy 0.9337 UUID 995f
+
+[Epoch 168] Train: Labeled ELBO -1.8920 Unlabeled ELBO -1.8972 Accuracy 0.9337 (10s) UUID 995f
+Validation: ELBO -97.4246 Accuracy 0.9267 UUID 995f
+
+[Epoch 169] Train: Labeled ELBO -1.8901 Unlabeled ELBO -1.8919 Accuracy 0.9267 (10s) UUID 995f
+Validation: ELBO -97.1245 Accuracy 0.9280 UUID 995f
+
+[Epoch 170] Train: Labeled ELBO -1.8901 Unlabeled ELBO -1.8981 Accuracy 0.9280 (10s) UUID 995f
+Validation: ELBO -97.2493 Accuracy 0.9360 UUID 995f
+
+[Epoch 171] Train: Labeled ELBO -1.8887 Unlabeled ELBO -1.8960 Accuracy 0.9360 (10s) UUID 995f
+Validation: ELBO -97.3251 Accuracy 0.9300 UUID 995f
+
+[Epoch 172] Train: Labeled ELBO -1.8920 Unlabeled ELBO -1.8956 Accuracy 0.9300 (10s) UUID 995f
+Validation: ELBO -97.5169 Accuracy 0.9347 UUID 995f
+
+[Epoch 173] Train: Labeled ELBO -1.8893 Unlabeled ELBO -1.8955 Accuracy 0.9347 (10s) UUID 995f
+Validation: ELBO -98.0098 Accuracy 0.9227 UUID 995f
+
+[Epoch 174] Train: Labeled ELBO -1.8864 Unlabeled ELBO -1.8912 Accuracy 0.9227 (10s) UUID 995f
+Validation: ELBO -97.9915 Accuracy 0.9213 UUID 995f
+
+[Epoch 175] Train: Labeled ELBO -1.8923 Unlabeled ELBO -1.8934 Accuracy 0.9213 (10s) UUID 995f
+Validation: ELBO -96.8807 Accuracy 0.9340 UUID 995f
+
+[Epoch 176] Train: Labeled ELBO -1.8911 Unlabeled ELBO -1.8937 Accuracy 0.9340 (10s) UUID 995f
+Validation: ELBO -98.2217 Accuracy 0.9260 UUID 995f
+
+[Epoch 177] Train: Labeled ELBO -1.8885 Unlabeled ELBO -1.8977 Accuracy 0.9260 (10s) UUID 995f
+Validation: ELBO -97.5777 Accuracy 0.9317 UUID 995f
+
+[Epoch 178] Train: Labeled ELBO -1.8931 Unlabeled ELBO -1.8909 Accuracy 0.9317 (10s) UUID 995f
+Validation: ELBO -97.4846 Accuracy 0.9290 UUID 995f
+
+[Epoch 179] Train: Labeled ELBO -1.8897 Unlabeled ELBO -1.8888 Accuracy 0.9290 (10s) UUID 995f
+Validation: ELBO -97.0737 Accuracy 0.9357 UUID 995f
+
+[Epoch 180] Train: Labeled ELBO -1.8902 Unlabeled ELBO -1.8902 Accuracy 0.9357 (10s) UUID 995f
+Validation: ELBO -97.2477 Accuracy 0.9357 UUID 995f
+
+[Epoch 181] Train: Labeled ELBO -1.8883 Unlabeled ELBO -1.8884 Accuracy 0.9357 (10s) UUID 995f
+Validation: ELBO -97.5803 Accuracy 0.9267 UUID 995f
+
+[Epoch 182] Train: Labeled ELBO -1.8875 Unlabeled ELBO -1.8921 Accuracy 0.9267 (10s) UUID 995f
+Validation: ELBO -97.9119 Accuracy 0.9257 UUID 995f
+
+[Epoch 183] Train: Labeled ELBO -1.8874 Unlabeled ELBO -1.8963 Accuracy 0.9257 (10s) UUID 995f
+Validation: ELBO -97.5416 Accuracy 0.9310 UUID 995f
+
+[Epoch 184] Train: Labeled ELBO -1.8898 Unlabeled ELBO -1.8934 Accuracy 0.9310 (10s) UUID 995f
+Validation: ELBO -97.2753 Accuracy 0.9317 UUID 995f
+
+[Epoch 185] Train: Labeled ELBO -1.8881 Unlabeled ELBO -1.8896 Accuracy 0.9317 (10s) UUID 995f
+Validation: ELBO -98.3553 Accuracy 0.9283 UUID 995f
+
+[Epoch 186] Train: Labeled ELBO -1.8846 Unlabeled ELBO -1.8933 Accuracy 0.9283 (10s) UUID 995f
+Validation: ELBO -97.4559 Accuracy 0.9367 UUID 995f
+
+[Epoch 187] Train: Labeled ELBO -1.8874 Unlabeled ELBO -1.8911 Accuracy 0.9367 (10s) UUID 995f
+Validation: ELBO -97.0742 Accuracy 0.9300 UUID 995f
+
+[Epoch 188] Train: Labeled ELBO -1.8898 Unlabeled ELBO -1.8873 Accuracy 0.9300 (10s) UUID 995f
+Validation: ELBO -97.3200 Accuracy 0.9310 UUID 995f
+
+[Epoch 189] Train: Labeled ELBO -1.8873 Unlabeled ELBO -1.8829 Accuracy 0.9310 (10s) UUID 995f
+Validation: ELBO -96.9814 Accuracy 0.9320 UUID 995f
+
+[Epoch 190] Train: Labeled ELBO -1.8817 Unlabeled ELBO -1.8868 Accuracy 0.9320 (10s) UUID 995f
+Validation: ELBO -97.7865 Accuracy 0.9277 UUID 995f
+
+[Epoch 191] Train: Labeled ELBO -1.8844 Unlabeled ELBO -1.8923 Accuracy 0.9277 (11s) UUID 995f
+Validation: ELBO -97.1559 Accuracy 0.9280 UUID 995f
+
+[Epoch 192] Train: Labeled ELBO -1.8901 Unlabeled ELBO -1.8883 Accuracy 0.9280 (10s) UUID 995f
+Validation: ELBO -97.1885 Accuracy 0.9357 UUID 995f
+
+[Epoch 193] Train: Labeled ELBO -1.8810 Unlabeled ELBO -1.8848 Accuracy 0.9357 (10s) UUID 995f
+Validation: ELBO -97.1363 Accuracy 0.9380 UUID 995f
+
+[Epoch 194] Train: Labeled ELBO -1.8816 Unlabeled ELBO -1.8911 Accuracy 0.9380 (10s) UUID 995f
+Validation: ELBO -97.3798 Accuracy 0.9330 UUID 995f
+
+[Epoch 195] Train: Labeled ELBO -1.8859 Unlabeled ELBO -1.8876 Accuracy 0.9330 (10s) UUID 995f
+Validation: ELBO -97.6733 Accuracy 0.9360 UUID 995f
+
+[Epoch 196] Train: Labeled ELBO -1.8863 Unlabeled ELBO -1.8875 Accuracy 0.9360 (10s) UUID 995f
+Validation: ELBO -96.7337 Accuracy 0.9390 UUID 995f
+
+[Epoch 197] Train: Labeled ELBO -1.8857 Unlabeled ELBO -1.8902 Accuracy 0.9390 (10s) UUID 995f
+Validation: ELBO -97.2442 Accuracy 0.9313 UUID 995f
+
+[Epoch 198] Train: Labeled ELBO -1.8839 Unlabeled ELBO -1.8865 Accuracy 0.9313 (10s) UUID 995f
+Validation: ELBO -97.1656 Accuracy 0.9360 UUID 995f
+
+[Epoch 199] Train: Labeled ELBO -1.8838 Unlabeled ELBO -1.8893 Accuracy 0.9360 (10s) UUID 995f
+Validation: ELBO -114.0987 Accuracy 0.9178 UUID 995f
+
+Validation: ELBO -113.5281 Accuracy 0.9109 UUID 995f
+
+Validation: ELBO -152.9234 Accuracy 0.4996 UUID c21f
+
+[Epoch 0] Train: Labeled ELBO -3.7123 Unlabeled ELBO -2.9986 Accuracy 0.4996 (17s) UUID c21f
+Validation: ELBO -139.2883 Accuracy 0.6214 UUID c21f
+
+[Epoch 1] Train: Labeled ELBO -2.8916 Unlabeled ELBO -2.7947 Accuracy 0.6214 (17s) UUID c21f
+Validation: ELBO -133.2327 Accuracy 0.6730 UUID c21f
+
+[Epoch 2] Train: Labeled ELBO -2.7080 Unlabeled ELBO -2.6553 Accuracy 0.6730 (17s) UUID c21f
+Validation: ELBO -129.1212 Accuracy 0.7002 UUID c21f
+
+[Epoch 3] Train: Labeled ELBO -2.6019 Unlabeled ELBO -2.5890 Accuracy 0.7002 (17s) UUID c21f
+Validation: ELBO -124.8962 Accuracy 0.7320 UUID c21f
+
+[Epoch 4] Train: Labeled ELBO -2.5173 Unlabeled ELBO -2.5299 Accuracy 0.7320 (17s) UUID c21f
+Validation: ELBO -121.9706 Accuracy 0.7544 UUID c21f
+
+[Epoch 5] Train: Labeled ELBO -2.4587 Unlabeled ELBO -2.4773 Accuracy 0.7544 (17s) UUID c21f
+Validation: ELBO -119.8939 Accuracy 0.7870 UUID c21f
+
+[Epoch 6] Train: Labeled ELBO -2.4063 Unlabeled ELBO -2.3762 Accuracy 0.7870 (17s) UUID c21f
+Validation: ELBO -118.1596 Accuracy 0.7914 UUID c21f
+
+[Epoch 7] Train: Labeled ELBO -2.3601 Unlabeled ELBO -2.3720 Accuracy 0.7914 (17s) UUID c21f
+Validation: ELBO -116.2782 Accuracy 0.8082 UUID c21f
+
+[Epoch 8] Train: Labeled ELBO -2.3211 Unlabeled ELBO -2.3474 Accuracy 0.8082 (17s) UUID c21f
+Validation: ELBO -115.0186 Accuracy 0.8086 UUID c21f
+
+[Epoch 9] Train: Labeled ELBO -2.2828 Unlabeled ELBO -2.3074 Accuracy 0.8086 (17s) UUID c21f
+Validation: ELBO -112.8516 Accuracy 0.8332 UUID c21f
+
+[Epoch 10] Train: Labeled ELBO -2.2555 Unlabeled ELBO -2.2893 Accuracy 0.8332 (17s) UUID c21f
+Validation: ELBO -111.5956 Accuracy 0.8338 UUID c21f
+
+[Epoch 11] Train: Labeled ELBO -2.2282 Unlabeled ELBO -2.2373 Accuracy 0.8338 (17s) UUID c21f
+Validation: ELBO -110.8169 Accuracy 0.8492 UUID c21f
+
+[Epoch 12] Train: Labeled ELBO -2.2036 Unlabeled ELBO -2.2099 Accuracy 0.8492 (17s) UUID c21f
+Validation: ELBO -109.7984 Accuracy 0.8448 UUID c21f
+
+[Epoch 13] Train: Labeled ELBO -2.1863 Unlabeled ELBO -2.2323 Accuracy 0.8448 (17s) UUID c21f
+Validation: ELBO -108.8585 Accuracy 0.8598 UUID c21f
+
+[Epoch 14] Train: Labeled ELBO -2.1659 Unlabeled ELBO -2.1722 Accuracy 0.8598 (17s) UUID c21f
+Validation: ELBO -107.7339 Accuracy 0.8668 UUID c21f
+
+[Epoch 15] Train: Labeled ELBO -2.1510 Unlabeled ELBO -2.1840 Accuracy 0.8668 (17s) UUID c21f
+Validation: ELBO -107.8213 Accuracy 0.8642 UUID c21f
+
+[Epoch 16] Train: Labeled ELBO -2.1385 Unlabeled ELBO -2.1578 Accuracy 0.8642 (17s) UUID c21f
+Validation: ELBO -107.3505 Accuracy 0.8754 UUID c21f
+
+[Epoch 17] Train: Labeled ELBO -2.1278 Unlabeled ELBO -2.1458 Accuracy 0.8754 (17s) UUID c21f
+Validation: ELBO -106.2476 Accuracy 0.8760 UUID c21f
+
+[Epoch 18] Train: Labeled ELBO -2.1152 Unlabeled ELBO -2.1497 Accuracy 0.8760 (17s) UUID c21f
+Validation: ELBO -106.0286 Accuracy 0.8796 UUID c21f
+
+[Epoch 19] Train: Labeled ELBO -2.1033 Unlabeled ELBO -2.1396 Accuracy 0.8796 (17s) UUID c21f
+Validation: ELBO -105.6850 Accuracy 0.8768 UUID c21f
+
+[Epoch 20] Train: Labeled ELBO -2.0930 Unlabeled ELBO -2.1159 Accuracy 0.8768 (17s) UUID c21f
+Validation: ELBO -105.0066 Accuracy 0.8816 UUID c21f
+
+[Epoch 21] Train: Labeled ELBO -2.0852 Unlabeled ELBO -2.1276 Accuracy 0.8816 (17s) UUID c21f
+Validation: ELBO -104.8152 Accuracy 0.8842 UUID c21f
+
+[Epoch 22] Train: Labeled ELBO -2.0774 Unlabeled ELBO -2.1118 Accuracy 0.8842 (17s) UUID c21f
+Validation: ELBO -104.4361 Accuracy 0.8896 UUID c21f
+
+[Epoch 23] Train: Labeled ELBO -2.0729 Unlabeled ELBO -2.0888 Accuracy 0.8896 (17s) UUID c21f
+Validation: ELBO -104.6250 Accuracy 0.8894 UUID c21f
+
+[Epoch 24] Train: Labeled ELBO -2.0641 Unlabeled ELBO -2.0837 Accuracy 0.8894 (17s) UUID c21f
+Validation: ELBO -103.5702 Accuracy 0.8964 UUID c21f
+
+[Epoch 25] Train: Labeled ELBO -2.0569 Unlabeled ELBO -2.1176 Accuracy 0.8964 (17s) UUID c21f
+Validation: ELBO -103.3717 Accuracy 0.9022 UUID c21f
+
+[Epoch 26] Train: Labeled ELBO -2.0479 Unlabeled ELBO -2.1023 Accuracy 0.9022 (17s) UUID c21f
+Validation: ELBO -103.3222 Accuracy 0.8964 UUID c21f
+
+[Epoch 27] Train: Labeled ELBO -2.0441 Unlabeled ELBO -2.0716 Accuracy 0.8964 (17s) UUID c21f
+Validation: ELBO -103.1077 Accuracy 0.8978 UUID c21f
+
+[Epoch 28] Train: Labeled ELBO -2.0371 Unlabeled ELBO -2.0577 Accuracy 0.8978 (17s) UUID c21f
+Validation: ELBO -102.8494 Accuracy 0.9042 UUID c21f
+
+[Epoch 29] Train: Labeled ELBO -2.0358 Unlabeled ELBO -2.0809 Accuracy 0.9042 (17s) UUID c21f
+Validation: ELBO -102.6835 Accuracy 0.9042 UUID c21f
+
+[Epoch 30] Train: Labeled ELBO -2.0273 Unlabeled ELBO -2.0708 Accuracy 0.9042 (17s) UUID c21f
+Validation: ELBO -102.7272 Accuracy 0.8974 UUID c21f
+
+[Epoch 31] Train: Labeled ELBO -2.0217 Unlabeled ELBO -2.0877 Accuracy 0.8974 (17s) UUID c21f
+Validation: ELBO -102.5069 Accuracy 0.9004 UUID c21f
+
+[Epoch 32] Train: Labeled ELBO -2.0227 Unlabeled ELBO -2.0692 Accuracy 0.9004 (17s) UUID c21f
+Validation: ELBO -101.9777 Accuracy 0.9102 UUID c21f
+
+[Epoch 33] Train: Labeled ELBO -2.0209 Unlabeled ELBO -2.0438 Accuracy 0.9102 (17s) UUID c21f
+Validation: ELBO -102.7521 Accuracy 0.8988 UUID c21f
+
+[Epoch 34] Train: Labeled ELBO -2.0162 Unlabeled ELBO -2.0468 Accuracy 0.8988 (17s) UUID c21f
+Validation: ELBO -101.5105 Accuracy 0.9104 UUID c21f
+
+[Epoch 35] Train: Labeled ELBO -2.0119 Unlabeled ELBO -2.0355 Accuracy 0.9104 (17s) UUID c21f
+Validation: ELBO -101.7812 Accuracy 0.9082 UUID c21f
+
+[Epoch 36] Train: Labeled ELBO -2.0095 Unlabeled ELBO -2.0619 Accuracy 0.9082 (17s) UUID c21f
+Validation: ELBO -101.5417 Accuracy 0.9074 UUID c21f
+
+[Epoch 37] Train: Labeled ELBO -2.0051 Unlabeled ELBO -2.0276 Accuracy 0.9074 (17s) UUID c21f
+Validation: ELBO -101.6121 Accuracy 0.9102 UUID c21f
+
+[Epoch 38] Train: Labeled ELBO -2.0038 Unlabeled ELBO -2.0440 Accuracy 0.9102 (17s) UUID c21f
+Validation: ELBO -101.8937 Accuracy 0.9090 UUID c21f
+
+[Epoch 39] Train: Labeled ELBO -2.0002 Unlabeled ELBO -2.0367 Accuracy 0.9090 (17s) UUID c21f
+Validation: ELBO -101.7017 Accuracy 0.9076 UUID c21f
+
+[Epoch 40] Train: Labeled ELBO -1.9934 Unlabeled ELBO -2.0535 Accuracy 0.9076 (17s) UUID c21f
+Validation: ELBO -101.1429 Accuracy 0.9078 UUID c21f
+
+[Epoch 41] Train: Labeled ELBO -1.9918 Unlabeled ELBO -2.0227 Accuracy 0.9078 (17s) UUID c21f
+Validation: ELBO -100.7577 Accuracy 0.9210 UUID c21f
+
+[Epoch 42] Train: Labeled ELBO -1.9896 Unlabeled ELBO -2.0329 Accuracy 0.9210 (17s) UUID c21f
+Validation: ELBO -101.3844 Accuracy 0.9112 UUID c21f
+
+[Epoch 43] Train: Labeled ELBO -1.9858 Unlabeled ELBO -2.0371 Accuracy 0.9112 (17s) UUID c21f
+Validation: ELBO -100.5585 Accuracy 0.9144 UUID c21f
+
+[Epoch 44] Train: Labeled ELBO -1.9867 Unlabeled ELBO -2.0046 Accuracy 0.9144 (17s) UUID c21f
+Validation: ELBO -100.6524 Accuracy 0.9188 UUID c21f
+
+[Epoch 45] Train: Labeled ELBO -1.9809 Unlabeled ELBO -2.0022 Accuracy 0.9188 (17s) UUID c21f
+Validation: ELBO -100.7338 Accuracy 0.9220 UUID c21f
+
+[Epoch 46] Train: Labeled ELBO -1.9854 Unlabeled ELBO -2.0263 Accuracy 0.9220 (17s) UUID c21f
+Validation: ELBO -100.4080 Accuracy 0.9174 UUID c21f
+
+[Epoch 47] Train: Labeled ELBO -1.9785 Unlabeled ELBO -1.9934 Accuracy 0.9174 (17s) UUID c21f
+Validation: ELBO -100.4585 Accuracy 0.9174 UUID c21f
+
+[Epoch 48] Train: Labeled ELBO -1.9768 Unlabeled ELBO -2.0078 Accuracy 0.9174 (17s) UUID c21f
+Validation: ELBO -100.2426 Accuracy 0.9224 UUID c21f
+
+[Epoch 49] Train: Labeled ELBO -1.9710 Unlabeled ELBO -2.0078 Accuracy 0.9224 (17s) UUID c21f
+Validation: ELBO -100.4453 Accuracy 0.9222 UUID c21f
+
+[Epoch 50] Train: Labeled ELBO -1.9717 Unlabeled ELBO -2.0090 Accuracy 0.9222 (17s) UUID c21f
+Validation: ELBO -100.0288 Accuracy 0.9184 UUID c21f
+
+[Epoch 51] Train: Labeled ELBO -1.9686 Unlabeled ELBO -2.0221 Accuracy 0.9184 (17s) UUID c21f
+Validation: ELBO -99.9027 Accuracy 0.9226 UUID c21f
+
+[Epoch 52] Train: Labeled ELBO -1.9693 Unlabeled ELBO -1.9984 Accuracy 0.9226 (17s) UUID c21f
+Validation: ELBO -99.9998 Accuracy 0.9164 UUID c21f
+
+[Epoch 53] Train: Labeled ELBO -1.9673 Unlabeled ELBO -1.9744 Accuracy 0.9164 (17s) UUID c21f
+Validation: ELBO -100.1970 Accuracy 0.9188 UUID c21f
+
+[Epoch 54] Train: Labeled ELBO -1.9618 Unlabeled ELBO -1.9721 Accuracy 0.9188 (17s) UUID c21f
+Validation: ELBO -99.7180 Accuracy 0.9218 UUID c21f
+
+[Epoch 55] Train: Labeled ELBO -1.9651 Unlabeled ELBO -2.0015 Accuracy 0.9218 (17s) UUID c21f
+Validation: ELBO -100.2717 Accuracy 0.9180 UUID c21f
+
+[Epoch 56] Train: Labeled ELBO -1.9595 Unlabeled ELBO -1.9890 Accuracy 0.9180 (17s) UUID c21f
+Validation: ELBO -100.2251 Accuracy 0.9210 UUID c21f
+
+[Epoch 57] Train: Labeled ELBO -1.9592 Unlabeled ELBO -2.0083 Accuracy 0.9210 (17s) UUID c21f
+Validation: ELBO -100.1613 Accuracy 0.9212 UUID c21f
+
+[Epoch 58] Train: Labeled ELBO -1.9580 Unlabeled ELBO -2.0008 Accuracy 0.9212 (17s) UUID c21f
+Validation: ELBO -99.7283 Accuracy 0.9180 UUID c21f
+
+[Epoch 59] Train: Labeled ELBO -1.9602 Unlabeled ELBO -1.9999 Accuracy 0.9180 (17s) UUID c21f
+Validation: ELBO -99.7029 Accuracy 0.9226 UUID c21f
+
+[Epoch 60] Train: Labeled ELBO -1.9571 Unlabeled ELBO -1.9957 Accuracy 0.9226 (17s) UUID c21f
+Validation: ELBO -100.4115 Accuracy 0.9212 UUID c21f
+
+[Epoch 61] Train: Labeled ELBO -1.9513 Unlabeled ELBO -1.9910 Accuracy 0.9212 (17s) UUID c21f
+Validation: ELBO -99.5623 Accuracy 0.9260 UUID c21f
+
+[Epoch 62] Train: Labeled ELBO -1.9507 Unlabeled ELBO -1.9875 Accuracy 0.9260 (17s) UUID c21f
+Validation: ELBO -99.5768 Accuracy 0.9278 UUID c21f
+
+[Epoch 63] Train: Labeled ELBO -1.9506 Unlabeled ELBO -1.9965 Accuracy 0.9278 (17s) UUID c21f
+Validation: ELBO -99.6105 Accuracy 0.9246 UUID c21f
+
+[Epoch 64] Train: Labeled ELBO -1.9451 Unlabeled ELBO -1.9759 Accuracy 0.9246 (17s) UUID c21f
+Validation: ELBO -99.6460 Accuracy 0.9240 UUID c21f
+
+[Epoch 65] Train: Labeled ELBO -1.9461 Unlabeled ELBO -1.9804 Accuracy 0.9240 (17s) UUID c21f
+Validation: ELBO -99.3910 Accuracy 0.9228 UUID c21f
+
+[Epoch 66] Train: Labeled ELBO -1.9459 Unlabeled ELBO -1.9893 Accuracy 0.9228 (17s) UUID c21f
+Validation: ELBO -98.7909 Accuracy 0.9266 UUID c21f
+
+[Epoch 67] Train: Labeled ELBO -1.9445 Unlabeled ELBO -1.9875 Accuracy 0.9266 (17s) UUID c21f
+Validation: ELBO -98.8921 Accuracy 0.9292 UUID c21f
+
+[Epoch 68] Train: Labeled ELBO -1.9397 Unlabeled ELBO -1.9762 Accuracy 0.9292 (17s) UUID c21f
+Validation: ELBO -99.3662 Accuracy 0.9276 UUID c21f
+
+[Epoch 69] Train: Labeled ELBO -1.9423 Unlabeled ELBO -1.9728 Accuracy 0.9276 (17s) UUID c21f
+Validation: ELBO -99.0861 Accuracy 0.9228 UUID c21f
+
+[Epoch 70] Train: Labeled ELBO -1.9392 Unlabeled ELBO -1.9570 Accuracy 0.9228 (17s) UUID c21f
+Validation: ELBO -98.8690 Accuracy 0.9284 UUID c21f
+
+[Epoch 71] Train: Labeled ELBO -1.9427 Unlabeled ELBO -1.9639 Accuracy 0.9284 (17s) UUID c21f
+Validation: ELBO -98.9153 Accuracy 0.9308 UUID c21f
+
+[Epoch 72] Train: Labeled ELBO -1.9404 Unlabeled ELBO -1.9726 Accuracy 0.9308 (17s) UUID c21f
+Validation: ELBO -98.7841 Accuracy 0.9280 UUID c21f
+
+[Epoch 73] Train: Labeled ELBO -1.9362 Unlabeled ELBO -1.9740 Accuracy 0.9280 (17s) UUID c21f
+Validation: ELBO -98.6820 Accuracy 0.9302 UUID c21f
+
+[Epoch 74] Train: Labeled ELBO -1.9367 Unlabeled ELBO -1.9727 Accuracy 0.9302 (17s) UUID c21f
+Validation: ELBO -99.3479 Accuracy 0.9296 UUID c21f
+
+[Epoch 75] Train: Labeled ELBO -1.9359 Unlabeled ELBO -1.9760 Accuracy 0.9296 (17s) UUID c21f
+Validation: ELBO -98.8887 Accuracy 0.9240 UUID c21f
+
+[Epoch 76] Train: Labeled ELBO -1.9338 Unlabeled ELBO -1.9720 Accuracy 0.9240 (17s) UUID c21f
+Validation: ELBO -99.0735 Accuracy 0.9282 UUID c21f
+
+[Epoch 77] Train: Labeled ELBO -1.9340 Unlabeled ELBO -1.9861 Accuracy 0.9282 (17s) UUID c21f
+Validation: ELBO -98.9617 Accuracy 0.9306 UUID c21f
+
+[Epoch 78] Train: Labeled ELBO -1.9326 Unlabeled ELBO -1.9735 Accuracy 0.9306 (17s) UUID c21f
+Validation: ELBO -98.4583 Accuracy 0.9322 UUID c21f
+
+[Epoch 79] Train: Labeled ELBO -1.9307 Unlabeled ELBO -1.9462 Accuracy 0.9322 (17s) UUID c21f
+Validation: ELBO -98.5493 Accuracy 0.9286 UUID c21f
+
+[Epoch 80] Train: Labeled ELBO -1.9303 Unlabeled ELBO -1.9591 Accuracy 0.9286 (17s) UUID c21f
+Validation: ELBO -98.2795 Accuracy 0.9334 UUID c21f
+
+[Epoch 81] Train: Labeled ELBO -1.9288 Unlabeled ELBO -1.9561 Accuracy 0.9334 (17s) UUID c21f
+Validation: ELBO -98.3282 Accuracy 0.9344 UUID c21f
+
+[Epoch 82] Train: Labeled ELBO -1.9224 Unlabeled ELBO -1.9702 Accuracy 0.9344 (17s) UUID c21f
+Validation: ELBO -98.6392 Accuracy 0.9294 UUID c21f
+
+[Epoch 83] Train: Labeled ELBO -1.9257 Unlabeled ELBO -1.9665 Accuracy 0.9294 (17s) UUID c21f
+Validation: ELBO -98.4197 Accuracy 0.9278 UUID c21f
+
+[Epoch 84] Train: Labeled ELBO -1.9287 Unlabeled ELBO -1.9289 Accuracy 0.9278 (17s) UUID c21f
+Validation: ELBO -98.3241 Accuracy 0.9278 UUID c21f
+
+[Epoch 85] Train: Labeled ELBO -1.9228 Unlabeled ELBO -1.9495 Accuracy 0.9278 (17s) UUID c21f
+Validation: ELBO -97.9066 Accuracy 0.9270 UUID c21f
+
+[Epoch 86] Train: Labeled ELBO -1.9223 Unlabeled ELBO -1.9515 Accuracy 0.9270 (17s) UUID c21f
+Validation: ELBO -98.5742 Accuracy 0.9360 UUID c21f
+
+[Epoch 87] Train: Labeled ELBO -1.9208 Unlabeled ELBO -1.9381 Accuracy 0.9360 (17s) UUID c21f
+Validation: ELBO -98.5251 Accuracy 0.9288 UUID c21f
+
+[Epoch 88] Train: Labeled ELBO -1.9206 Unlabeled ELBO -1.9522 Accuracy 0.9288 (17s) UUID c21f
+Validation: ELBO -98.1549 Accuracy 0.9302 UUID c21f
+
+[Epoch 89] Train: Labeled ELBO -1.9218 Unlabeled ELBO -1.9618 Accuracy 0.9302 (17s) UUID c21f
+Validation: ELBO -99.3894 Accuracy 0.9362 UUID c21f
+
+[Epoch 90] Train: Labeled ELBO -1.9223 Unlabeled ELBO -1.9554 Accuracy 0.9362 (17s) UUID c21f
+Validation: ELBO -98.5033 Accuracy 0.9292 UUID c21f
+
+[Epoch 91] Train: Labeled ELBO -1.9240 Unlabeled ELBO -1.9455 Accuracy 0.9292 (17s) UUID c21f
+Validation: ELBO -98.4899 Accuracy 0.9318 UUID c21f
+
+[Epoch 92] Train: Labeled ELBO -1.9207 Unlabeled ELBO -1.9470 Accuracy 0.9318 (17s) UUID c21f
+Validation: ELBO -98.5509 Accuracy 0.9320 UUID c21f
+
+[Epoch 93] Train: Labeled ELBO -1.9179 Unlabeled ELBO -1.9546 Accuracy 0.9320 (17s) UUID c21f
+Validation: ELBO -97.5566 Accuracy 0.9350 UUID c21f
+
+[Epoch 94] Train: Labeled ELBO -1.9218 Unlabeled ELBO -1.9483 Accuracy 0.9350 (17s) UUID c21f
+Validation: ELBO -98.0043 Accuracy 0.9326 UUID c21f
+
+[Epoch 95] Train: Labeled ELBO -1.9184 Unlabeled ELBO -1.9668 Accuracy 0.9326 (17s) UUID c21f
+Validation: ELBO -98.0186 Accuracy 0.9318 UUID c21f
+
+[Epoch 96] Train: Labeled ELBO -1.9188 Unlabeled ELBO -1.9465 Accuracy 0.9318 (17s) UUID c21f
+Validation: ELBO -97.9906 Accuracy 0.9272 UUID c21f
+
+[Epoch 97] Train: Labeled ELBO -1.9159 Unlabeled ELBO -1.9039 Accuracy 0.9272 (17s) UUID c21f
+Validation: ELBO -98.0591 Accuracy 0.9326 UUID c21f
+
+[Epoch 98] Train: Labeled ELBO -1.9149 Unlabeled ELBO -1.9580 Accuracy 0.9326 (17s) UUID c21f
+Validation: ELBO -97.9598 Accuracy 0.9324 UUID c21f
+
+[Epoch 99] Train: Labeled ELBO -1.9116 Unlabeled ELBO -1.9411 Accuracy 0.9324 (17s) UUID c21f
+Validation: ELBO -98.2319 Accuracy 0.9308 UUID c21f
+
+[Epoch 100] Train: Labeled ELBO -1.9097 Unlabeled ELBO -1.9541 Accuracy 0.9308 (17s) UUID c21f
+Validation: ELBO -97.7534 Accuracy 0.9318 UUID c21f
+
+[Epoch 101] Train: Labeled ELBO -1.9117 Unlabeled ELBO -1.9493 Accuracy 0.9318 (17s) UUID c21f
+Validation: ELBO -97.4879 Accuracy 0.9326 UUID c21f
+
+[Epoch 102] Train: Labeled ELBO -1.9081 Unlabeled ELBO -1.9303 Accuracy 0.9326 (17s) UUID c21f
+Validation: ELBO -97.1902 Accuracy 0.9404 UUID c21f
+
+[Epoch 103] Train: Labeled ELBO -1.9070 Unlabeled ELBO -1.9379 Accuracy 0.9404 (17s) UUID c21f
+Validation: ELBO -97.5336 Accuracy 0.9348 UUID c21f
+
+[Epoch 104] Train: Labeled ELBO -1.9084 Unlabeled ELBO -1.9307 Accuracy 0.9348 (17s) UUID c21f
+Validation: ELBO -98.1292 Accuracy 0.9256 UUID c21f
+
+[Epoch 105] Train: Labeled ELBO -1.9065 Unlabeled ELBO -1.9461 Accuracy 0.9256 (17s) UUID c21f
+Validation: ELBO -97.7583 Accuracy 0.9368 UUID c21f
+
+[Epoch 106] Train: Labeled ELBO -1.9081 Unlabeled ELBO -1.9374 Accuracy 0.9368 (17s) UUID c21f
+Validation: ELBO -98.0065 Accuracy 0.9304 UUID c21f
+
+[Epoch 107] Train: Labeled ELBO -1.9077 Unlabeled ELBO -1.9531 Accuracy 0.9304 (17s) UUID c21f
+Validation: ELBO -98.0832 Accuracy 0.9292 UUID c21f
+
+[Epoch 108] Train: Labeled ELBO -1.9082 Unlabeled ELBO -1.9150 Accuracy 0.9292 (17s) UUID c21f
+Validation: ELBO -97.6096 Accuracy 0.9322 UUID c21f
+
+[Epoch 109] Train: Labeled ELBO -1.9093 Unlabeled ELBO -1.9257 Accuracy 0.9322 (17s) UUID c21f
+Validation: ELBO -97.7326 Accuracy 0.9342 UUID c21f
+
+[Epoch 110] Train: Labeled ELBO -1.9030 Unlabeled ELBO -1.9301 Accuracy 0.9342 (17s) UUID c21f
+Validation: ELBO -97.6103 Accuracy 0.9354 UUID c21f
+
+[Epoch 111] Train: Labeled ELBO -1.9063 Unlabeled ELBO -1.8851 Accuracy 0.9354 (17s) UUID c21f
+Validation: ELBO -98.1392 Accuracy 0.9318 UUID c21f
+
+[Epoch 112] Train: Labeled ELBO -1.9052 Unlabeled ELBO -1.9375 Accuracy 0.9318 (17s) UUID c21f
+Validation: ELBO -98.0246 Accuracy 0.9298 UUID c21f
+
+[Epoch 113] Train: Labeled ELBO -1.9059 Unlabeled ELBO -1.9138 Accuracy 0.9298 (17s) UUID c21f
+Validation: ELBO -97.6027 Accuracy 0.9364 UUID c21f
+
+[Epoch 114] Train: Labeled ELBO -1.9037 Unlabeled ELBO -1.9180 Accuracy 0.9364 (17s) UUID c21f
+Validation: ELBO -97.8323 Accuracy 0.9368 UUID c21f
+
+[Epoch 115] Train: Labeled ELBO -1.9048 Unlabeled ELBO -1.9330 Accuracy 0.9368 (17s) UUID c21f
+Validation: ELBO -97.2642 Accuracy 0.9382 UUID c21f
+
+[Epoch 116] Train: Labeled ELBO -1.9032 Unlabeled ELBO -1.9054 Accuracy 0.9382 (17s) UUID c21f
+Validation: ELBO -97.4641 Accuracy 0.9342 UUID c21f
+
+[Epoch 117] Train: Labeled ELBO -1.9043 Unlabeled ELBO -1.9280 Accuracy 0.9342 (17s) UUID c21f
+Validation: ELBO -97.7539 Accuracy 0.9366 UUID c21f
+
+[Epoch 118] Train: Labeled ELBO -1.9047 Unlabeled ELBO -1.9430 Accuracy 0.9366 (17s) UUID c21f
+Validation: ELBO -97.2885 Accuracy 0.9366 UUID c21f
+
+[Epoch 119] Train: Labeled ELBO -1.9005 Unlabeled ELBO -1.9260 Accuracy 0.9366 (17s) UUID c21f
+Validation: ELBO -97.6238 Accuracy 0.9368 UUID c21f
+
+[Epoch 120] Train: Labeled ELBO -1.9042 Unlabeled ELBO -1.9316 Accuracy 0.9368 (17s) UUID c21f
+Validation: ELBO -97.3674 Accuracy 0.9366 UUID c21f
+
+[Epoch 121] Train: Labeled ELBO -1.9014 Unlabeled ELBO -1.9289 Accuracy 0.9366 (17s) UUID c21f
+Validation: ELBO -97.3089 Accuracy 0.9352 UUID c21f
+
+[Epoch 122] Train: Labeled ELBO -1.8987 Unlabeled ELBO -1.9214 Accuracy 0.9352 (17s) UUID c21f
+Validation: ELBO -97.7722 Accuracy 0.9344 UUID c21f
+
+[Epoch 123] Train: Labeled ELBO -1.8959 Unlabeled ELBO -1.9240 Accuracy 0.9344 (17s) UUID c21f
+Validation: ELBO -97.0635 Accuracy 0.9376 UUID c21f
+
+[Epoch 124] Train: Labeled ELBO -1.9001 Unlabeled ELBO -1.9066 Accuracy 0.9376 (17s) UUID c21f
+Validation: ELBO -97.8792 Accuracy 0.9362 UUID c21f
+
+[Epoch 125] Train: Labeled ELBO -1.8966 Unlabeled ELBO -1.9149 Accuracy 0.9362 (17s) UUID c21f
+Validation: ELBO -98.0889 Accuracy 0.9332 UUID c21f
+
+[Epoch 126] Train: Labeled ELBO -1.9003 Unlabeled ELBO -1.9222 Accuracy 0.9332 (17s) UUID c21f
+Validation: ELBO -97.5230 Accuracy 0.9370 UUID c21f
+
+[Epoch 127] Train: Labeled ELBO -1.8972 Unlabeled ELBO -1.9093 Accuracy 0.9370 (17s) UUID c21f
+Validation: ELBO -97.1840 Accuracy 0.9374 UUID c21f
+
+[Epoch 128] Train: Labeled ELBO -1.8939 Unlabeled ELBO -1.9104 Accuracy 0.9374 (17s) UUID c21f
+Validation: ELBO -97.6097 Accuracy 0.9346 UUID c21f
+
+[Epoch 129] Train: Labeled ELBO -1.8936 Unlabeled ELBO -1.9082 Accuracy 0.9346 (17s) UUID c21f
+Validation: ELBO -97.3090 Accuracy 0.9346 UUID c21f
+
+[Epoch 130] Train: Labeled ELBO -1.8974 Unlabeled ELBO -1.9213 Accuracy 0.9346 (17s) UUID c21f
+Validation: ELBO -97.1879 Accuracy 0.9348 UUID c21f
+
+[Epoch 131] Train: Labeled ELBO -1.8973 Unlabeled ELBO -1.9020 Accuracy 0.9348 (17s) UUID c21f
+Validation: ELBO -97.5083 Accuracy 0.9374 UUID c21f
+
+[Epoch 132] Train: Labeled ELBO -1.8925 Unlabeled ELBO -1.9186 Accuracy 0.9374 (17s) UUID c21f
+Validation: ELBO -96.9657 Accuracy 0.9424 UUID c21f
+
+[Epoch 133] Train: Labeled ELBO -1.8964 Unlabeled ELBO -1.8925 Accuracy 0.9424 (17s) UUID c21f
+Validation: ELBO -97.4827 Accuracy 0.9358 UUID c21f
+
+[Epoch 134] Train: Labeled ELBO -1.8934 Unlabeled ELBO -1.9145 Accuracy 0.9358 (17s) UUID c21f
+Validation: ELBO -97.5173 Accuracy 0.9326 UUID c21f
+
+[Epoch 135] Train: Labeled ELBO -1.8943 Unlabeled ELBO -1.9211 Accuracy 0.9326 (17s) UUID c21f
+Validation: ELBO -97.8677 Accuracy 0.9336 UUID c21f
+
+[Epoch 136] Train: Labeled ELBO -1.8940 Unlabeled ELBO -1.9555 Accuracy 0.9336 (17s) UUID c21f
+Validation: ELBO -97.1233 Accuracy 0.9408 UUID c21f
+
+[Epoch 137] Train: Labeled ELBO -1.8946 Unlabeled ELBO -1.9143 Accuracy 0.9408 (17s) UUID c21f
+Validation: ELBO -97.3371 Accuracy 0.9398 UUID c21f
+
+[Epoch 138] Train: Labeled ELBO -1.8902 Unlabeled ELBO -1.9316 Accuracy 0.9398 (17s) UUID c21f
+Validation: ELBO -97.5677 Accuracy 0.9380 UUID c21f
+
+[Epoch 139] Train: Labeled ELBO -1.8912 Unlabeled ELBO -1.9252 Accuracy 0.9380 (17s) UUID c21f
+Validation: ELBO -97.1500 Accuracy 0.9368 UUID c21f
+
+[Epoch 140] Train: Labeled ELBO -1.8912 Unlabeled ELBO -1.8968 Accuracy 0.9368 (17s) UUID c21f
+Validation: ELBO -97.3377 Accuracy 0.9388 UUID c21f
+
+[Epoch 141] Train: Labeled ELBO -1.8895 Unlabeled ELBO -1.9037 Accuracy 0.9388 (17s) UUID c21f
+Validation: ELBO -96.9803 Accuracy 0.9398 UUID c21f
+
+[Epoch 142] Train: Labeled ELBO -1.8900 Unlabeled ELBO -1.9213 Accuracy 0.9398 (17s) UUID c21f
+Validation: ELBO -97.1848 Accuracy 0.9376 UUID c21f
+
+[Epoch 143] Train: Labeled ELBO -1.8899 Unlabeled ELBO -1.9169 Accuracy 0.9376 (17s) UUID c21f
+Validation: ELBO -97.1972 Accuracy 0.9360 UUID c21f
+
+[Epoch 144] Train: Labeled ELBO -1.8915 Unlabeled ELBO -1.9138 Accuracy 0.9360 (17s) UUID c21f
+Validation: ELBO -97.3296 Accuracy 0.9310 UUID c21f
+
+[Epoch 145] Train: Labeled ELBO -1.8927 Unlabeled ELBO -1.9051 Accuracy 0.9310 (17s) UUID c21f
+Validation: ELBO -97.5219 Accuracy 0.9334 UUID c21f
+
+[Epoch 146] Train: Labeled ELBO -1.8876 Unlabeled ELBO -1.9112 Accuracy 0.9334 (17s) UUID c21f
+Validation: ELBO -97.8280 Accuracy 0.9354 UUID c21f
+
+[Epoch 147] Train: Labeled ELBO -1.8920 Unlabeled ELBO -1.8943 Accuracy 0.9354 (17s) UUID c21f
+Validation: ELBO -97.7081 Accuracy 0.9356 UUID c21f
+
+[Epoch 148] Train: Labeled ELBO -1.8891 Unlabeled ELBO -1.9102 Accuracy 0.9356 (17s) UUID c21f
+Validation: ELBO -97.5754 Accuracy 0.9382 UUID c21f
+
+[Epoch 149] Train: Labeled ELBO -1.8897 Unlabeled ELBO -1.9090 Accuracy 0.9382 (17s) UUID c21f
+Validation: ELBO -97.3974 Accuracy 0.9316 UUID c21f
+
+[Epoch 150] Train: Labeled ELBO -1.8876 Unlabeled ELBO -1.8960 Accuracy 0.9316 (17s) UUID c21f
+Validation: ELBO -96.9952 Accuracy 0.9370 UUID c21f
+
+[Epoch 151] Train: Labeled ELBO -1.8840 Unlabeled ELBO -1.9009 Accuracy 0.9370 (17s) UUID c21f
+Validation: ELBO -96.8948 Accuracy 0.9356 UUID c21f
+
+[Epoch 152] Train: Labeled ELBO -1.8902 Unlabeled ELBO -1.9121 Accuracy 0.9356 (17s) UUID c21f
+Validation: ELBO -97.1607 Accuracy 0.9382 UUID c21f
+
+[Epoch 153] Train: Labeled ELBO -1.8857 Unlabeled ELBO -1.9108 Accuracy 0.9382 (17s) UUID c21f
+Validation: ELBO -97.1414 Accuracy 0.9384 UUID c21f
+
+[Epoch 154] Train: Labeled ELBO -1.8840 Unlabeled ELBO -1.9067 Accuracy 0.9384 (17s) UUID c21f
+Validation: ELBO -97.6586 Accuracy 0.9374 UUID c21f
+
+[Epoch 155] Train: Labeled ELBO -1.8886 Unlabeled ELBO -1.9254 Accuracy 0.9374 (17s) UUID c21f
+Validation: ELBO -97.3922 Accuracy 0.9318 UUID c21f
+
+[Epoch 156] Train: Labeled ELBO -1.8855 Unlabeled ELBO -1.8895 Accuracy 0.9318 (17s) UUID c21f
+Validation: ELBO -97.2448 Accuracy 0.9346 UUID c21f
+
+[Epoch 157] Train: Labeled ELBO -1.8875 Unlabeled ELBO -1.9010 Accuracy 0.9346 (17s) UUID c21f
+Validation: ELBO -96.8823 Accuracy 0.9298 UUID c21f
+
+[Epoch 158] Train: Labeled ELBO -1.8850 Unlabeled ELBO -1.8860 Accuracy 0.9298 (17s) UUID c21f
+Validation: ELBO -97.0376 Accuracy 0.9380 UUID c21f
+
+[Epoch 159] Train: Labeled ELBO -1.8842 Unlabeled ELBO -1.8983 Accuracy 0.9380 (17s) UUID c21f
+Validation: ELBO -97.0106 Accuracy 0.9334 UUID c21f
+
+[Epoch 160] Train: Labeled ELBO -1.8844 Unlabeled ELBO -1.9019 Accuracy 0.9334 (17s) UUID c21f
+Validation: ELBO -97.0846 Accuracy 0.9408 UUID c21f
+
+[Epoch 161] Train: Labeled ELBO -1.8839 Unlabeled ELBO -1.8847 Accuracy 0.9408 (17s) UUID c21f
+Validation: ELBO -96.9746 Accuracy 0.9402 UUID c21f
+
+[Epoch 162] Train: Labeled ELBO -1.8830 Unlabeled ELBO -1.8849 Accuracy 0.9402 (17s) UUID c21f
+Validation: ELBO -97.3220 Accuracy 0.9324 UUID c21f
+
+[Epoch 163] Train: Labeled ELBO -1.8823 Unlabeled ELBO -1.8927 Accuracy 0.9324 (17s) UUID c21f
+Validation: ELBO -96.7259 Accuracy 0.9396 UUID c21f
+
+[Epoch 164] Train: Labeled ELBO -1.8811 Unlabeled ELBO -1.9004 Accuracy 0.9396 (17s) UUID c21f
+Validation: ELBO -96.5230 Accuracy 0.9384 UUID c21f
+
+[Epoch 165] Train: Labeled ELBO -1.8823 Unlabeled ELBO -1.8821 Accuracy 0.9384 (17s) UUID c21f
+Validation: ELBO -96.6335 Accuracy 0.9376 UUID c21f
+
+[Epoch 166] Train: Labeled ELBO -1.8829 Unlabeled ELBO -1.8912 Accuracy 0.9376 (17s) UUID c21f
+Validation: ELBO -96.8203 Accuracy 0.9410 UUID c21f
+
+[Epoch 167] Train: Labeled ELBO -1.8819 Unlabeled ELBO -1.8997 Accuracy 0.9410 (17s) UUID c21f
+Validation: ELBO -96.8066 Accuracy 0.9378 UUID c21f
+
+[Epoch 168] Train: Labeled ELBO -1.8794 Unlabeled ELBO -1.8805 Accuracy 0.9378 (17s) UUID c21f
+Validation: ELBO -96.8220 Accuracy 0.9342 UUID c21f
+
+[Epoch 169] Train: Labeled ELBO -1.8822 Unlabeled ELBO -1.8987 Accuracy 0.9342 (17s) UUID c21f
+Validation: ELBO -97.1474 Accuracy 0.9382 UUID c21f
+
+[Epoch 170] Train: Labeled ELBO -1.8810 Unlabeled ELBO -1.8967 Accuracy 0.9382 (17s) UUID c21f
+Validation: ELBO -96.7724 Accuracy 0.9374 UUID c21f
+
+[Epoch 171] Train: Labeled ELBO -1.8836 Unlabeled ELBO -1.8903 Accuracy 0.9374 (17s) UUID c21f
+Validation: ELBO -96.8923 Accuracy 0.9394 UUID c21f
+
+[Epoch 172] Train: Labeled ELBO -1.8808 Unlabeled ELBO -1.8939 Accuracy 0.9394 (17s) UUID c21f
+Validation: ELBO -96.6482 Accuracy 0.9344 UUID c21f
+
+[Epoch 173] Train: Labeled ELBO -1.8822 Unlabeled ELBO -1.8824 Accuracy 0.9344 (17s) UUID c21f
+Validation: ELBO -96.6901 Accuracy 0.9360 UUID c21f
+
+[Epoch 174] Train: Labeled ELBO -1.8782 Unlabeled ELBO -1.9150 Accuracy 0.9360 (17s) UUID c21f
+Validation: ELBO -96.8261 Accuracy 0.9364 UUID c21f
+
+[Epoch 175] Train: Labeled ELBO -1.8825 Unlabeled ELBO -1.9001 Accuracy 0.9364 (17s) UUID c21f
+Validation: ELBO -96.5916 Accuracy 0.9362 UUID c21f
+
+[Epoch 176] Train: Labeled ELBO -1.8788 Unlabeled ELBO -1.8951 Accuracy 0.9362 (17s) UUID c21f
+Validation: ELBO -97.4887 Accuracy 0.9372 UUID c21f
+
+[Epoch 177] Train: Labeled ELBO -1.8801 Unlabeled ELBO -1.8956 Accuracy 0.9372 (17s) UUID c21f
+Validation: ELBO -96.7346 Accuracy 0.9378 UUID c21f
+
+[Epoch 178] Train: Labeled ELBO -1.8776 Unlabeled ELBO -1.8964 Accuracy 0.9378 (17s) UUID c21f
+Validation: ELBO -96.9678 Accuracy 0.9370 UUID c21f
+
+[Epoch 179] Train: Labeled ELBO -1.8776 Unlabeled ELBO -1.8934 Accuracy 0.9370 (17s) UUID c21f
+Validation: ELBO -96.7139 Accuracy 0.9380 UUID c21f
+
+[Epoch 180] Train: Labeled ELBO -1.8824 Unlabeled ELBO -1.8835 Accuracy 0.9380 (17s) UUID c21f
+Validation: ELBO -96.7869 Accuracy 0.9372 UUID c21f
+
+[Epoch 181] Train: Labeled ELBO -1.8780 Unlabeled ELBO -1.9012 Accuracy 0.9372 (17s) UUID c21f
+Validation: ELBO -96.4507 Accuracy 0.9382 UUID c21f
+
+[Epoch 182] Train: Labeled ELBO -1.8786 Unlabeled ELBO -1.8862 Accuracy 0.9382 (17s) UUID c21f
+Validation: ELBO -96.4855 Accuracy 0.9394 UUID c21f
+
+[Epoch 183] Train: Labeled ELBO -1.8749 Unlabeled ELBO -1.8677 Accuracy 0.9394 (17s) UUID c21f
+Validation: ELBO -96.8153 Accuracy 0.9372 UUID c21f
+
+[Epoch 184] Train: Labeled ELBO -1.8773 Unlabeled ELBO -1.8901 Accuracy 0.9372 (17s) UUID c21f
+Validation: ELBO -96.7338 Accuracy 0.9336 UUID c21f
+
+[Epoch 185] Train: Labeled ELBO -1.8765 Unlabeled ELBO -1.8854 Accuracy 0.9336 (17s) UUID c21f
+Validation: ELBO -97.0077 Accuracy 0.9394 UUID c21f
+
+[Epoch 186] Train: Labeled ELBO -1.8770 Unlabeled ELBO -1.8905 Accuracy 0.9394 (17s) UUID c21f
+Validation: ELBO -96.8541 Accuracy 0.9374 UUID c21f
+
+[Epoch 187] Train: Labeled ELBO -1.8757 Unlabeled ELBO -1.8938 Accuracy 0.9374 (17s) UUID c21f
+Validation: ELBO -96.8563 Accuracy 0.9438 UUID c21f
+
+[Epoch 188] Train: Labeled ELBO -1.8793 Unlabeled ELBO -1.9074 Accuracy 0.9438 (17s) UUID c21f
+Validation: ELBO -96.5196 Accuracy 0.9410 UUID c21f
+
+[Epoch 189] Train: Labeled ELBO -1.8761 Unlabeled ELBO -1.8793 Accuracy 0.9410 (17s) UUID c21f
+Validation: ELBO -96.8765 Accuracy 0.9368 UUID c21f
+
+[Epoch 190] Train: Labeled ELBO -1.8748 Unlabeled ELBO -1.8939 Accuracy 0.9368 (17s) UUID c21f
+Validation: ELBO -97.2093 Accuracy 0.9380 UUID c21f
+
+[Epoch 191] Train: Labeled ELBO -1.8786 Unlabeled ELBO -1.9069 Accuracy 0.9380 (17s) UUID c21f
+Validation: ELBO -96.5472 Accuracy 0.9408 UUID c21f
+
+[Epoch 192] Train: Labeled ELBO -1.8754 Unlabeled ELBO -1.8775 Accuracy 0.9408 (17s) UUID c21f
+Validation: ELBO -96.9160 Accuracy 0.9364 UUID c21f
+
+[Epoch 193] Train: Labeled ELBO -1.8736 Unlabeled ELBO -1.8782 Accuracy 0.9364 (17s) UUID c21f
+Validation: ELBO -96.7112 Accuracy 0.9378 UUID c21f
+
+[Epoch 194] Train: Labeled ELBO -1.8727 Unlabeled ELBO -1.8846 Accuracy 0.9378 (17s) UUID c21f
+Validation: ELBO -97.1468 Accuracy 0.9346 UUID c21f
+
+[Epoch 195] Train: Labeled ELBO -1.8751 Unlabeled ELBO -1.8864 Accuracy 0.9346 (17s) UUID c21f
+Validation: ELBO -96.9095 Accuracy 0.9384 UUID c21f
+
+[Epoch 196] Train: Labeled ELBO -1.8731 Unlabeled ELBO -1.8890 Accuracy 0.9384 (17s) UUID c21f
+Validation: ELBO -96.6246 Accuracy 0.9386 UUID c21f
+
+[Epoch 197] Train: Labeled ELBO -1.8765 Unlabeled ELBO -1.8772 Accuracy 0.9386 (17s) UUID c21f
+Validation: ELBO -96.6110 Accuracy 0.9394 UUID c21f
+
+[Epoch 198] Train: Labeled ELBO -1.8720 Unlabeled ELBO -1.8751 Accuracy 0.9394 (17s) UUID c21f
+Validation: ELBO -96.6828 Accuracy 0.9396 UUID c21f
+
+[Epoch 199] Train: Labeled ELBO -1.8738 Unlabeled ELBO -1.8766 Accuracy 0.9396 (17s) UUID c21f
+Validation: ELBO -114.5621 Accuracy 0.9188 UUID c21f
+
+Validation: ELBO -114.0729 Accuracy 0.9106 UUID c21f
+
+Validation: ELBO -152.0295 Accuracy 0.4898 UUID 0839
 

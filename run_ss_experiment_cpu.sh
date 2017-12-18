@@ -20,5 +20,5 @@ source activate env
 cd /project/6006774/bmazoure/algs/meta-active-learning
 python3 experiment_ss.py $@
 
-#! sbatch --time=24:00:00 --kill-on-invalid-dep=yes --nodes=20 --mem=32000M --job-name=sslVAE_cpus run_ss_experiment_cpu.sh -p uniform-bald -f experiment_ss -data mnist -ts 1000 -ps 10000 -e 200 -b 50 -lr 3e-3 -samples 8
+#! sbatch --time=24:00:00 --kill-on-invalid-dep=yes --nodes=5 --mem=32000M --job-name=sslVAE_cpus run_ss_experiment_cpu.sh -p uniform-bald -f experiment_ss -data mnist -ts 1000 -ps 10000 -e 200 -b 50 -lr 3e-3 -samples 8
 

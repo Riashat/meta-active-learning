@@ -76,15 +76,24 @@ class Encoder(nn.Module):
                        num_hidden,
                        num_digits,
                        num_style,
-                       num_batch):
+                       num_batch,
+                       cuda):
         super(self.__class__, self).__init__()
         self.enc_hidden = nn.Sequential( 
                             nn.Linear(num_pixels, num_hidden),
                             nn.ReLU())
+        if cuda:
+            self.enc_hidden.cuda()
         self.digit_log_weights = nn.Linear(num_hidden, num_digits)
+        if cuda:
+            self.digit_log_weights.cuda()
         self.digit_temp = 0.66
         self.style_mean = nn.Linear(num_hidden + num_digits, num_style)
+        if cuda:
+            self.style_mean.cuda()
         self.style_log_std = nn.Linear(num_hidden + num_digits, num_style)
+        if cuda:
+            self.style_log_std.cuda()
     
     @expand_inputs
     def forward(self, images, labels=None, num_samples=None):
@@ -107,20 +116,25 @@ class Decoder(nn.Module):
                        num_hidden,
                        num_digits,
                        num_style,
-                       eps):
+                       eps,
+                       cuda):
         super(self.__class__, self).__init__()
         self.num_digits = num_digits
-        self.digit_log_weights = Parameter(torch.zeros(num_digits))
+        self.digit_log_weights = Parameter(torch.zeros(num_digits)) if not cuda else Parameter(torch.zeros(num_digits).cuda())
         self.digit_temp = 0.66
         self.eps = eps
-        self.style_mean = Parameter(torch.zeros(num_style))
-        self.style_log_std = Parameter(torch.zeros(num_style))
+        self.style_mean = Parameter(torch.zeros(num_style)) if not cuda else Parameter(torch.zeros(num_style).cuda())
+        self.style_log_std = Parameter(torch.zeros(num_style)) if not cuda else Parameter(torch.zeros(num_style).cuda())
         self.dec_hidden = nn.Sequential(
                             nn.Linear(num_style + num_digits, num_hidden),
                             nn.ReLU())
+        if cuda:
+            self.dec_hidden.cuda()
         self.dec_image = nn.Sequential(
                            nn.Linear(num_hidden, num_pixels),
                            nn.Sigmoid())
+        if cuda:
+            self.dec_image.cuda()
 
     def forward(self, images=None, q=None):
         p = probtorch.Trace()
@@ -162,8 +176,8 @@ class ssl_vae:
         self.cuda = cuda
         self.logger = logger
         self.uuid = str(uuid.uuid4())
-        self.enc = Encoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],num_batch=batch_size)
-        self.dec = Decoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],eps=self.eps)
+        self.enc = Encoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],num_batch=batch_size,cuda=self.cuda)
+        self.dec = Decoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],eps=self.eps,cuda=self.cuda)
         self.optimizer =  torch.optim.Adam(list(self.enc.parameters())+list(self.dec.parameters()),
                               lr=self.lr,
                               betas=(self.beta1, self.beta2))
@@ -180,7 +194,8 @@ class ssl_vae:
                 images = images.view(-1, self.dims[0])
                 if self.cuda:
                     images = images.cuda()
-                    labels_onehot = labels_onehot.cuda()
+                    if labels_onehot is not None:
+                        labels_onehot = labels_onehot.cuda()
                 images = Variable(images)
                 self.optimizer.zero_grad()
                 if labels_onehot is not None:
