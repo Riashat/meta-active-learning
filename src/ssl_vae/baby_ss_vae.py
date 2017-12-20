@@ -95,12 +95,14 @@ class Encoder(nn.Module):
         self.digit_temp = 0.66
         self.style_mean = nn.Linear(num_hidden + num_digits, num_style)
         self.style_log_std = nn.Linear(num_hidden + num_digits, num_style)
+        """
         if cuda:
-            if self.cnn:
+            if not self.cnn:
                 self.enc_hidden.cuda()
             self.digit_log_weights.cuda()
             self.style_mean.cuda()
             self.style_log_std.cuda()
+        """
     
     @expand_inputs
     def forward(self, images, labels=None, num_samples=None):
@@ -164,9 +166,12 @@ class Decoder(nn.Module):
             self.dec_image = nn.Sequential(
                            nn.Linear(num_hidden, num_pixels),
                            nn.Sigmoid())
+        """
         if cuda:
             self.dec_hidden.cuda()
-            self.dec_image.cuda()
+            if not self.cnn:
+                self.dec_image.cuda()
+        """
 
     def forward(self, images=None, q=None):
         p = probtorch.Trace()
@@ -227,6 +232,9 @@ class ssl_vae:
         self.uuid = str(uuid.uuid4())
         self.enc = Encoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],num_batch=batch_size,cuda=self.cuda,cnn=self.cnn,input_dimensions=self.input_dimensions)
         self.dec = Decoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],eps=self.eps,cuda=self.cuda,cnn=self.cnn,input_dimensions=self.input_dimensions)
+        if self.cuda:
+            self.enc.cuda()
+            self.dec.cuda()
         self.optimizer =  torch.optim.Adam(list(self.enc.parameters())+list(self.dec.parameters()),
                               lr=self.lr,
                               betas=(self.beta1, self.beta2))
@@ -339,9 +347,17 @@ class ssl_vae:
         y_preds = torch.cat(y_preds,0)
         return epoch_elbo / N, y_preds #torch.LongTensor(np.array(y_preds)) if not self.cuda else torch.cuda.LongTensor(np.array(y_preds))
 
+    def predict_classes(self,X,batch_size=50, infer=True, verbose=0):
+        y_preds_np = self.predict(X=X,verbose=verbose)
+        y_preds_max = np.max(y_preds_np,1)
+        return y_preds_max
+
     def evaluate(self,X,y_true, infer =True):
         _, y_true = torch.max(y_true, 1)
         epoch_elbo, y_preds = self.predict(X,infer=infer)
+        if self.cuda:
+           y_preds = y_preds.cpu()
+           y_true = y_true.cpu()
         acc = (y_true.eq(y_preds.view_as(y_true))).sum()*1.0 / (len(y_preds) or 1.0)
         print('Validation: ELBO %.4f Accuracy %.4f UUID %s\n' % (epoch_elbo,acc,self.uuid[:4]))
         if self.logger is not None:

@@ -2,14 +2,4 @@
 Due to MODULEPATH changes, the following have been reloaded:
   1) openmpi/2.1.1
 
-Using TensorFlow backend.
-Traceback (most recent call last):
-  File "experiment_ss.py", line 129, in <module>
-    history = model.fit(x_train,y_train,x_pool)
-  File "./src/ssl_vae/baby_ss_vae.py", line 318, in fit
-    history = self.ssl_vae.train(self.X_labeled,self.Y_labeled,self.X_unlabeled)
-  File "./src/ssl_vae/baby_ss_vae.py", line 227, in train
-    _, train_acc = self.evaluate(self.X_labeled,Y_labeled)
-  File "./src/ssl_vae/baby_ss_vae.py", line 289, in evaluate
-    self.logger.write('Validation ELBO {%.4f} Validation Accuracy {%.4f} UUID %s\n' % (epoch_elbo,acc,self.uuid[:4]))
-ValueError: I/O operation on closed file.
+slurmstepd: error: *** JOB 3573646 ON cdr338 CANCELLED AT 2017-12-20T12:19:49 DUE TO TIME LIMIT ***

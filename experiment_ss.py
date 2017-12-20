@@ -64,7 +64,7 @@ def reshape_train_pool(x_train,y_train,x_pool,y_pool,train_size):
 # for testing purposes:
 #val_data = (val_data[0][:5000], val_data[1][:5000])
 #print('WARNING: only using 500 points for validation')
-# test_data = (test_data[0][:500], test_data[1][:500])
+test_data = (test_data[0][:500], test_data[1][:500])
 
 print('POLICY: ',args.policy)
 
@@ -150,8 +150,13 @@ elif args.sanity_check == 2: # Check whether predictions are stochastic
     print("Sanity check 2 done")
     exit()
 
-(x_train,y_train) , (x_pool,y_pool) = reshape_train_pool(x_train,y_train,x_pool,y_pool,train_size)
-x_pool = x_pool[:pool_size]
+if train_size is not -1:
+    (x_train,y_train) , (x_pool,y_pool) = reshape_train_pool(x_train,y_train,x_pool,y_pool,train_size)
+if pool_size is not -1:
+    x_pool = x_pool[:pool_size]
+    y_pool = y_pool[:pool_size]
+
+print("Using the following set sizes: train - %d pool - %d" % (len(x_train),len(x_pool)))
 
 model = SSClassifier(params,**aux_params)
 history = model.fit(x_train,y_train,x_pool)
