@@ -396,7 +396,9 @@ class SSClassifier:
     def predict(self,X,batch_size=50,infer=True,verbose=0):
         X = self.transform(X)
         return self.ssl_vae.predict(X,batch_size=batch_size,infer=infer,verbose=verbose)
-
+    def predict_classes(self,X,batch_size=50,infer=True,verbose=0):
+        X = self.transform(X)
+        return self.ssl_vae.predict_classes(X,batch_size,infer,verbose)
     def evaluate(self,X,y_true,infer=True):
         X = self.transform(X)
         y_true = self.transform(y_true, features=False)

@@ -21,5 +21,6 @@ source activate env
 cd /project/6006774/bmazoure/algs/meta-active-learning
 python3 experiment_ss.py $@
 
-#! sbatch --time=24:00:00 --kill-on-invalid-dep=yes --nodes=1 --gres=gpu:1 --mem=12000M --job-name=sslVAE_gpus run_ss_experiment_gpu.sh -p uniform-bald -f experiment_ss -data mnist -ts -1 -ps 10000 -e 200 -b 50 -lr 3e-3 -samples 8 --sanity_check 0 --cnn 1
+#! sbatch --time=48:00:00 --nodes=1 --gres=gpu:2 --mem=20000M --job-name=sslVAE_gpus_uniform_bald run_ss_experiment_gpu.sh -p uniform-bald -f experiment_ss -data mnist -ts 100 -ps 10000 -e 100 -b 50 -lr 3e-3 -samples 8 --sanity_check 0 --cnn 1
+#! sbatch --time=48:00:00 --nodes=1 --gres=gpu:2 --mem=20000M --job-name=sslVAE_gpus_random run_ss_experiment_gpu.sh -p random -f experiment_ss -data mnist -ts 100 -ps 10000 -e 100 -b 50 -lr 3e-3 -samples 8 --sanity_check 0 --cnn 1
 

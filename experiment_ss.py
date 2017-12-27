@@ -30,6 +30,9 @@ import torch
 # !!! DO NOT MOVE THE SEED TO AFTER IMPORTING KERAS !!!
 np.random.seed(args.seed)
 tf.set_random_seed(args.seed)
+torch.manual_seed(args.seed)
+if torch.cuda.is_available():
+    torch.cuda.manual_seed(args.seed)
 if len(tf.get_default_graph()._nodes_by_id.keys()) > 0:
     raise RuntimeError('Seeding is not supported after initializing a part ' +
                        'of the graph.')
@@ -239,7 +242,8 @@ for i in range(acquisition_iterations):
 
     print ('Test Accuracy', test_accuracy)
     logger.record_test_metrics(test_loss, test_accuracy)
+    logger.save()
 
 logger_file.close()
-logger.save()
+
 print('DONE')

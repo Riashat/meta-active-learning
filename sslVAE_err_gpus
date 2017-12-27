@@ -2,4 +2,9 @@
 Due to MODULEPATH changes, the following have been reloaded:
   1) openmpi/2.1.1
 
-slurmstepd: error: *** JOB 3573646 ON cdr338 CANCELLED AT 2017-12-20T12:19:49 DUE TO TIME LIMIT ***
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) openmpi/2.1.1
+
+slurmstepd: error: *** JOB 3743460 ON cdr117 CANCELLED AT 2017-12-27T11:18:56 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 3743459 ON cdr105 CANCELLED AT 2017-12-27T11:18:56 DUE TO TIME LIMIT ***
