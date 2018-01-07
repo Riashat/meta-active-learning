@@ -12,7 +12,7 @@ from src.utils import (
     RewardProcess,
     stochastic_evaluate
 )
-import keras
+#import keras
 from ssl_vae.baby_ss_vae import *
 
 args = get_parser().parse_args()
@@ -21,7 +21,7 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
 import numpy as np
-import tensorflow as tf
+#import tensorflow as tf
 import pickle
 import torch
 
@@ -29,16 +29,16 @@ import torch
 # this is is useful for reproducibility
 # !!! DO NOT MOVE THE SEED TO AFTER IMPORTING KERAS !!!
 np.random.seed(args.seed)
-tf.set_random_seed(args.seed)
+# tf.set_random_seed(args.seed)
 torch.manual_seed(args.seed)
 if torch.cuda.is_available():
     torch.cuda.manual_seed(args.seed)
-if len(tf.get_default_graph()._nodes_by_id.keys()) > 0:
-    raise RuntimeError('Seeding is not supported after initializing a part ' +
-                       'of the graph.')
+# if len(tf.get_default_graph()._nodes_by_id.keys()) > 0:
+#     raise RuntimeError('Seeding is not supported after initializing a part ' +
+#                        'of the graph.')
 
 from src import datatools
-from src.networks import cnn
+# from src.networks import cnn
 from src.oracle import ask_oracle
 from src.acquisition_function import run_acquisition_function, ACQUISITION_FUNCTIONS_TEXT
 from src.policies import policy_parser
