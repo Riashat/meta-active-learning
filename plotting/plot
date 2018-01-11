@@ -1,0 +1,1 @@
+python create_plots.py -f ..\..\meta-active-learning-results\uniform-bald\ ..\..\meta-active-learning-results\uniform-varratio\ ..\..\meta-active-learning-results\random\ -m val_acc -n accuracy_plots 
