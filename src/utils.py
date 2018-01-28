@@ -105,6 +105,10 @@ def get_parser():
             help="""Use a Convolutional layer instead of an MLP""",
             required=False, type=int, default=0)
 
+      named_args.add_argument('-dropout', '--dropout',
+            help="""Specify the dropout rate on the network. 0 is equivalent to no dropout""",
+            required=False, type=float, default=0)
+
       named_args.add_argument('-custom', '--custom',
             help="""
                custom acquisition functions to use:

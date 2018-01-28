@@ -102,7 +102,8 @@ params = {
         'eps':1e-9,
         'cuda':torch.cuda.is_available(),
         'logger':logger_file,
-        'cnn':args.cnn
+        'cnn':args.cnn,
+        'dropout':args.dropout
 }
 
 """
@@ -167,6 +168,13 @@ val_loss ,val_accuracy = model.evaluate(val_data[0],val_data[1])
 test_loss ,test_accuracy = model.evaluate(test_data[0],test_data[1])
 train_loss = np.max(np.mean(history[:,0:2],axis=1),axis=0) # Take average labelled and unlabelled elbo and take max over epochs
 train_accuracy = np.max(history[:,2],axis=0)
+
+if args.sanity_check == 3: # Check the uncertainty estimates for the pool set
+    uncertainty = model.predict(x_pool, batch_size=args.batch_size, verbose=1)
+    print("Predicted pool set uncertainty. Saving to uncertainty_"+str(args.dropout).replace('.','_')+".pickle...")
+    pickle.dump([uncertainty,x_pool,y_pool],open("uncertainty_"+str(args.dropout).replace('.','_')+".pickle","wb"))
+    print("Sanity check 3 done")
+    exit()
 
 # for efficiency purposes might want to remove testing on val set here
 

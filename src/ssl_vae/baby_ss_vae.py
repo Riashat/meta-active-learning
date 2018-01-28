@@ -79,16 +79,25 @@ class Encoder(nn.Module):
                        num_batch,
                        cuda,
                        cnn,
+                       dropout,
                        input_dimensions):
         super(self.__class__, self).__init__()
         self.cnn = cnn
+        self.dropout = dropout
         if self.cnn:
             self.enc_cnn_1 = nn.Conv2d(input_dimensions[1], 10, kernel_size=5)
             self.enc_cnn_2 = nn.Conv2d(10, 20, kernel_size=5)
             self.enc_linear_1 = nn.Linear(320, 50)
+            if self.dropout>0:
+                self.enc_drp = nn.Dropout(self.dropout)
             self.enc_linear_2 = nn.Linear(50, num_hidden)
         else:
             self.enc_hidden = nn.Sequential( 
+                            nn.Linear(num_pixels, num_hidden),
+                            nn.ReLU())
+            if self.dropout>0:
+                self.enc_hidden = nn.Sequential( 
+                            nn.Dropout(self.dropout),
                             nn.Linear(num_pixels, num_hidden),
                             nn.ReLU())
         self.digit_log_weights = nn.Linear(num_hidden, num_digits)
@@ -116,6 +125,8 @@ class Encoder(nn.Module):
                 hiddens = F.selu(F.max_pool2d(hiddens, 2))
                 hiddens = hiddens.view([inp.size(0), -1])
                 hiddens = F.selu(self.enc_linear_1(hiddens))
+                if self.dropout>0:
+                    hiddens = self.enc_drp(hiddens)
                 hiddens = self.enc_linear_2(hiddens)
                 hiddens = F.relu(hiddens)
                 return hiddens
@@ -146,9 +157,11 @@ class Decoder(nn.Module):
                        eps,
                        cuda,
                        cnn,
+                       dropout,
                        input_dimensions):
         super(self.__class__, self).__init__()
         self.cnn = cnn
+        self.dropout = dropout
         self.input_dimensions = input_dimensions
         self.num_digits = num_digits
         self.digit_log_weights = Parameter(torch.zeros(num_digits)) if not cuda else Parameter(torch.zeros(num_digits).cuda())
@@ -161,9 +174,12 @@ class Decoder(nn.Module):
                             nn.ReLU())
         if cnn:
             self.dec_linear_1 = nn.Linear(num_hidden, 160)
+            if self.dropout>0:
+                self.dec_drp = nn.Dropout(self.dropout)
             self.dec_linear_2 = nn.Linear(160, num_pixels)
         else:
             self.dec_image = nn.Sequential(
+                           nn.Dropout(self.dropout),
                            nn.Linear(num_hidden, num_pixels),
                            nn.Sigmoid())
         """
@@ -185,6 +201,8 @@ class Decoder(nn.Module):
         if self.cnn:
             def hidden_pass(inp):
                 out = F.selu(self.dec_linear_1(inp))
+                if self.dropout>0:
+                    out = self.dec_drp(out)
                 out = F.sigmoid(self.dec_linear_2(out))
                 out = out.view([inp.size(0), self.input_dimensions[1], self.input_dimensions[2],self.input_dimensions[3]])
                 return out
@@ -215,6 +233,7 @@ class ssl_vae:
                  cuda,
                  logger,
                  cnn,
+                 dropout,
                  input_dimensions):
         self.classes = classes
         self.batch_size = batch_size
@@ -228,10 +247,15 @@ class ssl_vae:
         self.cuda = cuda
         self.logger = logger
         self.cnn = cnn
+        self.dropout = dropout
         self.input_dimensions = input_dimensions
         self.uuid = str(uuid.uuid4())
-        self.enc = Encoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],num_batch=batch_size,cuda=self.cuda,cnn=self.cnn,input_dimensions=self.input_dimensions)
-        self.dec = Decoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],eps=self.eps,cuda=self.cuda,cnn=self.cnn,input_dimensions=self.input_dimensions)
+        self.enc = Encoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],num_batch=batch_size,cuda=self.cuda,cnn=self.cnn,input_dimensions=self.input_dimensions,dropout=self.dropout)
+        self.dec = Decoder(num_pixels=dims[0],num_hidden=dims[2][0],num_digits=classes,num_style=dims[1],eps=self.eps,cuda=self.cuda,cnn=self.cnn,input_dimensions=self.input_dimensions,dropout=self.dropout)
+        # Set test-time dropout
+        self.enc.train(True)
+        self.dec.train(True)
+
         if self.cuda:
             self.enc.cuda()
             self.dec.cuda()
@@ -417,8 +441,8 @@ if __name__ == "__main__":
     training_data, validation_data, pool_data, testing_data = data_pipeline(valid_ratio=0.3, dataset='mnist')
     X_labeled,Y_labeled = validation_data #training_data
     X_unlabeled, Y_unlabeled = pool_data #validation_data
-    train_size = 500
-    pool_size = 10000
+    train_size = 5
+    pool_size = 100
     idx = np.random.randint(0,len(X_labeled),train_size)
     X_labeled = X_labeled[idx]
     Y_labeled = Y_labeled[idx]

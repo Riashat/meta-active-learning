@@ -2,6 +2,48 @@
 Due to MODULEPATH changes, the following have been reloaded:
   1) openmpi/2.1.1
 
-slurmstepd: error: *** JOB 3941113 ON cdr153 CANCELLED AT 2018-01-09T23:41:46 DUE TO TIME LIMIT ***
-slurmstepd: error: *** JOB 3941114 ON cdr152 CANCELLED AT 2018-01-10T19:20:00 DUE TO TIME LIMIT ***
-slurmstepd: error: *** JOB 3941115 ON cdr162 CANCELLED AT 2018-01-10T19:55:10 DUE TO TIME LIMIT ***
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "experiment_ss.py", line 216, in <module>
+    history = model.fit(x_train,y_train,x_pool)
+  File "./src/ssl_vae/baby_ss_vae.py", line 417, in fit
+    history = self.ssl_vae.train(self.X_labeled,self.Y_labeled,self.X_unlabeled)
+  File "./src/ssl_vae/baby_ss_vae.py", line 307, in train
+    train_elbo_unlabeled = self.__backward_pass(self.unlabeled)
+  File "./src/ssl_vae/baby_ss_vae.py", line 287, in __backward_pass
+    q = self.enc(images, num_samples=self.samples)
+  File "/home/bmazoure/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 325, in __call__
+    result = self.forward(*input, **kwargs)
+  File "./src/ssl_vae/baby_ss_vae.py", line 49, in g
+    return f(*new_args, num_samples=num_samples, **new_kwargs)
+  File "./src/ssl_vae/baby_ss_vae.py", line 143, in forward
+    name='digits')
+  File "<string>", line 2, in f
+  File "./src/ssl_vae/probtorch/probtorch/stochastic.py", line 257, in variable
+    self[name] = node
+  File "./src/ssl_vae/probtorch/probtorch/stochastic.py", line 164, in __setitem__
+    "with name: " + name)
+ValueError: NaN log prob encountered in nodewith name: digits
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "experiment_ss.py", line 216, in <module>
+    history = model.fit(x_train,y_train,x_pool)
+  File "./src/ssl_vae/baby_ss_vae.py", line 417, in fit
+    history = self.ssl_vae.train(self.X_labeled,self.Y_labeled,self.X_unlabeled)
+  File "./src/ssl_vae/baby_ss_vae.py", line 307, in train
+    train_elbo_unlabeled = self.__backward_pass(self.unlabeled)
+  File "./src/ssl_vae/baby_ss_vae.py", line 287, in __backward_pass
+    q = self.enc(images, num_samples=self.samples)
+  File "/home/bmazoure/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 325, in __call__
+    result = self.forward(*input, **kwargs)
+  File "./src/ssl_vae/baby_ss_vae.py", line 49, in g
+    return f(*new_args, num_samples=num_samples, **new_kwargs)
+  File "./src/ssl_vae/baby_ss_vae.py", line 143, in forward
+    name='digits')
+  File "<string>", line 2, in f
+  File "./src/ssl_vae/probtorch/probtorch/stochastic.py", line 257, in variable
+    self[name] = node
+  File "./src/ssl_vae/probtorch/probtorch/stochastic.py", line 164, in __setitem__
+    "with name: " + name)
+ValueError: NaN log prob encountered in nodewith name: digits
+slurmstepd: error: *** JOB 4140997 ON cdr117 CANCELLED AT 2018-01-15T18:42:55 DUE TO TIME LIMIT ***
